@@ -1,0 +1,3 @@
+﻿Module GlobalVariables
+
+End Module
