@@ -64,6 +64,8 @@ Public Class Calendar
     End Sub
 
     Private Sub Calendar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        styleForm(Me)
+
         Dim msgBoxResponse1 As MsgBoxResult
         eventDate = MonthCalendar1.SelectionRange.Start.Month.ToString & MonthCalendar1.SelectionRange.Start.Day.ToString
 
