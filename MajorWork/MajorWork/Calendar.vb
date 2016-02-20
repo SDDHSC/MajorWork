@@ -1,7 +1,6 @@
 ﻿Imports System.IO
 Public Class Calendar
 
-
     Public Sub ReloadCal(ByVal ldate As Date, ByVal Selected As Integer)
         On Error Resume Next
         Me.clearall()
@@ -343,10 +342,9 @@ Public Class Calendar
         End Try
     End Sub
 
-    Private Sub Calendar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Calendar_Load1(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ReloadCal(Now, Now.Day)
-
         Dim msgBoxResponse1 As MsgBoxResult
         eventDate = MonthCalendar1.SelectionRange.Start.Month.ToString & MonthCalendar1.SelectionRange.Start.Day.ToString
 
