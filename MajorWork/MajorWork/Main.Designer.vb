@@ -29,7 +29,7 @@ Partial Class Main
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(26, 102)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(6)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(150, 44)
         Me.Button1.TabIndex = 0
@@ -50,10 +50,11 @@ Partial Class Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(568, 502)
+        Me.ClientSize = New System.Drawing.Size(1353, 776)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.IsMdiContainer = True
+        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "Main"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
