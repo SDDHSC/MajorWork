@@ -28,21 +28,21 @@ Partial Class Main
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(26, 102)
+        Me.Button1.Location = New System.Drawing.Point(15, 15)
         Me.Button1.Margin = New System.Windows.Forms.Padding(6)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(150, 44)
+        Me.Button1.Size = New System.Drawing.Size(200, 121)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Calendar"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(26, 180)
+        Me.Button2.Location = New System.Drawing.Point(15, 148)
         Me.Button2.Margin = New System.Windows.Forms.Padding(6)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(150, 44)
-        Me.Button2.TabIndex = 1
+        Me.Button2.Size = New System.Drawing.Size(200, 121)
+        Me.Button2.TabIndex = 3
         Me.Button2.Text = "Results"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -53,6 +53,7 @@ Partial Class Main
         Me.ClientSize = New System.Drawing.Size(1353, 776)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.IsMdiContainer = True
         Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "Main"
