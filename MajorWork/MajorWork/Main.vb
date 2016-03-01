@@ -15,11 +15,15 @@
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles Me.Load
-        BackColor = Blue
+        BackColor = schoolBlue
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs)
         Results.MdiParent = Me
         Results.Show()
+    End Sub
+
+    Private Sub settingsButton_Click(sender As Object, e As EventArgs) Handles settingsButton.Click
+
     End Sub
 End Class
