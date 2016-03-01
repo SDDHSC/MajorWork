@@ -121,6 +121,7 @@ Partial Class resultsProfile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Highlight
         Me.ClientSize = New System.Drawing.Size(1400, 865)
         Me.Controls.Add(Me.TextBox6)
         Me.Controls.Add(Me.Panel1)

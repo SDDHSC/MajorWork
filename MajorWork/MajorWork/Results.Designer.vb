@@ -27,9 +27,10 @@ Partial Class results
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1400, 865)
+        Me.Panel1.Size = New System.Drawing.Size(1388, 865)
         Me.Panel1.TabIndex = 0
         '
         'results
@@ -42,7 +43,6 @@ Partial Class results
         Me.Name = "results"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "results"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub

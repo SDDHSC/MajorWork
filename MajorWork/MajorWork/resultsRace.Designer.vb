@@ -129,10 +129,11 @@ Partial Class resultsRace
         Me.Button2.Text = "Analysis"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'raceResults
+        'resultsRace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Highlight
         Me.ClientSize = New System.Drawing.Size(1400, 865)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label3)
@@ -144,7 +145,7 @@ Partial Class resultsRace
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "raceResults"
+        Me.Name = "resultsRace"
         Me.Text = "raceResults"
         Me.ResumeLayout(False)
         Me.PerformLayout()
