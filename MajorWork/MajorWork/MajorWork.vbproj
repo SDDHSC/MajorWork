@@ -126,10 +126,22 @@
     <Compile Include="Profiles.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Results.Designer.vb">
-      <DependentUpon>Results.vb</DependentUpon>
+    <Compile Include="results.Designer.vb">
+      <DependentUpon>results.vb</DependentUpon>
     </Compile>
-    <Compile Include="Results.vb">
+    <Compile Include="results.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="resultsProfile.Designer.vb">
+      <DependentUpon>resultsProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="resultsProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="resultsRace.Designer.vb">
+      <DependentUpon>resultsRace.vb</DependentUpon>
+    </Compile>
+    <Compile Include="resultsRace.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SplashScreen.Designer.vb">
@@ -169,8 +181,14 @@
     <EmbeddedResource Include="Profiles.resx">
       <DependentUpon>Profiles.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Results.resx">
-      <DependentUpon>Results.vb</DependentUpon>
+    <EmbeddedResource Include="results.resx">
+      <DependentUpon>results.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resultsProfile.resx">
+      <DependentUpon>resultsProfile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resultsRace.resx">
+      <DependentUpon>resultsRace.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.vb</DependentUpon>
@@ -203,9 +221,6 @@
     <Content Include="Allocation.txt" />
     <Content Include="Info.txt" />
     <Content Include="Notes.txt" />
-    <Content Include="rowingDatabase %281%29.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Resources\congration.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
