@@ -287,6 +287,7 @@ Partial Class Results
         Me.Name = "Results"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Results"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
