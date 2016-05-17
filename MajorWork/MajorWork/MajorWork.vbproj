@@ -246,6 +246,7 @@
     <Content Include="Allocation.txt" />
     <Content Include="Info.txt" />
     <Content Include="Notes.txt" />
+    <None Include="Resources\BlankProfilePictuer.png" />
     <Content Include="rowingDatabase %281%29.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
