@@ -44,3 +44,25 @@ L:\Downloads\MajorWork\MajorWork\obj\Debug\MajorWork.pdb
 \\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork\MajorWork\bin\Debug\MajorWork.exe
 \\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork\MajorWork\bin\Debug\MajorWork.pdb
 \\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork\MajorWork\bin\Debug\MajorWork.xml
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\bin\Debug\MajorWork.exe.config
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.exe
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.xml
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.pdb
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\bin\Debug\rowingDatabase (1).accdb
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\bin\Debug\MajorWork.exe
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\bin\Debug\MajorWork.pdb
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\bin\Debug\MajorWork.xml
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbprojResolveAssemblyReference.cache
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Attendance.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Calendar.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Login.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Main.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Resources.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Options.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.ProfilesSearch.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.ProfilesView.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.results.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resultsProfile.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resultsRace.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.SplashScreen.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
