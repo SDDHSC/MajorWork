@@ -129,7 +129,7 @@ Public Class ProfilesView
         Randomize()
         lblWeight.Text = "Weight: " + CInt(Int((60 * Rnd()) + 40)).ToString + "kg"
         Randomize()
-        lbl2k.Text = "2km Time: " + "0" + CInt(Int((6 * Rnd()) + 4)).ToString + ":" + CInt(Int((59 * Rnd()) + 1)).ToString
+        lbl2k.Text = "2km Time: " + "0" + CInt(Int((6 * Rnd()) + 4)).ToString + ":" + CInt(Int((50 * Rnd()) + 10)).ToString
         Randomize()
         lblBeep.Text = "Beep Test Score: " + CDec((Int((100 * Rnd()) + 40)) / 10).ToString
         lblPosition.Text = "Preferred Side: Stroke"
