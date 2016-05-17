@@ -84,6 +84,12 @@
     <Compile Include="Calendar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ProfilesView.Designer.vb">
+      <DependentUpon>ProfilesView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ProfilesView.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GlobalSubs.vb" />
     <Compile Include="Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
@@ -120,10 +126,10 @@
     <Compile Include="Options.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Profiles.Designer.vb">
-      <DependentUpon>Profiles.vb</DependentUpon>
+    <Compile Include="ProfilesSearch.Designer.vb">
+      <DependentUpon>ProfilesSearch.vb</DependentUpon>
     </Compile>
-    <Compile Include="Profiles.vb">
+    <Compile Include="ProfilesSearch.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="results.Designer.vb">
@@ -155,6 +161,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_rowingDatabase__1_DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_rowingDatabase__1_DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_rowingDatabase__1_DataSet1.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Attendance.resx">
@@ -178,8 +189,11 @@
     <EmbeddedResource Include="Options.resx">
       <DependentUpon>Options.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Profiles.resx">
-      <DependentUpon>Profiles.vb</DependentUpon>
+    <EmbeddedResource Include="ProfilesSearch.resx">
+      <DependentUpon>ProfilesSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfilesView.resx">
+      <DependentUpon>ProfilesView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="results.resx">
       <DependentUpon>results.vb</DependentUpon>
@@ -216,11 +230,25 @@
     <None Include="_rowingDatabase__1_DataSet.xss">
       <DependentUpon>_rowingDatabase__1_DataSet.xsd</DependentUpon>
     </None>
+    <None Include="_rowingDatabase__1_DataSet1.xsc">
+      <DependentUpon>_rowingDatabase__1_DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_rowingDatabase__1_DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_rowingDatabase__1_DataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_rowingDatabase__1_DataSet1.xss">
+      <DependentUpon>_rowingDatabase__1_DataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Allocation.txt" />
     <Content Include="Info.txt" />
     <Content Include="Notes.txt" />
+    <Content Include="rowingDatabase %281%29.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\congration.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
