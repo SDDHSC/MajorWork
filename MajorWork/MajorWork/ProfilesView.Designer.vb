@@ -22,6 +22,7 @@ Partial Class ProfilesView
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.RowerBox = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblEmail = New System.Windows.Forms.LinkLabel()
@@ -43,8 +44,13 @@ Partial Class ProfilesView
         Me.FilterBox = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me._rowingDatabase__1_DataSet = New MajorWork._rowingDatabase__1_DataSet()
+        Me.TbProfilesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TbProfilesTableAdapter = New MajorWork._rowingDatabase__1_DataSetTableAdapters.tbProfilesTableAdapter()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me._rowingDatabase__1_DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TbProfilesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RowerBox
@@ -113,7 +119,7 @@ Partial Class ProfilesView
         Me.lblTrAtPc.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.lblTrAtPc.Location = New System.Drawing.Point(3, 256)
         Me.lblTrAtPc.Name = "lblTrAtPc"
-        Me.lblTrAtPc.Size = New System.Drawing.Size(196, 21)
+        Me.lblTrAtPc.Size = New System.Drawing.Size(195, 21)
         Me.lblTrAtPc.TabIndex = 11
         Me.lblTrAtPc.Text = "Training Attendance: 100%"
         '
@@ -123,7 +129,7 @@ Partial Class ProfilesView
         Me.lblPosition.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.lblPosition.Location = New System.Drawing.Point(3, 235)
         Me.lblPosition.Name = "lblPosition"
-        Me.lblPosition.Size = New System.Drawing.Size(185, 21)
+        Me.lblPosition.Size = New System.Drawing.Size(184, 21)
         Me.lblPosition.TabIndex = 10
         Me.lblPosition.Text = "Preferred Position: 3 Seat"
         '
@@ -133,7 +139,7 @@ Partial Class ProfilesView
         Me.lblSide.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.lblSide.Location = New System.Drawing.Point(3, 214)
         Me.lblSide.Name = "lblSide"
-        Me.lblSide.Size = New System.Drawing.Size(161, 21)
+        Me.lblSide.Size = New System.Drawing.Size(160, 21)
         Me.lblSide.TabIndex = 9
         Me.lblSide.Text = "Preferred Side: Stroke"
         '
@@ -143,7 +149,7 @@ Partial Class ProfilesView
         Me.lblBeep.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.lblBeep.Location = New System.Drawing.Point(3, 193)
         Me.lblBeep.Name = "lblBeep"
-        Me.lblBeep.Size = New System.Drawing.Size(113, 21)
+        Me.lblBeep.Size = New System.Drawing.Size(111, 21)
         Me.lblBeep.TabIndex = 8
         Me.lblBeep.Text = "Beep Test: 12.4"
         '
@@ -163,7 +169,7 @@ Partial Class ProfilesView
         Me.lblWeight.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblWeight.Location = New System.Drawing.Point(3, 151)
         Me.lblWeight.Name = "lblWeight"
-        Me.lblWeight.Size = New System.Drawing.Size(102, 21)
+        Me.lblWeight.Size = New System.Drawing.Size(101, 21)
         Me.lblWeight.TabIndex = 6
         Me.lblWeight.Text = "Weight: 60kg"
         '
@@ -183,7 +189,7 @@ Partial Class ProfilesView
         Me.lblGroup.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.lblGroup.Location = New System.Drawing.Point(119, 127)
         Me.lblGroup.Name = "lblGroup"
-        Me.lblGroup.Size = New System.Drawing.Size(109, 21)
+        Me.lblGroup.Size = New System.Drawing.Size(108, 21)
         Me.lblGroup.TabIndex = 4
         Me.lblGroup.Text = "Year 10 Eights"
         '
@@ -230,7 +236,7 @@ Partial Class ProfilesView
         'SortBox
         '
         Me.SortBox.FormattingEnabled = True
-        Me.SortBox.Items.AddRange(New Object() {"By Last Name", "By First Name", "By Roll Class", "By ID"})
+        Me.SortBox.Items.AddRange(New Object() {"By Last Name", "By First Name", "By Roll Class", "By ID Number"})
         Me.SortBox.Location = New System.Drawing.Point(47, 12)
         Me.SortBox.Name = "SortBox"
         Me.SortBox.Size = New System.Drawing.Size(180, 21)
@@ -264,6 +270,20 @@ Partial Class ProfilesView
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Filter:"
         '
+        '_rowingDatabase__1_DataSet
+        '
+        Me._rowingDatabase__1_DataSet.DataSetName = "_rowingDatabase__1_DataSet"
+        Me._rowingDatabase__1_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TbProfilesBindingSource
+        '
+        Me.TbProfilesBindingSource.DataMember = "tbProfiles"
+        Me.TbProfilesBindingSource.DataSource = Me._rowingDatabase__1_DataSet
+        '
+        'TbProfilesTableAdapter
+        '
+        Me.TbProfilesTableAdapter.ClearBeforeFill = True
+        '
         'ProfilesView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -280,6 +300,8 @@ Partial Class ProfilesView
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me._rowingDatabase__1_DataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TbProfilesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -306,4 +328,7 @@ Partial Class ProfilesView
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents lblEmail As LinkLabel
     Friend WithEvents Label3 As Label
+    Friend WithEvents _rowingDatabase__1_DataSet As _rowingDatabase__1_DataSet
+    Friend WithEvents TbProfilesBindingSource As BindingSource
+    Friend WithEvents TbProfilesTableAdapter As _rowingDatabase__1_DataSetTableAdapters.tbProfilesTableAdapter
 End Class

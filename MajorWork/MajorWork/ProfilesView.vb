@@ -6,11 +6,13 @@ Public Class ProfilesView
     Dim sName As New List(Of String)
     Dim yGroup As New List(Of String)
     Dim rClass As New List(Of String)
+    Dim Alphebetised As New List(Of Integer)
+    Dim TempList As New List(Of String)
+    Dim SortArray() As Object = {gName, sName, rClass, IDStr}
+    Dim Loaded As Boolean = False
     Private Sub ProfilesView_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'Set ComboBoxes to First Index
-        SortBox.SelectedIndex = 0
-        FilterBox.SelectedIndex = 0
         'Read Database
+        Me.TbProfilesTableAdapter.Fill(Me._rowingDatabase__1_DataSet.tbProfiles)
         Using conn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb")
             conn.Open()
             Using cmd As New OleDbCommand("SELECT ID, sName, gName, rClass, Group FROM tbProfiles", conn)
@@ -28,7 +30,12 @@ Public Class ProfilesView
                 End Using
             End Using
         End Using
+        'Set ComboBoxes to First Index
+        SortBox.SelectedIndex = 0
+        FilterBox.SelectedIndex = 0
+        'Load Panels
         FillPanels()
+        Loaded = True
     End Sub
     'Highlighting
     Private Sub RowerPanelEnter(sender As Object, e As EventArgs)
@@ -97,24 +104,7 @@ Public Class ProfilesView
     'Create and Populate Panels
     Private Sub FillPanels()
         RowerBox.Controls.Clear()
-        Dim numEntries As Integer = IDStr.Count - 1
-        Dim Alphebetised As New List(Of Integer)
-        Select Case SortBox.SelectedIndex
-            Case 0
-                Dim TempList As New List(Of String)
-                For Each x As String In gName
-                    TempList.Add(x)
-                Next
-                TempList.Sort()
-                For Each i As String In TempList
-                    Alphebetised.Add(gName.IndexOf(i))
-                Next
-        End Select
-        For Each i As Integer In Alphebetised
-            'MsgBox(gName(i))
-        Next
-
-
+        SortAndFilter()
         For Each rower As Integer In Alphebetised '= 0 To IDNum.Count - 1
             Dim testPanel As New Panel With
                 {
@@ -165,5 +155,47 @@ Public Class ProfilesView
             testPanel.Controls.Add(testID)
             testPanel.Controls.Add(testName)
         Next
+    End Sub
+    Private Sub SortAndFilter()
+        If Loaded = True Then
+            Alphebetised.Clear()
+            TempList.Clear()
+            For Each x As String In SortArray(SortBox.SelectedIndex)
+                TempList.Add(x)
+            Next
+        Else
+            For Each x As String In SortArray(0)
+                TempList.Add(x)
+            Next
+        End If
+        TempList.Sort()
+        For Each i As String In TempList
+            Select Case FilterBox.SelectedIndex
+                Case 1
+                    If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i)) = 1 Then
+                        Alphebetised.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
+                    End If
+                Case 2
+                    If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i)) = 10 Then
+                        Alphebetised.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
+                    End If
+                Case 3
+                    If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i)) = 9 Then
+                        Alphebetised.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
+                    End If
+                Case 4
+                    If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i)) = 8 Then
+                        Alphebetised.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
+                    End If
+                Case Else
+                    Alphebetised.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
+            End Select
+        Next
+    End Sub
+    Private Sub SortBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SortBox.SelectedIndexChanged
+        FillPanels()
+    End Sub
+    Private Sub FilterBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FilterBox.SelectedIndexChanged
+        FillPanels()
     End Sub
 End Class
