@@ -47,6 +47,8 @@ Partial Class ProfilesView
         Me._rowingDatabase__1_DataSet = New MajorWork._rowingDatabase__1_DataSet()
         Me.TbProfilesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TbProfilesTableAdapter = New MajorWork._rowingDatabase__1_DataSetTableAdapters.tbProfilesTableAdapter()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.SearchBox = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._rowingDatabase__1_DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,9 +58,9 @@ Partial Class ProfilesView
         'RowerBox
         '
         Me.RowerBox.AutoScroll = True
-        Me.RowerBox.Location = New System.Drawing.Point(12, 39)
+        Me.RowerBox.Location = New System.Drawing.Point(15, 65)
         Me.RowerBox.Name = "RowerBox"
-        Me.RowerBox.Size = New System.Drawing.Size(467, 340)
+        Me.RowerBox.Size = New System.Drawing.Size(464, 314)
         Me.RowerBox.TabIndex = 1
         '
         'Panel1
@@ -237,7 +239,7 @@ Partial Class ProfilesView
         '
         Me.SortBox.FormattingEnabled = True
         Me.SortBox.Items.AddRange(New Object() {"By Last Name", "By First Name", "By Roll Class", "By ID Number"})
-        Me.SortBox.Location = New System.Drawing.Point(47, 12)
+        Me.SortBox.Location = New System.Drawing.Point(62, 38)
         Me.SortBox.Name = "SortBox"
         Me.SortBox.Size = New System.Drawing.Size(180, 21)
         Me.SortBox.TabIndex = 3
@@ -246,7 +248,7 @@ Partial Class ProfilesView
         '
         Me.FilterBox.FormattingEnabled = True
         Me.FilterBox.Items.AddRange(New Object() {"All Years", "1st VIII", "Year 10 Eights", "Year 9 Quads", "Year 8 Quads"})
-        Me.FilterBox.Location = New System.Drawing.Point(299, 12)
+        Me.FilterBox.Location = New System.Drawing.Point(302, 38)
         Me.FilterBox.Name = "FilterBox"
         Me.FilterBox.Size = New System.Drawing.Size(180, 21)
         Me.FilterBox.TabIndex = 4
@@ -255,7 +257,7 @@ Partial Class ProfilesView
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 15)
+        Me.Label1.Location = New System.Drawing.Point(12, 41)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(29, 13)
         Me.Label1.TabIndex = 5
@@ -264,7 +266,7 @@ Partial Class ProfilesView
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(261, 15)
+        Me.Label2.Location = New System.Drawing.Point(264, 41)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(32, 13)
         Me.Label2.TabIndex = 6
@@ -284,13 +286,31 @@ Partial Class ProfilesView
         '
         Me.TbProfilesTableAdapter.ClearBeforeFill = True
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(12, 15)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(44, 13)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Search:"
+        '
+        'SearchBox
+        '
+        Me.SearchBox.Location = New System.Drawing.Point(62, 12)
+        Me.SearchBox.Name = "SearchBox"
+        Me.SearchBox.Size = New System.Drawing.Size(417, 20)
+        Me.SearchBox.TabIndex = 8
+        '
         'ProfilesView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(729, 391)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.SortBox)
+        Me.Controls.Add(Me.SearchBox)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.FilterBox)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
@@ -331,4 +351,6 @@ Partial Class ProfilesView
     Friend WithEvents _rowingDatabase__1_DataSet As _rowingDatabase__1_DataSet
     Friend WithEvents TbProfilesBindingSource As BindingSource
     Friend WithEvents TbProfilesTableAdapter As _rowingDatabase__1_DataSetTableAdapters.tbProfilesTableAdapter
+    Friend WithEvents Label4 As Label
+    Friend WithEvents SearchBox As TextBox
 End Class
