@@ -24,6 +24,8 @@ Partial Class ProfilesView
     Private Sub InitializeComponent()
         Me.RowerBox = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblEmail = New System.Windows.Forms.LinkLabel()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.lblRaAtPc = New System.Windows.Forms.Label()
         Me.lblTrAtPc = New System.Windows.Forms.Label()
         Me.lblPosition = New System.Windows.Forms.Label()
@@ -37,12 +39,10 @@ Partial Class ProfilesView
         Me.lblfName = New System.Windows.Forms.Label()
         Me.lblID = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.SortBox = New System.Windows.Forms.ComboBox()
+        Me.FilterBox = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.lblEmail = New System.Windows.Forms.LinkLabel()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -77,6 +77,26 @@ Partial Class ProfilesView
         Me.Panel1.Size = New System.Drawing.Size(232, 340)
         Me.Panel1.TabIndex = 2
         '
+        'lblEmail
+        '
+        Me.lblEmail.AutoSize = True
+        Me.lblEmail.Location = New System.Drawing.Point(37, 319)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(190, 13)
+        Me.lblEmail.TabIndex = 15
+        Me.lblEmail.TabStop = True
+        Me.lblEmail.Text = "430227866@student.sbhs.nsw.edu.au"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.Label3.Location = New System.Drawing.Point(3, 298)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(51, 21)
+        Me.Label3.TabIndex = 14
+        Me.Label3.Text = "Email:"
+        '
         'lblRaAtPc
         '
         Me.lblRaAtPc.AutoSize = True
@@ -93,7 +113,7 @@ Partial Class ProfilesView
         Me.lblTrAtPc.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.lblTrAtPc.Location = New System.Drawing.Point(3, 256)
         Me.lblTrAtPc.Name = "lblTrAtPc"
-        Me.lblTrAtPc.Size = New System.Drawing.Size(195, 21)
+        Me.lblTrAtPc.Size = New System.Drawing.Size(196, 21)
         Me.lblTrAtPc.TabIndex = 11
         Me.lblTrAtPc.Text = "Training Attendance: 100%"
         '
@@ -103,7 +123,7 @@ Partial Class ProfilesView
         Me.lblPosition.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.lblPosition.Location = New System.Drawing.Point(3, 235)
         Me.lblPosition.Name = "lblPosition"
-        Me.lblPosition.Size = New System.Drawing.Size(184, 21)
+        Me.lblPosition.Size = New System.Drawing.Size(185, 21)
         Me.lblPosition.TabIndex = 10
         Me.lblPosition.Text = "Preferred Position: 3 Seat"
         '
@@ -113,7 +133,7 @@ Partial Class ProfilesView
         Me.lblSide.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.lblSide.Location = New System.Drawing.Point(3, 214)
         Me.lblSide.Name = "lblSide"
-        Me.lblSide.Size = New System.Drawing.Size(160, 21)
+        Me.lblSide.Size = New System.Drawing.Size(161, 21)
         Me.lblSide.TabIndex = 9
         Me.lblSide.Text = "Preferred Side: Stroke"
         '
@@ -123,7 +143,7 @@ Partial Class ProfilesView
         Me.lblBeep.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.lblBeep.Location = New System.Drawing.Point(3, 193)
         Me.lblBeep.Name = "lblBeep"
-        Me.lblBeep.Size = New System.Drawing.Size(111, 21)
+        Me.lblBeep.Size = New System.Drawing.Size(113, 21)
         Me.lblBeep.TabIndex = 8
         Me.lblBeep.Text = "Beep Test: 12.4"
         '
@@ -143,7 +163,7 @@ Partial Class ProfilesView
         Me.lblWeight.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblWeight.Location = New System.Drawing.Point(3, 151)
         Me.lblWeight.Name = "lblWeight"
-        Me.lblWeight.Size = New System.Drawing.Size(101, 21)
+        Me.lblWeight.Size = New System.Drawing.Size(102, 21)
         Me.lblWeight.TabIndex = 6
         Me.lblWeight.Text = "Weight: 60kg"
         '
@@ -163,7 +183,7 @@ Partial Class ProfilesView
         Me.lblGroup.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.lblGroup.Location = New System.Drawing.Point(119, 127)
         Me.lblGroup.Name = "lblGroup"
-        Me.lblGroup.Size = New System.Drawing.Size(108, 21)
+        Me.lblGroup.Size = New System.Drawing.Size(109, 21)
         Me.lblGroup.TabIndex = 4
         Me.lblGroup.Text = "Year 10 Eights"
         '
@@ -207,21 +227,24 @@ Partial Class ProfilesView
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'ComboBox1
+        'SortBox
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(47, 12)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(180, 21)
-        Me.ComboBox1.TabIndex = 3
+        Me.SortBox.FormattingEnabled = True
+        Me.SortBox.Items.AddRange(New Object() {"By Last Name", "By First Name", "By Roll Class", "By ID"})
+        Me.SortBox.Location = New System.Drawing.Point(47, 12)
+        Me.SortBox.Name = "SortBox"
+        Me.SortBox.Size = New System.Drawing.Size(180, 21)
+        Me.SortBox.TabIndex = 3
         '
-        'ComboBox2
+        'FilterBox
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(299, 12)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(180, 21)
-        Me.ComboBox2.TabIndex = 4
+        Me.FilterBox.FormattingEnabled = True
+        Me.FilterBox.Items.AddRange(New Object() {"All Years", "1st VIII", "Year 10 Eights", "Year 9 Quads", "Year 8 Quads"})
+        Me.FilterBox.Location = New System.Drawing.Point(299, 12)
+        Me.FilterBox.Name = "FilterBox"
+        Me.FilterBox.Size = New System.Drawing.Size(180, 21)
+        Me.FilterBox.TabIndex = 4
+        Me.FilterBox.Text = "All Years"
         '
         'Label1
         '
@@ -241,34 +264,14 @@ Partial Class ProfilesView
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Filter:"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(3, 298)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 21)
-        Me.Label3.TabIndex = 14
-        Me.Label3.Text = "Email:"
-        '
-        'lblEmail
-        '
-        Me.lblEmail.AutoSize = True
-        Me.lblEmail.Location = New System.Drawing.Point(37, 319)
-        Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(190, 13)
-        Me.lblEmail.TabIndex = 15
-        Me.lblEmail.TabStop = True
-        Me.lblEmail.Text = "430227866@student.sbhs.nsw.edu.au"
-        '
         'ProfilesView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(729, 391)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.SortBox)
+        Me.Controls.Add(Me.FilterBox)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.RowerBox)
@@ -284,8 +287,8 @@ Partial Class ProfilesView
 
     Friend WithEvents RowerBox As FlowLayoutPanel
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents SortBox As ComboBox
+    Friend WithEvents FilterBox As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents lblRaAtPc As Label

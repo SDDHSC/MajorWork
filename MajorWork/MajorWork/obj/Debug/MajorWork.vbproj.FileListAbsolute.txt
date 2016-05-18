@@ -66,3 +66,25 @@ C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resul
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resultsRace.resources
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.SplashScreen.resources
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\bin\Debug\MajorWork.exe.config
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.exe
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.xml
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.pdb
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\bin\Debug\rowingDatabase (1).accdb
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\bin\Debug\MajorWork.exe
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\bin\Debug\MajorWork.pdb
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\bin\Debug\MajorWork.xml
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.vbprojResolveAssemblyReference.cache
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.Attendance.resources
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.Calendar.resources
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.Login.resources
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.Main.resources
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.Resources.resources
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.Options.resources
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.ProfilesSearch.resources
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.ProfilesView.resources
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.results.resources
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.resultsProfile.resources
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.resultsRace.resources
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.SplashScreen.resources
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
