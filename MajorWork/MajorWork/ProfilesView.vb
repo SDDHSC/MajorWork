@@ -13,6 +13,7 @@ Public Class ProfilesView
     Dim SortArray() As Object = {gName, sName, rClass, IDStr}   'Array matching the sort combo box index to its respective list 
     Dim SearchList As New List(Of String)                       'Temporary list used to search database list without changing indexes 
     Dim Loaded As Boolean = False                               'Because things break if certain lines of code run on load (no fucking clue why, this shifty workaround is only solution i can find)
+    Dim position As Integer = 0
     Private Sub ProfilesView_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Read Database
         Me.TbProfilesTableAdapter.Fill(Me._rowingDatabase__1_DataSet.tbProfiles)
@@ -111,8 +112,8 @@ Public Class ProfilesView
     End Sub
     'Create and Populate Panels
     Private Sub FillPanels()
-        RowerBox.Controls.Clear() 'Clear all the panels
         SortAndFilter()
+        RowerBox.Controls.Clear() 'Clear all the panels
         For Each rower As Integer In Sorted 'Every Index in Sorted (All indexes or all indexes matching search, just in a sorted order)
             'Creates the panels
             Dim testPanel As New Panel With
@@ -170,6 +171,7 @@ Public Class ProfilesView
         Next
     End Sub
     Private Sub SortAndFilter() 'Exactly what it says, but also search
+        RowerBox.Controls.Clear() 'Clear all the panels
         If Loaded = True Then
             'Clears lists of previous search/sort/filter
             SearchList.Clear()
@@ -192,36 +194,51 @@ Public Class ProfilesView
         End If
         TempList.Sort() 'Exactly what you'd think
         'Filter by year group. Could be cleaned up but ceebs
-        For Each i As String In TempList
-            Select Case FilterBox.SelectedIndex
-                Case 1
-                    If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i)) = 1 Then
-                        Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
-                    End If
-                Case 2
-                    If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i)) = 10 Then
-                        Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
-                    End If
-                Case 3
-                    If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i)) = 9 Then
-                        Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
-                    End If
-                Case 4
-                    If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i)) = 8 Then
-                        Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
-                    End If
-                Case Else
-                    Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i)) 'This line, and the similar ones above, Add the indexes of the data being displayed to a list, in the order that it's sorted
-            End Select
-        Next
+        'position = 0
+        'For Each i As String In TempList
+        'While position < IDNum.Count - 1
+        'position = getLiteratura.IndexOf("ISBN", position)
+        'If position <> -1 Then
+        '    Dim endPosition As Integer = getLiteratura.IndexOf(".", position + 1)
+        '    If endPosition <> -1 Then
+        '        isbns.Add(getLiteratura.Substring(position + 5, endPosition - position - 5))
+        '    End If
+        '    position = endPosition
+        'End If
+        '        Select Case FilterBox.SelectedIndex
+        '            Case 1
+        '                If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i, position)) = 1 Then
+        '                    Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i, position))
+        '                End If
+        '            Case 2
+        '                If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i, position)) = 10 Then
+        '                    Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i, position))
+        '                End If
+        '            Case 3
+        '                If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i, position)) = 9 Then
+        '                    Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i, position))
+        '                End If
+        '            Case 4
+        '                If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i, position)) = 8 Then
+        '                    Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i, position))
+        '                End If
+        '            Case Else
+        '                Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i, position)) 'This line, and the similar ones above, Add the indexes of the data being displayed to a list, in the order that it's sorted
+        '        End Select
+        '        position += 1
+        '    End While
+        'Next
     End Sub
     Private Sub SortBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SortBox.SelectedIndexChanged 'If combobox is changed, refresh panels
+        RowerBox.Controls.Clear() 'Clear all the panels
         FillPanels()
     End Sub
     Private Sub FilterBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FilterBox.SelectedIndexChanged 'If combobox is changed, refresh panels
+        RowerBox.Controls.Clear() 'Clear all the panels
         FillPanels()
     End Sub
     Private Sub SearchBox_TextChanged(sender As Object, e As EventArgs) Handles SearchBox.TextChanged  'If text is changed, refresh panels
+        RowerBox.Controls.Clear() 'Clear all the panels
         FillPanels()
     End Sub
     Private Sub lblEmail_Click(sender As Object, e As EventArgs) Handles lblEmail.Click 'Theoretically launches your mail client, with the compose email window open, and the adress field pre-filled
