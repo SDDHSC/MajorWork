@@ -49,6 +49,7 @@ Partial Class ProfilesView
         Me.TbProfilesTableAdapter = New MajorWork._rowingDatabase__1_DataSetTableAdapters.tbProfilesTableAdapter()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.SearchBox = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._rowingDatabase__1_DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,6 +66,7 @@ Partial Class ProfilesView
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.lblEmail)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.lblRaAtPc)
@@ -302,6 +304,15 @@ Partial Class ProfilesView
         Me.SearchBox.Size = New System.Drawing.Size(417, 20)
         Me.SearchBox.TabIndex = 8
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(127, 11)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 16
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'ProfilesView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -354,4 +365,5 @@ Partial Class ProfilesView
     Friend WithEvents TbProfilesTableAdapter As _rowingDatabase__1_DataSetTableAdapters.tbProfilesTableAdapter
     Friend WithEvents Label4 As Label
     Friend WithEvents SearchBox As TextBox
+    Friend WithEvents Button1 As Button
 End Class

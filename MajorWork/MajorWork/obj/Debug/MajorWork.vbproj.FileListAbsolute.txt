@@ -110,3 +110,4 @@ L:\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.resultsPro
 L:\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.resultsRace.resources
 L:\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.SplashScreen.resources
 L:\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
+\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.EditProfiles.resources

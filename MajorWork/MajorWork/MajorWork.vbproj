@@ -84,6 +84,12 @@
     <Compile Include="Calendar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EditProfiles.Designer.vb">
+      <DependentUpon>EditProfiles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditProfiles.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ProfilesView.Designer.vb">
       <DependentUpon>ProfilesView.vb</DependentUpon>
     </Compile>
@@ -124,12 +130,6 @@
       <DependentUpon>Options.vb</DependentUpon>
     </Compile>
     <Compile Include="Options.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProfilesSearch.Designer.vb">
-      <DependentUpon>ProfilesSearch.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ProfilesSearch.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="results.Designer.vb">
@@ -174,6 +174,9 @@
     <EmbeddedResource Include="Calendar.resx">
       <DependentUpon>Calendar.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditProfiles.resx">
+      <DependentUpon>EditProfiles.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
@@ -188,9 +191,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Options.resx">
       <DependentUpon>Options.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProfilesSearch.resx">
-      <DependentUpon>ProfilesSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfilesView.resx">
       <DependentUpon>ProfilesView.vb</DependentUpon>
