@@ -25,6 +25,7 @@ Partial Class ProfilesView
         Me.components = New System.ComponentModel.Container()
         Me.RowerBox = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.lblEmail = New System.Windows.Forms.LinkLabel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblRaAtPc = New System.Windows.Forms.Label()
@@ -49,7 +50,7 @@ Partial Class ProfilesView
         Me.TbProfilesTableAdapter = New MajorWork._rowingDatabase__1_DataSetTableAdapters.tbProfilesTableAdapter()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.SearchBox = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.lblNoValues = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._rowingDatabase__1_DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,10 +88,22 @@ Partial Class ProfilesView
         Me.Panel1.Size = New System.Drawing.Size(303, 426)
         Me.Panel1.TabIndex = 2
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.Button1.Location = New System.Drawing.Point(7, 361)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(293, 62)
+        Me.Button1.TabIndex = 16
+        Me.Button1.Text = "Edit"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'lblEmail
         '
         Me.lblEmail.AutoSize = True
-        Me.lblEmail.Location = New System.Drawing.Point(60, 399)
+        Me.lblEmail.Location = New System.Drawing.Point(60, 343)
         Me.lblEmail.Name = "lblEmail"
         Me.lblEmail.Size = New System.Drawing.Size(190, 13)
         Me.lblEmail.TabIndex = 15
@@ -101,7 +114,7 @@ Partial Class ProfilesView
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(3, 393)
+        Me.Label3.Location = New System.Drawing.Point(3, 337)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(51, 21)
         Me.Label3.TabIndex = 14
@@ -111,7 +124,7 @@ Partial Class ProfilesView
         '
         Me.lblRaAtPc.AutoSize = True
         Me.lblRaAtPc.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblRaAtPc.Location = New System.Drawing.Point(3, 355)
+        Me.lblRaAtPc.Location = New System.Drawing.Point(3, 309)
         Me.lblRaAtPc.Name = "lblRaAtPc"
         Me.lblRaAtPc.Size = New System.Drawing.Size(172, 21)
         Me.lblRaAtPc.TabIndex = 12
@@ -121,7 +134,7 @@ Partial Class ProfilesView
         '
         Me.lblTrAtPc.AutoSize = True
         Me.lblTrAtPc.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblTrAtPc.Location = New System.Drawing.Point(3, 318)
+        Me.lblTrAtPc.Location = New System.Drawing.Point(3, 281)
         Me.lblTrAtPc.Name = "lblTrAtPc"
         Me.lblTrAtPc.Size = New System.Drawing.Size(196, 21)
         Me.lblTrAtPc.TabIndex = 11
@@ -131,7 +144,7 @@ Partial Class ProfilesView
         '
         Me.lblPosition.AutoSize = True
         Me.lblPosition.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblPosition.Location = New System.Drawing.Point(3, 283)
+        Me.lblPosition.Location = New System.Drawing.Point(3, 253)
         Me.lblPosition.Name = "lblPosition"
         Me.lblPosition.Size = New System.Drawing.Size(185, 21)
         Me.lblPosition.TabIndex = 10
@@ -141,7 +154,7 @@ Partial Class ProfilesView
         '
         Me.lblSide.AutoSize = True
         Me.lblSide.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblSide.Location = New System.Drawing.Point(3, 253)
+        Me.lblSide.Location = New System.Drawing.Point(3, 225)
         Me.lblSide.Name = "lblSide"
         Me.lblSide.Size = New System.Drawing.Size(161, 21)
         Me.lblSide.TabIndex = 9
@@ -151,7 +164,7 @@ Partial Class ProfilesView
         '
         Me.lblBeep.AutoSize = True
         Me.lblBeep.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblBeep.Location = New System.Drawing.Point(3, 217)
+        Me.lblBeep.Location = New System.Drawing.Point(3, 197)
         Me.lblBeep.Name = "lblBeep"
         Me.lblBeep.Size = New System.Drawing.Size(113, 21)
         Me.lblBeep.TabIndex = 8
@@ -161,7 +174,7 @@ Partial Class ProfilesView
         '
         Me.lbl2k.AutoSize = True
         Me.lbl2k.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lbl2k.Location = New System.Drawing.Point(3, 185)
+        Me.lbl2k.Location = New System.Drawing.Point(3, 169)
         Me.lbl2k.Name = "lbl2k"
         Me.lbl2k.Size = New System.Drawing.Size(137, 21)
         Me.lbl2k.TabIndex = 7
@@ -171,7 +184,7 @@ Partial Class ProfilesView
         '
         Me.lblWeight.AutoSize = True
         Me.lblWeight.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWeight.Location = New System.Drawing.Point(3, 151)
+        Me.lblWeight.Location = New System.Drawing.Point(3, 141)
         Me.lblWeight.Name = "lblWeight"
         Me.lblWeight.Size = New System.Drawing.Size(102, 21)
         Me.lblWeight.TabIndex = 6
@@ -181,7 +194,7 @@ Partial Class ProfilesView
         '
         Me.lblrClass.AutoSize = True
         Me.lblrClass.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblrClass.Location = New System.Drawing.Point(119, 96)
+        Me.lblrClass.Location = New System.Drawing.Point(119, 85)
         Me.lblrClass.Name = "lblrClass"
         Me.lblrClass.Size = New System.Drawing.Size(79, 21)
         Me.lblrClass.TabIndex = 5
@@ -191,7 +204,7 @@ Partial Class ProfilesView
         '
         Me.lblGroup.AutoSize = True
         Me.lblGroup.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblGroup.Location = New System.Drawing.Point(119, 127)
+        Me.lblGroup.Location = New System.Drawing.Point(119, 113)
         Me.lblGroup.Name = "lblGroup"
         Me.lblGroup.Size = New System.Drawing.Size(109, 21)
         Me.lblGroup.TabIndex = 4
@@ -201,7 +214,7 @@ Partial Class ProfilesView
         '
         Me.lblsName.AutoSize = True
         Me.lblsName.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblsName.Location = New System.Drawing.Point(119, 62)
+        Me.lblsName.Location = New System.Drawing.Point(119, 29)
         Me.lblsName.Name = "lblsName"
         Me.lblsName.Size = New System.Drawing.Size(72, 21)
         Me.lblsName.TabIndex = 3
@@ -211,7 +224,7 @@ Partial Class ProfilesView
         '
         Me.lblfName.AutoSize = True
         Me.lblfName.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblfName.Location = New System.Drawing.Point(119, 33)
+        Me.lblfName.Location = New System.Drawing.Point(119, 57)
         Me.lblfName.Name = "lblfName"
         Me.lblfName.Size = New System.Drawing.Size(82, 21)
         Me.lblfName.TabIndex = 2
@@ -221,7 +234,7 @@ Partial Class ProfilesView
         '
         Me.lblID.AutoSize = True
         Me.lblID.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblID.Location = New System.Drawing.Point(119, 3)
+        Me.lblID.Location = New System.Drawing.Point(119, 1)
         Me.lblID.Name = "lblID"
         Me.lblID.Size = New System.Drawing.Size(113, 21)
         Me.lblID.TabIndex = 1
@@ -232,7 +245,7 @@ Partial Class ProfilesView
         Me.PictureBox1.Image = Global.MajorWork.My.Resources.Resources.BlankProfilePictuer
         Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(110, 145)
+        Me.PictureBox1.Size = New System.Drawing.Size(110, 131)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -304,20 +317,23 @@ Partial Class ProfilesView
         Me.SearchBox.Size = New System.Drawing.Size(417, 20)
         Me.SearchBox.TabIndex = 8
         '
-        'Button1
+        'lblNoValues
         '
-        Me.Button1.Location = New System.Drawing.Point(127, 11)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 16
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.lblNoValues.AutoSize = True
+        Me.lblNoValues.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNoValues.Location = New System.Drawing.Point(155, 75)
+        Me.lblNoValues.Name = "lblNoValues"
+        Me.lblNoValues.Size = New System.Drawing.Size(154, 37)
+        Me.lblNoValues.TabIndex = 9
+        Me.lblNoValues.Text = "No Results"
+        Me.lblNoValues.Visible = False
         '
         'ProfilesView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblNoValues)
         Me.Controls.Add(Me.SortBox)
         Me.Controls.Add(Me.SearchBox)
         Me.Controls.Add(Me.Label4)
@@ -366,4 +382,5 @@ Partial Class ProfilesView
     Friend WithEvents Label4 As Label
     Friend WithEvents SearchBox As TextBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents lblNoValues As Label
 End Class

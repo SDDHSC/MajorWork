@@ -1,4 +1,7 @@
-﻿Imports System.Data.OleDb
+﻿'Fix search duplication issues
+'Allow Profile editing
+'make Graphics Nice
+Imports System.Data.OleDb
 Public Class ProfilesView
     'Lists populated with database data
     Dim IDNum As New List(Of Int32)
@@ -15,26 +18,7 @@ Public Class ProfilesView
     Dim position As Integer = 0
     Dim FirstPanel As Boolean = True
     Private Sub ProfilesView_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'Read Database
-        Me.TbProfilesTableAdapter.Fill(Me._rowingDatabase__1_DataSet.tbProfiles)
-        Using conn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb")
-            conn.Open()
-            Using cmd As New OleDbCommand("SELECT ID, sName, gName, rClass, Group FROM tbProfiles", conn)
-                Using dr = cmd.ExecuteReader()
-                    If dr.HasRows Then
-                        Do While dr.Read()
-                            'Add's the data from each field to the relevanet list, line by line
-                            IDNum.Add(dr.GetInt32(0))
-                            IDStr.Add(dr.GetInt32(0).ToString)
-                            gName.Add(dr.GetString(2))
-                            sName.Add(dr.GetString(1))
-                            yGroup.Add(dr.GetString(4))
-                            rClass.Add(dr.GetString(3))
-                        Loop
-                    End If
-                End Using
-            End Using
-        End Using
+        ReadDatabase()
         'Set ComboBoxes to First Index (so that they're not blank)
         SortBox.SelectedIndex = 0
         FilterBox.SelectedIndex = 0
@@ -75,6 +59,17 @@ Public Class ProfilesView
         clicked.BackColor = skyOrange
         Dim index = CInt(clicked.Name)
         FillDetails(index)
+    End Sub
+    'Edit Button Higlighting
+    Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
+        If Button1.BackColor <> skyOrange Then
+            Button1.BackColor = skyYellow
+        End If
+    End Sub
+    Private Sub Button1_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave
+        If Button1.BackColor <> skyOrange Then
+            Button1.BackColor = schoolBlue
+        End If
     End Sub
     'Populate Details Field
     Private Sub FillDetails(index As Integer)
@@ -128,7 +123,7 @@ Public Class ProfilesView
             Dim testID As New Label With
                 {
                     .Text = IDStr(rower),
-                    .Font = New Drawing.Font("Segoe UI", 9.75, FontStyle.Bold),
+                    .Font = New Font("Segoe UI", 9.75, FontStyle.Bold),
                     .Location = New Point(0, 0),
                     .Name = "rID" + rower.ToString
                 }
@@ -136,7 +131,7 @@ Public Class ProfilesView
             Dim testName As New Label With
                 {
                     .Text = gName(rower).ToUpper + ", " + sName(rower),
-                    .Font = New Drawing.Font("Segoe UI", 8),
+                    .Font = New Font("Segoe UI", 8),
                     .Location = New Point(0, 20),
                     .Name = "rName" + rower.ToString
                 }
@@ -146,7 +141,7 @@ Public Class ProfilesView
                 Dim testName2 As New Label With
                 {
                     .Text = sName(rower),
-                    .Font = New Drawing.Font("Segoe UI", 8),
+                    .Font = New Font("Segoe UI", 8),
                     .Location = New Point(0, 33),
                     .Name = "rName2" + rower.ToString
                 }
@@ -169,6 +164,12 @@ Public Class ProfilesView
             testPanel.Controls.Add(testID) 'adds the text to the panels
             testPanel.Controls.Add(testName) 'adds the text to the panels
         Next
+        If Sorted.Count < 1 Then
+            lblNoValues.Visible = True
+            Beep()
+        Else
+            lblNoValues.Visible = False
+        End If
         Sorted.Clear()
     End Sub
     Private Sub SortAndFilter() 'Exactly what it says, but also search
@@ -199,9 +200,6 @@ Public Class ProfilesView
         TempList.Sort() 'Exactly what you'd think
         'Filter by year group. Could be cleaned up but ceebs
         For Each i As String In TempList
-            'If TempList.IndexOf(i) > 0 Then
-
-            'End If
             Select Case FilterBox.SelectedIndex
                 Case 1
                     If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i)) = 1 Then
@@ -222,7 +220,6 @@ Public Class ProfilesView
                 Case Else
                     Sort(i)
             End Select
-
         Next
     End Sub
     Private Sub Sort(i As String)
@@ -231,7 +228,6 @@ Public Class ProfilesView
         ElseIf i = gName(Sorted.Last) Or i = sName(Sorted.Last) Or i = rClass(Sorted.Last) Then
             position = Sorted.Last + 1
             If SortArray(SortBox.SelectedIndex).IndexOf(i, position) <> -1 Then
-
                 Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i, position)) 'This line, and the similar ones above, Add the indexes of the data being displayed to a list, in the order that it's sorted
             End If
         Else
@@ -242,10 +238,12 @@ Public Class ProfilesView
     Private Sub SortBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SortBox.SelectedIndexChanged 'If combobox is changed, refresh panels
         RowerBox.Controls.Clear() 'Clear all the panels
         FillPanels()
+        RowerBox.Focus()
     End Sub
     Private Sub FilterBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FilterBox.SelectedIndexChanged 'If combobox is changed, refresh panels
         RowerBox.Controls.Clear() 'Clear all the panels
         FillPanels()
+        RowerBox.Focus()
     End Sub
     Private Sub SearchBox_TextChanged(sender As Object, e As EventArgs) Handles SearchBox.TextChanged  'If text is changed, refresh panels
         RowerBox.Controls.Clear() 'Clear all the panels
@@ -254,5 +252,45 @@ Public Class ProfilesView
     Private Sub lblEmail_Click(sender As Object, e As EventArgs) Handles lblEmail.Click 'Theoretically launches your mail client, with the compose email window open, and the adress field pre-filled
         Dim adress As String = "mailto:" + lblEmail.Text
         Process.Start(adress)
+    End Sub
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        EditProfiles.Show()
+        Button1.BackColor = skyOrange
+    End Sub
+    Private Sub ReadDatabase()
+        IDNum.Clear()
+        IDStr.Clear()
+        gName.Clear()
+        sName.Clear()
+        yGroup.Clear()
+        rClass.Clear()
+        'Read Database
+        Me.TbProfilesTableAdapter.Fill(Me._rowingDatabase__1_DataSet.tbProfiles)
+        Using conn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb")
+            conn.Open()
+            Using cmd As New OleDbCommand("SELECT ID, sName, gName, rClass, Group FROM tbProfiles", conn)
+                Using dr = cmd.ExecuteReader()
+                    If dr.HasRows Then
+                        Do While dr.Read()
+                            'Add's the data from each field to the relevanet list, line by line
+                            IDNum.Add(dr.GetInt32(0))
+                            IDStr.Add(dr.GetInt32(0).ToString)
+                            gName.Add(dr.GetString(2))
+                            sName.Add(dr.GetString(1))
+                            yGroup.Add(dr.GetString(4))
+                            rClass.Add(dr.GetString(3))
+                        Loop
+                    End If
+                End Using
+            End Using
+        End Using
+    End Sub
+
+    Private Sub ProfilesView_MouseWheel(sender As Object, e As MouseEventArgs) Handles Me.MouseWheel
+        RowerBox.Focus()
+    End Sub
+
+    Private Sub ProfilesView_Click(sender As Object, e As EventArgs) Handles Me.Click
+        RowerBox.Focus()
     End Sub
 End Class

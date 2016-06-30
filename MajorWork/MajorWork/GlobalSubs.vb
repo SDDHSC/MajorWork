@@ -6,4 +6,5 @@
         Form.FormBorderStyle = FormBorderStyle.None
         Form.StartPosition = FormStartPosition.CenterScreen
     End Sub
+
 End Module

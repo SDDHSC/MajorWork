@@ -81,7 +81,6 @@ C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbpro
 \\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.Main.resources
 \\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.Resources.resources
 \\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.Options.resources
-\\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.ProfilesSearch.resources
 \\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.ProfilesView.resources
 \\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.results.resources
 \\SR8137CF01-FS02\StudentUsers\2016\430227866\Downloads\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.resultsProfile.resources

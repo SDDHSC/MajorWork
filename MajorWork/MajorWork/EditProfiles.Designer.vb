@@ -28,12 +28,12 @@ Partial Class EditProfiles
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.txtDivision = New System.Windows.Forms.TextBox()
+        Me.txtWeight = New System.Windows.Forms.TextBox()
+        Me.txt2k = New System.Windows.Forms.TextBox()
+        Me.txtBeep = New System.Windows.Forms.TextBox()
+        Me.txtSide = New System.Windows.Forms.TextBox()
+        Me.txtSeat = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
@@ -91,47 +91,47 @@ Partial Class EditProfiles
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Preferred Seat"
         '
-        'TextBox1
+        'txtDivision
         '
-        Me.TextBox1.Location = New System.Drawing.Point(168, 78)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 8
+        Me.txtDivision.Location = New System.Drawing.Point(168, 78)
+        Me.txtDivision.Name = "txtDivision"
+        Me.txtDivision.Size = New System.Drawing.Size(100, 20)
+        Me.txtDivision.TabIndex = 8
         '
-        'TextBox2
+        'txtWeight
         '
-        Me.TextBox2.Location = New System.Drawing.Point(167, 104)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 9
+        Me.txtWeight.Location = New System.Drawing.Point(167, 104)
+        Me.txtWeight.Name = "txtWeight"
+        Me.txtWeight.Size = New System.Drawing.Size(100, 20)
+        Me.txtWeight.TabIndex = 9
         '
-        'TextBox3
+        'txt2k
         '
-        Me.TextBox3.Location = New System.Drawing.Point(167, 130)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox3.TabIndex = 10
+        Me.txt2k.Location = New System.Drawing.Point(167, 130)
+        Me.txt2k.Name = "txt2k"
+        Me.txt2k.Size = New System.Drawing.Size(100, 20)
+        Me.txt2k.TabIndex = 10
         '
-        'TextBox4
+        'txtBeep
         '
-        Me.TextBox4.Location = New System.Drawing.Point(167, 156)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox4.TabIndex = 11
+        Me.txtBeep.Location = New System.Drawing.Point(167, 156)
+        Me.txtBeep.Name = "txtBeep"
+        Me.txtBeep.Size = New System.Drawing.Size(100, 20)
+        Me.txtBeep.TabIndex = 11
         '
-        'TextBox5
+        'txtSide
         '
-        Me.TextBox5.Location = New System.Drawing.Point(167, 182)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox5.TabIndex = 12
+        Me.txtSide.Location = New System.Drawing.Point(167, 182)
+        Me.txtSide.Name = "txtSide"
+        Me.txtSide.Size = New System.Drawing.Size(100, 20)
+        Me.txtSide.TabIndex = 12
         '
-        'TextBox6
+        'txtSeat
         '
-        Me.TextBox6.Location = New System.Drawing.Point(168, 208)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox6.TabIndex = 13
+        Me.txtSeat.Location = New System.Drawing.Point(168, 208)
+        Me.txtSeat.Name = "txtSeat"
+        Me.txtSeat.Size = New System.Drawing.Size(100, 20)
+        Me.txtSeat.TabIndex = 13
         '
         'Label7
         '
@@ -148,12 +148,12 @@ Partial Class EditProfiles
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(273, 232)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.TextBox6)
-        Me.Controls.Add(Me.TextBox5)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtSeat)
+        Me.Controls.Add(Me.txtSide)
+        Me.Controls.Add(Me.txtBeep)
+        Me.Controls.Add(Me.txt2k)
+        Me.Controls.Add(Me.txtWeight)
+        Me.Controls.Add(Me.txtDivision)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -173,11 +173,11 @@ Partial Class EditProfiles
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents txtDivision As TextBox
+    Friend WithEvents txtWeight As TextBox
+    Friend WithEvents txt2k As TextBox
+    Friend WithEvents txtBeep As TextBox
+    Friend WithEvents txtSide As TextBox
+    Friend WithEvents txtSeat As TextBox
     Friend WithEvents Label7 As Label
 End Class
