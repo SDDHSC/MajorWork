@@ -10,105 +10,61 @@ Public Class ProfilesView
     Dim sName As New List(Of String)
     Dim yGroup As New List(Of String)
     Dim rClass As New List(Of String)
+
     Dim Sorted As New List(Of Integer)                          'Sorted list of indexes
     Dim TempList As New List(Of String)                         'Temporary list used to sort database list without changing indexes
     Dim SortArray() As Object = {gName, sName, rClass, IDStr}   'Array matching the sort combo box index to its respective list 
     Dim SearchList As New List(Of String)                       'Temporary list used to search database list without changing indexes 
     Dim Loaded As Boolean = False                               'Because things break if certain lines of code run on load (no fucking clue why, this shifty workaround is only solution i can find)
-    Dim position As Integer = 0
-    Dim FirstPanel As Boolean = True
+    Dim position As Integer = 0                                 'Position to start index search, used when there are multiple people with the same primary value
+    Dim FirstPanel As Boolean = True                            'Boolean showing whether the panel being filled is the first panel
+    Dim ListOTemp As New List(Of String)                        'Temporary list used to get sorted values prior to being filtered by the search module
     Private Sub ProfilesView_Load(sender As Object, e As EventArgs) Handles Me.Load
         ReadDatabase()
+
         'Set ComboBoxes to First Index (so that they're not blank)
         SortBox.SelectedIndex = 0
         FilterBox.SelectedIndex = 0
+
         'Load Panels
         FillPanels()
         Loaded = True
+
+        SearchBox.Focus()                                       'Ensures the focus is on the search box when the form loads, so you can type straight away
     End Sub
-    'Highlighting
-    Private Sub RowerPanelEnter(sender As Object, e As EventArgs)
-        If sender.Tag <> "Clicked" Then
-            Dim entered As Panel = sender
-            entered.BackColor = skyYellow
-        End If
+    Private Sub ReadDatabase() 'Reads the database, and populates the data strings
+        'Clears all the data strings
+        IDNum.Clear()
+        IDStr.Clear()
+        gName.Clear()
+        sName.Clear()
+        yGroup.Clear()
+        rClass.Clear()
+
+        'Reads Database
+        Using conn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb")
+            conn.Open()
+            Using cmd As New OleDbCommand("SELECT ID, sName, gName, rClass, Group FROM tbProfiles", conn)
+                Using dr = cmd.ExecuteReader()
+                    If dr.HasRows Then
+                        Do While dr.Read()
+                            'Add's the data from each field to the relevanet list, line by line
+                            IDNum.Add(dr.GetInt32(0))
+                            IDStr.Add(dr.GetInt32(0).ToString)
+                            gName.Add(dr.GetString(2))
+                            sName.Add(dr.GetString(1))
+                            yGroup.Add(dr.GetString(4))
+                            rClass.Add(dr.GetString(3))
+                        Loop
+                    End If
+                End Using
+            End Using
+        End Using
     End Sub
-    Private Sub RowerPanelTextEnter(sender As Object, e As EventArgs) 'Because text blocks the mouse enter part of the label
-        RowerPanelEnter(sender.Parent, e)
-    End Sub
-    Private Sub RowerPanelExit(sender As Object, e As EventArgs)
-        Dim exited As Panel = sender
-        If exited.Tag <> "Clicked" Then
-            exited.BackColor = schoolBlue
-        End If
-    End Sub
-    Private Sub RowerPanelTextExit(sender As Object, e As EventArgs) 'Because text blocks the mouse exit part of the label
-        RowerPanelExit(sender.Parent, e)
-    End Sub
-    'Click
-    Private Sub RowerPanelTextClicked(sender As Object, e As EventArgs) 'Because text blocks the mouse click part of the label
-        RowerPanelClicked(sender.Parent, e)
-    End Sub
-    Private Sub RowerPanelClicked(sender As Object, e As EventArgs)
-        For Each i As Panel In RowerBox.Controls
-            i.Tag = "NotClicked"
-            i.BackColor = schoolBlue
-        Next
-        Dim clicked As Panel = sender
-        clicked.Tag = "Clicked"
-        clicked.BackColor = skyOrange
-        Dim index = CInt(clicked.Name)
-        FillDetails(index)
-    End Sub
-    'Edit Button Higlighting
-    Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
-        If Button1.BackColor <> skyOrange Then
-            Button1.BackColor = skyYellow
-        End If
-    End Sub
-    Private Sub Button1_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave
-        If Button1.BackColor <> skyOrange Then
-            Button1.BackColor = schoolBlue
-        End If
-    End Sub
-    'Populate Details Field
-    Private Sub FillDetails(index As Integer)
-        'Get databasable info
-        lblID.Text = "ID: " + IDStr(index)
-        lblsName.Text = gName(index)
-        lblfName.Text = sName(index)
-        lblrClass.Text = "Class: " + rClass(index)
-        'Convert Integer to actual term
-        Select Case yGroup(index)
-            Case "8"
-                lblGroup.Text = "Year 8 Quads"
-            Case "9"
-                lblGroup.Text = "Year 9 Quads"
-            Case "10"
-                lblGroup.Text = "Year 10 Eights"
-            Case "1"
-                lblGroup.Text = "1st VIII"
-        End Select
-        'Generate random data that looks legit
-        Randomize()
-        lblWeight.Text = "Weight: " + CInt(Int((60 * Rnd()) + 40)).ToString + "kg"
-        Randomize()
-        lbl2k.Text = "2km Time: " + "0" + CInt(Int((6 * Rnd()) + 4)).ToString + ":" + CInt(Int((50 * Rnd()) + 10)).ToString
-        Randomize()
-        lblBeep.Text = "Beep Test Score: " + CDec((Int((100 * Rnd()) + 40)) / 10).ToString
-        lblPosition.Text = "Preferred Side: Stroke"
-        lblSide.Text = "Preferred Position: Stroke"
-        Randomize()
-        lblTrAtPc.Text = "Training Attendance: " + CInt(Int((100 * Rnd()) + 1)).ToString + "%"
-        Randomize()
-        lblRaAtPc.Text = "Race Attendance: " + CInt(Int((100 * Rnd()) + 1)).ToString + "%"
-        'Email is based off ID number, so is actually legit
-        lblEmail.Text = IDStr(index) + "@student.sbhs.nsw.edu.au"
-    End Sub
-    'Create and Populate Panels
-    Private Sub FillPanels()
+    Private Sub FillPanels() 'Creates Panels and populate them with data
         SortAndFilter()
-        RowerBox.Controls.Clear() 'Clear all the panels
+        SearchFilter()
+        RowerBox.Controls.Clear() 'Ensures the flow layout panel is empty
         For Each rower As Integer In Sorted 'Every Index in Sorted (All indexes or all indexes matching search, just in a sorted order)
             'Creates the panels
             Dim testPanel As New Panel With
@@ -164,40 +120,36 @@ Public Class ProfilesView
             testPanel.Controls.Add(testID) 'adds the text to the panels
             testPanel.Controls.Add(testName) 'adds the text to the panels
         Next
+        'Checks if there are values matching the search
         If Sorted.Count < 1 Then
             lblNoValues.Visible = True
             Beep()
         Else
             lblNoValues.Visible = False
         End If
-        Sorted.Clear()
+
+        Sorted.Clear() 'Clears the sorted list
     End Sub
-    Private Sub SortAndFilter() 'Exactly what it says, but also search
-        RowerBox.Controls.Clear() 'Clear all the panels
+    Private Sub SortAndFilter() 'Sorts and Filters the data to be created
+        'Clears all the lists used in the process
         Sorted.Clear()
-        If Sorted.Count = 0 Then
-            FirstPanel = True
-        End If
-        If Loaded = True Then
-            'Clears lists of previous search/sort/filter
-            SearchList.Clear()
-            TempList.Clear()
-            'Adds all the strings from the List appropriate to the sort type
+        SearchList.Clear()
+        TempList.Clear()
+        ListOTemp.Clear()
+        FirstPanel = True
+
+        If Loaded = True Then 'Sort by selected sort type
             For Each st As String In SortArray(SortBox.SelectedIndex)
-                SearchList.Add(st)
-            Next
-            'If the text in the search box is contatined within any of the displayed data, add it to the to be sorted list
-            For i As Integer = 0 To IDNum.Count - 1
-                If gName(i).ToLower.Contains(SearchBox.Text.ToLower) Or sName(i).ToLower.Contains(SearchBox.Text.ToLower) Or IDStr(i).ToLower.Contains(SearchBox.Text.ToLower) Then
-                    TempList.Add(SearchList(i))
-                End If
+                TempList.Add(st)
             Next
         Else 'On load, sort by lastname by default
             For Each x As String In SortArray(0)
                 TempList.Add(x)
             Next
         End If
-        TempList.Sort() 'Exactly what you'd think
+
+        TempList.Sort() 'Sorts the temporary list
+
         'Filter by year group. Could be cleaned up but ceebs
         For Each i As String In TempList
             Select Case FilterBox.SelectedIndex
@@ -222,18 +174,105 @@ Public Class ProfilesView
             End Select
         Next
     End Sub
-    Private Sub Sort(i As String)
+    Private Sub SearchFilter() 'Filters the remaining items by matching it to search box
+        For Each num As Integer In ListOTemp
+            If gName(num).ToLower.Contains(SearchBox.Text.ToLower) Or sName(num).ToLower.Contains(SearchBox.Text.ToLower) Or IDStr(num).ToLower.Contains(SearchBox.Text.ToLower) Then
+                Sorted.Add(num)
+            End If
+        Next
+        ListOTemp.Clear()
+    End Sub
+    Private Sub Sort(i As String) 'Checks for duplicates, and adds to TempOList
         If FirstPanel = True Then
-            Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
-        ElseIf i = gName(Sorted.Last) Or i = sName(Sorted.Last) Or i = rClass(Sorted.Last) Then
-            position = Sorted.Last + 1
+            ListOTemp.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
+        ElseIf i = gName(ListOTemp.Last) Or i = sName(ListOTemp.Last) Or i = rClass(ListOTemp.Last) Then
+            position = ListOTemp.Last + 1
             If SortArray(SortBox.SelectedIndex).IndexOf(i, position) <> -1 Then
-                Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i, position)) 'This line, and the similar ones above, Add the indexes of the data being displayed to a list, in the order that it's sorted
+                ListOTemp.Add(SortArray(SortBox.SelectedIndex).IndexOf(i, position))
             End If
         Else
-            Sorted.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
+            ListOTemp.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
         End If
         FirstPanel = False
+    End Sub
+    'Populate Details Field
+    Private Sub FillDetails(index As Integer)
+        'Get databasable info
+        lblID.Text = "ID: " + IDStr(index)
+        lblsName.Text = gName(index)
+        lblfName.Text = sName(index)
+        lblrClass.Text = "Class: " + rClass(index)
+        'Convert Integer to actual term
+        Select Case yGroup(index)
+            Case "8"
+                lblGroup.Text = "Year 8 Quads"
+            Case "9"
+                lblGroup.Text = "Year 9 Quads"
+            Case "10"
+                lblGroup.Text = "Year 10 Eights"
+            Case "1"
+                lblGroup.Text = "1st VIII"
+        End Select
+        'Generate random data that looks legit
+        Randomize()
+        lblWeight.Text = "Weight: " + CInt(Int((60 * Rnd()) + 40)).ToString + "kg"
+        Randomize()
+        lbl2k.Text = "2km Time: " + "0" + CInt(Int((6 * Rnd()) + 4)).ToString + ":" + CInt(Int((50 * Rnd()) + 10)).ToString
+        Randomize()
+        lblBeep.Text = "Beep Test Score: " + CDec((Int((100 * Rnd()) + 40)) / 10).ToString
+        lblPosition.Text = "Preferred Side: Stroke"
+        lblSide.Text = "Preferred Position: Stroke"
+        Randomize()
+        lblTrAtPc.Text = "Training Attendance: " + CInt(Int((100 * Rnd()) + 1)).ToString + "%"
+        Randomize()
+        lblRaAtPc.Text = "Race Attendance: " + CInt(Int((100 * Rnd()) + 1)).ToString + "%"
+        'Email is based off ID number, so is actually legit
+        lblEmail.Text = IDStr(index) + "@student.sbhs.nsw.edu.au"
+    End Sub
+    'Highlighting
+    Private Sub RowerPanelEnter(sender As Object, e As EventArgs)
+        If sender.Tag <> "Clicked" Then
+            Dim entered As Panel = sender
+            entered.BackColor = skyYellow
+        End If
+    End Sub
+    Private Sub RowerPanelTextEnter(sender As Object, e As EventArgs) 'Because text blocks the mouse enter part of the label
+        RowerPanelEnter(sender.Parent, e)
+    End Sub
+    Private Sub RowerPanelExit(sender As Object, e As EventArgs)
+        Dim exited As Panel = sender
+        If exited.Tag <> "Clicked" Then
+            exited.BackColor = schoolBlue
+        End If
+    End Sub
+    Private Sub RowerPanelTextExit(sender As Object, e As EventArgs) 'Because text blocks the mouse exit part of the label
+        RowerPanelExit(sender.Parent, e)
+    End Sub
+    'Click
+    Private Sub RowerPanelTextClicked(sender As Object, e As EventArgs) 'Because text blocks the mouse click part of the label
+        RowerPanelClicked(sender.Parent, e)
+    End Sub
+    Private Sub RowerPanelClicked(sender As Object, e As EventArgs)
+        For Each i As Panel In RowerBox.Controls
+            i.Tag = "NotClicked"
+            i.BackColor = schoolBlue
+        Next
+        Dim clicked As Panel = sender
+        clicked.Tag = "Clicked"
+        clicked.BackColor = skyOrange
+        Dim index = CInt(clicked.Name)
+        FillDetails(index)
+    End Sub
+    'Edit Button Higlighting
+    Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
+        If Button1.BackColor <> skyOrange Then
+            Button1.BackColor = skyYellow
+        End If
+    End Sub
+    Private Sub Button1_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave
+        If Button1.BackColor <> skyOrange Then
+            Button1.BackColor = schoolBlue
+        End If
     End Sub
     Private Sub SortBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SortBox.SelectedIndexChanged 'If combobox is changed, refresh panels
         RowerBox.Controls.Clear() 'Clear all the panels
@@ -257,35 +296,6 @@ Public Class ProfilesView
         EditProfiles.Show()
         Button1.BackColor = skyOrange
     End Sub
-    Private Sub ReadDatabase()
-        IDNum.Clear()
-        IDStr.Clear()
-        gName.Clear()
-        sName.Clear()
-        yGroup.Clear()
-        rClass.Clear()
-        'Read Database
-        Me.TbProfilesTableAdapter.Fill(Me._rowingDatabase__1_DataSet.tbProfiles)
-        Using conn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb")
-            conn.Open()
-            Using cmd As New OleDbCommand("SELECT ID, sName, gName, rClass, Group FROM tbProfiles", conn)
-                Using dr = cmd.ExecuteReader()
-                    If dr.HasRows Then
-                        Do While dr.Read()
-                            'Add's the data from each field to the relevanet list, line by line
-                            IDNum.Add(dr.GetInt32(0))
-                            IDStr.Add(dr.GetInt32(0).ToString)
-                            gName.Add(dr.GetString(2))
-                            sName.Add(dr.GetString(1))
-                            yGroup.Add(dr.GetString(4))
-                            rClass.Add(dr.GetString(3))
-                        Loop
-                    End If
-                End Using
-            End Using
-        End Using
-    End Sub
-
     Private Sub ProfilesView_MouseWheel(sender As Object, e As MouseEventArgs) Handles Me.MouseWheel
         RowerBox.Focus()
     End Sub
