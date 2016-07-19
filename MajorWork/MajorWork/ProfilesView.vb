@@ -1,5 +1,4 @@
-﻿'Fix search duplication issues
-'Allow Profile editing
+﻿'Allow Profile editing
 'make Graphics Nice
 Imports System.Data.OleDb
 Public Class ProfilesView
