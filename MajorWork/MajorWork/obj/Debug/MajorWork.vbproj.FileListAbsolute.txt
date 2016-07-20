@@ -59,7 +59,6 @@ C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Login
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Main.resources
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Resources.resources
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Options.resources
-C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.ProfilesSearch.resources
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.ProfilesView.resources
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.results.resources
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resultsProfile.resources
@@ -176,3 +175,4 @@ C:\Users\Charlie\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbp
 C:\Users\Charlie\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.exe
 C:\Users\Charlie\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.xml
 C:\Users\Charlie\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.pdb
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.EditProfiles.resources

@@ -197,6 +197,9 @@ Public Class ProfilesView
     'Populate Details Field
     Private Sub FillDetails(index As Integer)
         'Get databasable info
+        Dim str2k As String
+        Dim numWeight, numBeep, numSeat, numSide As Integer
+
         lblID.Text = "ID: " + IDStr(index)
         lblsName.Text = gName(index)
         lblfName.Text = sName(index)
@@ -214,12 +217,19 @@ Public Class ProfilesView
         End Select
         'Generate random data that looks legit
         Randomize()
-        lblWeight.Text = "Weight: " + CInt(Int((60 * Rnd()) + 40)).ToString + "kg"
+        numWeight = CInt(Int((60 * Rnd()) + 40))
+        lblWeight.Text = "Weight: " + numWeight.ToString + "kg"
         Randomize()
-        lbl2k.Text = "2km Time: " + "0" + CInt(Int((6 * Rnd()) + 4)).ToString + ":" + CInt(Int((50 * Rnd()) + 10)).ToString
+        str2k = "0" + CInt(Int((6 * Rnd()) + 4)).ToString + ":" + CInt(Int((50 * Rnd()) + 10)).ToString
+        lbl2k.Text = "2km Time: " + str2k
         Randomize()
-        lblBeep.Text = "Beep Test Score: " + CDec((Int((100 * Rnd()) + 40)) / 10).ToString
+        numBeep = CDec((Int((100 * Rnd()) + 40)) / 10)
+        lblBeep.Text = "Beep Test Score: " + numBeep.ToString
+        Randomize()
+        numSeat = CInt(7 * Rnd())
         lblPosition.Text = "Preferred Side: Stroke"
+        Randomize()
+        numSide = CInt(1 * Rnd())
         lblSide.Text = "Preferred Position: Stroke"
         Randomize()
         lblTrAtPc.Text = "Training Attendance: " + CInt(Int((100 * Rnd()) + 1)).ToString + "%"
@@ -227,6 +237,30 @@ Public Class ProfilesView
         lblRaAtPc.Text = "Race Attendance: " + CInt(Int((100 * Rnd()) + 1)).ToString + "%"
         'Email is based off ID number, so is actually legit
         lblEmail.Text = IDStr(index) + "@student.sbhs.nsw.edu.au"
+
+        Try
+            Dim DBConn As OleDbConnection
+            Dim dbCommand As New OleDbCommand()
+
+            DBConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" _
+            & "DATA SOURCE=" _
+            & "|DataDirectory|\rowingDatabase (1).accdb")
+            dbCommand.CommandText = "Update tbProfiles Set " _
+            & "Weight='" & numWeight & "', " _
+            & "2k='" & str2k & "', " _
+            & "Beep='" & numBeep & "', " _
+            & "Side='" & numSide & "', " _
+            & "Seat='" & numSeat & "' " _
+            & "WHERE ID=" & IDStr(index)
+                                                                         +
+            dbCommand.Connection = DBConn
+            dbCommand.Connection.Open()
+            dbCommand.ExecuteNonQuery()
+            DBConn.Close()
+            MsgBox("Guardado satisfactoriamente.")
+        Catch err As System.Exception
+            MsgBox(err.Message)
+        End Try
     End Sub
     'Highlighting
     Private Sub RowerPanelEnter(sender As Object, e As EventArgs)
@@ -261,6 +295,7 @@ Public Class ProfilesView
         clicked.BackColor = skyOrange
         Dim index = CInt(clicked.Name)
         FillDetails(index)
+        SelectedRower = IDStr(index)
     End Sub
     'Edit Button Higlighting
     Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
