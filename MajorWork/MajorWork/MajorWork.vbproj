@@ -247,9 +247,6 @@
     <Content Include="Info.txt" />
     <Content Include="Notes.txt" />
     <None Include="Resources\BlankProfilePictuer.png" />
-    <Content Include="rowingDatabase %281%29.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Resources\congration.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

@@ -165,6 +165,7 @@ Partial Class EditProfiles
         'cmbDivision
         '
         Me.cmbDivision.FormattingEnabled = True
+        Me.cmbDivision.Items.AddRange(New Object() {"Year 8 Quads", "Year 9 Quads", "Year 10 Eights", "1st VIII"})
         Me.cmbDivision.Location = New System.Drawing.Point(8, 67)
         Me.cmbDivision.Name = "cmbDivision"
         Me.cmbDivision.Size = New System.Drawing.Size(171, 21)
@@ -192,6 +193,8 @@ Partial Class EditProfiles
         '
         'numBeep
         '
+        Me.numBeep.DecimalPlaces = 1
+        Me.numBeep.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.numBeep.Location = New System.Drawing.Point(8, 68)
         Me.numBeep.Name = "numBeep"
         Me.numBeep.Size = New System.Drawing.Size(168, 20)
@@ -210,6 +213,7 @@ Partial Class EditProfiles
         'cmbSide
         '
         Me.cmbSide.FormattingEnabled = True
+        Me.cmbSide.Items.AddRange(New Object() {"Stroke Side", "Bow Side", "N/A"})
         Me.cmbSide.Location = New System.Drawing.Point(8, 63)
         Me.cmbSide.Name = "cmbSide"
         Me.cmbSide.Size = New System.Drawing.Size(168, 21)
@@ -228,6 +232,7 @@ Partial Class EditProfiles
         'cmbSeat
         '
         Me.cmbSeat.FormattingEnabled = True
+        Me.cmbSeat.Items.AddRange(New Object() {"Stroke", "2 Man", "3 Man", "4 Man", "5 Man", "6 Man", "7 Man", "Bow", "Coxswain"})
         Me.cmbSeat.Location = New System.Drawing.Point(8, 63)
         Me.cmbSeat.Name = "cmbSeat"
         Me.cmbSeat.Size = New System.Drawing.Size(168, 21)
