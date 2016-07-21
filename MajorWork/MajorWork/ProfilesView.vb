@@ -11,13 +11,14 @@ Public Class ProfilesView
     Dim rClass As New List(Of String)
 
     Dim Sorted As New List(Of Integer)                          'Sorted list of indexes
-    Dim TempList As New List(Of String)                         'Temporary list used to sort database list without changing indexes
+    Dim SortList As New List(Of String)                         'Temporary list used to sort database list without changing indexes
     Dim SortArray() As Object = {gName, sName, rClass, IDStr}   'Array matching the sort combo box index to its respective list 
-    Dim SearchList As New List(Of String)                       'Temporary list used to search database list without changing indexes 
-    Dim Loaded As Boolean = False                               'Because things break if certain lines of code run on load (no fucking clue why, this shifty workaround is only solution i can find)
     Dim position As Integer = 0                                 'Position to start index search, used when there are multiple people with the same primary value
     Dim FirstPanel As Boolean = True                            'Boolean showing whether the panel being filled is the first panel
-    Dim ListOTemp As New List(Of String)                        'Temporary list used to get sorted values prior to being filtered by the search module
+    Dim SearchList As New List(Of String)                        'Temporary list used to get sorted values prior to being filtered by the search module
+    Dim FilterList As New List(Of Integer)
+    Dim yearGroups() As Integer = {0, 1, 10, 9, 8}
+
     Private Sub ProfilesView_Load(sender As Object, e As EventArgs) Handles Me.Load
         ReadDatabase()
 
@@ -27,7 +28,6 @@ Public Class ProfilesView
 
         'Load Panels
         FillPanels()
-        Loaded = True
 
         SearchBox.Focus()                                       'Ensures the focus is on the search box when the form loads, so you can type straight away
     End Sub
@@ -61,8 +61,8 @@ Public Class ProfilesView
         End Using
     End Sub
     Private Sub FillPanels() 'Creates Panels and populate them with data
-        SortAndFilter()
-        SearchFilter()
+        SortRowers()
+        FilterRowers()
         RowerBox.Controls.Clear() 'Ensures the flow layout panel is empty
         For Each rower As Integer In Sorted 'Every Index in Sorted (All indexes or all indexes matching search, just in a sorted order)
             'Creates the panels
@@ -129,68 +129,55 @@ Public Class ProfilesView
 
         Sorted.Clear() 'Clears the sorted list
     End Sub
-    Private Sub SortAndFilter() 'Sorts and Filters the data to be created
+    Private Sub SortRowers() 'Sorts and Filters the data to be created
         'Clears all the lists used in the process
         Sorted.Clear()
+        SortList.Clear()
         SearchList.Clear()
-        TempList.Clear()
-        ListOTemp.Clear()
+        FilterList.Clear()
         FirstPanel = True
-
-        If Loaded = True Then 'Sort by selected sort type
-            For Each st As String In SortArray(SortBox.SelectedIndex)
-                TempList.Add(st)
-            Next
-        Else 'On load, sort by lastname by default
-            For Each x As String In SortArray(0)
-                TempList.Add(x)
-            Next
-        End If
-
-        TempList.Sort() 'Sorts the temporary list
-
-        'Filter by year group. Could be cleaned up but ceebs
-        For Each i As String In TempList
-            Select Case FilterBox.SelectedIndex
+        For i As Integer = 0 To IDStr.Count - 1
+            Select Case SortBox.SelectedIndex
                 Case 1
-                    If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i)) = 1 Then
-                        Sort(i)
-                    End If
+                    SortList.Add(sName(i))
                 Case 2
-                    If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i)) = 10 Then
-                        Sort(i)
-                    End If
+                    SortList.Add(rClass(i))
                 Case 3
-                    If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i)) = 9 Then
-                        Sort(i)
-                    End If
-                Case 4
-                    If yGroup(SortArray(SortBox.SelectedIndex).IndexOf(i)) = 8 Then
-                        Sort(i)
-                    End If
+                    SortList.Add(IDStr(i))
                 Case Else
-                    Sort(i)
+                    SortList.Add(gName(i))
             End Select
         Next
+        SortList.Sort() 'Sorts the temporary list
+        For Each st As String In SortList
+            GetIndex(st)
+        Next
     End Sub
-    Private Sub SearchFilter() 'Filters the remaining items by matching it to search box
-        For Each num As Integer In ListOTemp
-            If gName(num).ToLower.Contains(SearchBox.Text.ToLower) Or sName(num).ToLower.Contains(SearchBox.Text.ToLower) Or IDStr(num).ToLower.Contains(SearchBox.Text.ToLower) Then
-                Sorted.Add(num)
+    Private Sub FilterRowers() 'Filters the remaining items by matching it to search box
+        For Each num As Integer In FilterList
+            If FilterBox.SelectedIndex <> 0 Then
+                If CInt(yGroup(num)) = yearGroups(FilterBox.SelectedIndex) Then
+                    If gName(num).ToLower.Contains(SearchBox.Text.ToLower) Or sName(num).ToLower.Contains(SearchBox.Text.ToLower) Or IDStr(num).ToLower.Contains(SearchBox.Text.ToLower) Then
+                        Sorted.Add(num)
+                    End If
+                End If
+            Else
+                If gName(num).ToLower.Contains(SearchBox.Text.ToLower) Or sName(num).ToLower.Contains(SearchBox.Text.ToLower) Or IDStr(num).ToLower.Contains(SearchBox.Text.ToLower) Then
+                    Sorted.Add(num)
+                End If
             End If
         Next
-        ListOTemp.Clear()
     End Sub
-    Private Sub Sort(i As String) 'Checks for duplicates, and adds to TempOList
+    Private Sub GetIndex(i As String) 'Checks for duplicates, and adds to TempOList
         If FirstPanel = True Then
-            ListOTemp.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
-        ElseIf i = gName(ListOTemp.Last) Or i = sName(ListOTemp.Last) Or i = rClass(ListOTemp.Last) Then
-            position = ListOTemp.Last + 1
+            FilterList.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
+        ElseIf i = gName(FilterList.Last) Or i = sName(FilterList.Last) Or i = rClass(FilterList.Last) Then
+            position = FilterList.Last + 1
             If SortArray(SortBox.SelectedIndex).IndexOf(i, position) <> -1 Then
-                ListOTemp.Add(SortArray(SortBox.SelectedIndex).IndexOf(i, position))
+                FilterList.Add(SortArray(SortBox.SelectedIndex).IndexOf(i, position))
             End If
         Else
-            ListOTemp.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
+            FilterList.Add(SortArray(SortBox.SelectedIndex).IndexOf(i))
         End If
         FirstPanel = False
     End Sub
@@ -252,14 +239,13 @@ Public Class ProfilesView
             & "Side='" & numSide & "', " _
             & "Seat='" & numSeat & "' " _
             & "WHERE ID=" & IDStr(index)
-                                                                         +
             dbCommand.Connection = DBConn
             dbCommand.Connection.Open()
             dbCommand.ExecuteNonQuery()
             DBConn.Close()
             MsgBox("Guardado satisfactoriamente.")
         Catch err As System.Exception
-            MsgBox(err.Message)
+            'MsgBox(err.Message)
         End Try
     End Sub
     'Highlighting
