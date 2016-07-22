@@ -90,6 +90,12 @@
     <Compile Include="EditProfiles.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="newRace.Designer.vb">
+      <DependentUpon>newRace.vb</DependentUpon>
+    </Compile>
+    <Compile Include="newRace.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ProfilesView.Designer.vb">
       <DependentUpon>ProfilesView.vb</DependentUpon>
     </Compile>
@@ -138,12 +144,6 @@
     <Compile Include="results.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="resultsProfile.Designer.vb">
-      <DependentUpon>resultsProfile.vb</DependentUpon>
-    </Compile>
-    <Compile Include="resultsProfile.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="resultsRace.Designer.vb">
       <DependentUpon>resultsRace.vb</DependentUpon>
     </Compile>
@@ -189,6 +189,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="newRace.resx">
+      <DependentUpon>newRace.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Options.resx">
       <DependentUpon>Options.vb</DependentUpon>
     </EmbeddedResource>
@@ -197,9 +200,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="results.resx">
       <DependentUpon>results.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="resultsProfile.resx">
-      <DependentUpon>resultsProfile.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="resultsRace.resx">
       <DependentUpon>resultsRace.vb</DependentUpon>
