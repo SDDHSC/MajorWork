@@ -72,6 +72,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Absences.Designer.vb">
+      <DependentUpon>Absences.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Absences.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Attendance.Designer.vb">
       <DependentUpon>Attendance.vb</DependentUpon>
     </Compile>
@@ -90,10 +96,28 @@
     <Compile Include="EditProfiles.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MainAttendance.Designer.vb">
+      <DependentUpon>MainAttendance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainAttendance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="markRoll.Designer.vb">
+      <DependentUpon>markRoll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="markRoll.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="newRace.Designer.vb">
       <DependentUpon>newRace.vb</DependentUpon>
     </Compile>
     <Compile Include="newRace.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="newRoll.Designer.vb">
+      <DependentUpon>newRoll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="newRoll.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProfilesView.Designer.vb">
@@ -168,6 +192,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Absences.resx">
+      <DependentUpon>Absences.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Attendance.resx">
       <DependentUpon>Attendance.vb</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +210,12 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainAttendance.resx">
+      <DependentUpon>MainAttendance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="markRoll.resx">
+      <DependentUpon>markRoll.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -191,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="newRace.resx">
       <DependentUpon>newRace.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newRoll.resx">
+      <DependentUpon>newRoll.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options.resx">
       <DependentUpon>Options.vb</DependentUpon>

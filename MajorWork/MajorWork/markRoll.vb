@@ -1,0 +1,226 @@
+﻿Imports System.Data.OleDb
+Public Class markRoll
+    'MAKE MORE EFFICIENT connects this form to previous form. 
+    Public y7 As Integer
+    Public y8 As Integer
+    Public y9 As Integer
+    Public y10 As Integer
+    Public y11 As Integer
+    Public y12 As Integer
+    Dim adpNamesUser As New OleDbDataAdapter
+    Dim conNames As OleDbConnection
+    Dim dataNames As New DataSet()
+
+    Dim adpAbsenceUser As New OleDbDataAdapter
+    Dim conAbsence As OleDbConnection
+    Dim dataAbsence As New DataSet()
+
+    Dim adpUser As New OleDbDataAdapter
+    Dim conAttendance As OleDbConnection
+    Dim dataAttendance As New DataSet()
+
+    Private Sub markRoll_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        y7 = newRoll.myY7
+        y8 = newRoll.myY8
+        y9 = newRoll.myY9
+        y10 = newRoll.myY10
+        y11 = newRoll.myY11
+        y12 = newRoll.myY12
+
+        Dim connectString As String = "Provider=Microsoft.Jet.OLEDB.4.0; Data source = " & Environment.CurrentDirectory & "\rowingDatabase.mdb"
+        conNames = New OleDbConnection(connectString)
+        conNames.Open()
+        adpNamesUser = New OleDbDataAdapter()
+        adpNamesUser.SelectCommand = New OleDbCommand()
+        With adpNamesUser.SelectCommand
+            .Connection = conNames
+            .CommandText = "select * FROM tblProfiles"
+            .CommandType = CommandType.Text
+            .ExecuteNonQuery()
+        End With
+        adpNamesUser.Fill(dataNames, "tblProfiles")
+        'Dim tblNames As DataTable
+        'tblNames = dataNames.Tables("Group")
+
+
+
+
+        'add item to listview table
+        Dim table As DataTable = dataNames.Tables("tblProfiles")
+
+        ListView1.View = View.Details
+        For Each row In table.Rows
+            If y7 > 0 And y7 = row.item(4) Then
+                addListRow(row)
+                totalPresent.Text += 1
+            End If
+        Next
+        For Each row In table.Rows
+            If y8 > 0 And y8 = row.item(4) Then
+                addListRow(row)
+                totalPresent.Text += 1
+            End If
+        Next
+        For Each row In table.Rows
+            If y9 > 0 And y9 = row.item(4) Then
+                addListRow(row)
+                totalPresent.Text += 1
+            End If
+        Next
+        For Each row In table.Rows
+            If y10 > 0 And y10 = row.item(4) Then
+                addListRow(row)
+                totalPresent.Text += 1
+            End If
+        Next
+        For Each row In table.Rows
+            If y11 > 0 And y11 = row.item(4) Then
+                addListRow(row)
+                totalPresent.Text += 1
+            End If
+        Next
+        For Each row In table.Rows
+            If y12 > 0 And y12 = row.item(4) Then
+                addListRow(row)
+                totalPresent.Text += 1
+            End If
+        Next
+        '
+        Dim header1, header2, header3 As ColumnHeader
+        header1 = New ColumnHeader
+        header2 = New ColumnHeader
+        header3 = New ColumnHeader
+        header1.Text = "First Name"
+        header1.TextAlign = HorizontalAlignment.Left
+        header1.Width = 116
+        header2.Text = "Last Name"
+        header2.TextAlign = HorizontalAlignment.Left
+        header2.Width = 116
+        header3.Text = "Year"
+        header3.TextAlign = HorizontalAlignment.Left
+        header3.Width = 41
+        ListView1.Columns.Add(header1)
+        ListView1.Columns.Add(header2)
+        ListView1.Columns.Add(header3)
+
+    End Sub
+    Sub addListRow(row As Object)
+        Dim tempstring As String = row.item("gName")
+        Dim item1 As New ListViewItem(tempstring)
+        item1.SubItems.Add(row.item("sName"))
+        item1.SubItems.Add(row.item("Group"))
+        item1.SubItems.Add(row.item("House"))
+        item1.SubItems.Add(row.item("ID"))
+        ListView1.Items.AddRange(New ListViewItem() {item1})
+    End Sub
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        'ARE YOU SURE???
+        newRoll.Show()
+
+        'Clears values from Listview1 when cancel is pressed
+        newRoll.myY7 = 0
+        newRoll.myY8 = 0
+        newRoll.myY9 = 0
+        newRoll.myY10 = 0
+        newRoll.myY11 = 0
+        newRoll.myY12 = 0
+
+        ListView1.Items.Clear()
+        Me.Close()
+
+    End Sub
+    Private Sub listview1_itemcheck(ByVal sender As Object, ByVal e As System.Windows.Forms.ItemCheckEventArgs) Handles ListView1.ItemCheck
+
+
+
+
+    End Sub
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        Dim saveConfirm As Integer = MessageBox.Show("Are you sure? Changes cannot be undone", "Confirm", MessageBoxButtons.YesNo)
+        If saveConfirm = DialogResult.Yes Then
+            'establishes connections with databases
+            Dim connectAbsenceString As String = "Provider=Microsoft.Jet.OLEDB.4.0; Data source = " & Environment.CurrentDirectory & "\rowingDatabase.mdb"
+            conAbsence = New OleDbConnection(connectAbsenceString)
+            conAbsence.Open()
+            adpAbsenceUser = New OleDbDataAdapter()
+            adpAbsenceUser.SelectCommand = New OleDbCommand()
+            With adpAbsenceUser.SelectCommand
+                .Connection = conAbsence
+                .CommandText = "select * FROM tblAbsence"
+                .CommandType = CommandType.Text
+                .ExecuteNonQuery()
+            End With
+            adpAbsenceUser.Fill(dataAbsence, "tblAbsence")
+
+            Dim connectAttendanceString As String = "Provider=Microsoft.Jet.OLEDB.4.0; Data source = " & Environment.CurrentDirectory & "\rowingDatabase.mdb"
+            conAttendance = New OleDbConnection(connectAttendanceString)
+            conAttendance.Open()
+            adpUser = New OleDbDataAdapter()
+            adpUser.SelectCommand = New OleDbCommand()
+            With adpUser.SelectCommand
+                .Connection = conAttendance
+                .CommandText = "select * FROM tblAttendance"
+                .CommandType = CommandType.Text
+                .ExecuteNonQuery()
+            End With
+            adpUser.Fill(dataAttendance, "tblAttendance")
+
+            'inserts details into attendance database
+            Try
+                Dim command As String
+                command = "INSERT INTO tblAttendance(Sessions, Dates, coachOfSession, totalAbsences, totalPresent) VALUES (@sessions, @dates, @coachOfSession, @totalabsences, @totalPresent)"
+                Dim cmd As OleDbCommand
+                cmd = New OleDbCommand(command, conAttendance)
+                cmd.Parameters.AddWithValue("Sessions", sessionType.Text)
+                cmd.Parameters.AddWithValue("Dates", sessionDate.Text)
+                cmd.Parameters.AddWithValue("coachOfSession", coachOfSession.Text)
+                cmd.Parameters.AddWithValue("totalAbsences", totalAbsent.Text)
+                cmd.Parameters.AddWithValue("totalPresent", totalPresent.Text)
+                cmd.ExecuteNonQuery()
+            Catch exceptionobject As Exception
+                MessageBox.Show(exceptionobject.Message)
+            End Try
+            'records all absentees who have been ticked
+            For i = 0 To (ListView1.Items.Count - 1)
+                If ListView1.Items(i).Checked = True Then
+                    Try
+                        Dim commandAbsence As String
+                        commandAbsence = "INSERT INTO tblAbsence(Given, Family, Sessions, Dates, SchoolYr,SchoolHouse, SchoolIDNum) VALUES (@first, @last, @sessions, @dates, @group, @house, @IDnum)"
+                        Dim cmdAbsence As OleDbCommand
+                        cmdAbsence = New OleDbCommand(commandAbsence, conAbsence)
+                        cmdAbsence.Parameters.AddWithValue("Given", ListView1.Items(i).SubItems(0).Text)
+                        cmdAbsence.Parameters.AddWithValue("Family", ListView1.Items(i).SubItems(1).Text)
+                        cmdAbsence.Parameters.AddWithValue("Sessions", sessionType.Text)
+                        cmdAbsence.Parameters.AddWithValue("Dates", sessionDate.Text)
+                        cmdAbsence.Parameters.AddWithValue("School", ListView1.Items(i).SubItems(2).Text)
+                        cmdAbsence.Parameters.AddWithValue("SchoolHouse", ListView1.Items(i).SubItems(3).Text)
+                        cmdAbsence.Parameters.AddWithValue("SchoolIDNum", ListView1.Items(i).SubItems(4).Text)
+                        cmdAbsence.ExecuteNonQuery()
+                    Catch exceptionobject As Exception
+                        MessageBox.Show(exceptionobject.Message)
+                    End Try
+                End If
+            Next
+            conAttendance.Close()
+            conAbsence.Close()
+            Attendance.Show()
+            Attendance.mainPanelCheck.Text = "markRoll Save"
+            Me.Close()
+        End If
+    End Sub
+
+    Private Sub ListView1_ItemChecked(sender As Object, e As ItemCheckedEventArgs) Handles ListView1.ItemChecked
+        totalAbsent.Text = 0
+        totalPresent.Text = 0
+        For i = 0 To (ListView1.Items.Count - 1)
+            If ListView1.Items(i).Checked = False Then
+                totalPresent.Text += 1
+            End If
+        Next
+        For i = 0 To (ListView1.Items.Count - 1)
+            If ListView1.Items(i).Checked = True Then
+                totalAbsent.Text += 1
+            End If
+        Next
+    End Sub
+End Class
