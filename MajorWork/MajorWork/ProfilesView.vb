@@ -64,7 +64,7 @@ Public Class ProfilesView
                     .Width = 140,
                     .BackColor = schoolBlue,
                     .Name = rower.ToString,
-                    .Tag = "NotCLicked" 'Totally a Boolean
+                    .Tag = "NotCLicked"
                 }
             'Creates the ID Label
             Dim testID As New Label With
