@@ -27,6 +27,16 @@ MajorWork
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MajorWork.My.Resources.Resources.rowing1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MajorWork.My.Resources.Resources.rowing2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="T:MajorWork._rowingDatabase__1_DataSet">
 <summary>
 Represents a strongly typed in-memory cache of data.

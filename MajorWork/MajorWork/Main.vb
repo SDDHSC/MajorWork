@@ -26,4 +26,9 @@
     Private Sub settingsButton_Click(sender As Object, e As EventArgs) Handles settingsButton.Click
 
     End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Login.Show()
+        Me.Hide()
+    End Sub
 End Class

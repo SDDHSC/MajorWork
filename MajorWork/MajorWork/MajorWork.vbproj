@@ -96,6 +96,12 @@
     <Compile Include="EditProfiles.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ForgotPassword.Designer.vb">
+      <DependentUpon>ForgotPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainAttendance.Designer.vb">
       <DependentUpon>MainAttendance.vb</DependentUpon>
     </Compile>
@@ -204,6 +210,9 @@
     <EmbeddedResource Include="EditProfiles.resx">
       <DependentUpon>EditProfiles.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
@@ -282,6 +291,8 @@
     <Content Include="Allocation.txt" />
     <Content Include="Info.txt" />
     <Content Include="Notes.txt" />
+    <None Include="Resources\rowing2.png" />
+    <None Include="Resources\rowing1.png" />
     <None Include="Resources\BlankProfilePictuer.png" />
     <None Include="Resources\congration.jpg" />
   </ItemGroup>
