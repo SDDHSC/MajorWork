@@ -19,7 +19,6 @@ Public Class Login
     Public MoveForm As Boolean
     Public MoveForm_MousePosition As Point
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        styleForm(Me)
         PictureBox1.Image = pbImage1
         loginattempts = 0
         lockedOut = False

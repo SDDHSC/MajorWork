@@ -168,6 +168,12 @@
     <Compile Include="Options.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="resetPassword.Designer.vb">
+      <DependentUpon>resetPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="resetPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="results.Designer.vb">
       <DependentUpon>results.vb</DependentUpon>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProfilesView.resx">
       <DependentUpon>ProfilesView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resetPassword.resx">
+      <DependentUpon>resetPassword.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="results.resx">
       <DependentUpon>results.vb</DependentUpon>
