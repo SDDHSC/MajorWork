@@ -269,3 +269,4 @@ C:\Users\student\Documents\Github 2.0 test\MajorWork\MajorWork\MajorWork\obj\Deb
 C:\Users\student\Documents\Github 2.0 test\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.SplashScreen.resources
 C:\Users\student\Documents\Github 2.0 test\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
 C:\Users\student\Documents\Github 2.0 test\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPassword.resources
+C:\Users\student\Documents\Github 2.0 test\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPasswordPanel.resources

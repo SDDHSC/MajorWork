@@ -1,8 +1,8 @@
 ﻿Public Class Main
-    Dim formTexts As New List(Of String) From {"Calendar", "Results", "Attendance", "Profiles"}
-    Dim mainForms As New List(Of Form) From {Calendar, results, Attendance}
+    Dim formTexts As New List(Of String) From {"Calendar", "Results", "Attendance", "Profiles", "Reset Password"}
+    Dim mainForms As New List(Of Form) From {Calendar, results, Attendance, resetPassword}
 
-    Private Sub ButtonClick(sender As Button, e As EventArgs) Handles calendarButton.Click, resultsButton.Click, attendanceButton.Click, profilesButton.Click
+    Private Sub ButtonClick(sender As Button, e As EventArgs) Handles calendarButton.Click, resultsButton.Click, attendanceButton.Click, profilesButton.Click, ChangePasswordButton.Click
         Dim currentForm = mainForms(formTexts.FindIndex(Function(value As String)
                                                             Return value = sender.Text
                                                         End Function))
@@ -30,5 +30,9 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Login.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub ButtonClick(sender As Object, e As EventArgs) Handles resultsButton.Click, profilesButton.Click, calendarButton.Click, attendanceButton.Click
+
     End Sub
 End Class

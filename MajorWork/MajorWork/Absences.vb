@@ -14,7 +14,7 @@ Public Class Absences
 
     Private Sub Absences_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'initialise database (establish connection, load data)
-        Dim connectString As String = "Provider=Microsoft.Jet.OLEDB.4.0; Data source = " & Environment.CurrentDirectory & "\rowingDatabase.mdb"
+        Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
         conAbsence = New OleDbConnection(connectString)
         conAbsence.Open()
         adpAbsenceUser = New OleDbDataAdapter()

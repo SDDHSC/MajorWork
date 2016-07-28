@@ -8,7 +8,7 @@ Public Class MainAttendance
     Private Sub MainAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'Dim Key(0) As DataColumn 'only ione column in the primary key
-        Dim connectString As String = "Provider=Microsoft.Jet.OLEDB.4.0; Data source = " & Environment.CurrentDirectory & "\rowingDatabase.mdb"
+        Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
 
         conAttendance = New OleDbConnection(connectString)
         conAttendance.Open()

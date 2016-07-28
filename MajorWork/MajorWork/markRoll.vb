@@ -27,18 +27,18 @@ Public Class markRoll
         y11 = newRoll.myY11
         y12 = newRoll.myY12
 
-        Dim connectString As String = "Provider=Microsoft.Jet.OLEDB.4.0; Data source = " & Environment.CurrentDirectory & "\rowingDatabase.mdb"
+        Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
         conNames = New OleDbConnection(connectString)
         conNames.Open()
         adpNamesUser = New OleDbDataAdapter()
         adpNamesUser.SelectCommand = New OleDbCommand()
         With adpNamesUser.SelectCommand
             .Connection = conNames
-            .CommandText = "select * FROM tblProfiles"
+            .CommandText = "select * FROM tbProfiles"
             .CommandType = CommandType.Text
             .ExecuteNonQuery()
         End With
-        adpNamesUser.Fill(dataNames, "tblProfiles")
+        adpNamesUser.Fill(dataNames, "tbProfiles")
         'Dim tblNames As DataTable
         'tblNames = dataNames.Tables("Group")
 
@@ -46,7 +46,7 @@ Public Class markRoll
 
 
         'add item to listview table
-        Dim table As DataTable = dataNames.Tables("tblProfiles")
+        Dim table As DataTable = dataNames.Tables("tbProfiles")
 
         ListView1.View = View.Details
         For Each row In table.Rows
@@ -139,7 +139,7 @@ Public Class markRoll
         Dim saveConfirm As Integer = MessageBox.Show("Are you sure? Changes cannot be undone", "Confirm", MessageBoxButtons.YesNo)
         If saveConfirm = DialogResult.Yes Then
             'establishes connections with databases
-            Dim connectAbsenceString As String = "Provider=Microsoft.Jet.OLEDB.4.0; Data source = " & Environment.CurrentDirectory & "\rowingDatabase.mdb"
+            Dim connectAbsenceString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
             conAbsence = New OleDbConnection(connectAbsenceString)
             conAbsence.Open()
             adpAbsenceUser = New OleDbDataAdapter()
@@ -152,7 +152,7 @@ Public Class markRoll
             End With
             adpAbsenceUser.Fill(dataAbsence, "tblAbsence")
 
-            Dim connectAttendanceString As String = "Provider=Microsoft.Jet.OLEDB.4.0; Data source = " & Environment.CurrentDirectory & "\rowingDatabase.mdb"
+            Dim connectAttendanceString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
             conAttendance = New OleDbConnection(connectAttendanceString)
             conAttendance.Open()
             adpUser = New OleDbDataAdapter()

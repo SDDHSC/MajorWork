@@ -28,6 +28,15 @@ Partial Class resetPassword
         Me.newPassword = New System.Windows.Forms.Label()
         Me.confirmPassword = New System.Windows.Forms.Label()
         Me.btnNext1 = New System.Windows.Forms.Button()
+        Me.txtCurrentPassword = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.txtUsername = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.groupNewPasswords = New System.Windows.Forms.GroupBox()
+        Me.currentDetails = New System.Windows.Forms.GroupBox()
+        Me.groupNewPasswords.SuspendLayout()
+        Me.currentDetails.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -42,35 +51,37 @@ Partial Class resetPassword
         '
         'txtConfirmPassword
         '
-        Me.txtConfirmPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtConfirmPassword.Location = New System.Drawing.Point(41, 160)
+        Me.txtConfirmPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtConfirmPassword.Location = New System.Drawing.Point(6, 103)
         Me.txtConfirmPassword.Name = "txtConfirmPassword"
-        Me.txtConfirmPassword.Size = New System.Drawing.Size(175, 26)
+        Me.txtConfirmPassword.Size = New System.Drawing.Size(175, 24)
         Me.txtConfirmPassword.TabIndex = 21
         '
         'txtNewPassword
         '
-        Me.txtNewPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNewPassword.Location = New System.Drawing.Point(41, 113)
+        Me.txtNewPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNewPassword.Location = New System.Drawing.Point(9, 46)
         Me.txtNewPassword.Name = "txtNewPassword"
-        Me.txtNewPassword.Size = New System.Drawing.Size(175, 26)
+        Me.txtNewPassword.Size = New System.Drawing.Size(175, 24)
         Me.txtNewPassword.TabIndex = 20
         '
         'newPassword
         '
         Me.newPassword.AutoSize = True
-        Me.newPassword.Location = New System.Drawing.Point(38, 97)
+        Me.newPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.newPassword.Location = New System.Drawing.Point(6, 25)
         Me.newPassword.Name = "newPassword"
-        Me.newPassword.Size = New System.Drawing.Size(77, 13)
+        Me.newPassword.Size = New System.Drawing.Size(107, 18)
         Me.newPassword.TabIndex = 19
         Me.newPassword.Text = "New password"
         '
         'confirmPassword
         '
         Me.confirmPassword.AutoSize = True
-        Me.confirmPassword.Location = New System.Drawing.Point(38, 144)
+        Me.confirmPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.confirmPassword.Location = New System.Drawing.Point(6, 82)
         Me.confirmPassword.Name = "confirmPassword"
-        Me.confirmPassword.Size = New System.Drawing.Size(90, 13)
+        Me.confirmPassword.Size = New System.Drawing.Size(130, 18)
         Me.confirmPassword.TabIndex = 18
         Me.confirmPassword.Text = "Confirm password"
         '
@@ -80,8 +91,83 @@ Partial Class resetPassword
         Me.btnNext1.Name = "btnNext1"
         Me.btnNext1.Size = New System.Drawing.Size(75, 23)
         Me.btnNext1.TabIndex = 22
-        Me.btnNext1.Text = "btnSave"
+        Me.btnNext1.Text = "Next"
         Me.btnNext1.UseVisualStyleBackColor = True
+        '
+        'txtCurrentPassword
+        '
+        Me.txtCurrentPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCurrentPassword.Location = New System.Drawing.Point(6, 105)
+        Me.txtCurrentPassword.Name = "txtCurrentPassword"
+        Me.txtCurrentPassword.Size = New System.Drawing.Size(175, 24)
+        Me.txtCurrentPassword.TabIndex = 26
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(6, 86)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(162, 18)
+        Me.Label2.TabIndex = 25
+        Me.Label2.Text = "Enter current password"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(46, 398)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 28
+        Me.Button2.Text = "Cancel"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'txtUsername
+        '
+        Me.txtUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUsername.Location = New System.Drawing.Point(6, 49)
+        Me.txtUsername.Name = "txtUsername"
+        Me.txtUsername.Size = New System.Drawing.Size(175, 24)
+        Me.txtUsername.TabIndex = 30
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(6, 28)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(113, 18)
+        Me.Label3.TabIndex = 29
+        Me.Label3.Text = "Enter username"
+        '
+        'groupNewPasswords
+        '
+        Me.groupNewPasswords.Controls.Add(Me.newPassword)
+        Me.groupNewPasswords.Controls.Add(Me.confirmPassword)
+        Me.groupNewPasswords.Controls.Add(Me.txtNewPassword)
+        Me.groupNewPasswords.Controls.Add(Me.txtConfirmPassword)
+        Me.groupNewPasswords.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.groupNewPasswords.ForeColor = System.Drawing.Color.White
+        Me.groupNewPasswords.Location = New System.Drawing.Point(30, 252)
+        Me.groupNewPasswords.Name = "groupNewPasswords"
+        Me.groupNewPasswords.Size = New System.Drawing.Size(350, 140)
+        Me.groupNewPasswords.TabIndex = 42
+        Me.groupNewPasswords.TabStop = False
+        Me.groupNewPasswords.Text = "Enter new passwords"
+        '
+        'currentDetails
+        '
+        Me.currentDetails.Controls.Add(Me.txtUsername)
+        Me.currentDetails.Controls.Add(Me.Label2)
+        Me.currentDetails.Controls.Add(Me.txtCurrentPassword)
+        Me.currentDetails.Controls.Add(Me.Label3)
+        Me.currentDetails.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.currentDetails.ForeColor = System.Drawing.Color.White
+        Me.currentDetails.Location = New System.Drawing.Point(30, 77)
+        Me.currentDetails.Name = "currentDetails"
+        Me.currentDetails.Size = New System.Drawing.Size(350, 150)
+        Me.currentDetails.TabIndex = 43
+        Me.currentDetails.TabStop = False
+        Me.currentDetails.Text = "Enter current username and password"
         '
         'resetPassword
         '
@@ -89,16 +175,19 @@ Partial Class resetPassword
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(700, 450)
+        Me.Controls.Add(Me.currentDetails)
+        Me.Controls.Add(Me.groupNewPasswords)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnNext1)
-        Me.Controls.Add(Me.txtConfirmPassword)
-        Me.Controls.Add(Me.txtNewPassword)
-        Me.Controls.Add(Me.newPassword)
-        Me.Controls.Add(Me.confirmPassword)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "resetPassword"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "resetPassword"
+        Me.groupNewPasswords.ResumeLayout(False)
+        Me.groupNewPasswords.PerformLayout()
+        Me.currentDetails.ResumeLayout(False)
+        Me.currentDetails.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -110,4 +199,11 @@ Partial Class resetPassword
     Friend WithEvents newPassword As Label
     Friend WithEvents confirmPassword As Label
     Friend WithEvents btnNext1 As Button
+    Friend WithEvents txtCurrentPassword As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Button2 As Button
+    Friend WithEvents txtUsername As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents groupNewPasswords As GroupBox
+    Friend WithEvents currentDetails As GroupBox
 End Class

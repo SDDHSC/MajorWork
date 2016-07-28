@@ -14,10 +14,6 @@
         MainAttendance.Show()
     End Sub
 
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
-    End Sub
-
     Private Sub mainPanelCheck_TextChanged(sender As Object, e As EventArgs) Handles mainPanelCheck.TextChanged
         If mainPanelCheck.Text = "newRoll Cancel" Or mainPanelCheck.Text = "attendance show" Or   'stick forms to panel
             mainPanelCheck.Text = "markRoll Save" Then
