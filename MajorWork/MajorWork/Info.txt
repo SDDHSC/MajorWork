@@ -1,2 +1,0 @@
-﻿Variables have to be clearly named
-camelCase
