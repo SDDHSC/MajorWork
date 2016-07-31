@@ -1,0 +1,231 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MajorWork
+</name>
+</assembly>
+<members>
+<member name="T:MajorWork.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:MajorWork.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:MajorWork.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:MajorWork.My.Resources.Resources.BlankProfilePictuer">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MajorWork.My.Resources.Resources.rowing1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MajorWork.My.Resources.Resources.rowing2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet.tbProfilesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet.tbProfilesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet.tbProfilesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSetTableAdapters.tbProfilesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:MajorWork._rowingDatabase__1_DataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(MajorWork._rowingDatabase__1_DataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:MajorWork._rowingDatabase__1_DataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(MajorWork._rowingDatabase__1_DataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:MajorWork._rowingDatabase__1_DataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(MajorWork._rowingDatabase__1_DataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:MajorWork._rowingDatabase__1_DataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:MajorWork._rowingDatabase__1_DataSetTableAdapters.TableAdapterManager.UpdateAll(MajorWork._rowingDatabase__1_DataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1.tbAttendanceDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1.tbLoginDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1.tbProfilesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1.tbResultsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1.tbAttendanceRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1.tbLoginRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1.tbProfilesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1.tbResultsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1.tbAttendanceRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1.tbLoginRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1.tbProfilesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1.tbResultsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1TableAdapters.tbAttendanceTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1TableAdapters.tbLoginTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1TableAdapters.tbProfilesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1TableAdapters.tbResultsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1TableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:MajorWork._rowingDatabase__1_DataSet1TableAdapters.TableAdapterManager.UpdateUpdatedRows(MajorWork._rowingDatabase__1_DataSet1,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:MajorWork._rowingDatabase__1_DataSet1TableAdapters.TableAdapterManager.UpdateInsertedRows(MajorWork._rowingDatabase__1_DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:MajorWork._rowingDatabase__1_DataSet1TableAdapters.TableAdapterManager.UpdateDeletedRows(MajorWork._rowingDatabase__1_DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:MajorWork._rowingDatabase__1_DataSet1TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:MajorWork._rowingDatabase__1_DataSet1TableAdapters.TableAdapterManager.UpdateAll(MajorWork._rowingDatabase__1_DataSet1)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:MajorWork._rowingDatabase__1_DataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+</members>
+</doc>
