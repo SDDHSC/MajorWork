@@ -6,7 +6,11 @@ Public Class MainAttendance
     Dim listViewEmpty As Boolean = True
     Dim initialising = True
     Private Sub MainAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        'Set tootip
+        ToolTipAttendance.SetToolTip(listAttendance, "Double click event for more info")
+        ToolTipFilterInfo.SetToolTip(FilterInfo, "Select and click filters to apply them" & Environment.NewLine &
+            "Click reset to clear all filters" & Environment.NewLine & "To apply date: check box and" _
+            & Environment.NewLine & "select a date")
         'Dim Key(0) As DataColumn 'only ione column in the primary key
         Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
 
@@ -23,12 +27,7 @@ Public Class MainAttendance
         adpUser.Fill(dataAttendance, "tblAttendance")
 
 
-        Dim header1, header2, header3, header4, header5 As ColumnHeader
-        header1 = New ColumnHeader
-        header2 = New ColumnHeader
-        header3 = New ColumnHeader
-        header4 = New ColumnHeader
-        header5 = New ColumnHeader
+        Dim header1, header2, header3, header4, header5 As New ColumnHeader
         header1.Text = "Session"
         header1.TextAlign = HorizontalAlignment.Left
         header1.Width = 100
@@ -288,6 +287,9 @@ Public Class MainAttendance
         'End If
     End Sub
     Private Sub displayAll_Click(sender As Object, e As EventArgs) Handles displayAll.Click
+        Reset()
+    End Sub
+    Sub reset()
         attendanceSession.SelectedIndex = 0
         coachOfSession.SelectedIndex = 0
         listAttendance.Items.Clear()
@@ -322,6 +324,44 @@ Public Class MainAttendance
             attendanceDateTimePicker.Enabled = True
         Else
             attendanceDateTimePicker.Enabled = False
+        End If
+    End Sub
+
+    Private Sub listattendance_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles listAttendance.Click
+        Dim tooltipdisplay As Boolean = False
+        For i = 0 To (listAttendance.Items.Count - 1)
+            If listAttendance.Items(i).Selected = True Then
+                tooltipdisplay = True
+            End If
+        Next
+        If tooltipdisplay = True Then
+            ToolTipAttendance.SetToolTip(listAttendance, "Double click")
+        End If
+    End Sub
+    Private Sub listattendance_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles listAttendance.DoubleClick
+        mainAttendanceExtra.Close()
+        For i = 0 To (listAttendance.Items.Count - 1)
+            If listAttendance.Items(i) Is Nothing Then
+                Continue For
+            End If
+            If listAttendance.Items(i).Selected = True Then
+                Console.WriteLine(listAttendance.Items(i))
+                mainAttendanceExtra.sessionType.Text = listAttendance.Items(i).SubItems(0).Text
+                mainAttendanceExtra.sessionDate.Text = listAttendance.Items(i).SubItems(1).Text
+                mainAttendanceExtra.coachOfSession.Text = listAttendance.Items(i).SubItems(2).Text
+                mainAttendanceExtra.totalPresent.Text = listAttendance.Items(i).SubItems(4).Text
+                mainAttendanceExtra.totalAbsent.Text = listAttendance.Items(i).SubItems(3).Text
+                mainAttendanceExtra.Show()
+            End If
+        Next
+    End Sub
+
+    Private Sub emptyCheck_Tick_1(sender As Object, e As EventArgs) Handles emptyCheck.Tick
+        If initialising = False Then
+            If listAttendance.Items.Count = 0 Then
+                reset()
+                MessageBox.Show("No sessions to show", "Names", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
         End If
     End Sub
 End Class

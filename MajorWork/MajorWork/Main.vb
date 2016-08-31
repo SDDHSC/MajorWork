@@ -1,6 +1,6 @@
 ﻿Public Class Main
     Dim formTexts As New List(Of String) From {"Calendar", "Results", "Attendance", "Profiles", "Reset Password"}
-    Dim mainForms As New List(Of Form) From {Calendar, results, Attendance, resetPassword}
+    Dim mainForms As New List(Of Form) From {Calendar, results, Attendance, ProfilesView, resetPassword}
 
     Private Sub ButtonClick(sender As Button, e As EventArgs) Handles calendarButton.Click, resultsButton.Click, attendanceButton.Click, profilesButton.Click, ChangePasswordButton.Click
         Dim currentForm = mainForms(formTexts.FindIndex(Function(value As String)

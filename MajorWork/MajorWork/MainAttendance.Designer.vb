@@ -34,6 +34,9 @@ Partial Class MainAttendance
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.emptyCheck = New System.Windows.Forms.Timer(Me.components)
+        Me.ToolTipAttendance = New System.Windows.Forms.ToolTip(Me.components)
+        Me.FilterInfo = New System.Windows.Forms.Label()
+        Me.ToolTipFilterInfo = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'dateCheck
@@ -47,7 +50,7 @@ Partial Class MainAttendance
         '
         'displayAll
         '
-        Me.displayAll.Location = New System.Drawing.Point(598, 79)
+        Me.displayAll.Location = New System.Drawing.Point(540, 79)
         Me.displayAll.Name = "displayAll"
         Me.displayAll.Size = New System.Drawing.Size(79, 28)
         Me.displayAll.TabIndex = 47
@@ -57,11 +60,14 @@ Partial Class MainAttendance
         'listAttendance
         '
         Me.listAttendance.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.listAttendance.FullRowSelect = True
         Me.listAttendance.GridLines = True
+        Me.listAttendance.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.listAttendance.Location = New System.Drawing.Point(21, 122)
         Me.listAttendance.Name = "listAttendance"
         Me.listAttendance.Size = New System.Drawing.Size(659, 317)
         Me.listAttendance.TabIndex = 46
+        Me.ToolTipAttendance.SetToolTip(Me.listAttendance, "Double click for more information")
         Me.listAttendance.UseCompatibleStateImageBehavior = False
         '
         'attendanceDateTimePicker
@@ -78,7 +84,7 @@ Partial Class MainAttendance
         Me.coachOfSession.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.coachOfSession.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.coachOfSession.FormattingEnabled = True
-        Me.coachOfSession.Location = New System.Drawing.Point(440, 80)
+        Me.coachOfSession.Location = New System.Drawing.Point(400, 81)
         Me.coachOfSession.Name = "coachOfSession"
         Me.coachOfSession.Size = New System.Drawing.Size(104, 26)
         Me.coachOfSession.TabIndex = 44
@@ -88,7 +94,7 @@ Partial Class MainAttendance
         Me.attendanceSession.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.attendanceSession.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.attendanceSession.FormattingEnabled = True
-        Me.attendanceSession.Location = New System.Drawing.Point(261, 81)
+        Me.attendanceSession.Location = New System.Drawing.Point(245, 81)
         Me.attendanceSession.Name = "attendanceSession"
         Me.attendanceSession.Size = New System.Drawing.Size(121, 26)
         Me.attendanceSession.TabIndex = 43
@@ -140,12 +146,30 @@ Partial Class MainAttendance
         Me.emptyCheck.Enabled = True
         Me.emptyCheck.Interval = 1000
         '
+        'FilterInfo
+        '
+        Me.FilterInfo.AutoSize = True
+        Me.FilterInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.FilterInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterInfo.Location = New System.Drawing.Point(651, 82)
+        Me.FilterInfo.Name = "FilterInfo"
+        Me.FilterInfo.Size = New System.Drawing.Size(20, 22)
+        Me.FilterInfo.TabIndex = 49
+        Me.FilterInfo.Text = "?"
+        '
+        'ToolTipFilterInfo
+        '
+        Me.ToolTipFilterInfo.AutoPopDelay = 10000
+        Me.ToolTipFilterInfo.InitialDelay = 500
+        Me.ToolTipFilterInfo.ReshowDelay = 100
+        '
         'MainAttendance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(700, 450)
+        Me.Controls.Add(Me.FilterInfo)
         Me.Controls.Add(Me.dateCheck)
         Me.Controls.Add(Me.displayAll)
         Me.Controls.Add(Me.listAttendance)
@@ -176,4 +200,7 @@ Partial Class MainAttendance
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents emptyCheck As Timer
+    Friend WithEvents ToolTipAttendance As ToolTip
+    Friend WithEvents FilterInfo As Label
+    Friend WithEvents ToolTipFilterInfo As ToolTip
 End Class

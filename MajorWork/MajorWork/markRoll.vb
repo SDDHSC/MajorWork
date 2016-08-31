@@ -27,6 +27,10 @@ Public Class markRoll
         y11 = newRoll.myY11
         y12 = newRoll.myY12
 
+
+        'tooltip initialise
+        ToolTipListView.SetToolTip(ListView1, "Double click to mark absent")
+
         Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
         conNames = New OleDbConnection(connectString)
         conNames.Open()
@@ -129,12 +133,6 @@ Public Class markRoll
         Me.Close()
 
     End Sub
-    Private Sub listview1_itemcheck(ByVal sender As Object, ByVal e As System.Windows.Forms.ItemCheckEventArgs) Handles ListView1.ItemCheck
-
-
-
-
-    End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim saveConfirm As Integer = MessageBox.Show("Are you sure? Changes cannot be undone", "Confirm", MessageBoxButtons.YesNo)
         If saveConfirm = DialogResult.Yes Then
@@ -168,7 +166,7 @@ Public Class markRoll
             'inserts details into attendance database
             Try
                 Dim command As String
-                command = "INSERT INTO tblAttendance(Sessions, Dates, coachOfSession, totalAbsences, totalPresent) VALUES (@sessions, @dates, @coachOfSession, @totalabsences, @totalPresent)"
+                command = "INSERT INTO tblAttendance(Sessions, Dates, coachOfSession, totalAbsences, totalPresent, YearsPresent, Notes) VALUES (@sessions, @dates, @coachOfSession, @totalabsences, @totalPresent, @YearsPresent, @Notes)"
                 Dim cmd As OleDbCommand
                 cmd = New OleDbCommand(command, conAttendance)
                 cmd.Parameters.AddWithValue("Sessions", sessionType.Text)
@@ -176,6 +174,8 @@ Public Class markRoll
                 cmd.Parameters.AddWithValue("coachOfSession", coachOfSession.Text)
                 cmd.Parameters.AddWithValue("totalAbsences", totalAbsent.Text)
                 cmd.Parameters.AddWithValue("totalPresent", totalPresent.Text)
+                cmd.Parameters.AddWithValue("YearsPresent", lblYearGroups.Text)
+                cmd.Parameters.AddWithValue("Notes", coachNotes.Text)
                 cmd.ExecuteNonQuery()
             Catch exceptionobject As Exception
                 MessageBox.Show(exceptionobject.Message)
