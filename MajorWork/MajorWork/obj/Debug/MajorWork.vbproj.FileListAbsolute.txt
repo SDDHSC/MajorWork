@@ -270,6 +270,7 @@ C:\Users\student\Documents\Github 2.0 test\MajorWork\MajorWork\MajorWork\obj\Deb
 C:\Users\student\Documents\Github 2.0 test\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
 C:\Users\student\Documents\Github 2.0 test\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPassword.resources
 C:\Users\student\Documents\Github 2.0 test\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPasswordPanel.resources
+<<<<<<< HEAD
 C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Absences.resources
 C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.ForgotPassword.resources
 C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.MainAttendance.resources
@@ -277,3 +278,35 @@ C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\Ma
 C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.newRoll.resources
 C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPassword.resources
 C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPasswordPanel.resources
+=======
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\bin\Debug\MajorWork.exe.config
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.exe
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.xml
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.pdb
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\bin\Debug\MajorWork.exe
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\bin\Debug\MajorWork.pdb
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\bin\Debug\MajorWork.xml
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.vbprojResolveAssemblyReference.cache
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.Absences.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.Attendance.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.Calendar.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.EditProfiles.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.ForgotPassword.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.Login.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.Main.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.MainAttendance.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.markRoll.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.Resources.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.newRace.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.newRoll.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.Options.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.ProfilesView.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.resetPassword.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.resetPasswordPanel.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.results.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.resultsRace.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.SplashScreen.resources
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
+C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.mainAttendanceExtra.resources
+>>>>>>> origin/master
+C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.mainAttendanceExtra.resources

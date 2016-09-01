@@ -63,38 +63,36 @@
         'MAKE MORE EFFICIENT. checks what buttons are selected, passes onto next form
         If Year7.Checked = True Then
             myY7 = 7
+            markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "7"
         End If
         If Year8.Checked = True Then
             myY8 = 8
+            markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "8"
         End If
         If Year9.Checked = True Then
             myY9 = 9
+            markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "9"
         End If
         If Year10.Checked = True Then
             myY10 = 10
+            markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "10"
         End If
         If Year11.Checked = True Then
             myY11 = 11
+            markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "11"
         End If
         If Year12.Checked = True Then
             myY12 = 12
+            markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "12"
         End If
 
+
         If radiopass = True And checkpass = True Then
+            markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text.Remove(0, 3)
             markRoll.Show()
             Me.Hide()
         End If
 
-
-
-
-        'Return New List(Of checkboxes) From {}
-        'While num < 13
-        '    If Me.Controls("Year" & num.ToString()) Then
-
-        '    End If
-        '    num += 1
-        'End While
     End Sub
 
     Private Sub newRoll_Load(sender As Object, e As EventArgs) Handles MyBase.Load

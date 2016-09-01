@@ -33,6 +33,7 @@ Partial Class Main
         '
         'calendarButton
         '
+        Me.calendarButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.calendarButton.FlatAppearance.BorderSize = 0
         Me.calendarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.calendarButton.Location = New System.Drawing.Point(-1, 200)
@@ -45,6 +46,7 @@ Partial Class Main
         '
         'resultsButton
         '
+        Me.resultsButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.resultsButton.FlatAppearance.BorderSize = 0
         Me.resultsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.resultsButton.Location = New System.Drawing.Point(-1, 300)
@@ -57,6 +59,7 @@ Partial Class Main
         '
         'loginButton
         '
+        Me.loginButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.loginButton.FlatAppearance.BorderSize = 0
         Me.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.loginButton.Location = New System.Drawing.Point(-1, 100)
@@ -69,6 +72,7 @@ Partial Class Main
         '
         'attendanceButton
         '
+        Me.attendanceButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.attendanceButton.FlatAppearance.BorderSize = 0
         Me.attendanceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.attendanceButton.Location = New System.Drawing.Point(-1, 400)

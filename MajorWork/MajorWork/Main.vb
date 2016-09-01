@@ -41,8 +41,4 @@
         Login.Show()
         Me.Hide()
     End Sub
-
-    Private Sub ButtonClick(sender As Object, e As EventArgs) Handles resultsButton.Click, ChangePasswordButton.Click, calendarButton.Click, attendanceButton.Click
-
-    End Sub
 End Class

@@ -108,6 +108,12 @@
     <Compile Include="MainAttendance.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="mainAttendanceExtra.Designer.vb">
+      <DependentUpon>mainAttendanceExtra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="mainAttendanceExtra.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="markRoll.Designer.vb">
       <DependentUpon>markRoll.vb</DependentUpon>
     </Compile>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainAttendance.resx">
       <DependentUpon>MainAttendance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainAttendanceExtra.resx">
+      <DependentUpon>mainAttendanceExtra.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="markRoll.resx">
       <DependentUpon>markRoll.vb</DependentUpon>
