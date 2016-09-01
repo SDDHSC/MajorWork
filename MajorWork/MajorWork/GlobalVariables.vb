@@ -12,6 +12,11 @@
     Public Green As Color = Color.FromArgb(255, 0, 87, 37)
     Public Teal As Color = Color.FromArgb(255, 0, 87, 81)
 
+    Public accessLevel = 0
+    '0 = Guest
+    '1 = Coach
+    '2 = MIC of Rowing
+
     'Profile Viewing/Editing Variables
     Public SelectedRower As String
 End Module

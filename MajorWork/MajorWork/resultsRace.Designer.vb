@@ -42,6 +42,7 @@ Partial Class resultsRace
         Me.Label2 = New System.Windows.Forms.Label()
         Me.raceNewEntry = New System.Windows.Forms.Button()
         Me.raceAnalysis = New System.Windows.Forms.Button()
+        Me.editRace = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -190,7 +191,7 @@ Partial Class resultsRace
         'raceNewEntry
         '
         Me.raceNewEntry.Font = New System.Drawing.Font("Segoe UI", 7.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.raceNewEntry.Location = New System.Drawing.Point(790, 8)
+        Me.raceNewEntry.Location = New System.Drawing.Point(817, 8)
         Me.raceNewEntry.Name = "raceNewEntry"
         Me.raceNewEntry.Size = New System.Drawing.Size(108, 38)
         Me.raceNewEntry.TabIndex = 57
@@ -207,12 +208,23 @@ Partial Class resultsRace
         Me.raceAnalysis.Text = "Analysis"
         Me.raceAnalysis.UseVisualStyleBackColor = True
         '
+        'editRace
+        '
+        Me.editRace.Font = New System.Drawing.Font("Segoe UI", 7.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.editRace.Location = New System.Drawing.Point(703, 8)
+        Me.editRace.Name = "editRace"
+        Me.editRace.Size = New System.Drawing.Size(108, 38)
+        Me.editRace.TabIndex = 60
+        Me.editRace.Text = "Edit Entry"
+        Me.editRace.UseVisualStyleBackColor = True
+        '
         'resultsRace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Highlight
         Me.ClientSize = New System.Drawing.Size(1050, 692)
+        Me.Controls.Add(Me.editRace)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.raceNewEntry)
@@ -249,4 +261,5 @@ Partial Class resultsRace
     Friend WithEvents Label2 As Label
     Friend WithEvents raceNewEntry As Button
     Friend WithEvents raceAnalysis As Button
+    Friend WithEvents editRace As Button
 End Class

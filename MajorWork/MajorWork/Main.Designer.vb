@@ -24,99 +24,108 @@ Partial Class Main
     Private Sub InitializeComponent()
         Me.calendarButton = New System.Windows.Forms.Button()
         Me.resultsButton = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.loginButton = New System.Windows.Forms.Button()
         Me.attendanceButton = New System.Windows.Forms.Button()
-        Me.profilesButton = New System.Windows.Forms.Button()
-        Me.settingsButton = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ChangePasswordButton = New System.Windows.Forms.Button()
+        Me.profilesButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'calendarButton
         '
-        Me.calendarButton.Location = New System.Drawing.Point(8, 66)
+        Me.calendarButton.FlatAppearance.BorderSize = 0
+        Me.calendarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.calendarButton.Location = New System.Drawing.Point(-1, 200)
+        Me.calendarButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.calendarButton.Name = "calendarButton"
-        Me.calendarButton.Size = New System.Drawing.Size(87, 63)
+        Me.calendarButton.Size = New System.Drawing.Size(153, 100)
         Me.calendarButton.TabIndex = 0
         Me.calendarButton.Text = "Calendar"
         Me.calendarButton.UseVisualStyleBackColor = True
         '
         'resultsButton
         '
-        Me.resultsButton.Location = New System.Drawing.Point(8, 135)
+        Me.resultsButton.FlatAppearance.BorderSize = 0
+        Me.resultsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.resultsButton.Location = New System.Drawing.Point(-1, 300)
+        Me.resultsButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.resultsButton.Name = "resultsButton"
-        Me.resultsButton.Size = New System.Drawing.Size(87, 63)
+        Me.resultsButton.Size = New System.Drawing.Size(153, 100)
         Me.resultsButton.TabIndex = 3
         Me.resultsButton.Text = "Results"
         Me.resultsButton.UseVisualStyleBackColor = True
         '
-        'Button3
+        'loginButton
         '
-        Me.Button3.Location = New System.Drawing.Point(8, 8)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(39, 52)
-        Me.Button3.TabIndex = 4
-        Me.Button3.Text = "Logout"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.loginButton.FlatAppearance.BorderSize = 0
+        Me.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.loginButton.Location = New System.Drawing.Point(-1, 100)
+        Me.loginButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.loginButton.Name = "loginButton"
+        Me.loginButton.Size = New System.Drawing.Size(153, 100)
+        Me.loginButton.TabIndex = 4
+        Me.loginButton.Text = "Login"
+        Me.loginButton.UseVisualStyleBackColor = True
         '
         'attendanceButton
         '
-        Me.attendanceButton.Location = New System.Drawing.Point(8, 204)
+        Me.attendanceButton.FlatAppearance.BorderSize = 0
+        Me.attendanceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.attendanceButton.Location = New System.Drawing.Point(-1, 400)
+        Me.attendanceButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.attendanceButton.Name = "attendanceButton"
-        Me.attendanceButton.Size = New System.Drawing.Size(87, 63)
+        Me.attendanceButton.Size = New System.Drawing.Size(153, 100)
         Me.attendanceButton.TabIndex = 5
         Me.attendanceButton.Text = "Attendance"
         Me.attendanceButton.UseVisualStyleBackColor = True
         '
-        'profilesButton
-        '
-        Me.profilesButton.Location = New System.Drawing.Point(8, 274)
-        Me.profilesButton.Name = "profilesButton"
-        Me.profilesButton.Size = New System.Drawing.Size(87, 63)
-        Me.profilesButton.TabIndex = 6
-        Me.profilesButton.Text = "Profiles"
-        Me.profilesButton.UseVisualStyleBackColor = True
-        '
-        'settingsButton
-        '
-        Me.settingsButton.Location = New System.Drawing.Point(53, 8)
-        Me.settingsButton.Name = "settingsButton"
-        Me.settingsButton.Size = New System.Drawing.Size(42, 52)
-        Me.settingsButton.TabIndex = 7
-        Me.settingsButton.Text = "Settings"
-        Me.settingsButton.UseVisualStyleBackColor = True
-        '
         'Panel1
         '
-        Me.Panel1.Location = New System.Drawing.Point(100, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel1.Location = New System.Drawing.Point(150, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(700, 450)
+        Me.Panel1.Size = New System.Drawing.Size(1050, 692)
         Me.Panel1.TabIndex = 8
         '
         'ChangePasswordButton
         '
-        Me.ChangePasswordButton.Location = New System.Drawing.Point(8, 343)
+        Me.ChangePasswordButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ChangePasswordButton.FlatAppearance.BorderSize = 0
+        Me.ChangePasswordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ChangePasswordButton.Location = New System.Drawing.Point(-1, 592)
+        Me.ChangePasswordButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ChangePasswordButton.Name = "ChangePasswordButton"
-        Me.ChangePasswordButton.Size = New System.Drawing.Size(87, 63)
+        Me.ChangePasswordButton.Size = New System.Drawing.Size(153, 100)
         Me.ChangePasswordButton.TabIndex = 9
         Me.ChangePasswordButton.Text = "Change Password"
-        Me.ChangePasswordButton.UseVisualStyleBackColor = True
+        Me.ChangePasswordButton.UseVisualStyleBackColor = False
+        '
+        'profilesButton
+        '
+        Me.profilesButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.profilesButton.FlatAppearance.BorderSize = 0
+        Me.profilesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.profilesButton.Location = New System.Drawing.Point(-1, 500)
+        Me.profilesButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.profilesButton.Name = "profilesButton"
+        Me.profilesButton.Size = New System.Drawing.Size(153, 100)
+        Me.profilesButton.TabIndex = 13
+        Me.profilesButton.Text = "Profiles"
+        Me.profilesButton.UseVisualStyleBackColor = False
         '
         'Main
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1200, 692)
+        Me.Controls.Add(Me.profilesButton)
         Me.Controls.Add(Me.ChangePasswordButton)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.settingsButton)
-        Me.Controls.Add(Me.profilesButton)
         Me.Controls.Add(Me.attendanceButton)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.loginButton)
         Me.Controls.Add(Me.resultsButton)
         Me.Controls.Add(Me.calendarButton)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
@@ -126,10 +135,9 @@ Partial Class Main
 
     Friend WithEvents calendarButton As Button
     Friend WithEvents resultsButton As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents loginButton As Button
     Friend WithEvents attendanceButton As Button
-    Friend WithEvents profilesButton As Button
-    Friend WithEvents settingsButton As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents ChangePasswordButton As Button
+    Friend WithEvents profilesButton As Button
 End Class

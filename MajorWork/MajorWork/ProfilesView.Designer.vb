@@ -60,9 +60,10 @@ Partial Class ProfilesView
         'RowerBox
         '
         Me.RowerBox.AutoScroll = True
-        Me.RowerBox.Location = New System.Drawing.Point(15, 65)
+        Me.RowerBox.Location = New System.Drawing.Point(22, 100)
+        Me.RowerBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.RowerBox.Name = "RowerBox"
-        Me.RowerBox.Size = New System.Drawing.Size(464, 373)
+        Me.RowerBox.Size = New System.Drawing.Size(696, 574)
         Me.RowerBox.TabIndex = 1
         '
         'Panel1
@@ -83,9 +84,10 @@ Partial Class ProfilesView
         Me.Panel1.Controls.Add(Me.lblfName)
         Me.Panel1.Controls.Add(Me.lblID)
         Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Location = New System.Drawing.Point(485, 12)
+        Me.Panel1.Location = New System.Drawing.Point(728, 18)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(303, 426)
+        Me.Panel1.Size = New System.Drawing.Size(454, 655)
         Me.Panel1.TabIndex = 2
         '
         'Button1
@@ -93,9 +95,10 @@ Partial Class ProfilesView
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(244, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.Button1.Location = New System.Drawing.Point(7, 361)
+        Me.Button1.Location = New System.Drawing.Point(10, 555)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(293, 62)
+        Me.Button1.Size = New System.Drawing.Size(440, 95)
         Me.Button1.TabIndex = 16
         Me.Button1.Text = "Edit"
         Me.Button1.UseVisualStyleBackColor = False
@@ -103,9 +106,10 @@ Partial Class ProfilesView
         'lblEmail
         '
         Me.lblEmail.AutoSize = True
-        Me.lblEmail.Location = New System.Drawing.Point(60, 343)
+        Me.lblEmail.Location = New System.Drawing.Point(90, 528)
+        Me.lblEmail.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(190, 13)
+        Me.lblEmail.Size = New System.Drawing.Size(283, 20)
         Me.lblEmail.TabIndex = 15
         Me.lblEmail.TabStop = True
         Me.lblEmail.Text = "430227866@student.sbhs.nsw.edu.au"
@@ -114,9 +118,10 @@ Partial Class ProfilesView
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(3, 337)
+        Me.Label3.Location = New System.Drawing.Point(4, 518)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 21)
+        Me.Label3.Size = New System.Drawing.Size(77, 32)
         Me.Label3.TabIndex = 14
         Me.Label3.Text = "Email:"
         '
@@ -124,9 +129,10 @@ Partial Class ProfilesView
         '
         Me.lblRaAtPc.AutoSize = True
         Me.lblRaAtPc.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblRaAtPc.Location = New System.Drawing.Point(3, 309)
+        Me.lblRaAtPc.Location = New System.Drawing.Point(4, 475)
+        Me.lblRaAtPc.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblRaAtPc.Name = "lblRaAtPc"
-        Me.lblRaAtPc.Size = New System.Drawing.Size(172, 21)
+        Me.lblRaAtPc.Size = New System.Drawing.Size(265, 32)
         Me.lblRaAtPc.TabIndex = 12
         Me.lblRaAtPc.Text = "Race Attendance: 100%"
         '
@@ -134,9 +140,10 @@ Partial Class ProfilesView
         '
         Me.lblTrAtPc.AutoSize = True
         Me.lblTrAtPc.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblTrAtPc.Location = New System.Drawing.Point(3, 281)
+        Me.lblTrAtPc.Location = New System.Drawing.Point(4, 432)
+        Me.lblTrAtPc.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTrAtPc.Name = "lblTrAtPc"
-        Me.lblTrAtPc.Size = New System.Drawing.Size(196, 21)
+        Me.lblTrAtPc.Size = New System.Drawing.Size(300, 32)
         Me.lblTrAtPc.TabIndex = 11
         Me.lblTrAtPc.Text = "Training Attendance: 100%"
         '
@@ -144,9 +151,10 @@ Partial Class ProfilesView
         '
         Me.lblPosition.AutoSize = True
         Me.lblPosition.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblPosition.Location = New System.Drawing.Point(3, 253)
+        Me.lblPosition.Location = New System.Drawing.Point(4, 389)
+        Me.lblPosition.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPosition.Name = "lblPosition"
-        Me.lblPosition.Size = New System.Drawing.Size(185, 21)
+        Me.lblPosition.Size = New System.Drawing.Size(282, 32)
         Me.lblPosition.TabIndex = 10
         Me.lblPosition.Text = "Preferred Position: 3 Seat"
         '
@@ -154,9 +162,10 @@ Partial Class ProfilesView
         '
         Me.lblSide.AutoSize = True
         Me.lblSide.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblSide.Location = New System.Drawing.Point(3, 225)
+        Me.lblSide.Location = New System.Drawing.Point(4, 346)
+        Me.lblSide.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSide.Name = "lblSide"
-        Me.lblSide.Size = New System.Drawing.Size(161, 21)
+        Me.lblSide.Size = New System.Drawing.Size(245, 32)
         Me.lblSide.TabIndex = 9
         Me.lblSide.Text = "Preferred Side: Stroke"
         '
@@ -164,9 +173,10 @@ Partial Class ProfilesView
         '
         Me.lblBeep.AutoSize = True
         Me.lblBeep.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblBeep.Location = New System.Drawing.Point(3, 197)
+        Me.lblBeep.Location = New System.Drawing.Point(4, 303)
+        Me.lblBeep.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblBeep.Name = "lblBeep"
-        Me.lblBeep.Size = New System.Drawing.Size(113, 21)
+        Me.lblBeep.Size = New System.Drawing.Size(174, 32)
         Me.lblBeep.TabIndex = 8
         Me.lblBeep.Text = "Beep Test: 12.4"
         '
@@ -174,9 +184,10 @@ Partial Class ProfilesView
         '
         Me.lbl2k.AutoSize = True
         Me.lbl2k.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lbl2k.Location = New System.Drawing.Point(3, 169)
+        Me.lbl2k.Location = New System.Drawing.Point(4, 260)
+        Me.lbl2k.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl2k.Name = "lbl2k"
-        Me.lbl2k.Size = New System.Drawing.Size(137, 21)
+        Me.lbl2k.Size = New System.Drawing.Size(208, 32)
         Me.lbl2k.TabIndex = 7
         Me.lbl2k.Text = "2km Time: 6:23:45"
         '
@@ -184,9 +195,10 @@ Partial Class ProfilesView
         '
         Me.lblWeight.AutoSize = True
         Me.lblWeight.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWeight.Location = New System.Drawing.Point(3, 141)
+        Me.lblWeight.Location = New System.Drawing.Point(4, 217)
+        Me.lblWeight.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblWeight.Name = "lblWeight"
-        Me.lblWeight.Size = New System.Drawing.Size(102, 21)
+        Me.lblWeight.Size = New System.Drawing.Size(155, 32)
         Me.lblWeight.TabIndex = 6
         Me.lblWeight.Text = "Weight: 60kg"
         '
@@ -194,9 +206,10 @@ Partial Class ProfilesView
         '
         Me.lblrClass.AutoSize = True
         Me.lblrClass.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblrClass.Location = New System.Drawing.Point(119, 85)
+        Me.lblrClass.Location = New System.Drawing.Point(178, 131)
+        Me.lblrClass.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblrClass.Name = "lblrClass"
-        Me.lblrClass.Size = New System.Drawing.Size(79, 21)
+        Me.lblrClass.Size = New System.Drawing.Size(118, 32)
         Me.lblrClass.TabIndex = 5
         Me.lblrClass.Text = "Class: 12E"
         '
@@ -204,9 +217,10 @@ Partial Class ProfilesView
         '
         Me.lblGroup.AutoSize = True
         Me.lblGroup.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblGroup.Location = New System.Drawing.Point(119, 113)
+        Me.lblGroup.Location = New System.Drawing.Point(178, 174)
+        Me.lblGroup.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblGroup.Name = "lblGroup"
-        Me.lblGroup.Size = New System.Drawing.Size(109, 21)
+        Me.lblGroup.Size = New System.Drawing.Size(163, 32)
         Me.lblGroup.TabIndex = 4
         Me.lblGroup.Text = "Year 10 Eights"
         '
@@ -214,9 +228,10 @@ Partial Class ProfilesView
         '
         Me.lblsName.AutoSize = True
         Me.lblsName.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblsName.Location = New System.Drawing.Point(119, 29)
+        Me.lblsName.Location = New System.Drawing.Point(178, 45)
+        Me.lblsName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblsName.Name = "lblsName"
-        Me.lblsName.Size = New System.Drawing.Size(72, 21)
+        Me.lblsName.Size = New System.Drawing.Size(111, 32)
         Me.lblsName.TabIndex = 3
         Me.lblsName.Text = "Manning"
         '
@@ -224,9 +239,10 @@ Partial Class ProfilesView
         '
         Me.lblfName.AutoSize = True
         Me.lblfName.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblfName.Location = New System.Drawing.Point(119, 57)
+        Me.lblfName.Location = New System.Drawing.Point(178, 88)
+        Me.lblfName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblfName.Name = "lblfName"
-        Me.lblfName.Size = New System.Drawing.Size(82, 21)
+        Me.lblfName.Size = New System.Drawing.Size(122, 32)
         Me.lblfName.TabIndex = 2
         Me.lblfName.Text = "BLACKALL"
         '
@@ -234,18 +250,20 @@ Partial Class ProfilesView
         '
         Me.lblID.AutoSize = True
         Me.lblID.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblID.Location = New System.Drawing.Point(119, 1)
+        Me.lblID.Location = New System.Drawing.Point(178, 2)
+        Me.lblID.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblID.Name = "lblID"
-        Me.lblID.Size = New System.Drawing.Size(113, 21)
+        Me.lblID.Size = New System.Drawing.Size(167, 32)
         Me.lblID.TabIndex = 1
         Me.lblID.Text = "ID: 430227866"
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.MajorWork.My.Resources.Resources.BlankProfilePictuer
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(4, 5)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(110, 131)
+        Me.PictureBox1.Size = New System.Drawing.Size(165, 202)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -254,36 +272,40 @@ Partial Class ProfilesView
         '
         Me.SortBox.FormattingEnabled = True
         Me.SortBox.Items.AddRange(New Object() {"By Last Name", "By First Name", "By Roll Class", "By ID Number"})
-        Me.SortBox.Location = New System.Drawing.Point(62, 38)
+        Me.SortBox.Location = New System.Drawing.Point(93, 58)
+        Me.SortBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SortBox.Name = "SortBox"
-        Me.SortBox.Size = New System.Drawing.Size(180, 21)
+        Me.SortBox.Size = New System.Drawing.Size(268, 28)
         Me.SortBox.TabIndex = 3
         '
         'FilterBox
         '
         Me.FilterBox.FormattingEnabled = True
         Me.FilterBox.Items.AddRange(New Object() {"All Years", "1st VIII", "Year 10 Eights", "Year 9 Quads", "Year 8 Quads"})
-        Me.FilterBox.Location = New System.Drawing.Point(302, 38)
+        Me.FilterBox.Location = New System.Drawing.Point(453, 58)
+        Me.FilterBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.FilterBox.Name = "FilterBox"
-        Me.FilterBox.Size = New System.Drawing.Size(180, 21)
+        Me.FilterBox.Size = New System.Drawing.Size(268, 28)
         Me.FilterBox.TabIndex = 4
         Me.FilterBox.Text = "All Years"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 41)
+        Me.Label1.Location = New System.Drawing.Point(18, 63)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(29, 13)
+        Me.Label1.Size = New System.Drawing.Size(43, 20)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Sort:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(264, 41)
+        Me.Label2.Location = New System.Drawing.Point(396, 63)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(32, 13)
+        Me.Label2.Size = New System.Drawing.Size(48, 20)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Filter:"
         '
@@ -304,35 +326,38 @@ Partial Class ProfilesView
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 15)
+        Me.Label4.Location = New System.Drawing.Point(18, 23)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(44, 13)
+        Me.Label4.Size = New System.Drawing.Size(64, 20)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Search:"
         '
         'SearchBox
         '
-        Me.SearchBox.Location = New System.Drawing.Point(62, 12)
+        Me.SearchBox.Location = New System.Drawing.Point(93, 18)
+        Me.SearchBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SearchBox.Name = "SearchBox"
-        Me.SearchBox.Size = New System.Drawing.Size(417, 20)
+        Me.SearchBox.Size = New System.Drawing.Size(624, 26)
         Me.SearchBox.TabIndex = 8
         '
         'lblNoValues
         '
         Me.lblNoValues.AutoSize = True
         Me.lblNoValues.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNoValues.Location = New System.Drawing.Point(155, 75)
+        Me.lblNoValues.Location = New System.Drawing.Point(232, 115)
+        Me.lblNoValues.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblNoValues.Name = "lblNoValues"
-        Me.lblNoValues.Size = New System.Drawing.Size(154, 37)
+        Me.lblNoValues.Size = New System.Drawing.Size(229, 55)
         Me.lblNoValues.TabIndex = 9
         Me.lblNoValues.Text = "No Results"
         Me.lblNoValues.Visible = False
         '
         'ProfilesView
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1200, 692)
         Me.Controls.Add(Me.lblNoValues)
         Me.Controls.Add(Me.SortBox)
         Me.Controls.Add(Me.SearchBox)
@@ -343,6 +368,7 @@ Partial Class ProfilesView
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.RowerBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "ProfilesView"
         Me.Text = "Form1"
         Me.Panel1.ResumeLayout(False)

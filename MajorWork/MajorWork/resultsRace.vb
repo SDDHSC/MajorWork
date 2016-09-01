@@ -4,6 +4,9 @@
 
 
 Public Class resultsRace
+    Public Shared raceMode As String
+    Public Shared editRaces
+
     Dim adp As New OleDbDataAdapter
     Dim conDatabase As OleDbConnection
     Dim dataResults As New DataSet()
@@ -14,8 +17,7 @@ Public Class resultsRace
     Dim eventDateBool As Boolean = False
 
     Private Sub resultsRace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim connectstring As String = "Provider=Microsoft.ACE.OLEDB.12.0; " +
-                                      "Data Source=" + "C:\Users\Joshua King\Documents\School\Software\results\results\WindowsApplication2\resultsDatabase.accdb"
+        Dim connectstring As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
         conDatabase = New OleDbConnection(connectstring)
         conDatabase.Open()
         adp = New OleDbDataAdapter()
@@ -71,7 +73,7 @@ Public Class resultsRace
 
     End Sub
 
-    Private Sub resultsList_SelectedIndexChanged(sender As ListView, e As EventArgs) Handles resultsList.ItemActivate
+    Private Sub resultsList_SelectedIndexChanged(sender As ListView, e As EventArgs) Handles resultsList.ItemSelectionChanged
         Dim index = sender.FocusedItem.Index
         index = resultsList.Items(index).SubItems(2).Text
         racesRefresh(index)
@@ -118,6 +120,14 @@ Public Class resultsRace
     End Sub
 
     Private Sub raceNewEntry_Click_1(sender As Object, e As EventArgs) Handles raceNewEntry.Click
+        raceMode = "New"
+        newRace.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles editRace.Click
+        raceMode = "Edit"
+        editRaces = {}
         newRace.Show()
         Me.Hide()
     End Sub
