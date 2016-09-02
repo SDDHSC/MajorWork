@@ -270,15 +270,6 @@ C:\Users\student\Documents\Github 2.0 test\MajorWork\MajorWork\MajorWork\obj\Deb
 C:\Users\student\Documents\Github 2.0 test\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
 C:\Users\student\Documents\Github 2.0 test\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPassword.resources
 C:\Users\student\Documents\Github 2.0 test\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPasswordPanel.resources
-<<<<<<< HEAD
-C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Absences.resources
-C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.ForgotPassword.resources
-C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.MainAttendance.resources
-C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.markRoll.resources
-C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.newRoll.resources
-C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPassword.resources
-C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPasswordPanel.resources
-=======
 C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\bin\Debug\MajorWork.exe.config
 C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.exe
 C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.xml
@@ -308,5 +299,11 @@ C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a
 C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.SplashScreen.resources
 C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
 C:\Users\student\Videos\MAJOR PROJECT 260716\MajorWork-772a6f44cb70c4fdb84afc80a42aa33749f20e31\MajorWork\MajorWork\obj\Debug\MajorWork.mainAttendanceExtra.resources
->>>>>>> origin/master
 C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.mainAttendanceExtra.resources
+C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Absences.resources
+C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.ForgotPassword.resources
+C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.MainAttendance.resources
+C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.markRoll.resources
+C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.newRoll.resources
+C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPassword.resources
+C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPasswordPanel.resources

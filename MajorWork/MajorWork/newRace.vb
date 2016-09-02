@@ -20,25 +20,28 @@
             nameRace.Text = ""
             infoList.FocusedItem = infoList.Items(infoList.Items.Count - 1)
             infoList.Focus()
+            raceSelect(infoList, e)
         End If
     End Sub
 
-    Private Sub infoList_SelectedIndexChanged(sender As ListView, e As EventArgs) Handles infoList.SelectedIndexChanged
-        allEdit.Visible = True
-        Dim selectedItem = infoList.Items(infoList.SelectedIndices(0))
+    Private Sub raceSelect(sender As ListView, e As EventArgs) Handles infoList.SelectedIndexChanged
+        Try
+            allEdit.Visible = True
+            Dim selectedItem = infoList.Items(infoList.SelectedIndices(0))
 
-        minCounter.Value = CInt(Split(selectedItem.SubItems(1).Text, ":")(0))
-        secCounter.Value = CInt(Split(selectedItem.SubItems(1).Text, ":")(1))
+            minCounter.Value = CInt(Split(selectedItem.SubItems(1).Text, ":")(0))
+            secCounter.Value = CInt(Split(selectedItem.SubItems(1).Text, ":")(1))
 
-        distCounter.Value = CInt(selectedItem.SubItems(2).Text)
+            distCounter.Value = CInt(selectedItem.SubItems(2).Text)
 
-        posCounter.Value = ordinalConvert(Split(selectedItem.SubItems(3).Text, " of ")(0))
-        particiCounter.Value = CInt(Split(selectedItem.SubItems(3).Text, " of ")(1))
+            posCounter.Value = ordinalConvert(Split(selectedItem.SubItems(3).Text, " of ")(0))
+            particiCounter.Value = CInt(Split(selectedItem.SubItems(3).Text, " of ")(1))
 
-        yearCounter.Value = CInt(Split(selectedItem.SubItems(4).Text, " ")(0))
-        gradeCombo.SelectedItem = Split(selectedItem.SubItems(4).Text, " ")(1).Trim("Y")
-        crewCounter.Value = ordinalConvert(Split(selectedItem.SubItems(4).Text, " ")(2))
-
+            yearCounter.Value = CInt(Split(selectedItem.SubItems(4).Text, " ")(0))
+            gradeCombo.SelectedItem = Split(selectedItem.SubItems(4).Text, " ")(1).Trim("Y")
+            crewCounter.Value = ordinalConvert(Split(selectedItem.SubItems(4).Text, " ")(2))
+        Catch
+        End Try
     End Sub
 
     Public Function ordinalConvert(val)
@@ -139,5 +142,18 @@
         End If
     End Sub
 
+    Private Sub cancel_Click(sender As Object, e As EventArgs) Handles cancel.Click
+        If MsgBox("Are you sure?", MsgBoxStyle.YesNo) = DialogResult.Yes Then
+            eventsList.Clear()
+            Me.Hide()
+            resultsRace.Show()
+        End If
+    End Sub
 
+    Private Sub deleteRace_Click(sender As Object, e As EventArgs) Handles deleteRace.Click
+        If eventsList.Count() <> 0 Then
+            eventsList.RemoveAt(selectedIndex)
+            refreshInfoList(infoList)
+        End If
+    End Sub
 End Class
