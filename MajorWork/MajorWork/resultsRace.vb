@@ -2,16 +2,13 @@
 'NOTE TO SELF:
 'Edit squad format in database
 
-
 Public Class resultsRace
-    Public Shared raceMode As String
-    Public Shared editRaces
-
     Dim adp As New OleDbDataAdapter
     Dim conDatabase As OleDbConnection
     Dim dataResults As New DataSet()
 
     Dim eventsList As List(Of String()) = New List(Of String())
+    Dim index As Integer
 
     Dim eventNameBool As Boolean = False
     Dim eventDateBool As Boolean = False
@@ -74,9 +71,8 @@ Public Class resultsRace
     End Sub
 
     Private Sub resultsList_SelectedIndexChanged(sender As ListView, e As EventArgs) Handles resultsList.ItemSelectionChanged
-        Dim index = sender.FocusedItem.Index
-        index = resultsList.Items(index).SubItems(2).Text
-        racesRefresh(index)
+        index = sender.FocusedItem.Index
+        racesRefresh(resultsList.Items(index).SubItems(2).Text)
 
     End Sub
 
@@ -97,7 +93,7 @@ Public Class resultsRace
         End If
     End Sub
 
-    Private Sub eventNameSearch_TextChanged_1(sender As Object, e As EventArgs) Handles eventNameSearch.TextChanged
+    Private Sub eventNameSearch_TextChanged_1(sender As Object, e As EventArgs) Handles eventNameSearch.TextChanged, eventDateSearch.ValueChanged
         If eventNameBool Then
             eventsRefresh()
         End If
@@ -108,26 +104,16 @@ Public Class resultsRace
         eventsRefresh()
     End Sub
 
-    Private Sub eventDateSearchCheck_CheckedChanged_1(sender As Object, e As EventArgs) Handles eventDateSearchCheck.CheckedChanged
-        eventDateBool = Not eventDateBool
-        eventsRefresh()
-    End Sub
-
-    Private Sub eventDateSearch_ValueChanged_1(sender As Object, e As EventArgs) Handles eventDateSearch.ValueChanged
-        If eventDateBool Then
-            eventsRefresh()
-        End If
-    End Sub
-
     Private Sub raceNewEntry_Click_1(sender As Object, e As EventArgs) Handles raceNewEntry.Click
-        raceMode = "New"
+        raceEditInfo = Nothing
+
         newRace.Show()
         Me.Hide()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles editRace.Click
-        raceMode = "Edit"
-        editRaces = {}
+        raceEditInfo = eventsList(index)
+
         newRace.Show()
         Me.Hide()
     End Sub

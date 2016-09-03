@@ -120,6 +120,11 @@
     <Compile Include="markRoll.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="newRace.Designer.vb">
       <DependentUpon>newRace.vb</DependentUpon>
     </Compile>
@@ -245,6 +250,7 @@
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="newRace.resx">
       <DependentUpon>newRace.vb</DependentUpon>

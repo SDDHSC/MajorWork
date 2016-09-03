@@ -27,6 +27,21 @@ MajorWork
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MajorWork.My.Resources.Resources.rower11">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MajorWork.My.Resources.Resources.rower2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MajorWork.My.Resources.Resources.rower3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MajorWork.My.Resources.Resources.rowing1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

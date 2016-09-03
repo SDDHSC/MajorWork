@@ -19,4 +19,8 @@
 
     'Profile Viewing/Editing Variables
     Public SelectedRower As String
+
+    'results Variables between forms
+    Public raceEditInfo = Nothing
+
 End Module
