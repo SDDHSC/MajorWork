@@ -121,10 +121,22 @@
   <data name="BlankProfilePictuer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BlankProfilePictuer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="rower1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rower1.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="rowing1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rowing1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rowing2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rowing2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rower11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rower1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rower2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rower2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rower3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rower3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

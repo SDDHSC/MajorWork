@@ -60,7 +60,6 @@ C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Resou
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Options.resources
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.ProfilesView.resources
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.results.resources
-C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resultsProfile.resources
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resultsRace.resources
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.SplashScreen.resources
 C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
@@ -307,3 +306,12 @@ C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\Ma
 C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.newRoll.resources
 C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPassword.resources
 C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPasswordPanel.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Absences.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.ForgotPassword.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.MainAttendance.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.mainAttendanceExtra.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.markRoll.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.newRace.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.newRoll.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPassword.resources
+C:\Users\charl\Documents\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPasswordPanel.resources

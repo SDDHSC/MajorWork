@@ -1,15 +1,14 @@
-﻿'Allow Profile editing
-'make Graphics Nice
+﻿'make Graphics Nice
 Imports System.Data.OleDb
 Public Class ProfilesView
     'Lists populated with database data
     Dim IDNum As New List(Of Int32)                             'List of IDs in integer form
-    Dim IDStr As New List(Of String)                            'List of IDs in string form
+    Public IDStr As New List(Of String)                            'List of IDs in string form
     Dim gName As New List(Of String)                            'List of Last Names in string form
     Dim sName As New List(Of String)                            'List of First Names in string form
     Dim yGroup As New List(Of String)                           'List of year groups in string form
     Dim rClass As New List(Of String)                           'List of roll classes in string form
-    Dim Sorted As New List(Of Integer)                          'Sorted list of indexes
+    Public Sorted As New List(Of Integer)                          'Sorted list of indexes
     Dim SortList As New List(Of String)                         'Temporary list used to sort database list without changing indexes
     Dim SortArray() As Object = {gName, sName, rClass, IDStr}   'Array matching the sort combo box index to its respective list 
     Dim position As Integer = 0                                 'Position to start index search, used when there are multiple people with the same primary value
@@ -21,10 +20,9 @@ Public Class ProfilesView
         ReadDatabase()
         SortBox.SelectedIndex = 0       'Ensures SortBox is set to Last Name by default
         FilterBox.SelectedIndex = 0     'Ensures FilterBox is set to All Years by default
-        FillPanels()
         SearchBox.Focus()               'Ensures the focus is on the search box when the form loads, so you can type straight away
     End Sub
-    Private Sub ReadDatabase() 'Reads the database, and populates the data strings
+    Public Sub ReadDatabase() 'Reads the database, and populates the data strings
         'Clears all the data strings
         IDNum.Clear()
         IDStr.Clear()
@@ -52,7 +50,7 @@ Public Class ProfilesView
             End Using
         End Using
     End Sub
-    Private Sub FillPanels() 'Creates Panels and populate them with data
+    Public Sub FillPanels() 'Creates Panels and populate them with data
         SortRowers()
         FilterRowers()
         RowerBox.Controls.Clear() 'Ensures the flow layout panel is empty
@@ -97,19 +95,30 @@ Public Class ProfilesView
                 AddHandler testName2.MouseEnter, AddressOf RowerPanelTextEnter
                 AddHandler testName2.MouseLeave, AddressOf RowerPanelTextExit
             End If
+            Dim testRollClass As New Label With
+                {
+                    .Text = rClass(rower),
+                    .Font = New Font("Segoe UI", 9.75, FontStyle.Bold),
+                    .Location = New Point(110, 0),
+                    .Name = "rRollClass" + rower.ToString
+                }
             'Adds Mouse Click/Enter/Exit to every panel, and maps it all to the same sub
             AddHandler testPanel.MouseClick, AddressOf RowerPanelClicked
             AddHandler testID.MouseClick, AddressOf RowerPanelTextClicked
             AddHandler testName.MouseClick, AddressOf RowerPanelTextClicked
+            AddHandler testRollClass.MouseClick, AddressOf RowerPanelTextClicked
             AddHandler testPanel.MouseEnter, AddressOf RowerPanelEnter
             AddHandler testPanel.MouseLeave, AddressOf RowerPanelExit
             AddHandler testName.MouseEnter, AddressOf RowerPanelTextEnter
             AddHandler testName.MouseLeave, AddressOf RowerPanelTextExit
             AddHandler testID.MouseEnter, AddressOf RowerPanelTextEnter
             AddHandler testID.MouseLeave, AddressOf RowerPanelTextExit
+            AddHandler testRollClass.MouseEnter, AddressOf RowerPanelTextEnter
+            AddHandler testRollClass.MouseLeave, AddressOf RowerPanelTextExit
             RowerBox.Controls.Add(testPanel) 'adds the panels to the box
             testPanel.Controls.Add(testID) 'adds the text to the panels
             testPanel.Controls.Add(testName) 'adds the text to the panels
+            testPanel.Controls.Add(testRollClass)
         Next
         'Checks if there are values matching the search
         If Sorted.Count < 1 Then
@@ -267,7 +276,7 @@ Public Class ProfilesView
     Private Sub RowerPanelTextClicked(sender As Object, e As EventArgs) 'Because text blocks the mouse click part of the label
         RowerPanelClicked(sender.Parent, e)
     End Sub
-    Private Sub RowerPanelClicked(sender As Object, e As EventArgs)
+    Public Sub RowerPanelClicked(sender As Object, e As EventArgs)
         For Each i As Panel In RowerBox.Controls
             i.Tag = "NotClicked"                                    'Totally Legit boolean
             i.BackColor = schoolBlue

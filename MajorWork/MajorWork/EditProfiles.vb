@@ -52,7 +52,11 @@ Public Class EditProfiles
         End If
     End Sub
     Private Sub EditProfiles_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Dim tempStr = SelectedRower
         ProfilesView.Button1.BackColor = schoolBlue
+        ProfilesView.ReadDatabase()
+        ProfilesView.FillPanels()
+        ProfilesView.RowerPanelClicked(ProfilesView.RowerBox.Controls.Item(ProfilesView.Sorted.IndexOf(ProfilesView.IDStr.IndexOf(tempStr))), EventArgs.Empty)
     End Sub
     Private Sub SaveData()
         Try
