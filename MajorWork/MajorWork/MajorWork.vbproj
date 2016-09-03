@@ -158,11 +158,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -248,7 +243,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -318,6 +312,9 @@
     <Content Include="Allocation.txt" />
     <Content Include="Info.txt" />
     <Content Include="Notes.txt" />
+    <None Include="Resources\rower3.jpg" />
+    <None Include="Resources\rower2.jpg" />
+    <None Include="Resources\rower1.jpg" />
     <None Include="Resources\rowing2.png" />
     <None Include="Resources\rowing1.png" />
     <None Include="Resources\BlankProfilePictuer.png" />
