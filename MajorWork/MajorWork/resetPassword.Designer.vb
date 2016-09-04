@@ -35,6 +35,7 @@ Partial Class resetPassword
         Me.Label3 = New System.Windows.Forms.Label()
         Me.groupNewPasswords = New System.Windows.Forms.GroupBox()
         Me.currentDetails = New System.Windows.Forms.GroupBox()
+        Me.newUser = New System.Windows.Forms.Button()
         Me.groupNewPasswords.SuspendLayout()
         Me.currentDetails.SuspendLayout()
         Me.SuspendLayout()
@@ -169,12 +170,22 @@ Partial Class resetPassword
         Me.currentDetails.TabStop = False
         Me.currentDetails.Text = "Enter current username and password"
         '
+        'newUser
+        '
+        Me.newUser.Location = New System.Drawing.Point(554, 17)
+        Me.newUser.Name = "newUser"
+        Me.newUser.Size = New System.Drawing.Size(120, 43)
+        Me.newUser.TabIndex = 45
+        Me.newUser.Text = "Create new user"
+        Me.newUser.UseVisualStyleBackColor = True
+        '
         'resetPassword
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(700, 450)
+        Me.Controls.Add(Me.newUser)
         Me.Controls.Add(Me.currentDetails)
         Me.Controls.Add(Me.groupNewPasswords)
         Me.Controls.Add(Me.Button2)
@@ -206,4 +217,5 @@ Partial Class resetPassword
     Friend WithEvents Label3 As Label
     Friend WithEvents groupNewPasswords As GroupBox
     Friend WithEvents currentDetails As GroupBox
+    Friend WithEvents newUser As Button
 End Class

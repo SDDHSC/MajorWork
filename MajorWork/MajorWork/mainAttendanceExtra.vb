@@ -99,7 +99,6 @@ Public Class mainAttendanceExtra
 
 
         Dim tableProfiles As DataTable = dataNames.Tables("tbProfiles")
-        Console.WriteLine("butts2")
         'Gets year groups that were present (from database)
         Dim yrGroupSearch As String = lblYearGroups.Text
         Dim yrGroupSearchList As New List(Of String)(yrGroupSearch.Split(","))
@@ -107,11 +106,12 @@ Public Class mainAttendanceExtra
         '    MessageBox.Show(elem)
         'Next
 
-        For Each row In tableProfiles.Rows
-
-            If yrGroupSearchList.Contains(row.item(4)) Then
-                addListRow(row) 'get from markroll
-            End If
+        For Each elem As String In yrGroupSearchList
+            For Each row In tableProfiles.Rows
+                If elem.Contains(row.item(4)) Then
+                    addListRow(row) 'get from markroll
+                End If
+            Next
         Next
 
 

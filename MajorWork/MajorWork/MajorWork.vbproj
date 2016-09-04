@@ -90,6 +90,12 @@
     <Compile Include="Calendar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="createUser1.Designer.vb">
+      <DependentUpon>createUser1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="createUser1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="EditProfiles.Designer.vb">
       <DependentUpon>EditProfiles.vb</DependentUpon>
     </Compile>
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Calendar.resx">
       <DependentUpon>Calendar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="createUser1.resx">
+      <DependentUpon>createUser1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditProfiles.resx">
       <DependentUpon>EditProfiles.vb</DependentUpon>
