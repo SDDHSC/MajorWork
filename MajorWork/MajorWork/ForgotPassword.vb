@@ -55,33 +55,32 @@ Public Class ForgotPassword
                 If txtConfirmPassword.Text = "" Then
                     MessageBox.Show("Enter a password", "Confirm")
                 Else
-                    Dim saveConfirm As Integer = MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo)
-                    If saveConfirm = DialogResult.Yes Then
-                        Dim tbLogin As DataTable = dataNames.Tables("tbLogin")
+                    Dim tbLogin As DataTable = dataNames.Tables("tbLogin")
                         Dim tmpsource() As Byte
                         Dim tmpHash() As Byte
                         Dim tempPassword As String = ""
 
-                        For Each row In tbLogin.Rows
-                            If row.item(1) = txtUsername.Text Then 'sucessfully changes password     
-                                tmpsource = ASCIIEncoding.ASCII.GetBytes(txtNewPassword.Text)
-                                tmpHash = New MD5CryptoServiceProvider().ComputeHash(tmpsource)
-                                tempPassword = ByteArrayToString(tmpHash)
-                                Try
-                                    Dim cb As New OleDb.OleDbCommandBuilder(adpNamesUser)
-                                    row.item(2) = tempPassword
-                                    row.item(4) = "True"
-                                    adpNamesUser.Update(dataNames, "tbLogin")
-                                    MessageBox.Show("Successfully changed password", "Success")
-                                    Login.Show()
-                                    Me.Close()
-                                Catch
-                                    MessageBox.Show("Failed to change password", "Fail")
-                                End Try
-                            End If
-                        Next
-                    End If
+                    For Each row In tbLogin.Rows
+                        If row.item(1) = txtUsername.Text Then 'sucessfully changes password     
+                            tmpsource = ASCIIEncoding.ASCII.GetBytes(txtNewPassword.Text)
+                            tmpHash = New MD5CryptoServiceProvider().ComputeHash(tmpsource)
+                            tempPassword = ByteArrayToString(tmpHash)
+                            Try
+                                Dim cb As New OleDb.OleDbCommandBuilder(adpNamesUser)
+                                row.item(2) = tempPassword
+                                row.item(4) = "True"
+                                adpNamesUser.Update(dataNames, "tbLogin")
+                                MessageBox.Show("Successfully changed password. Restart program to apply changed password.", "Success")
+                                Login.Show()
+                                Me.Close()
+                            Catch
+                                MessageBox.Show("Failed to change password", "Fail")
+                            End Try
+                        End If
+                    Next
                 End If
+            Else
+                MessageBox.Show("Passwords do not match", "Confirm")
             End If
         End If
     End Sub

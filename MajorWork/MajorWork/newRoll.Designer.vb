@@ -34,7 +34,7 @@ Partial Class newRoll
         Me.Year12 = New System.Windows.Forms.CheckBox()
         Me.Year10 = New System.Windows.Forms.CheckBox()
         Me.Year11 = New System.Windows.Forms.CheckBox()
-        Me.Other = New System.Windows.Forms.RadioButton()
+        Me.Race = New System.Windows.Forms.RadioButton()
         Me.Weights = New System.Windows.Forms.RadioButton()
         Me.Rowing = New System.Windows.Forms.RadioButton()
         Me.Running = New System.Windows.Forms.RadioButton()
@@ -173,18 +173,18 @@ Partial Class newRoll
         Me.Year11.Text = "Year 11"
         Me.Year11.UseVisualStyleBackColor = True
         '
-        'Other
+        'Race
         '
-        Me.Other.AutoSize = True
-        Me.Other.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Other.ForeColor = System.Drawing.Color.FromArgb(CType(CType(87, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Other.Location = New System.Drawing.Point(20, 242)
-        Me.Other.Name = "Other"
-        Me.Other.Size = New System.Drawing.Size(59, 21)
-        Me.Other.TabIndex = 22
-        Me.Other.TabStop = True
-        Me.Other.Text = "Other"
-        Me.Other.UseVisualStyleBackColor = True
+        Me.Race.AutoSize = True
+        Me.Race.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Race.ForeColor = System.Drawing.Color.FromArgb(CType(CType(87, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Race.Location = New System.Drawing.Point(20, 242)
+        Me.Race.Name = "Race"
+        Me.Race.Size = New System.Drawing.Size(54, 21)
+        Me.Race.TabIndex = 22
+        Me.Race.TabStop = True
+        Me.Race.Text = "Race"
+        Me.Race.UseVisualStyleBackColor = True
         '
         'Weights
         '
@@ -268,7 +268,7 @@ Partial Class newRoll
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Other)
+        Me.GroupBox1.Controls.Add(Me.Race)
         Me.GroupBox1.Controls.Add(Me.Weights)
         Me.GroupBox1.Controls.Add(Me.Rowing)
         Me.GroupBox1.Controls.Add(Me.Running)
@@ -354,7 +354,7 @@ Partial Class newRoll
     Friend WithEvents Year12 As CheckBox
     Friend WithEvents Year10 As CheckBox
     Friend WithEvents Year11 As CheckBox
-    Friend WithEvents Other As RadioButton
+    Friend WithEvents Race As RadioButton
     Friend WithEvents Weights As RadioButton
     Friend WithEvents Rowing As RadioButton
     Friend WithEvents Running As RadioButton

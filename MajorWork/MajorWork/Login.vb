@@ -183,30 +183,41 @@ Public Class Login
             tmpsource = ASCIIEncoding.ASCII.GetBytes(tempUsername)
             tmpHash = New MD5CryptoServiceProvider().ComputeHash(tmpsource)
             tempUsername = ByteArrayToString(tmpHash)
-            If txtUsername.Text = row.item(1) Then  'checks password and gives appropriate feedback 
-                If tempUsername = row.item(2) Then
+            If txtUsername.Text = row.item(1) Then 'checks if username is in database
+                If tempUsername = row.item(2) Then 'checks password and gives appropriate feedback 
                     loginSuccess = True
                     accesslevel = row.item(3)
-                    lblLoginFeedback.Text = "Success"
                 Else
-                    lblLoginFeedback.Text = "incorrect password"
-                    loginattempts += 1
+                    MessageBox.Show("Incorrect password")
+                    loginattempts = loginattempts + 1
                     If loginattempts = 4 Then
-                        lblLoginFeedback.Text = "incorrect password: one more attempt"
+                        MessageBox.Show("Incorrect password: one more attempt")
                     Else
-                        If loginattempts > 4 Then
-                            lblLoginFeedback.Text = "incorrect password: no more attempts. program locked"
-                            lockedOut = True
+                        If loginattempts > 6 Then
+                            MessageBox.Show("Incorrect password: no more attempts. Program closed")
+                            'lockedOut = True
+                            Application.Exit()
                         End If
                     End If
                 End If
-            Else
-                lblLoginFeedback.Text = "incorrect username"
             End If
         Next
+
         If loginSuccess = True Then
-            'main.show()
-            'me.hide()
+            Calendar.Show()
+            Me.Hide()
+        Else
+            MessageBox.Show("Incorrect Username")
+            loginattempts = loginattempts + 1
+            If loginattempts = 4 Then
+                MessageBox.Show("Incorrect password: one more attempt")
+            Else
+                If loginattempts > 4 Then
+                    MessageBox.Show("Incorrect password: no more attempts. Program closed")
+                    'lockedOut = True
+                    Application.Exit()
+                End If
+            End If
         End If
     End Sub
     Sub loadDatabase()

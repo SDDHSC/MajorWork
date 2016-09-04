@@ -34,8 +34,8 @@
         If Weights.Checked = True Then
             markRoll.sessionType.Text = "Weights"
         End If
-        If Other.Checked = True Then
-            markRoll.sessionType.Text = "Other"
+        If Race.Checked = True Then
+            markRoll.sessionType.Text = "Race"
         End If
 
         markRoll.coachOfSession.Text = coachOfSession.Text
@@ -50,7 +50,7 @@
             lblCheckboxes.Hide()
         End If
 
-        If Erg.Checked = False And Running.Checked = False And Rowing.Checked = False And Weights.Checked = False And Other.Checked = False Then
+        If Erg.Checked = False And Running.Checked = False And Rowing.Checked = False And Weights.Checked = False And Race.Checked = False Then
             radiopass = False
             lblRadiobtn.Show()
             MessageBox.Show("Select a session type", "Session Type", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2)

@@ -64,7 +64,7 @@ Public Class MainAttendance
         attendanceSession.Items.Add("Running")
         attendanceSession.Items.Add("Rowing")
         attendanceSession.Items.Add("Weights")
-        attendanceSession.Items.Add("Other")
+        attendanceSession.Items.Add("Race")
         attendanceSession.SelectedIndex = 0
         initialising = False
 
