@@ -14,6 +14,7 @@ Public Class resultsRace
     Dim eventDateBool As Boolean = False
 
     Private Sub resultsRace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        BackColor = schoolBlue
         Dim connectstring As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
         conDatabase = New OleDbConnection(connectstring)
         conDatabase.Open()

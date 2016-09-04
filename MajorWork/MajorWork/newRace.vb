@@ -3,7 +3,25 @@
     Dim eventsList As List(Of String()) = New List(Of String())
 
     Private Sub newRace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        boatCombo.SelectedItem = "Eight"
+        BackColor = schoolBlue
+        If raceEditInfo IsNot Nothing Then
+            eventNameBox.Text = raceEditInfo(1)
+            eventTime.Text = raceEditInfo(2)
+            Dim tempList As New List(Of Array)
+            For i = 0 To 5
+                tempList.Add(Split(raceEditInfo(i + 4).Trim({"["c, "]"c}), "|"))
+            Next
+            For i = 0 To CInt(raceEditInfo(3)) - 1
+                Dim row(5) As String
+                For j = 0 To 5
+                    row(j) = tempList(j)(i)
+                Next
+                eventsList.Add(row)
+            Next
+            refreshInfoList(infoList)
+            allEdit.Visible = True
+        End If
+
     End Sub
 
     Private Sub addRace_Click(sender As Object, e As EventArgs) Handles addRace.Click
@@ -14,7 +32,7 @@
             row(2) = "0"
             row(3) = "1st of 1"
             row(4) = "2016 Y7 1st Quad"
-            row(5) = "[]"
+            row(5) = ""
             eventsList.Add(row)
             refreshInfoList(infoList)
             nameRace.Text = ""
@@ -25,23 +43,35 @@
     End Sub
 
     Private Sub raceSelect(sender As ListView, e As EventArgs) Handles infoList.SelectedIndexChanged
-        Try
-            allEdit.Visible = True
-            Dim selectedItem = infoList.Items(infoList.SelectedIndices(0))
+        'Try
+        selectedIndex = infoList.SelectedIndices(0)
+            Dim selectedItem = infoList.Items(selectedIndex)
 
             minCounter.Value = CInt(Split(selectedItem.SubItems(1).Text, ":")(0))
             secCounter.Value = CInt(Split(selectedItem.SubItems(1).Text, ":")(1))
 
             distCounter.Value = CInt(selectedItem.SubItems(2).Text)
 
-            posCounter.Value = ordinalConvert(Split(selectedItem.SubItems(3).Text, " of ")(0))
-            particiCounter.Value = CInt(Split(selectedItem.SubItems(3).Text, " of ")(1))
 
-            yearCounter.Value = CInt(Split(selectedItem.SubItems(4).Text, " ")(0))
-            gradeCombo.SelectedItem = Split(selectedItem.SubItems(4).Text, " ")(1).Trim("Y")
-            crewCounter.Value = ordinalConvert(Split(selectedItem.SubItems(4).Text, " ")(2))
-        Catch
-        End Try
+        particiCounter.Value = CInt(Split(selectedItem.SubItems(3).Text, " of ")(1))
+        posCounter.Value = ordinalConvert(Split(selectedItem.SubItems(3).Text, " of ")(0))
+
+        Dim temp = Split(selectedItem.SubItems(4).Text, " ")
+            yearCounter.Value = CInt(temp(0))
+            gradeCombo.SelectedItem = temp(1).Trim("Y")
+        crewCounter.Value = ordinalConvert(temp(2))
+
+        refreshRowerList(rowerList)
+        'Catch
+        'End Try
+    End Sub
+
+    Private Sub refreshRowerList(list)
+        list.Items.Clear()
+        For Each rower In Split(eventsList(selectedIndex)(5), ",")
+            Dim itm As ListViewItem = New ListViewItem(rower)
+            list.Items.Add(itm)
+        Next
     End Sub
 
     Public Function ordinalConvert(val)
@@ -129,23 +159,38 @@
     End Sub
 
     Private Sub addRower_Click(sender As Object, e As EventArgs) Handles addRower.Click
-        rowerList.Items.Add(New ListViewItem(searchRower.Text))
-        eventsList(selectedIndex)(5) += "|" + searchRower.Text
-        searchRower.Text = ""
+        If searchRower.Text <> "" Then
+            eventsList(selectedIndex)(5) += "," + searchRower.Text
+            searchRower.Text = ""
 
-        refreshInfoList(infoList)
+            refreshRowerList(rowerList)
+            refreshInfoList(infoList)
+        End If
     End Sub
 
     Private Sub deleteRower_Click(sender As Object, e As EventArgs) Handles deleteRower.Click
         If rowerList.SelectedIndices.Count <> 0 Then
-            rowerList.Items(rowerList.SelectedIndices(0)).Remove()
+
+            Dim temp = Split(eventsList(selectedIndex)(5), ",")
+            temp(rowerList.SelectedIndices(0)) = Nothing
+            Dim temp2 = ""
+            For i = 0 To temp.Length - 1
+                If temp(i) IsNot Nothing Then
+                    temp2 += temp(i) + ","
+                End If
+            Next
+            temp2 = temp2.Trim(",")
+            eventsList(selectedIndex)(5) = temp2
+
+            refreshRowerList(rowerList)
+            refreshInfoList(infoList)
         End If
     End Sub
 
     Private Sub cancel_Click(sender As Object, e As EventArgs) Handles cancel.Click
         If MsgBox("Are you sure?", MsgBoxStyle.YesNo) = DialogResult.Yes Then
             eventsList.Clear()
-            Me.Hide()
+            Me.Close()
             resultsRace.Show()
         End If
     End Sub

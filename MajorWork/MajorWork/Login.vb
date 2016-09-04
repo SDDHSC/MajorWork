@@ -35,7 +35,7 @@ Public Class Login
         Dim tbLogin As DataTable = dataNames.Tables("tbLogin")
 
         For Each row In tbLogin.Rows
-            MessageBox.Show(row.item(4))
+            'MessageBox.Show(row.item(4))
             If row.item(4) <> "True" Or row.item(4) Is Nothing Then
 
                 tmpsource = ASCIIEncoding.ASCII.GetBytes(row.item(2))

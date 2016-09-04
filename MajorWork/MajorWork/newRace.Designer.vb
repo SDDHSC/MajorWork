@@ -69,8 +69,8 @@ Partial Class newRace
         Me.finish = New System.Windows.Forms.Button()
         Me.deleteRace = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.eventNameBox = New System.Windows.Forms.TextBox()
+        Me.eventTime = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel3.SuspendLayout()
@@ -365,7 +365,6 @@ Partial Class newRace
         Me.allEdit.Name = "allEdit"
         Me.allEdit.Size = New System.Drawing.Size(839, 321)
         Me.allEdit.TabIndex = 97
-        Me.allEdit.Visible = False
         '
         'Panel6
         '
@@ -552,22 +551,22 @@ Partial Class newRace
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Name of Event:"
         '
-        'TextBox1
+        'eventNameBox
         '
-        Me.TextBox1.Location = New System.Drawing.Point(17, 37)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(148, 29)
-        Me.TextBox1.TabIndex = 0
+        Me.eventNameBox.Location = New System.Drawing.Point(17, 37)
+        Me.eventNameBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.eventNameBox.Name = "eventNameBox"
+        Me.eventNameBox.Size = New System.Drawing.Size(148, 29)
+        Me.eventNameBox.TabIndex = 0
         '
-        'DateTimePicker1
+        'eventTime
         '
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(17, 96)
-        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(123, 29)
-        Me.DateTimePicker1.TabIndex = 4
+        Me.eventTime.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.eventTime.Location = New System.Drawing.Point(17, 96)
+        Me.eventTime.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.eventTime.Name = "eventTime"
+        Me.eventTime.Size = New System.Drawing.Size(123, 29)
+        Me.eventTime.TabIndex = 4
         '
         'Label2
         '
@@ -582,8 +581,8 @@ Partial Class newRace
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.TextBox1)
-        Me.Panel1.Controls.Add(Me.DateTimePicker1)
+        Me.Panel1.Controls.Add(Me.eventNameBox)
+        Me.Panel1.Controls.Add(Me.eventTime)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel1.Location = New System.Drawing.Point(13, 68)
@@ -680,8 +679,8 @@ Partial Class newRace
     Friend WithEvents finish As Button
     Friend WithEvents deleteRace As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents eventNameBox As TextBox
+    Friend WithEvents eventTime As DateTimePicker
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel1 As Panel
 End Class
