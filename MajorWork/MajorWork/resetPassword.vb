@@ -119,4 +119,9 @@ Public Class resetPassword
     Private Sub txtConfirmPassword_TextChanged(sender As Object, e As EventArgs) Handles txtConfirmPassword.TextChanged
 
     End Sub
+
+    Private Sub newUser_Click(sender As Object, e As EventArgs) Handles newUser.Click
+        createUser.Show()
+        Me.Close()
+    End Sub
 End Class
