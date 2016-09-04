@@ -42,9 +42,9 @@ Public Class createUser
             Dim table As DataTable = dataNames.Tables("tbLogin")
 
             checkUsername(table)
-            userLevelSet(table)
             enterPassword(table)
             checkSecurityQuestionAnswer()
+            userLevelSet(table)
 
             Try
                 Dim command As String
@@ -69,8 +69,9 @@ Public Class createUser
         'End If
     End Sub
     Sub checkUsername(table)
-        If txtUsername Is Nothing Then
+        If txtUsername.Text = "" Then
             MessageBox.Show("Enter Username")
+            currentDetails.ForeColor = Color.Red
         Else
             For Each row In table.rows
                 If txtUsername.Text = row.item(1) Then
@@ -79,19 +80,22 @@ Public Class createUser
             Next
             If usedUsername = True Then
                 MessageBox.Show("Username already used")
+                currentDetails.ForeColor = Color.Red
             Else
                 lblUsername.Text = txtUsername.Text
             End If
         End If
     End Sub
     Sub userLevelSet(table)
-        If lblUserLevel.Text = "blank" Then
+        If lblUserLevel.Text = "Blank" Then
             MessageBox.Show("Select a user level")
+            userLevel.ForeColor = Color.Red
         End If
     End Sub
     Sub checkSecurityQuestionAnswer()
         If txtConfirmAnswer.Text = "" Or txtNewAnswer.Text = "" Then
             MessageBox.Show("Enter an answer", "Confirm")
+            groupSecurityQuestions.ForeColor = Color.Red
         Else
             'hash security question answer if client wants to
             'Dim tbLogin As DataTable = dataNames.Tables("tbLogin")
@@ -120,6 +124,7 @@ Public Class createUser
         If txtConfirmPassword.Text = txtNewPassword.Text Then
             If txtConfirmPassword.Text = "" Then
                 MessageBox.Show("Enter a password", "Confirm")
+                groupPassword.ForeColor = Color.Red
             Else
                 Dim tbLogin As DataTable = dataNames.Tables("tbLogin")
                 Dim tmpsource() As Byte
@@ -138,6 +143,7 @@ Public Class createUser
             End If
         Else
             MessageBox.Show("The two entered passwords do not match.", "Same password") 'ADD ICON
+            groupPassword.ForeColor = Color.Red
             txtConfirmPassword.Text = ""
             txtNewPassword.Text = ""
         End If

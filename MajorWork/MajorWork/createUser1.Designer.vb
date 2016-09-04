@@ -47,20 +47,21 @@ Partial Class createUser
         Me.groupSecurityQuestions = New System.Windows.Forms.GroupBox()
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.groupPassword = New System.Windows.Forms.GroupBox()
         Me.currentDetails = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.newUser = New System.Windows.Forms.Button()
         Me.userLevel.SuspendLayout()
         Me.groupSecurityQuestions.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
+        Me.groupPassword.SuspendLayout()
         Me.currentDetails.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblHashed
         '
         Me.lblHashed.AutoSize = True
-        Me.lblHashed.Location = New System.Drawing.Point(642, 244)
+        Me.lblHashed.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.lblHashed.Location = New System.Drawing.Point(651, 244)
         Me.lblHashed.Name = "lblHashed"
         Me.lblHashed.Size = New System.Drawing.Size(34, 13)
         Me.lblHashed.TabIndex = 69
@@ -69,7 +70,8 @@ Partial Class createUser
         'lblUsername
         '
         Me.lblUsername.AutoSize = True
-        Me.lblUsername.Location = New System.Drawing.Point(642, 106)
+        Me.lblUsername.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.lblUsername.Location = New System.Drawing.Point(651, 106)
         Me.lblUsername.Name = "lblUsername"
         Me.lblUsername.Size = New System.Drawing.Size(34, 13)
         Me.lblUsername.TabIndex = 67
@@ -78,7 +80,8 @@ Partial Class createUser
         'lblPassword
         '
         Me.lblPassword.AutoSize = True
-        Me.lblPassword.Location = New System.Drawing.Point(642, 159)
+        Me.lblPassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.lblPassword.Location = New System.Drawing.Point(651, 159)
         Me.lblPassword.Name = "lblPassword"
         Me.lblPassword.Size = New System.Drawing.Size(34, 13)
         Me.lblPassword.TabIndex = 66
@@ -87,7 +90,8 @@ Partial Class createUser
         'lblSecurityAnswer
         '
         Me.lblSecurityAnswer.AutoSize = True
-        Me.lblSecurityAnswer.Location = New System.Drawing.Point(642, 310)
+        Me.lblSecurityAnswer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.lblSecurityAnswer.Location = New System.Drawing.Point(651, 310)
         Me.lblSecurityAnswer.Name = "lblSecurityAnswer"
         Me.lblSecurityAnswer.Size = New System.Drawing.Size(34, 13)
         Me.lblSecurityAnswer.TabIndex = 65
@@ -96,7 +100,8 @@ Partial Class createUser
         'lblUserLevel
         '
         Me.lblUserLevel.AutoSize = True
-        Me.lblUserLevel.Location = New System.Drawing.Point(642, 345)
+        Me.lblUserLevel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.lblUserLevel.Location = New System.Drawing.Point(651, 345)
         Me.lblUserLevel.Name = "lblUserLevel"
         Me.lblUserLevel.Size = New System.Drawing.Size(34, 13)
         Me.lblUserLevel.TabIndex = 64
@@ -147,7 +152,8 @@ Partial Class createUser
         'lblSecurityQuestion
         '
         Me.lblSecurityQuestion.AutoSize = True
-        Me.lblSecurityQuestion.Location = New System.Drawing.Point(642, 272)
+        Me.lblSecurityQuestion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
+        Me.lblSecurityQuestion.Location = New System.Drawing.Point(651, 272)
         Me.lblSecurityQuestion.Name = "lblSecurityQuestion"
         Me.lblSecurityQuestion.Size = New System.Drawing.Size(34, 13)
         Me.lblSecurityQuestion.TabIndex = 68
@@ -161,7 +167,7 @@ Partial Class createUser
         Me.userLevel.Controls.Add(Me.Label5)
         Me.userLevel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.userLevel.ForeColor = System.Drawing.Color.White
-        Me.userLevel.Location = New System.Drawing.Point(323, 244)
+        Me.userLevel.Location = New System.Drawing.Point(428, 230)
         Me.userLevel.Name = "userLevel"
         Me.userLevel.Size = New System.Drawing.Size(217, 157)
         Me.userLevel.TabIndex = 62
@@ -170,7 +176,7 @@ Partial Class createUser
         '
         'saveNewUser
         '
-        Me.saveNewUser.Location = New System.Drawing.Point(556, 386)
+        Me.saveNewUser.Location = New System.Drawing.Point(568, 395)
         Me.saveNewUser.Name = "saveNewUser"
         Me.saveNewUser.Size = New System.Drawing.Size(120, 43)
         Me.saveNewUser.TabIndex = 63
@@ -202,7 +208,7 @@ Partial Class createUser
         Me.txtConfirmAnswer.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtConfirmAnswer.Location = New System.Drawing.Point(6, 163)
         Me.txtConfirmAnswer.Name = "txtConfirmAnswer"
-        Me.txtConfirmAnswer.Size = New System.Drawing.Size(240, 24)
+        Me.txtConfirmAnswer.Size = New System.Drawing.Size(351, 24)
         Me.txtConfirmAnswer.TabIndex = 21
         '
         'txtNewPassword
@@ -237,7 +243,7 @@ Partial Class createUser
         Me.securityQuestions.FormattingEnabled = True
         Me.securityQuestions.Location = New System.Drawing.Point(9, 45)
         Me.securityQuestions.Name = "securityQuestions"
-        Me.securityQuestions.Size = New System.Drawing.Size(237, 28)
+        Me.securityQuestions.Size = New System.Drawing.Size(348, 28)
         Me.securityQuestions.TabIndex = 22
         '
         'Answer
@@ -265,7 +271,7 @@ Partial Class createUser
         Me.txtNewAnswer.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNewAnswer.Location = New System.Drawing.Point(9, 111)
         Me.txtNewAnswer.Name = "txtNewAnswer"
-        Me.txtNewAnswer.Size = New System.Drawing.Size(237, 24)
+        Me.txtNewAnswer.Size = New System.Drawing.Size(348, 24)
         Me.txtNewAnswer.TabIndex = 20
         '
         'groupSecurityQuestions
@@ -278,9 +284,9 @@ Partial Class createUser
         Me.groupSecurityQuestions.Controls.Add(Me.txtConfirmAnswer)
         Me.groupSecurityQuestions.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.groupSecurityQuestions.ForeColor = System.Drawing.Color.White
-        Me.groupSecurityQuestions.Location = New System.Drawing.Point(30, 199)
+        Me.groupSecurityQuestions.Location = New System.Drawing.Point(28, 185)
         Me.groupSecurityQuestions.Name = "groupSecurityQuestions"
-        Me.groupSecurityQuestions.Size = New System.Drawing.Size(261, 202)
+        Me.groupSecurityQuestions.Size = New System.Drawing.Size(373, 202)
         Me.groupSecurityQuestions.TabIndex = 60
         Me.groupSecurityQuestions.TabStop = False
         Me.groupSecurityQuestions.Text = "Security Question"
@@ -290,7 +296,7 @@ Partial Class createUser
         Me.txtUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsername.Location = New System.Drawing.Point(6, 49)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(175, 24)
+        Me.txtUsername.Size = New System.Drawing.Size(286, 24)
         Me.txtUsername.TabIndex = 30
         '
         'Label3
@@ -303,20 +309,20 @@ Partial Class createUser
         Me.Label3.TabIndex = 29
         Me.Label3.Text = "Enter username"
         '
-        'GroupBox1
+        'groupPassword
         '
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.txtNewPassword)
-        Me.GroupBox1.Controls.Add(Me.txtConfirmPassword)
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.GroupBox1.Location = New System.Drawing.Point(323, 77)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(217, 140)
-        Me.GroupBox1.TabIndex = 61
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Password"
+        Me.groupPassword.Controls.Add(Me.Label2)
+        Me.groupPassword.Controls.Add(Me.Label4)
+        Me.groupPassword.Controls.Add(Me.txtNewPassword)
+        Me.groupPassword.Controls.Add(Me.txtConfirmPassword)
+        Me.groupPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.groupPassword.ForeColor = System.Drawing.Color.White
+        Me.groupPassword.Location = New System.Drawing.Point(428, 63)
+        Me.groupPassword.Name = "groupPassword"
+        Me.groupPassword.Size = New System.Drawing.Size(217, 140)
+        Me.groupPassword.TabIndex = 61
+        Me.groupPassword.TabStop = False
+        Me.groupPassword.Text = "Password"
         '
         'currentDetails
         '
@@ -324,9 +330,9 @@ Partial Class createUser
         Me.currentDetails.Controls.Add(Me.Label3)
         Me.currentDetails.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.currentDetails.ForeColor = System.Drawing.Color.White
-        Me.currentDetails.Location = New System.Drawing.Point(30, 77)
+        Me.currentDetails.Location = New System.Drawing.Point(28, 63)
         Me.currentDetails.Name = "currentDetails"
-        Me.currentDetails.Size = New System.Drawing.Size(261, 100)
+        Me.currentDetails.Size = New System.Drawing.Size(373, 100)
         Me.currentDetails.TabIndex = 59
         Me.currentDetails.TabStop = False
         Me.currentDetails.Text = "Username"
@@ -343,7 +349,7 @@ Partial Class createUser
         '
         'newUser
         '
-        Me.newUser.Location = New System.Drawing.Point(556, 22)
+        Me.newUser.Location = New System.Drawing.Point(556, 10)
         Me.newUser.Name = "newUser"
         Me.newUser.Size = New System.Drawing.Size(120, 43)
         Me.newUser.TabIndex = 57
@@ -365,7 +371,7 @@ Partial Class createUser
         Me.Controls.Add(Me.userLevel)
         Me.Controls.Add(Me.saveNewUser)
         Me.Controls.Add(Me.groupSecurityQuestions)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.groupPassword)
         Me.Controls.Add(Me.currentDetails)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.newUser)
@@ -378,8 +384,8 @@ Partial Class createUser
         Me.userLevel.PerformLayout()
         Me.groupSecurityQuestions.ResumeLayout(False)
         Me.groupSecurityQuestions.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.groupPassword.ResumeLayout(False)
+        Me.groupPassword.PerformLayout()
         Me.currentDetails.ResumeLayout(False)
         Me.currentDetails.PerformLayout()
         Me.ResumeLayout(False)
@@ -412,7 +418,7 @@ Partial Class createUser
     Friend WithEvents groupSecurityQuestions As GroupBox
     Friend WithEvents txtUsername As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents groupPassword As GroupBox
     Friend WithEvents currentDetails As GroupBox
     Friend WithEvents Label1 As Label
     Friend WithEvents newUser As Button

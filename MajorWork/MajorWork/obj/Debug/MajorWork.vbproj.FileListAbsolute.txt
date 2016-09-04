@@ -27,3 +27,4 @@ C:\Users\student\Documents\Github even newer\MajorWork\MajorWork\MajorWork\obj\D
 C:\Users\student\Documents\Github even newer\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.xml
 C:\Users\student\Documents\Github even newer\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.pdb
 C:\Users\student\Documents\Github even newer\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.createUser.resources
+C:\Users\student\Documents\Github even newer\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbprojResolveAssemblyReference.cache
