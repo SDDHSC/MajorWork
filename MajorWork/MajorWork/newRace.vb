@@ -198,7 +198,7 @@
     Private Sub cancel_Click(sender As Object, e As EventArgs) Handles cancel.Click
         If MsgBox("Are you sure?", MsgBoxStyle.YesNo) = DialogResult.Yes Then
             eventsList.Clear()
-            Me.Close()
+            Me.Hide()
             resultsRace.Show()
         End If
     End Sub

@@ -7,9 +7,7 @@ Public Class resultsRace
     Dim dataResults As New DataSet()
 
     Dim eventsList As List(Of String()) = New List(Of String())     'List of events and their races
-    Dim selectedIndex As Integer                                    'Identifies which event is currently selected                       '
-
-    Dim eventDateBool As Boolean = False                            'Whether the date filter is activated
+    Dim selectedIndex As Integer                                    'Identifies which event is currently selected
 
     Private Sub resultsRace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         BackColor = schoolBlue                                                  'Sets backColour to the default school blue
@@ -38,6 +36,16 @@ Public Class resultsRace
         reader.Close()
 
         eventsRefresh()
+    End Sub
+
+    'Preventing listViews headers from being resized
+    Private Sub ListView1_ColumnWidthChanging(ByVal Sender As Object, ByVal E As System.Windows.Forms.ColumnWidthChangingEventArgs) Handles eventListView.ColumnWidthChanging, raceListView.ColumnWidthChanging, rowerListView.ColumnWidthChanging
+        For DCol = 0 To 4
+            If E.ColumnIndex = DCol Then
+                E.Cancel = True
+                E.NewWidth = Sender.Columns(DCol).Width
+            End If
+        Next DCol
     End Sub
 
     'Search filters
@@ -72,7 +80,7 @@ Public Class resultsRace
         eventListView.Items.Clear()
         For i = 0 To (eventsList.Count() - 1)
             If (eventNameSearchCheck.Checked = True And InStr(eventsList(i)(1).ToLower(), eventNameSearch.Text.ToLower()) Or eventNameSearch.Text = "Name") Or Not eventNameSearchCheck.Checked Then
-                If (eventDateBool = True And eventsList(i)(2) = eventDateSearch.Value.ToString("dd/MM/yyyy")) Or Not eventDateBool Then
+                If (eventDateSearchCheck.Checked = True And eventsList(i)(2) = eventDateSearch.Value.ToString("dd/MM/yyyy")) Or Not eventDateSearchCheck.Checked Then
                     Dim row(2) As String
                     row(0) = eventsList(i)(1)           'The name of the event
                     row(1) = eventsList(i)(2)           'The date of the event
@@ -82,7 +90,6 @@ Public Class resultsRace
                 End If
             End If
         Next
-        eventListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent)
     End Sub                 'Displays the event details
     Public Sub racesRefresh(ID)
         raceListView.Items.Clear()
@@ -109,19 +116,21 @@ Public Class resultsRace
         Next
     End Sub  'Displays the rowers of the selected race
 
-    'New and edit races
+    'Buttons
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles editRace.Click
         raceEditInfo = eventsList(selectedIndex)
         newRace.TopLevel = False
-        Main.Panel1.Controls.Add(newRace)
         newRace.Show()
         Me.Hide()
     End Sub
     Private Sub raceNewEntry_Click_1(sender As Object, e As EventArgs) Handles raceNewEntry.Click
         raceEditInfo = Nothing
         newRace.TopLevel = False
-        Main.Panel1.Controls.Add(newRace)
         newRace.Show()
         Me.Hide()
+    End Sub
+    Private Sub anaylisis_click(sender As Object, e As EventArgs) Handles analysisButton.Click
+
+
     End Sub
 End Class

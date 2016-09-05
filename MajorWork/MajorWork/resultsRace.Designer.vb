@@ -43,6 +43,7 @@ Partial Class resultsRace
         Me.Label2 = New System.Windows.Forms.Label()
         Me.raceNewEntry = New System.Windows.Forms.Button()
         Me.editRace = New System.Windows.Forms.Button()
+        Me.analysisButton = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -175,12 +176,12 @@ Partial Class resultsRace
         'Races
         '
         Me.Races.Text = "Name Of Event"
-        Me.Races.Width = 136
+        Me.Races.Width = 206
         '
         'Time
         '
         Me.Time.Text = "Date"
-        Me.Time.Width = 84
+        Me.Time.Width = 200
         '
         'eventID
         '
@@ -228,12 +229,23 @@ Partial Class resultsRace
         Me.editRace.Text = "Edit Entry"
         Me.editRace.UseVisualStyleBackColor = True
         '
+        'analysisButton
+        '
+        Me.analysisButton.Font = New System.Drawing.Font("Segoe UI", 7.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.analysisButton.Location = New System.Drawing.Point(689, 8)
+        Me.analysisButton.Name = "analysisButton"
+        Me.analysisButton.Size = New System.Drawing.Size(117, 38)
+        Me.analysisButton.TabIndex = 61
+        Me.analysisButton.Text = "Print Analysis"
+        Me.analysisButton.UseVisualStyleBackColor = True
+        '
         'resultsRace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Highlight
         Me.ClientSize = New System.Drawing.Size(1050, 692)
+        Me.Controls.Add(Me.analysisButton)
         Me.Controls.Add(Me.editRace)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label2)
@@ -271,4 +283,5 @@ Partial Class resultsRace
     Friend WithEvents raceListView As ListView
     Friend WithEvents rowerListView As ListView
     Friend WithEvents Rowers As ColumnHeader
+    Friend WithEvents analysisButton As Button
 End Class
