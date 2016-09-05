@@ -22,10 +22,12 @@ Public Class resetPassword
 
             Dim tbLogin As DataTable = dataNames.Tables("tbLogin")
             For Each row In tbLogin.Rows
-                If txtUsername.Text = row.item(1) And tempPassword = row.item(2) Then
-                    foundUser = True
-                Else
-                    foundUser = False
+                If foundUser = False Then
+                    If txtUsername.Text = row.item(1) And tempPassword = row.item(2) Then
+                        foundUser = True
+                    Else
+                        foundUser = False
+                    End If
                 End If
             Next
 
@@ -63,6 +65,7 @@ Public Class resetPassword
                                     row.item(4) = "True"
                                     adpNamesUser.Update(dataNames, "tbLogin")
                                     MessageBox.Show("Successfully changed password", "Success")
+                                    Calendar.Show()
                                     Me.Close()
                                 Catch
                                     MessageBox.Show("Failed to change password", "Fail")
@@ -121,6 +124,10 @@ Public Class resetPassword
     End Sub
 
     Private Sub newUser_Click(sender As Object, e As EventArgs) Handles newUser.Click
+        createUser.TopLevel = False
+
+        Main.Panel1.Controls.Add(createUser)
+
         createUser.Show()
         Me.Close()
     End Sub
