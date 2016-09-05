@@ -10,6 +10,10 @@ Public Class createUser
 
     Dim usedUsername As Boolean = False
     Private Sub newUser_Click(sender As Object, e As EventArgs) Handles newUser.Click
+        resetPassword.TopLevel = False
+
+        Main.Panel1.Controls.Add(resetPassword)
+
         resetPassword.Show()
         Me.Close()
     End Sub

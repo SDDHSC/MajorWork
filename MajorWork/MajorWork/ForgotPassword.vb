@@ -10,6 +10,10 @@ Public Class ForgotPassword
     Dim conNames As OleDbConnection
     Dim dataNames As New DataSet()
     Private Sub back_Click(sender As Object, e As EventArgs) Handles back.Click
+        Login.TopLevel = False
+
+        Main.Panel1.Controls.Add(Login)
+
         Login.Show()
         Me.Close()
     End Sub

@@ -26,7 +26,6 @@ Public Class Login
         tempUsername = ""
         tempPassword = ""
 
-
         Dim tmpsource() As Byte
         Dim tmpHash() As Byte
 
@@ -132,8 +131,12 @@ Public Class Login
 
 
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+        ForgotPassword.TopLevel = False
+
+        Main.Panel1.Controls.Add(ForgotPassword)
+
         ForgotPassword.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles AnimationRowingTimer.Tick
@@ -187,18 +190,6 @@ Public Class Login
                 If tempUsername = row.item(2) Then 'checks password and gives appropriate feedback 
                     loginSuccess = True
                     accesslevel = row.item(3)
-                Else
-                    MessageBox.Show("Incorrect password")
-                    loginattempts = loginattempts + 1
-                    If loginattempts = 4 Then
-                        MessageBox.Show("Incorrect password: one more attempt")
-                    Else
-                        If loginattempts > 6 Then
-                            MessageBox.Show("Incorrect password: no more attempts. Program closed")
-                            'lockedOut = True
-                            Application.Exit()
-                        End If
-                    End If
                 End If
             End If
         Next

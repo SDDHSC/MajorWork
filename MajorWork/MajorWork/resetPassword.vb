@@ -121,6 +121,10 @@ Public Class resetPassword
     End Sub
 
     Private Sub newUser_Click(sender As Object, e As EventArgs) Handles newUser.Click
+        createUser.TopLevel = False
+
+        Main.Panel1.Controls.Add(createUser)
+
         createUser.Show()
         Me.Close()
     End Sub
