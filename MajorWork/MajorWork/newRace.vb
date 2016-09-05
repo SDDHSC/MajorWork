@@ -43,27 +43,26 @@
     End Sub
 
     Private Sub raceSelect(sender As ListView, e As EventArgs) Handles infoList.SelectedIndexChanged
-        'Try
         selectedIndex = infoList.SelectedIndices(0)
-            Dim selectedItem = infoList.Items(selectedIndex)
+        Dim selectedItem = infoList.Items(selectedIndex)
 
-            minCounter.Value = CInt(Split(selectedItem.SubItems(1).Text, ":")(0))
-            secCounter.Value = CInt(Split(selectedItem.SubItems(1).Text, ":")(1))
+        minCounter.Value = CInt(Split(selectedItem.SubItems(1).Text, ":")(0))
+        secCounter.Value = CInt(Split(selectedItem.SubItems(1).Text, ":")(1))
 
-            distCounter.Value = CInt(selectedItem.SubItems(2).Text)
+        distCounter.Value = CInt(selectedItem.SubItems(2).Text)
 
 
         particiCounter.Value = CInt(Split(selectedItem.SubItems(3).Text, " of ")(1))
         posCounter.Value = ordinalConvert(Split(selectedItem.SubItems(3).Text, " of ")(0))
 
         Dim temp = Split(selectedItem.SubItems(4).Text, " ")
-            yearCounter.Value = CInt(temp(0))
-            gradeCombo.SelectedItem = temp(1).Trim("Y")
+        yearCounter.Value = CInt(temp(0))
+        gradeCombo.SelectedItem = temp(1).Trim("Y")
         crewCounter.Value = ordinalConvert(temp(2))
+        boatCombo.SelectedItem = temp(3)
 
         refreshRowerList(rowerList)
-        'Catch
-        'End Try
+
     End Sub
 
     Private Sub refreshRowerList(list)
@@ -136,7 +135,16 @@
             minCounter.Value = minCounter.Value + 1
         End If
         If eventsList.Count <> 0 Then
-            eventsList(selectedIndex)(1) = CStr(minCounter.Value) + ":" + CStr(secCounter.Value)
+            Dim temp = ""
+            If minCounter.Value < 10 Then
+                temp += "0"
+            End If
+            temp += CStr(minCounter.Value) + ":"
+            If secCounter.Value < 10 Then
+                temp += "0"
+            End If
+            temp += CStr(secCounter.Value)
+            eventsList(selectedIndex)(1) = temp
         End If
 
         refreshInfoList(infoList)
@@ -201,4 +209,5 @@
             refreshInfoList(infoList)
         End If
     End Sub
+
 End Class

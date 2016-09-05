@@ -23,43 +23,62 @@ Partial Class resultsRace
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.rowerListView = New System.Windows.Forms.ListView()
+        Me.Rowers = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.eventDateSearchCheck = New System.Windows.Forms.CheckBox()
         Me.eventNameSearchCheck = New System.Windows.Forms.CheckBox()
         Me.eventDateSearch = New System.Windows.Forms.DateTimePicker()
-        Me.infoList = New System.Windows.Forms.ListView()
+        Me.raceListView = New System.Windows.Forms.ListView()
         Me.raceName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.raceTime = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.raceDistance = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.position = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.squad = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.crew = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.resultsList = New System.Windows.Forms.ListView()
+        Me.eventListView = New System.Windows.Forms.ListView()
         Me.Races = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Time = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.eventID = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.eventNameSearch = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.raceNewEntry = New System.Windows.Forms.Button()
-        Me.raceAnalysis = New System.Windows.Forms.Button()
         Me.editRace = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.rowerListView)
         Me.Panel1.Controls.Add(Me.eventDateSearchCheck)
         Me.Panel1.Controls.Add(Me.eventNameSearchCheck)
         Me.Panel1.Controls.Add(Me.eventDateSearch)
-        Me.Panel1.Controls.Add(Me.infoList)
+        Me.Panel1.Controls.Add(Me.raceListView)
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.resultsList)
+        Me.Panel1.Controls.Add(Me.eventListView)
         Me.Panel1.Controls.Add(Me.eventNameSearch)
         Me.Panel1.Location = New System.Drawing.Point(10, 59)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1030, 625)
         Me.Panel1.TabIndex = 59
+        '
+        'rowerListView
+        '
+        Me.rowerListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Rowers})
+        Me.rowerListView.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rowerListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.rowerListView.Location = New System.Drawing.Point(818, 257)
+        Me.rowerListView.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.rowerListView.Name = "rowerListView"
+        Me.rowerListView.Size = New System.Drawing.Size(212, 361)
+        Me.rowerListView.TabIndex = 58
+        Me.rowerListView.UseCompatibleStateImageBehavior = False
+        Me.rowerListView.View = System.Windows.Forms.View.Details
+        '
+        'Rowers
+        '
+        Me.Rowers.Text = "Rowers"
+        Me.Rowers.Width = 200
         '
         'eventDateSearchCheck
         '
@@ -89,16 +108,19 @@ Partial Class resultsRace
         Me.eventDateSearch.Size = New System.Drawing.Size(145, 29)
         Me.eventDateSearch.TabIndex = 56
         '
-        'infoList
+        'raceListView
         '
-        Me.infoList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.raceName, Me.raceTime, Me.raceDistance, Me.position, Me.squad, Me.crew})
-        Me.infoList.Location = New System.Drawing.Point(0, 257)
-        Me.infoList.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.infoList.Name = "infoList"
-        Me.infoList.Size = New System.Drawing.Size(1024, 361)
-        Me.infoList.TabIndex = 55
-        Me.infoList.UseCompatibleStateImageBehavior = False
-        Me.infoList.View = System.Windows.Forms.View.Details
+        Me.raceListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.raceName, Me.raceTime, Me.raceDistance, Me.position, Me.squad})
+        Me.raceListView.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.raceListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.raceListView.HideSelection = False
+        Me.raceListView.Location = New System.Drawing.Point(0, 257)
+        Me.raceListView.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.raceListView.Name = "raceListView"
+        Me.raceListView.Size = New System.Drawing.Size(810, 361)
+        Me.raceListView.TabIndex = 55
+        Me.raceListView.UseCompatibleStateImageBehavior = False
+        Me.raceListView.View = System.Windows.Forms.View.Details
         '
         'raceName
         '
@@ -118,17 +140,12 @@ Partial Class resultsRace
         'position
         '
         Me.position.Text = "Position"
-        Me.position.Width = 195
+        Me.position.Width = 117
         '
         'squad
         '
         Me.squad.Text = "Squad"
-        Me.squad.Width = 213
-        '
-        'crew
-        '
-        Me.crew.Text = "Rowers"
-        Me.crew.Width = 319
+        Me.squad.Width = 163
         '
         'Label3
         '
@@ -141,16 +158,19 @@ Partial Class resultsRace
         Me.Label3.TabIndex = 50
         Me.Label3.Text = "Filters"
         '
-        'resultsList
+        'eventListView
         '
-        Me.resultsList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Races, Me.Time, Me.eventID})
-        Me.resultsList.Location = New System.Drawing.Point(0, 5)
-        Me.resultsList.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.resultsList.Name = "resultsList"
-        Me.resultsList.Size = New System.Drawing.Size(412, 241)
-        Me.resultsList.TabIndex = 54
-        Me.resultsList.UseCompatibleStateImageBehavior = False
-        Me.resultsList.View = System.Windows.Forms.View.Details
+        Me.eventListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Races, Me.Time, Me.eventID})
+        Me.eventListView.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.eventListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.eventListView.HideSelection = False
+        Me.eventListView.Location = New System.Drawing.Point(0, 5)
+        Me.eventListView.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.eventListView.Name = "eventListView"
+        Me.eventListView.Size = New System.Drawing.Size(412, 241)
+        Me.eventListView.TabIndex = 54
+        Me.eventListView.UseCompatibleStateImageBehavior = False
+        Me.eventListView.View = System.Windows.Forms.View.Details
         '
         'Races
         '
@@ -184,34 +204,24 @@ Partial Class resultsRace
         Me.Label2.Location = New System.Drawing.Point(13, 8)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(196, 45)
+        Me.Label2.Size = New System.Drawing.Size(206, 45)
         Me.Label2.TabIndex = 58
-        Me.Label2.Text = "Race Results"
+        Me.Label2.Text = "Event Results"
         '
         'raceNewEntry
         '
         Me.raceNewEntry.Font = New System.Drawing.Font("Segoe UI", 7.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.raceNewEntry.Location = New System.Drawing.Point(817, 8)
+        Me.raceNewEntry.Location = New System.Drawing.Point(926, 8)
         Me.raceNewEntry.Name = "raceNewEntry"
         Me.raceNewEntry.Size = New System.Drawing.Size(108, 38)
         Me.raceNewEntry.TabIndex = 57
         Me.raceNewEntry.Text = "New Entry"
         Me.raceNewEntry.UseVisualStyleBackColor = True
         '
-        'raceAnalysis
-        '
-        Me.raceAnalysis.Font = New System.Drawing.Font("Segoe UI", 7.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.raceAnalysis.Location = New System.Drawing.Point(931, 8)
-        Me.raceAnalysis.Name = "raceAnalysis"
-        Me.raceAnalysis.Size = New System.Drawing.Size(108, 38)
-        Me.raceAnalysis.TabIndex = 56
-        Me.raceAnalysis.Text = "Analysis"
-        Me.raceAnalysis.UseVisualStyleBackColor = True
-        '
         'editRace
         '
         Me.editRace.Font = New System.Drawing.Font("Segoe UI", 7.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.editRace.Location = New System.Drawing.Point(703, 8)
+        Me.editRace.Location = New System.Drawing.Point(812, 8)
         Me.editRace.Name = "editRace"
         Me.editRace.Size = New System.Drawing.Size(108, 38)
         Me.editRace.TabIndex = 60
@@ -228,7 +238,6 @@ Partial Class resultsRace
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.raceNewEntry)
-        Me.Controls.Add(Me.raceAnalysis)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "resultsRace"
@@ -245,21 +254,21 @@ Partial Class resultsRace
     Friend WithEvents eventDateSearchCheck As CheckBox
     Friend WithEvents eventNameSearchCheck As CheckBox
     Friend WithEvents eventDateSearch As DateTimePicker
-    Friend WithEvents infoList As ListView
     Friend WithEvents raceName As ColumnHeader
     Friend WithEvents raceTime As ColumnHeader
     Friend WithEvents raceDistance As ColumnHeader
     Friend WithEvents position As ColumnHeader
     Friend WithEvents squad As ColumnHeader
-    Friend WithEvents crew As ColumnHeader
     Friend WithEvents Label3 As Label
-    Friend WithEvents resultsList As ListView
+    Friend WithEvents eventListView As ListView
     Friend WithEvents Races As ColumnHeader
     Friend WithEvents Time As ColumnHeader
     Friend WithEvents eventID As ColumnHeader
     Friend WithEvents eventNameSearch As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents raceNewEntry As Button
-    Friend WithEvents raceAnalysis As Button
     Friend WithEvents editRace As Button
+    Friend WithEvents raceListView As ListView
+    Friend WithEvents rowerListView As ListView
+    Friend WithEvents Rowers As ColumnHeader
 End Class

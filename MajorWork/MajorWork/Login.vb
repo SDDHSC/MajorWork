@@ -204,8 +204,11 @@ Public Class Login
         Next
 
         If loginSuccess = True Then
-            Calendar.Show()
-            Me.Hide()
+            Main.ButtonClick(Main.calendarButton, Nothing) 'need to check if this works
+            Main.accessLabel.Text = "Access Level: " + CStr(accesslevel)
+            Main.loginButton.Text = "Logout"
+            'calendar.open()
+            'Me.Hide()
         Else
             MessageBox.Show("Incorrect Username")
             loginattempts = loginattempts + 1
