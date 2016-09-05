@@ -22,13 +22,19 @@ Public Class ForgotPassword
         groupNewPasswords.Enabled = False
         currentDetails.Enabled = True
 
+        'init drop box
         SecurityQuestions.Items.Add("What is your favourite colour?")
         SecurityQuestions.Items.Add("What was your first pet?")
         SecurityQuestions.Items.Add("What was the suburb of your first home?")
         SecurityQuestions.Items.Add("What was your first teacher's name?")
+
+        'visually hides the password
+        txtNewPassword.PasswordChar = "*"
+        txtConfirmPassword.PasswordChar = "*"
     End Sub
 
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+        'database connection
         Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
         conNames = New OleDbConnection(connectString)
         conNames.Open()
@@ -45,6 +51,7 @@ Public Class ForgotPassword
 
         If usernameApproved = False Then
             For Each row In table.Rows
+                'appropriate user with correct security question and answer
                 If txtUsername.Text = row.item(1) And SecurityQuestions.Text = row.item(5) And txtSecurityAnswer.Text = row.item(6) Then
                     usernameApproved = True
                     groupNewPasswords.Enabled = True
@@ -55,6 +62,7 @@ Public Class ForgotPassword
                 MessageBox.Show("Incorrect Information")
             End If
         Else
+            'check passwords match
             If txtConfirmPassword.Text = txtNewPassword.Text Then
                 If txtConfirmPassword.Text = "" Then
                     MessageBox.Show("Enter a password", "Confirm")
@@ -66,11 +74,11 @@ Public Class ForgotPassword
 
                     For Each row In tbLogin.Rows
                         If row.item(1) = txtUsername.Text Then 'sucessfully changes password     
-                            tmpsource = ASCIIEncoding.ASCII.GetBytes(txtNewPassword.Text)
+                            tmpsource = ASCIIEncoding.ASCII.GetBytes(txtNewPassword.Text) 'encrypt password
                             tmpHash = New MD5CryptoServiceProvider().ComputeHash(tmpsource)
                             tempPassword = ByteArrayToString(tmpHash)
                             Try
-                                Dim cb As New OleDb.OleDbCommandBuilder(adpNamesUser)
+                                Dim cb As New OleDb.OleDbCommandBuilder(adpNamesUser) 'update database
                                 row.item(2) = tempPassword
                                 row.item(4) = "True"
                                 adpNamesUser.Update(dataNames, "tbLogin")
@@ -89,6 +97,7 @@ Public Class ForgotPassword
         End If
     End Sub
     Private Function ByteArrayToString(ByVal arrInput() As Byte) As String
+        'converts hashed (encrypted) password to string
         Dim i As Integer
         Dim sOutput As New StringBuilder(arrInput.Length)
         For i = 0 To arrInput.Length - 1

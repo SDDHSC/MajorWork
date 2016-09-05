@@ -3,9 +3,11 @@ Public Class Absences
     Dim adpAbsenceUser As New OleDbDataAdapter
     Dim conAbsence As OleDbConnection
     Dim dataAbsence As New DataSet()
+
     Dim listViewEmpty As Boolean = True
     Dim initialising = True
     Dim listViewEmptyCheck = False
+
     Private Sub btnAttendance_Click(sender As Object, e As EventArgs) Handles btnAttendance.Click
         Attendance.Show()
         Attendance.mainPanelCheck.Text = "attendance show"
@@ -328,6 +330,7 @@ Public Class Absences
         ListAbsence.Items.AddRange(New ListViewItem() {item1})
     End Sub
     Sub Reset()
+        'clears all values in filters, setting everything to default
         absenceSession.SelectedIndex = 0
         absenceYear.SelectedIndex = 0
         absenceName.Clear()
@@ -335,7 +338,9 @@ Public Class Absences
         absenceDateTimePicker.Enabled = False
         dateCheck.Checked = False
         ListAbsence.View = View.Details
+        absenceName.Text = ""
         Dim table As DataTable = dataAbsence.Tables("tblabsence")
+
 
         For Each row In table.Rows
             AddlistAbsence(row)
@@ -371,18 +376,9 @@ Public Class Absences
         End If
     End Sub
 
-    Private Sub displayAll_Click(sender As Object, e As EventArgs) Handles displayAll.Click
-        absenceSession.SelectedIndex = 0
-        absenceYear.SelectedIndex = 0
-        ListAbsence.Items.Clear()
-        ListAbsence.View = View.Details
-        absenceDateTimePicker.Enabled = False
-        dateCheck.Checked = False
-        Dim table As DataTable = dataAbsence.Tables("tblabsence")
-
-        For Each row In table.Rows
-            AddlistAbsence(row)
-        Next
+    Private Sub displayAll_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        'Reset button click, set everything to default
+        Reset()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
@@ -393,6 +389,7 @@ Public Class Absences
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles emptyCheck.Tick
+        'constantly checks if there's no results
         If initialising = False Then
             If ListAbsence.Items.Count = 0 Then
                 Reset()
@@ -402,12 +399,24 @@ Public Class Absences
     End Sub
 
     Private Sub dateCheck_CheckedChanged(sender As Object, e As EventArgs) Handles dateCheck.CheckedChanged
+        'enables date when clicked
         If dateCheck.Checked = True Then
             absenceDateTimePicker.Enabled = True
-            'absenceName.Enabled = False
+            MessageBox.Show("Select a date")
         Else
             absenceDateTimePicker.Enabled = False
             'absenceName.Enabled = True
         End If
+    End Sub
+    Private Sub FilterInfo_MouseHover(sender As Object, e As EventArgs) Handles FilterInfo.MouseHover
+        'on screen help for user
+        lblInfo2.Show()
+        lblInfo3.Show()
+    End Sub
+
+    Private Sub FilterInfo_MouseLeave(sender As Object, e As EventArgs) Handles FilterInfo.MouseLeave
+        'on screen help for user
+        lblInfo2.Hide()
+        lblInfo3.Hide()
     End Sub
 End Class

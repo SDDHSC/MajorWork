@@ -23,7 +23,7 @@ Partial Class Absences
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.displayAll = New System.Windows.Forms.Button()
+        Me.btnReset = New System.Windows.Forms.Button()
         Me.ListAbsence = New System.Windows.Forms.ListView()
         Me.btnAttendance = New System.Windows.Forms.Button()
         Me.absenceDateTimePicker = New System.Windows.Forms.DateTimePicker()
@@ -36,21 +36,25 @@ Partial Class Absences
         Me.emptyCheck = New System.Windows.Forms.Timer(Me.components)
         Me.dateCheck = New System.Windows.Forms.CheckBox()
         Me.lblSearch = New System.Windows.Forms.Label()
+        Me.lblInfo3 = New System.Windows.Forms.Label()
+        Me.lblInfo2 = New System.Windows.Forms.Label()
+        Me.FilterInfo = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'displayAll
+        'btnReset
         '
-        Me.displayAll.Location = New System.Drawing.Point(588, 73)
-        Me.displayAll.Name = "displayAll"
-        Me.displayAll.Size = New System.Drawing.Size(67, 30)
-        Me.displayAll.TabIndex = 47
-        Me.displayAll.Text = "Reset"
-        Me.displayAll.UseVisualStyleBackColor = True
+        Me.btnReset.Location = New System.Drawing.Point(556, 73)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(67, 30)
+        Me.btnReset.TabIndex = 47
+        Me.btnReset.Text = "Reset"
+        Me.btnReset.UseVisualStyleBackColor = True
         '
         'ListAbsence
         '
         Me.ListAbsence.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListAbsence.GridLines = True
+        Me.ListAbsence.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.ListAbsence.Location = New System.Drawing.Point(23, 149)
         Me.ListAbsence.Name = "ListAbsence"
         Me.ListAbsence.Size = New System.Drawing.Size(654, 280)
@@ -89,7 +93,7 @@ Partial Class Absences
         Me.absenceYear.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.absenceYear.FormattingEnabled = True
         Me.absenceYear.Items.AddRange(New Object() {"All Yrs", "7", "8", "9", "10", "11", "12"})
-        Me.absenceYear.Location = New System.Drawing.Point(469, 75)
+        Me.absenceYear.Location = New System.Drawing.Point(442, 75)
         Me.absenceYear.Name = "absenceYear"
         Me.absenceYear.Size = New System.Drawing.Size(68, 26)
         Me.absenceYear.TabIndex = 43
@@ -100,7 +104,7 @@ Partial Class Absences
         Me.absenceSession.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.absenceSession.FormattingEnabled = True
         Me.absenceSession.Items.AddRange(New Object() {"All Sessions", "Erg", "Running", "Rowing", "Weights", "Other"})
-        Me.absenceSession.Location = New System.Drawing.Point(278, 75)
+        Me.absenceSession.Location = New System.Drawing.Point(259, 75)
         Me.absenceSession.Name = "absenceSession"
         Me.absenceSession.Size = New System.Drawing.Size(133, 26)
         Me.absenceSession.TabIndex = 42
@@ -164,13 +168,52 @@ Partial Class Absences
         Me.lblSearch.TabIndex = 48
         Me.lblSearch.Text = "Search for first name OR last name"
         '
+        'lblInfo3
+        '
+        Me.lblInfo3.AutoSize = True
+        Me.lblInfo3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInfo3.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblInfo3.Location = New System.Drawing.Point(516, 56)
+        Me.lblInfo3.Name = "lblInfo3"
+        Me.lblInfo3.Size = New System.Drawing.Size(148, 18)
+        Me.lblInfo3.TabIndex = 54
+        Me.lblInfo3.Text = "Reset clears all filters"
+        Me.lblInfo3.Visible = False
+        '
+        'lblInfo2
+        '
+        Me.lblInfo2.AutoSize = True
+        Me.lblInfo2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInfo2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblInfo2.Location = New System.Drawing.Point(202, 55)
+        Me.lblInfo2.Name = "lblInfo2"
+        Me.lblInfo2.Size = New System.Drawing.Size(253, 18)
+        Me.lblInfo2.TabIndex = 53
+        Me.lblInfo2.Text = "Select a row in drop box to apply filter"
+        Me.lblInfo2.Visible = False
+        '
+        'FilterInfo
+        '
+        Me.FilterInfo.AutoSize = True
+        Me.FilterInfo.BackColor = System.Drawing.Color.White
+        Me.FilterInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.FilterInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterInfo.Location = New System.Drawing.Point(657, 77)
+        Me.FilterInfo.Name = "FilterInfo"
+        Me.FilterInfo.Size = New System.Drawing.Size(20, 22)
+        Me.FilterInfo.TabIndex = 55
+        Me.FilterInfo.Text = "?"
+        '
         'Absences
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(700, 450)
-        Me.Controls.Add(Me.displayAll)
+        Me.Controls.Add(Me.FilterInfo)
+        Me.Controls.Add(Me.lblInfo3)
+        Me.Controls.Add(Me.lblInfo2)
+        Me.Controls.Add(Me.btnReset)
         Me.Controls.Add(Me.ListAbsence)
         Me.Controls.Add(Me.btnAttendance)
         Me.Controls.Add(Me.absenceDateTimePicker)
@@ -191,7 +234,7 @@ Partial Class Absences
 
     End Sub
 
-    Friend WithEvents displayAll As Button
+    Friend WithEvents btnReset As Button
     Friend WithEvents ListAbsence As ListView
     Friend WithEvents btnAttendance As Button
     Friend WithEvents absenceDateTimePicker As DateTimePicker
@@ -204,4 +247,7 @@ Partial Class Absences
     Friend WithEvents emptyCheck As Timer
     Friend WithEvents dateCheck As CheckBox
     Friend WithEvents lblSearch As Label
+    Friend WithEvents lblInfo3 As Label
+    Friend WithEvents lblInfo2 As Label
+    Friend WithEvents FilterInfo As Label
 End Class

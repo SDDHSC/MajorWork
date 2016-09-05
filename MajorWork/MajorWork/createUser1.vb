@@ -26,6 +26,9 @@ Public Class createUser
         securityQuestions.Items.Add("What was your first teacher's name?")
 
 
+        txtNewPassword.PasswordChar = "*"
+        txtConfirmPassword.PasswordChar = "*"
+
     End Sub
 
     Private Sub saveNewUser_Click(sender As Object, e As EventArgs) Handles saveNewUser.Click

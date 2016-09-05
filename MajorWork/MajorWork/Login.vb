@@ -29,29 +29,19 @@ Public Class Login
         Dim tmpsource() As Byte
         Dim tmpHash() As Byte
 
-        'hash all items in database
+        'hash all items in database if not already hashed
         loadDatabase()
         Dim tbLogin As DataTable = dataNames.Tables("tbLogin")
-
         For Each row In tbLogin.Rows
-            'MessageBox.Show(row.item(4))
             If row.item(4) <> "True" Or row.item(4) Is Nothing Then
-
                 tmpsource = ASCIIEncoding.ASCII.GetBytes(row.item(2))
                 tmpHash = New MD5CryptoServiceProvider().ComputeHash(tmpsource)
                 tempPassword = ByteArrayToString(tmpHash)
                 Try
-                    'Dim command As String
-                    'command = "INSERT INTO tbLogin(pWord) VALUES (@first)"
-                    'Dim cmd As OleDbCommand
-                    'cmd = New OleDbCommand(command, conNames)
-                    'cmd.Parameters.AddWithValue("pWord", tempPassword)
-                    'cmd.ExecuteNonQuery()
                     Dim cb As New OleDb.OleDbCommandBuilder(adpNamesUser)
                     row.item(2) = tempPassword
                     row.item(4) = "True"
                     adpNamesUser.Update(dataNames, "tbLogin")
-
                 Catch exceptionobject As Exception
                     MessageBox.Show(exceptionobject.Message)
                 End Try
@@ -63,31 +53,32 @@ Public Class Login
 
     End Sub
 
+    'allows form to be moved around
 
-    Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
+    'Public Sub MoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
 
-        If e.Button = MouseButtons.Left Then
-            MoveForm = True
-            MoveForm_MousePosition = e.Location
-        End If
+    '    If e.Button = MouseButtons.Left Then
+    '        MoveForm = True
+    '        MoveForm_MousePosition = e.Location
+    '    End If
 
-    End Sub
+    'End Sub
 
-    Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles MyBase.MouseMove
+    'Public Sub MoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles MyBase.MouseMove
 
-        If MoveForm Then
-            Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
-        End If
+    '    If MoveForm Then
+    '        Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
+    '    End If
 
-    End Sub
+    'End Sub
 
-    Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles MyBase.MouseUp
+    'Public Sub MoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles MyBase.MouseUp
 
-        If e.Button = MouseButtons.Left Then
-            MoveForm = False
-        End If
+    '    If e.Button = MouseButtons.Left Then
+    '        MoveForm = False
+    '    End If
 
-    End Sub
+    'End Sub
 
     'focuses textbox and clearly switches username/password
     Private Sub txtUsername_lostFocus(sender As Object, e As EventArgs) Handles txtUsername.LostFocus
@@ -124,13 +115,8 @@ Public Class Login
 
 
 
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-        Label2.ForeColor = Color.Brown
-
-    End Sub
-
-
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+        'stick form to panel
         ForgotPassword.TopLevel = False
 
         Main.Panel1.Controls.Add(ForgotPassword)
@@ -147,14 +133,9 @@ Public Class Login
             PictureBox1.Image = pbImage1
         End If
     End Sub
-    Private Sub PictureBox2_Click(sender As Object, e As EventArgs)
 
-    End Sub
-
-    Private Sub formLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
     Private Function ByteArrayToString(ByVal arrInput() As Byte) As String
+        'converts hashed (encrypted) passwords to strings
         Dim i As Integer
         Dim sOutput As New StringBuilder(arrInput.Length)
         For i = 0 To arrInput.Length - 1
@@ -195,11 +176,9 @@ Public Class Login
         Next
 
         If loginSuccess = True Then
-            Main.ButtonClick(Main.calendarButton, Nothing) 'need to check if this works
+            Main.ButtonClick(Main.calendarButton, Nothing)
             Main.accessLabel.Text = "Access Level: " + CStr(accesslevel)
             Main.loginButton.Text = "Logout"
-            'calendar.open()
-            'Me.Hide()
         Else
             MessageBox.Show("Incorrect Username")
             loginattempts = loginattempts + 1
