@@ -1,7 +1,7 @@
 ﻿Public Class Main
     Dim dictButtonForm As Dictionary(Of String, Form)
-    Dim currentForm
-    Dim currentButton
+    Dim currentForm As Form
+    Dim currentButton As Button
 
     Public Sub ButtonClick(sender As Button, e As EventArgs) Handles calendarButton.Click, resultsButton.Click, attendanceButton.Click, profilesButton.Click, ChangePasswordButton.Click, loginButton.Click
         Dim logout = True
@@ -13,20 +13,17 @@
                 logout = False
             End If
         End If
-        Try
-            If currentForm IsNot dictButtonForm(sender.Text) Then
-                currentButton.BackColor = schoolBlue
-                currentButton = sender
-                currentButton.BackColor = schoolBrown
+        If currentForm IsNot dictButtonForm(sender.Text) Then
+            currentButton.BackColor = schoolBlue
+            currentButton = sender
+            currentButton.BackColor = schoolBrown
 
-                currentForm.hide()
-                currentForm = dictButtonForm(sender.Text)
-                currentForm.toplevel = False
-                Me.Panel1.Controls.Add(currentForm)
-                currentForm.show()
-            End If
-        Catch
-        End Try
+            currentForm.hide()
+            currentForm = dictButtonForm(sender.Text)
+            currentForm.toplevel = False
+            Me.Panel1.Controls.Add(currentForm)
+            currentForm.Show()
+        End If
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles Me.Load
