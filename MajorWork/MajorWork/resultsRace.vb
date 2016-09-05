@@ -9,7 +9,6 @@ Public Class resultsRace
     Dim eventsList As List(Of String()) = New List(Of String())     'List of events and their races
     Dim selectedIndex As Integer                                    'Identifies which event is currently selected                       '
 
-    Dim eventNameBool As Boolean = False                            'Whether the name filter is activated
     Dim eventDateBool As Boolean = False                            'Whether the date filter is activated
 
     Private Sub resultsRace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -41,10 +40,38 @@ Public Class resultsRace
         eventsRefresh()
     End Sub
 
-    Public Sub eventsRefresh() 'Refreshing the control 'eventListView', the ListView that displays a list of events
+    'Search filters
+    Private Sub eventSearch_GotFocus(sender As TextBox, e As EventArgs) Handles eventNameSearch.GotFocus
+        If sender.Text = "Name" Then
+            sender.Text = ""
+            sender.ForeColor = Color.Black
+            sender.Font = New Font("Segoe UI", 8, FontStyle.Regular)
+            eventsRefresh()
+        End If
+    End Sub   'When the name filter gains focus, the grey "Name" disappears
+    Private Sub searchLostFocus(sender As TextBox, e As EventArgs) Handles eventNameSearch.LostFocus
+        If sender.Text = "" Then
+            sender.Text = "Name"
+            sender.ForeColor = Color.Gray
+            sender.Font = New Font("Segoe UI", 8, FontStyle.Italic)
+        End If
+    End Sub       'When the name filter loses focus, the grey "Name" appears if the textbox is blank
+    Private Sub filterChange(sender As Object, e As EventArgs) Handles eventNameSearchCheck.CheckedChanged, eventNameSearch.TextChanged, eventDateSearch.ValueChanged
+        eventsRefresh()
+    End Sub 'When either filter is activated or changed, refresh the eventsListView
+
+    'ListView selection changes
+    Private Sub eventListView_SelectedIndexChanged(sender As ListView, e As EventArgs) Handles eventListView.ItemSelectionChanged
+        selectedIndex = sender.FocusedItem.Index
+        racesRefresh(eventListView.Items(selectedIndex).SubItems(2).Text)
+    End Sub 'Sets the selectedIndex variable to reflect selected event and refreshs the raceListView
+    Private Sub raceListView_SelectedIndexChanged(sender As Object, e As EventArgs) Handles raceListView.SelectedIndexChanged
+        rowerRefresh(eventListView.Items(selectedIndex).SubItems(2).Text, raceListView.FocusedItem.Index)
+    End Sub     'Refreshs the rowerListView if the race selection changes
+    Public Sub eventsRefresh()
         eventListView.Items.Clear()
         For i = 0 To (eventsList.Count() - 1)
-            If (eventNameBool = True And InStr(eventsList(i)(1).ToLower(), eventNameSearch.Text.ToLower()) Or eventNameSearch.Text = "Name") Or Not eventNameBool Then
+            If (eventNameSearchCheck.Checked = True And InStr(eventsList(i)(1).ToLower(), eventNameSearch.Text.ToLower()) Or eventNameSearch.Text = "Name") Or Not eventNameSearchCheck.Checked Then
                 If (eventDateBool = True And eventsList(i)(2) = eventDateSearch.Value.ToString("dd/MM/yyyy")) Or Not eventDateBool Then
                     Dim row(2) As String
                     row(0) = eventsList(i)(1)           'The name of the event
@@ -55,14 +82,9 @@ Public Class resultsRace
                 End If
             End If
         Next
-    End Sub
-
-    Private Sub eventListView_SelectedIndexChanged(sender As ListView, e As EventArgs) Handles eventListView.ItemSelectionChanged
-        selectedIndex = sender.FocusedItem.Index                            'Sets the selectedIndex variable to reflect selected event
-        racesRefresh(eventListView.Items(selectedIndex).SubItems(2).Text)
-    End Sub
-
-    Public Sub racesRefresh(ID) 'Refreshing the control 'raceListview', the ListView that displays the races of the selected event
+        eventListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent)
+    End Sub                 'Displays the event details
+    Public Sub racesRefresh(ID)
         raceListView.Items.Clear()
         For i = 0 To CInt(eventsList(ID - 1)(3)) - 1                        'Add rows into raceListview, specified by the "Number of Races" column in the database
             Dim row(6) As String
@@ -75,52 +97,7 @@ Public Class resultsRace
                 raceListView.Items(j).SubItems.Item(i - 4).Text = temp(j)
             Next
         Next
-    End Sub
-
-    Private Sub TextBox2_TextChanged(sender As TextBox, e As EventArgs) Handles eventNameSearch.GotFocus
-        If sender.Text = "Name" Then
-            sender.Text = ""
-            sender.ForeColor = Color.Black
-            sender.Font = Font
-            eventsRefresh()
-        End If
-    End Sub
-
-    Private Sub searchLostFocus(sender As TextBox, e As EventArgs) Handles eventNameSearch.LostFocus
-        If sender.Text = "" Then
-            sender.Text = "Name"
-            sender.ForeColor = Color.Gray
-            sender.Font = New Font("Segoe UI", 8, FontStyle.Italic)
-        End If
-    End Sub
-
-    Private Sub eventNameSearch_TextChanged_1(sender As Object, e As EventArgs) Handles eventNameSearch.TextChanged, eventDateSearch.ValueChanged
-        If eventNameBool Then
-            eventsRefresh()
-        End If
-    End Sub
-
-    Private Sub eventNameSearchCheck_CheckedChanged_1(sender As Object, e As EventArgs) Handles eventNameSearchCheck.CheckedChanged
-        eventNameBool = Not eventNameBool
-        eventsRefresh()
-    End Sub
-
-    Private Sub raceNewEntry_Click_1(sender As Object, e As EventArgs) Handles raceNewEntry.Click
-        raceEditInfo = Nothing
-        newRace.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles editRace.Click
-        raceEditInfo = eventsList(selectedIndex)
-        newRace.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub raceListView_SelectedIndexChanged(sender As Object, e As EventArgs) Handles raceListView.SelectedIndexChanged
-        rowerRefresh(eventListView.Items(selectedIndex).SubItems(2).Text, raceListView.FocusedItem.Index)
-    End Sub
-
+    End Sub                'Displays the races of the selected event
     Private Sub rowerRefresh(eventID, raceID)
         rowerListView.Items.Clear()
         Dim temp = Split(Split(eventsList(CInt(eventID) - 1)(9).Trim({"["c, "]"c}), "|")(raceID), ",")
@@ -130,5 +107,21 @@ Public Class resultsRace
             Dim itm As New ListViewItem(row)
             rowerListView.Items.Add(itm)
         Next
+    End Sub  'Displays the rowers of the selected race
+
+    'New and edit races
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles editRace.Click
+        raceEditInfo = eventsList(selectedIndex)
+        newRace.TopLevel = False
+        Main.Panel1.Controls.Add(newRace)
+        newRace.Show()
+        Me.Hide()
+    End Sub
+    Private Sub raceNewEntry_Click_1(sender As Object, e As EventArgs) Handles raceNewEntry.Click
+        raceEditInfo = Nothing
+        newRace.TopLevel = False
+        Main.Panel1.Controls.Add(newRace)
+        newRace.Show()
+        Me.Hide()
     End Sub
 End Class
