@@ -1,12 +1,13 @@
 ﻿Imports System.Data.OleDb
 Public Class Calendar
     Dim dName = {"m", "tu", "w", "th", "f", "sa", "su"}
+    Dim eventsList As List(Of String()) = New List(Of String())
+    Dim nEvent(7) As String
     Dim days As New List(Of Label)
     Dim pDays As New List(Of Panel)
     Dim monthValue = 0
     Dim fakeDate As Date
     Dim hPanel = New Panel
-
     Dim adp As New OleDbDataAdapter
     Dim conDatabase As OleDbConnection
     Dim dataResults As New DataSet()
@@ -268,10 +269,17 @@ Public Class Calendar
             Dim row(1) As String 'row(1) is a list of strings that is two long, because index at 0 
             row(0) = CStr(reader(6)) 'reader(1) gets the value at 1 of the current record
             Dim itm = New ListViewItem(row)
-
             If CStr(reader(1)) = Label1.Text Then
                 resultsList.Items.Add(itm)
+                nEvent(0) = reader(0)
+                nEvent(1) = reader(1)
+                nEvent(2) = reader(2)
+                nEvent(3) = reader(3)
+                nEvent(4) = reader(4)
+                nEvent(5) = reader(5)
+                nEvent(6) = reader(6)
             End If
+            eventsList.Add(nEvent)
         End While
         reader.Close()
     End Sub
@@ -332,5 +340,14 @@ Public Class Calendar
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         fakeDate = fakeDate.AddMonths(-1)
         ReloadCal(fakeDate, fakeDate.Day)
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        NewEvent.Show()
+    End Sub
+    Private Sub resultsList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles resultsList.SelectedIndexChanged
+        Dim selectedEvent As String() = eventsList(sender.focuseditem.index)
+
+        NewEvent.Show()
     End Sub
 End Class

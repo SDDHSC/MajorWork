@@ -104,6 +104,9 @@ Public Class resetPassword
         txtNewPassword.PasswordChar = "*"
         groupNewPasswords.ForeColor = Color.DimGray
         currentDetails.ForeColor = Color.White
+
+        buttonStyle(btnNext1)
+        buttonStyle(newUser)
     End Sub
 
     Sub loadDatabase()

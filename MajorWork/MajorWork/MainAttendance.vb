@@ -7,6 +7,10 @@ Public Class MainAttendance
     Dim initialising = True
     Private Sub MainAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        buttonStyle(btnAbsences)
+        buttonStyle(btnReset)
+        buttonStyle(createNewRoll)
+
         'init database
         Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
         conAttendance = New OleDbConnection(connectString)

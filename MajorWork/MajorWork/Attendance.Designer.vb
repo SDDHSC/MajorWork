@@ -32,25 +32,28 @@ Partial Class Attendance
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.Panel1.Controls.Add(Me.mainPanelCheck)
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(700, 450)
+        Me.Panel1.Size = New System.Drawing.Size(1050, 692)
         Me.Panel1.TabIndex = 2
         '
         'mainPanelCheck
         '
-        Me.mainPanelCheck.Location = New System.Drawing.Point(90, 140)
+        Me.mainPanelCheck.Location = New System.Drawing.Point(135, 215)
+        Me.mainPanelCheck.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.mainPanelCheck.Name = "mainPanelCheck"
-        Me.mainPanelCheck.Size = New System.Drawing.Size(100, 20)
+        Me.mainPanelCheck.Size = New System.Drawing.Size(148, 26)
         Me.mainPanelCheck.TabIndex = 2
         '
         'Attendance
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Teal
-        Me.ClientSize = New System.Drawing.Size(700, 450)
+        Me.ClientSize = New System.Drawing.Size(1050, 692)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Attendance"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Attendance"

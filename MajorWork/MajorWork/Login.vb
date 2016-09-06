@@ -51,6 +51,8 @@ Public Class Login
 
         Next
 
+        buttonStyle(btnLogin)
+
     End Sub
 
     'allows form to be moved around

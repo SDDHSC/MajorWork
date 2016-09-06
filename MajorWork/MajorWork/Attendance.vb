@@ -25,5 +25,4 @@
         End If
         mainPanelCheck.Text = ""
     End Sub
-
 End Class

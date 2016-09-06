@@ -9,6 +9,11 @@ Public Class createUser
     Dim dataNames As New DataSet()
 
     Dim usedUsername As Boolean = False
+
+    Dim approvedUsername As Boolean = False
+    Dim approvedSecurityQuestion As Boolean = False
+    Dim approvedpassword As Boolean = False
+    Dim approvedAccessLevel As Boolean = False
     Private Sub newUser_Click(sender As Object, e As EventArgs) Handles newUser.Click
         resetPassword.TopLevel = False
 
@@ -28,10 +33,15 @@ Public Class createUser
 
         txtNewPassword.PasswordChar = "*"
         txtConfirmPassword.PasswordChar = "*"
-
+        buttonStyle(newUser)
+        buttonStyle(saveNewUser)
     End Sub
 
     Private Sub saveNewUser_Click(sender As Object, e As EventArgs) Handles saveNewUser.Click
+        approvedUsername = False
+        approvedSecurityQuestion = False
+        approvedpassword = False
+        approvedAccessLevel = False
         Dim saveConfirm As Integer = MessageBox.Show("Are you sure you want to create this user? Changes cannot be undone", "Confirm", MessageBoxButtons.YesNo)
         If saveConfirm = DialogResult.Yes Then
             Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
@@ -48,41 +58,43 @@ Public Class createUser
             adpNamesUser.Fill(dataNames, "tbLogin")
             Dim table As DataTable = dataNames.Tables("tbLogin")
 
-            checkUsername(table)
+            checkUsername(table, approvedUsername)
             enterPassword(table)
             checkSecurityQuestionAnswer()
             userLevelSet(table)
+            If approvedAccessLevel = True And approvedSecurityQuestion = True And approvedUsername = True And approvedpassword = True Then
+                Try
+                    Dim command As String
+                    command = "INSERT INTO tbLogin(uName, pWord, aLevel, Hashed, Question, Answer) VALUES (@uname, @pword, @alevel, @hashed, @question, @answer)"
+                    Dim cmd As OleDbCommand
+                    cmd = New OleDbCommand(command, conNames)
+                    cmd.Parameters.AddWithValue("uName", lblUsername.Text)
+                    cmd.Parameters.AddWithValue("pWord", lblPassword.Text)
+                    cmd.Parameters.AddWithValue("aLevel", lblUserLevel.Text)
+                    cmd.Parameters.AddWithValue("Hashed", lblHashed.Text)
+                    cmd.Parameters.AddWithValue("Question", lblSecurityQuestion.Text)
+                    cmd.Parameters.AddWithValue("Answer", lblSecurityAnswer.Text)
+                    cmd.ExecuteNonQuery()
 
-            Try
-                Dim command As String
-                command = "INSERT INTO tbLogin(uName, pWord, aLevel, Hashed, Question, Answer) VALUES (@uname, @pword, @alevel, @hashed, @question, @answer)"
-                Dim cmd As OleDbCommand
-                cmd = New OleDbCommand(command, conNames)
-                cmd.Parameters.AddWithValue("uName", lblUsername.Text)
-                cmd.Parameters.AddWithValue("pWord", lblPassword.Text)
-                cmd.Parameters.AddWithValue("aLevel", lblUserLevel.Text)
-                cmd.Parameters.AddWithValue("Hashed", lblHashed.Text)
-                cmd.Parameters.AddWithValue("Question", lblSecurityQuestion.Text)
-                cmd.Parameters.AddWithValue("Answer", lblSecurityAnswer.Text)
-                cmd.ExecuteNonQuery()
-                MessageBox.Show("User created!")
-                resetPassword.TopLevel = False
 
-                Main.Panel1.Controls.Add(resetPassword)
+                Catch exceptionobject As Exception
+                    MessageBox.Show(exceptionobject.Message)
+                End Try
+            End If
 
-                resetPassword.Show()
-                Me.Close()
-            Catch exceptionobject As Exception
-                MessageBox.Show(exceptionobject.Message)
-            End Try
         End If
 
-        'If something = True Then
-        '    resetPassword.Show()
-        '    Me.Close()
-        'End If
+        If approvedAccessLevel = True And approvedSecurityQuestion = True And approvedUsername = True And approvedpassword = True Then
+            MessageBox.Show("User created!")
+            resetPassword.TopLevel = False
+
+            Main.Panel1.Controls.Add(resetPassword)
+
+            resetPassword.Show()
+            Me.Close()
+        End If
     End Sub
-    Sub checkUsername(table)
+    Sub checkUsername(table, approvedUserName)
         If txtUsername.Text = "" Then
             MessageBox.Show("Enter Username")
             currentDetails.ForeColor = Color.Red
@@ -90,6 +102,8 @@ Public Class createUser
             For Each row In table.rows
                 If txtUsername.Text = row.item(1) Then
                     usedUsername = True
+                    approvedUserName = True
+                    currentDetails.ForeColor = Color.White
                 End If
             Next
             If usedUsername = True Then
@@ -104,6 +118,8 @@ Public Class createUser
         If lblUserLevel.Text = "Blank" Then
             MessageBox.Show("Select a user level")
             userLevel.ForeColor = Color.Red
+        Else
+            approvedAccessLevel = True
         End If
     End Sub
     Sub checkSecurityQuestionAnswer()
@@ -130,6 +146,7 @@ Public Class createUser
                 End Try
             Else
                 MessageBox.Show("Security Question answers do not match", "Not matched")
+                groupSecurityQuestions.ForeColor = Color.Red
             End If
 
         End If
