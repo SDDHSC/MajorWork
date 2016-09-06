@@ -76,13 +76,19 @@ Public Class NewEvent
     End Sub
 
     Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
-        If eventSelected = True Then
-            updateR()
-        Else
-            newr()
-        End If
 
-        Me.Close()
+        If txtEName.Text = "" Or cmbDay.SelectedValue = "" Or cmbMonth.SelectedValue = "" Or cmbYear.SelectedValue = "" Or numHour.Value = 0 Or cmbAm.SelectedValue = "" Or cboxParticipants1.Checked = False And cboxParticipants2.Checked = False And cboxParticipants3.Checked = False Then
+            Dim Response = MsgBox("You must complete all fields to save this event", MsgBoxStyle.OkOnly, Title:="Incomplete Field")
+
+        Else
+            If eventSelected = True Then
+                updateR()
+            Else
+                newr()
+            End If
+
+            Me.Close()
+        End If
     End Sub
 
     Public Sub newr()

@@ -237,7 +237,7 @@ Partial Class NewEvent
         '
         'btnEdit
         '
-        Me.btnEdit.Location = New System.Drawing.Point(603, 110)
+        Me.btnEdit.Location = New System.Drawing.Point(604, 110)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
         Me.btnEdit.TabIndex = 58
