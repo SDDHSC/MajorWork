@@ -5,23 +5,23 @@ Public Class NewEvent
 
     Public Property Url As Uri
 
-    Private Sub NewEvent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub NewEvent_Load(sender As Object, e As EventArgs) Handles MyBase.Load 'Loads NewEvent Form either reading info from a selected event or blank to create a new event
         If eventSelected = True Then
 
             WebBrowser1.Navigate(selectedEvent(4))
             txtLocation.Text = selectedEvent(0)
 
-            Dim splitDate As String() = selectedEvent(1).Split(New Char() {"/"c})
+            Dim splitDate As String() = selectedEvent(1).Split(New Char() {"/"c}) 'splits the date into 3 individual sections
             cmbDay.Text = splitDate(0)
             cmbMonth.Text = splitDate(1)
             cmbYear.Text = splitDate(2)
 
-            Dim splitTime As String() = selectedEvent(2).Split(New Char() {"."c})
+            Dim splitTime As String() = selectedEvent(2).Split(New Char() {"."c}) 'Splits the time into 3 individual sections
             numHour.Value = splitTime(0)
             numMinute.Value = splitTime(1)
             cmbAm.Text = splitTime(2)
 
-            If selectedEvent(3).Contains("Y8") = True Then
+            If selectedEvent(3).Contains("Y8") = True Then 'Checks for participation by group
                 cboxParticipants1.CheckState = CheckState.Checked
             End If
             If selectedEvent(3).Contains("Y9") = True Then
@@ -29,6 +29,9 @@ Public Class NewEvent
             End If
             If selectedEvent(3).Contains("Y10") = True Then
                 cboxParticipants3.CheckState = CheckState.Checked
+            End If
+            If selectedEvent(3).Contains("1st") = True Then
+                cboxParticipants4.CheckState = CheckState.Checked
             End If
 
             txtEName.Text = selectedEvent(6)
@@ -49,19 +52,14 @@ Public Class NewEvent
 
 
 
-            'If accessLevel > 0 Then
-            btnEdit.Visible = True
-            btnDelete.Visible = True
-            'Else
-            'btnEdit.Visible = False
-            'btnDelete.Visible = False
+            If accessLevel > 0 Then
+                btnEdit.Visible = True
+                btnDelete.Visible = True
+            Else
+                btnEdit.Visible = False
+                btnDelete.Visible = False
 
-            ' End If
-
-        Else
-            btnEdit.Visible = False
-            btnDelete.Visible = False
-        End If
+            End If
 
     End Sub
 
@@ -119,6 +117,9 @@ Public Class NewEvent
         End If
         If cboxParticipants3.Checked = True Then
             strParticipants += "Y10/"
+        End If
+        If cboxParticipants4.Checked = True Then
+            strParticipants += "1st/"
         End If
 
         Dim Sql = "INSERT INTO [tbEvents] ([Location],[eDate],[sTime],[Participants],[wLocation],[eventID],[eName]) VALUES (@Location, @eDate, @sTime, @Participants, @wLocation, @eventID, @eName)"

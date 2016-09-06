@@ -1,24 +1,26 @@
 ﻿Imports System.Data.OleDb
 Public Class Calendar
-    Dim dName = {"m", "tu", "w", "th", "f", "sa", "su"}
-    Dim eventsList As List(Of String()) = New List(Of String())
-    Dim nEvent(7) As String
-    Dim days As New List(Of Label)
-    Dim pDays As New List(Of Panel)
+
+    Dim dName = {"m", "tu", "w", "th", "f", "sa", "su"} 'dName = name of day. List of abbreviations of days
+    Dim eventsList As List(Of String()) = New List(Of String()) 'allows for efficient recall of recent events as opposed to constantly searching the DB
+    Dim nEvent(7) As String 'Number of elements in an event record
+    Dim days As New List(Of Label) 'list of labels indexed as month days
+    Dim pDays As New List(Of Panel) 'corresponding list of panels housing labels in days
+
     Dim monthValue = 0
-    Dim fakeDate As Date
+    Dim fakeDate As Date 'While originally the correct date is used to manipulate the windows calender.
     Dim hPanel = New Panel
     Dim adp As New OleDbDataAdapter
     Dim conDatabase As OleDbConnection
     Dim dataResults As New DataSet()
-    Dim infoLabels As List(Of Label)
+    Dim infoLabels As List(Of Label) 'list of labels used for help
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Dim infoLabels = New List(Of Label) From {info1, info2}
 
         Dim connectstring As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb" ' address of database
-        conDatabase = New OleDbConnection(connectstring)
+        conDatabase = New OleDbConnection(connectstring) 'creates DB connection
         conDatabase.Open()
         adp = New OleDbDataAdapter()
         adp.SelectCommand = New OleDbCommand()
@@ -32,7 +34,7 @@ Public Class Calendar
 
         hPanel.name = ""
         fakeDate = Today.Date
-        For x = 0 To 5
+        For x = 0 To 5 'generates the grid array of label and adds them to days and pdays
             For y = 0 To 6
 
                 Dim p = New Panel
@@ -52,7 +54,7 @@ Public Class Calendar
                 l.Name = dName(y).ToString + (x + 1).ToString
                 p.Name = dName(y).ToString + (x + 1).ToString
 
-                AddHandler p.Click, AddressOf Panel_Click
+                AddHandler p.Click, AddressOf Panel_Click 'adds non-default handlss to the panels and labels in days and pdays
                 AddHandler l.Click, AddressOf Panel_Click
 
                 AddHandler p.MouseEnter, AddressOf Panel1_Hover
@@ -68,11 +70,11 @@ Public Class Calendar
                 pDays.Add(p)
             Next
         Next
-        ReloadCal(fakeDate, fakeDate.Day)
+        ReloadCal(fakeDate, fakeDate.Day) 'Loads the calender based on the fake date
 
     End Sub
 
-    Public Sub ReloadCal(ByVal ldate As Date, ByVal Selected As Integer)
+    Public Sub ReloadCal(ByVal ldate As Date, ByVal Selected As Integer) 'Loads the calender GUI 
         On Error Resume Next
         cleartxt()
         MonthName.Text = monthstr(ldate.Month)
@@ -84,7 +86,7 @@ Public Class Calendar
 
             getlabel(fdate, row).ForeColor = Color.White
             If idate = Selected Then
-                getlabel(fdate, row).ForeColor = Color.OrangeRed
+                getlabel(fdate, row).ForeColor = Color.OrangeRed 'Marks the current day in a distinct red
             End If
             If fdate = DayOfWeek.Sunday Then
                 row += 1
@@ -96,7 +98,7 @@ Public Class Calendar
             End If
         Loop
 
-        For Each x In Me.Controls
+        For Each x In Me.Controls 'Greys out the panels/labels that are left over once the GUI is generated
             If x.GetType() Is GetType(Label) Then
                 If x.Text = "" Then
                     Dim labelIndex = (days.IndexOf(x))
@@ -197,7 +199,7 @@ Public Class Calendar
         Return rday
     End Function
 
-    Public Function monthstr(ByVal month As Integer) As String
+    Public Function monthstr(ByVal month As Integer) As String 'converts the numeric month value to a string month value
         If month > 12 Then
             month -= 12
         ElseIf month < 1 Then
@@ -233,7 +235,7 @@ Public Class Calendar
         Return ("Error")
     End Function
 
-    Private Sub Panel_Click(sender As Object, e As MouseEventArgs)
+    Private Sub Panel_Click(sender As Object, e As MouseEventArgs) 'Negates clicks on greyed out panels, change of color based on which panel was clicked. Changes corresponding label to the panel
         Dim pIndex = 0
         Dim hIndex = 0
 
@@ -263,7 +265,7 @@ Public Class Calendar
         End If
 
         If days(pIndex).Text <> "" Then
-            Label1.Text = days(pIndex).Text + "/" + CStr(fakeDate.Month) + "/" + CStr(fakeDate.Year)
+            Label1.Text = days(pIndex).Text + "/" + CStr(fakeDate.Month) + "/" + CStr(fakeDate.Year) 'Presents the date of the selected panel
         End If
 
         resultsList.Items.Clear()
@@ -287,7 +289,7 @@ Public Class Calendar
         reader.Close()
     End Sub
 
-    Private Sub Panel1_Hover(sender As Object, e As EventArgs)
+    Private Sub Panel1_Hover(sender As Object, e As EventArgs) 'Changes the panels/labels colors based on mouse activity
         Dim pIndex = 0
 
         If sender.GetType() = GetType(Panel) Then
@@ -311,7 +313,7 @@ Public Class Calendar
         End If
     End Sub
 
-    Private Sub Panel1_leave(sender As Object, e As EventArgs)
+    Private Sub Panel1_leave(sender As Object, e As EventArgs) 'Changes the panels/labels colors based on mouse activity
         Dim pIndex = 0
 
         If sender.GetType() = GetType(Panel) Then
@@ -335,12 +337,12 @@ Public Class Calendar
         End If
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click 'Increments the fakemonth value to cycle through months
         fakeDate = fakeDate.AddMonths(1)
         ReloadCal(fakeDate, fakeDate.Day)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'Decrements the fakemonth value to cycle through months
         fakeDate = fakeDate.AddMonths(-1)
         ReloadCal(fakeDate, fakeDate.Day)
     End Sub
@@ -354,14 +356,14 @@ Public Class Calendar
         NewEvent.Show()
     End Sub
 
-    Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles FilterInfo.MouseEnter
+    Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles filterinfo.MouseEnter 'Mouse Hover shows the help text
         For Each label As Label In infoLabels
             label.Visible = True
             label.ForeColor = Color.Black
         Next
     End Sub
 
-    Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles FilterInfo.MouseLeave
+    Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles filterinfo.MouseLeave 'Mouse Hover shows the help text
         For Each label As Label In infoLabels
             label.Visible = False
         Next

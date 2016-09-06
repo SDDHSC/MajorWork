@@ -259,9 +259,9 @@ Partial Class NewEvent
         Me.cboxParticipants4.AutoSize = True
         Me.cboxParticipants4.Location = New System.Drawing.Point(591, 81)
         Me.cboxParticipants4.Name = "cboxParticipants4"
-        Me.cboxParticipants4.Size = New System.Drawing.Size(77, 17)
+        Me.cboxParticipants4.Size = New System.Drawing.Size(59, 17)
         Me.cboxParticipants4.TabIndex = 60
-        Me.cboxParticipants4.Text = "Year 10 8s"
+        Me.cboxParticipants4.Text = "1st VIII"
         Me.cboxParticipants4.UseVisualStyleBackColor = True
         '
         'NewEvent
