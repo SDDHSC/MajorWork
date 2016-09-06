@@ -60,13 +60,13 @@ Public Class resetPassword
                                 tmpHash = New MD5CryptoServiceProvider().ComputeHash(tmpsource)
                                 tempPassword = ByteArrayToString(tmpHash)
                                 Try
-                                    Dim cb As New OleDb.OleDbCommandBuilder(adpNamesUser)
+                                    Dim cb As New OleDbCommandBuilder(adpNamesUser)
                                     row.item(2) = tempPassword
                                     row.item(4) = "True"
                                     adpNamesUser.Update(dataNames, "tbLogin")
                                     MessageBox.Show("Successfully changed password", "Success")
-                                    Calendar.Show()
-                                    Me.Close()
+                                    currentForm = New Calendar
+                                    Main.buttonClick(Main.calendarButton)
                                 Catch
                                     MessageBox.Show("Failed to change password", "Fail")
                                 End Try
@@ -122,12 +122,6 @@ Public Class resetPassword
     End Sub
 
     Private Sub newUser_Click(sender As Object, e As EventArgs) Handles newUser.Click
-        'another form
-        createUser.TopLevel = False
-
-        Main.Panel1.Controls.Add(createUser)
-
-        createUser.Show()
-        Me.Hide()
+        openForm(Me, New createUser)
     End Sub
 End Class

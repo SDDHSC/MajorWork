@@ -29,7 +29,7 @@ Partial Class results
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1050, 692)
         Me.Panel1.TabIndex = 0
@@ -41,7 +41,7 @@ Partial Class results
         Me.ClientSize = New System.Drawing.Size(1050, 692)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "results"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "results"

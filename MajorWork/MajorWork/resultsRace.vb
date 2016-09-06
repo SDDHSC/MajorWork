@@ -39,11 +39,11 @@ Public Class resultsRace
     End Sub
 
     'Preventing listViews headers from being resized
-    Private Sub ListView1_ColumnWidthChanging(ByVal Sender As Object, ByVal E As System.Windows.Forms.ColumnWidthChangingEventArgs) Handles eventListView.ColumnWidthChanging, raceListView.ColumnWidthChanging, rowerListView.ColumnWidthChanging
-        For DCol = 0 To 4
-            If E.ColumnIndex = DCol Then
-                E.Cancel = True
-                E.NewWidth = Sender.Columns(DCol).Width
+    Private Sub ListView1_ColumnWidthChanging(ByVal Sender As Object, ByVal e As ColumnWidthChangingEventArgs) Handles eventListView.ColumnWidthChanging, raceListView.ColumnWidthChanging, rowerListView.ColumnWidthChanging
+        For DCol = 0 To 4 'Max no. of columns
+            If e.ColumnIndex = DCol Then
+                e.Cancel = True
+                e.NewWidth = Sender.Columns(DCol).Width
             End If
         Next DCol
     End Sub
@@ -64,7 +64,7 @@ Public Class resultsRace
             sender.Font = New Font("Segoe UI", 8, FontStyle.Italic)
         End If
     End Sub       'When the name filter loses focus, the grey "Name" appears if the textbox is blank
-    Private Sub filterChange(sender As Object, e As EventArgs) Handles eventNameSearchCheck.CheckedChanged, eventNameSearch.TextChanged, eventDateSearch.ValueChanged
+    Private Sub filterChange(sender As Object, e As EventArgs) Handles eventNameSearchCheck.CheckedChanged, eventDateSearchCheck.CheckedChanged, eventNameSearch.TextChanged, eventDateSearch.ValueChanged
         eventsRefresh()
     End Sub 'When either filter is activated or changed, refresh the eventsListView
 
@@ -119,19 +119,28 @@ Public Class resultsRace
     'Buttons
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles editRace.Click
         raceEditInfo = eventsList(selectedIndex)
-        newRace.TopLevel = False
-        newRace.Show()
-        Me.Hide()
+        openForm(Me, New newRace)
     End Sub
     Private Sub raceNewEntry_Click_1(sender As Object, e As EventArgs) Handles raceNewEntry.Click
         raceEditInfo = Nothing
-        newRace.TopLevel = False
-        newRace.Show()
-        Me.Hide()
+        openForm(Me, New newRace)
     End Sub
     Private Sub anaylisis_click(sender As Object, e As EventArgs) Handles analysisButton.Click
+        analysisPrint.Print()
+    End Sub
+
+    Private Sub analysisPrint_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles analysisPrint.PrintPage
+        Dim printFont As Font
+        Dim printString As String
+        With e.Graphics
+            printFont = New Font("Arial", 14, FontStyle.Bold)
+            .DrawString("Rowing Events Analysis:", printFont, Brushes.Black, 40, 100)
 
 
+
+
+            e.HasMorePages = False
+        End With
     End Sub
 
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint

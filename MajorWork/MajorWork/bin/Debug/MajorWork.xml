@@ -22,7 +22,7 @@ MajorWork
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="P:MajorWork.My.Resources.Resources.BlankProfilePictuer">
+<member name="P:MajorWork.My.Resources.Resources.BlankProfilePicture">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

@@ -1,48 +1,92 @@
 ﻿Public Class Main
-    Dim dictButtonForm As Dictionary(Of String, Form)
-    Dim currentForm As Form
     Dim currentButton As Button
+    Dim buttonList As Button()
 
-    Public Sub ButtonClick(sender As Button, e As EventArgs) Handles calendarButton.Click, resultsButton.Click, attendanceButton.Click, profilesButton.Click, ChangePasswordButton.Click, loginButton.Click
-        Dim logout = True
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Me.Icon = Icon.FromHandle(My.Resources.BlankProfilePicture.GetHicon)
+        buttonList = {calendarButton, resultsButton, attendanceButton, profilesButton, ChangePasswordButton}
+
+        BackColor = schoolBlue
+        For Each button In buttonList
+            button.BackColor = schoolBlue
+            button.Enabled = False
+        Next
+        currentForm = New Login
+        currentButton = loginButton
+
+        currentForm.TopLevel = False
+        Me.Panel1.Controls.Add(currentForm)
+        currentForm.Show()
+        loginButton.BackColor = schoolBrown
+        currentButton = loginButton
+    End Sub
+
+    Private Sub loginClick(sender As Button, e As EventArgs) Handles loginButton.Click
         If sender.Text = "Logout" Then
             If MsgBox("Are you sure you want to logout?", MsgBoxStyle.YesNo) = DialogResult.Yes Then
                 accessLevel = 0
                 sender.Text = "Login"
-            Else
-                logout = False
+                currentForm = New Login
+                buttonClick(sender)
+                accessLabel.Text = "No User Logged In"
             End If
+        Else
+            currentForm = New Login
+            buttonClick(sender)
         End If
-        If currentForm IsNot dictButtonForm(sender.Text) Then
+    End Sub
+    Private Sub calendarButton_Click(sender As Object, e As EventArgs) Handles calendarButton.Click
+        currentForm = New Calendar
+        buttonClick(sender)
+    End Sub
+    Private Sub attendanceButton_Click(sender As Object, e As EventArgs) Handles attendanceButton.Click
+        currentForm = New Attendance
+        buttonClick(sender)
+    End Sub
+    Private Sub ChangePasswordButton_Click(sender As Object, e As EventArgs) Handles ChangePasswordButton.Click
+        currentForm = New resetPassword
+        buttonClick(sender)
+    End Sub
+    Private Sub profilesButton_Click(sender As Object, e As EventArgs) Handles profilesButton.Click
+        currentForm = New ProfilesView
+        buttonClick(sender)
+    End Sub
+    Private Sub resultsButton_Click(sender As Object, e As EventArgs) Handles resultsButton.Click
+        currentForm = New results
+        buttonClick(sender)
+    End Sub
+
+    Public Sub buttonClick(button As Button)
+        If button IsNot currentButton Then
             currentButton.BackColor = schoolBlue
-            currentButton = sender
+            currentButton = button
             currentButton.BackColor = schoolBrown
 
-            currentForm.hide()
-            currentForm = dictButtonForm(sender.Text)
-            currentForm.toplevel = False
+            My.Application.OpenForms.Cast(Of Form)() _
+          .Except({Me}) _
+          .ToList() _
+          .ForEach(Sub(form) form.Close())
+
+            currentForm.TopLevel = False
             Me.Panel1.Controls.Add(currentForm)
             currentForm.Show()
         End If
     End Sub
 
-    Private Sub Main_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Dim buttonList = New List(Of Button) From {calendarButton, resultsButton, attendanceButton, profilesButton, ChangePasswordButton}
-        dictButtonForm = New Dictionary(Of String, Form) From {{loginButton.Text(), Login}, {calendarButton.Text(), Calendar}, {resultsButton.Text(), results},
-                                                                {attendanceButton.Text(), Attendance}, {profilesButton.Text(), ProfilesView},
-                                                                {ChangePasswordButton.Text(), resetPassword}}
-        BackColor = schoolBlue
-        For Each button In buttonList
-            button.backColor = schoolBlue
-        Next
-        currentForm = Login
-        currentButton = loginButton
+    Private Sub accessLabel_Click(sender As Object, e As EventArgs) Handles accessLabel.TextChanged
+        Try
+            Dim temp
+            If sender.Text <> "No User Logged In" Then
+                temp = True
+            Else
+                temp = False
+            End If
 
-        currentForm.TopLevel = False
-        Me.Panel1.Controls.Add(currentForm)
-        currentForm.show()
-        loginButton.BackColor = schoolBrown
-        currentButton = loginButton
+            For Each button In buttonList
+                button.Enabled = True
+            Next
+        Catch
+        End Try
     End Sub
 
 

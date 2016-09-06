@@ -131,12 +131,11 @@ Partial Class Main
         '
         Me.accessLabel.AutoSize = True
         Me.accessLabel.ForeColor = System.Drawing.Color.White
-        Me.accessLabel.Location = New System.Drawing.Point(8, 6)
-        Me.accessLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.accessLabel.Location = New System.Drawing.Point(1, 9)
         Me.accessLabel.Name = "accessLabel"
-        Me.accessLabel.Size = New System.Drawing.Size(83, 13)
+        Me.accessLabel.Size = New System.Drawing.Size(143, 20)
         Me.accessLabel.TabIndex = 14
-        Me.accessLabel.Text = "Access Level: 0"
+        Me.accessLabel.Text = "No User Logged In"
         '
         'TextBox1
         '
