@@ -88,3 +88,33 @@ C:\Users\student\Documents\GitHub Newest\MajorWork\MajorWork\MajorWork\obj\Debug
 C:\Users\student\Documents\GitHub Newest\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resultsRace.resources
 C:\Users\student\Documents\GitHub Newest\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.SplashScreen.resources
 C:\Users\student\Documents\GitHub Newest\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\bin\Debug\MajorWork.exe.config
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.exe
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.xml
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.pdb
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\bin\Debug\MajorWork.exe
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\bin\Debug\MajorWork.pdb
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\bin\Debug\MajorWork.xml
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Absences.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Attendance.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Calendar.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.createUser.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.EditProfiles.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.ForgotPassword.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Login.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Main.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.MainAttendance.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.mainAttendanceExtra.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.markRoll.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Resources.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.NewEvent.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.newRace.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.newRoll.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.Options.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.ProfilesView.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPassword.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPasswordPanel.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.results.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resultsRace.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.SplashScreen.resources
+D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
