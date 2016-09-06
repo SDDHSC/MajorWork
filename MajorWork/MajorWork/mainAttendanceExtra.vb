@@ -108,9 +108,6 @@ Public Class mainAttendanceExtra
         'Gets year groups that were present (from database)
         Dim yrGroupSearch As String = lblYearGroups.Text
         Dim yrGroupSearchList As New List(Of String)(yrGroupSearch.Split(","))
-        'For Each elem As String In yrGroupSearchList
-        '    MessageBox.Show(elem)
-        'Next
 
         For Each elem As String In yrGroupSearchList
             For Each row In tableProfiles.Rows
@@ -121,7 +118,7 @@ Public Class mainAttendanceExtra
         Next
 
 
-        'highlight the people who were absent
+        'highlight the people who were absent 
         'establishes connections with databases
         Dim connectAbsenceString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
         conAbsence = New OleDbConnection(connectAbsenceString)
@@ -140,11 +137,12 @@ Public Class mainAttendanceExtra
         For i = 0 To (ListView1.Items.Count - 1)
             For Each row In tableabsence.Rows
                 If sessionDate.Text = row.item(4) Then
-                    If ListView1.Items(i).SubItems(0).Text = row.item(1) And ListView1.Items(i).SubItems(0).Text = row.item(2) Then
+                    If ListView1.Items(i).SubItems(0).Text = row.item(1) And ListView1.Items(i).SubItems(1).Text = row.item(2) Then
                         MessageBox.Show(row.item(2))
                         ListView1.Items(i).Checked = True
                     End If
                 End If
+
             Next
         Next
     End Sub
