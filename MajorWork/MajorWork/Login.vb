@@ -220,7 +220,7 @@ Public Class Login
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Dim saveConfirm As Integer = MessageBox.Show("Are you sure? Changes cannot be undone", "Confirm", MessageBoxButtons.YesNo)
+        Dim saveConfirm As Integer = MessageBox.Show("Are you sure you want to exit?", "Confirm", MessageBoxButtons.YesNo)
         If saveConfirm = DialogResult.Yes Then
             Application.Exit()
         End If
