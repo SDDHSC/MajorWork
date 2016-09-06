@@ -25,4 +25,8 @@
     Public raceEditInfo As String() = Nothing
     Public eventIDnum As Integer
 
+    'Calendar to NewEvent Form reuse
+    Public eventSelected = False
+    Public selectedEvent As String()
+
 End Module
