@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{418B35E9-1110-4100-BCC0-21499A74F0C4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>MajorWork.My.MyApplication</StartupObject>
+    <RootNamespace>MajorWork</RootNamespace>
+    <AssemblyName>MajorWork</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>MajorWork.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>MajorWork.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Absences.Designer.vb">
+      <DependentUpon>Absences.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Absences.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Attendance.Designer.vb">
+      <DependentUpon>Attendance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calendar.Designer.vb">
+      <DependentUpon>Calendar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Calendar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="createUser1.Designer.vb">
+      <DependentUpon>createUser1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="createUser1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProfiles.Designer.vb">
+      <DependentUpon>EditProfiles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditProfiles.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.Designer.vb">
+      <DependentUpon>ForgotPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainAttendance.Designer.vb">
+      <DependentUpon>MainAttendance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainAttendance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainAttendanceExtra.Designer.vb">
+      <DependentUpon>mainAttendanceExtra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="mainAttendanceExtra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="markRoll.Designer.vb">
+      <DependentUpon>markRoll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="markRoll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="newEvent.Designer.vb">
+      <DependentUpon>newEvent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="newEvent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="newRace.Designer.vb">
+      <DependentUpon>newRace.vb</DependentUpon>
+    </Compile>
+    <Compile Include="newRace.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="newRoll.Designer.vb">
+      <DependentUpon>newRoll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="newRoll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfilesView.Designer.vb">
+      <DependentUpon>ProfilesView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ProfilesView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GlobalSubs.vb" />
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GlobalVariables.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Options.Designer.vb">
+      <DependentUpon>Options.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Options.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="resetPassword.Designer.vb">
+      <DependentUpon>resetPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="resetPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="resetPasswordPanel.Designer.vb">
+      <DependentUpon>resetPasswordPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="resetPasswordPanel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="resultsRace.Designer.vb">
+      <DependentUpon>resultsRace.vb</DependentUpon>
+    </Compile>
+    <Compile Include="resultsRace.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.vb">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_rowingDatabase__1_DataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_rowingDatabase__1_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_rowingDatabase__1_DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_rowingDatabase__1_DataSet1.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Absences.resx">
+      <DependentUpon>Absences.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance.resx">
+      <DependentUpon>Attendance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calendar.resx">
+      <DependentUpon>Calendar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="createUser1.resx">
+      <DependentUpon>createUser1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProfiles.resx">
+      <DependentUpon>EditProfiles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainAttendance.resx">
+      <DependentUpon>MainAttendance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainAttendanceExtra.resx">
+      <DependentUpon>mainAttendanceExtra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="markRoll.resx">
+      <DependentUpon>markRoll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newEvent.resx">
+      <DependentUpon>newEvent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newRace.resx">
+      <DependentUpon>newRace.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newRoll.resx">
+      <DependentUpon>newRoll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options.resx">
+      <DependentUpon>Options.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfilesView.resx">
+      <DependentUpon>ProfilesView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resetPassword.resx">
+      <DependentUpon>resetPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resetPasswordPanel.resx">
+      <DependentUpon>resetPasswordPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resultsRace.resx">
+      <DependentUpon>resultsRace.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="_rowingDatabase__1_DataSet.xsc">
+      <DependentUpon>_rowingDatabase__1_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_rowingDatabase__1_DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_rowingDatabase__1_DataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_rowingDatabase__1_DataSet.xss">
+      <DependentUpon>_rowingDatabase__1_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_rowingDatabase__1_DataSet1.xsc">
+      <DependentUpon>_rowingDatabase__1_DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_rowingDatabase__1_DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_rowingDatabase__1_DataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_rowingDatabase__1_DataSet1.xss">
+      <DependentUpon>_rowingDatabase__1_DataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Allocation.txt" />
+    <Content Include="Info.txt" />
+    <Content Include="Notes.txt" />
+    <None Include="Resources\rower3.jpg" />
+    <None Include="Resources\rower2.jpg" />
+    <None Include="Resources\rower1.jpg" />
+    <None Include="Resources\rowing2.png" />
+    <None Include="Resources\rowing1.png" />
+    <None Include="Resources\BlankProfilePictuer.png" />
+    <None Include="Resources\congration.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
