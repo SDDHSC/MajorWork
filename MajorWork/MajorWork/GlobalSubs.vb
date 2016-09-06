@@ -5,6 +5,23 @@
         Form.Height = 450
         Form.FormBorderStyle = FormBorderStyle.None
         Form.StartPosition = FormStartPosition.CenterScreen
+        Form.WindowState = FormWindowState.Maximized
+        For Each control In Form.Controls
+            If TypeOf control Is Button Then
+                control.BackColor = schoolBlue
+                control.FlatStyle = FlatStyle.Flat
+                control.forecolor = Color.White
+                control.UseVisualStyleBackColor = True
+                control.Cursor = Cursors.Hand
+                control.FlatAppearance.BorderSize = 0
+                Dim oldFontStyle As FontStyle = control.font.style
+                control.Font = New Font("Segoe UI", control.Font.Size, oldFontStyle)
+            ElseIf TypeOf control Is Label Then
+                control.ForeColor = Color.White
+                Dim oldFontStyle As FontStyle = control.font.style
+                control.Font = New Font("Segoe UI", control.Font.Size, oldFontStyle)
+            End If
+        Next
     End Sub
 
     Public Sub openForm(originalForm, newForm)

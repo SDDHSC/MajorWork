@@ -22,6 +22,7 @@
     Public SelectedRower As String
 
     'results Variables between forms
-    Public raceEditInfo = Nothing
+    Public raceEditInfo As String() = Nothing
+    Public eventIDnum As Integer
 
 End Module

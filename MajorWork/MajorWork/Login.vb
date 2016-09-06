@@ -18,14 +18,6 @@ Public Class Login
 
     Public MoveForm As Boolean
     Public MoveForm_MousePosition As Point
-    'customised button
-    Public Sub buttonStyle(button As Button)
-        button.FlatStyle = FlatStyle.Flat
-        button.Font = New Font("Microsoft Sans Serif", 9, FontStyle.Bold)
-        button.ForeColor = Color.White
-        button.BackColor = schoolBlue
-        button.UseVisualStyleBackColor = True
-    End Sub
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBox1.Image = pbImage1
         loginattempts = 0
@@ -58,9 +50,6 @@ Public Class Login
             End If
 
         Next
-
-        'set custom button
-        buttonStyle(btnLogin)
 
     End Sub
 
@@ -188,7 +177,7 @@ Public Class Login
             Main.accessLabel.Text = "Welcome: " + tempUsername
             Main.loginButton.Text = "Logout"
         Else
-            MessageBox.Show("Incorrect Username or Password")
+            MessageBox.Show("Incorrect Username")
             loginattempts = loginattempts + 1
             If loginattempts = 4 Then
                 MessageBox.Show("Incorrect password: one more attempt")

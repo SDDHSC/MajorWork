@@ -69,10 +69,6 @@ Public Class Absences
         absenceDateTimePicker.Enabled = False
         Reset()
 
-        'set custom button
-        buttonStyle(btnAttendance)
-        buttonStyle(btnReset)
-        buttonStyle(btncreateNewRoll)
 
     End Sub
 
@@ -410,6 +406,7 @@ Public Class Absences
             MessageBox.Show("Select a date")
         Else
             absenceDateTimePicker.Enabled = False
+            'absenceName.Enabled = True
         End If
     End Sub
     Private Sub FilterInfo_MouseHover(sender As Object, e As EventArgs) Handles FilterInfo.MouseHover
@@ -432,13 +429,5 @@ Public Class Absences
                 E.NewWidth = Sender.Columns(DCol).Width
             End If
         Next DCol
-    End Sub
-    'customised button
-    Public Sub buttonStyle(button As Button)
-        button.FlatStyle = FlatStyle.Flat
-        button.Font = New Font("Microsoft Sans Serif", 9, FontStyle.Bold)
-        button.ForeColor = Color.White
-        button.BackColor = schoolBlue
-        button.UseVisualStyleBackColor = True
     End Sub
 End Class
