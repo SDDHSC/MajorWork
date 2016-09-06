@@ -239,6 +239,9 @@ Partial Class markRoll
         Me.Label2.TabIndex = 68
         Me.Label2.Text = "Notes (optional)"
         '
+        'ToolTipListView
+        '
+        '
         'markRoll
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)

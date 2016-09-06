@@ -6,14 +6,9 @@ Public Class MainAttendance
     Dim listViewEmpty As Boolean = True
     Dim initialising = True
     Private Sub MainAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Set tootip
-        ToolTipAttendance.SetToolTip(listAttendance, "Double click event for more info")
-        ToolTipFilterInfo.SetToolTip(FilterInfo, "Select and click filters to apply them" & Environment.NewLine &
-            "Click reset to clear all filters" & Environment.NewLine & "To apply date: check box and" _
-            & Environment.NewLine & "select a date")
-        'Dim Key(0) As DataColumn 'only ione column in the primary key
-        Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
 
+        'init database
+        Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
         conAttendance = New OleDbConnection(connectString)
         conAttendance.Open()
         adpUser = New OleDbDataAdapter()
@@ -26,7 +21,7 @@ Public Class MainAttendance
         End With
         adpUser.Fill(dataAttendance, "tblAttendance")
 
-
+        'construct table
         Dim header1, header2, header3, header4, header5 As New ColumnHeader
         header1.Text = "Session"
         header1.TextAlign = HorizontalAlignment.Left
@@ -68,27 +63,33 @@ Public Class MainAttendance
         attendanceSession.SelectedIndex = 0
         initialising = False
 
+        'default values of filters
         attendanceSession.SelectedIndex = 0
         coachOfSession.SelectedIndex = 0
         listAttendance.Items.Clear()
         listAttendance.View = View.Details
         Dim table As DataTable = dataAttendance.Tables("tblattendance")
 
+        'populate table from database
         For Each row In table.Rows
             AddlistAttendance(row)
         Next
 
         attendanceDateTimePicker.Enabled = False
 
-
+        'Set tootip
+        ToolTipAttendance.SetToolTip(listAttendance, "Double click event for more info")
+        ToolTipFilterInfo.SetToolTip(FilterInfo, "Select and click filters to apply them" & Environment.NewLine &
+            "Click reset to clear all filters" & Environment.NewLine & "To apply date: check box and" _
+            & Environment.NewLine & "select a date")
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnAbsences.Click
         Absences.Show()
         Me.Close()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles createNewRoll.Click
         newRoll.Show()
         Me.Close()
     End Sub
@@ -128,11 +129,10 @@ Public Class MainAttendance
         Next
     End Sub
     Private Sub coachofsession_SelectedIndexChanged(sender As Object, e As EventArgs) Handles coachOfSession.SelectedIndexChanged
+        'filters all cases for combo box selections
         Dim table As DataTable = dataAttendance.Tables("tblAttendance")
         listAttendance.Items.Clear()
         listAttendance.View = View.Details
-
-
         For Each row In table.Rows
             If attendanceDateTimePicker.Enabled = True Then
                 If coachOfSession.SelectedItem.ToString = "All coaches" Then
@@ -209,11 +209,10 @@ Public Class MainAttendance
     End Sub
 
     Private Sub attendanceSession_SelectedIndexChanged(sender As Object, e As EventArgs) Handles attendanceSession.SelectedIndexChanged
+        'filters all cases for combo box selections
         Dim table As DataTable = dataAttendance.Tables("tblAttendance")
         listAttendance.Items.Clear()
         listAttendance.View = View.Details
-
-
         For Each row In table.Rows
             If attendanceDateTimePicker.Enabled = True Then
                 If attendanceSession.SelectedItem.ToString = "All Sessions" Then
@@ -284,12 +283,12 @@ Public Class MainAttendance
         item1.SubItems.Add(row.item("totalPresent"))
 
         listAttendance.Items.AddRange(New ListViewItem() {item1})
-        'End If
     End Sub
-    Private Sub displayAll_Click(sender As Object, e As EventArgs) Handles displayAll.Click
-        Reset()
+    Private Sub displayAll_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        reset()
     End Sub
     Sub reset()
+        'sets all filters to default values
         attendanceSession.SelectedIndex = 0
         coachOfSession.SelectedIndex = 0
         listAttendance.Items.Clear()
@@ -304,41 +303,37 @@ Public Class MainAttendance
     End Sub
 
     Private Sub emptyCheck_Tick(sender As Object, e As EventArgs)
+        'checks if there's value in table, if not it resets
         If listAttendance.Items.Count = 0 Then
-            attendanceSession.SelectedIndex = 0
-            coachOfSession.SelectedIndex = 0
-            listAttendance.Items.Clear()
-            listAttendance.View = View.Details
-            attendanceDateTimePicker.Enabled = False
-            Dim table As DataTable = dataAttendance.Tables("tblattendance")
+            reset()
 
-            For Each row In table.Rows
-                AddlistAttendance(row)
-            Next
             MessageBox.Show("No attendances to show", "Names", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 
     Private Sub dateCheck_CheckedChanged(sender As Object, e As EventArgs) Handles dateCheck.CheckedChanged
+        'enables date
         If dateCheck.Checked = True Then
             attendanceDateTimePicker.Enabled = True
+            MessageBox.Show("Select a date")
         Else
             attendanceDateTimePicker.Enabled = False
         End If
     End Sub
 
     Private Sub listattendance_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles listAttendance.Click
-        Dim tooltipdisplay As Boolean = False
-        For i = 0 To (listAttendance.Items.Count - 1)
-            If listAttendance.Items(i).Selected = True Then
-                tooltipdisplay = True
-            End If
-        Next
-        If tooltipdisplay = True Then
-            ToolTipAttendance.SetToolTip(listAttendance, "Double click")
-        End If
+        'Dim tooltipdisplay As Boolean = False
+        'For i = 0 To (listAttendance.Items.Count - 1)
+        '    If listAttendance.Items(i).Selected = True Then
+        '        tooltipdisplay = True
+        '    End If
+        'Next
+        'If tooltipdisplay = True Then
+        '    ToolTipAttendance.SetToolTip(listAttendance, "Double click for more info")
+        'End If
     End Sub
     Private Sub listattendance_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles listAttendance.DoubleClick
+        'adds values to extra attendance form when a row in the table is double clicked
         mainAttendanceExtra.Close()
         For i = 0 To (listAttendance.Items.Count - 1)
             If listAttendance.Items(i) Is Nothing Then
@@ -357,11 +352,40 @@ Public Class MainAttendance
     End Sub
 
     Private Sub emptyCheck_Tick_1(sender As Object, e As EventArgs) Handles emptyCheck.Tick
+        'check if datatable is empty
         If initialising = False Then
             If listAttendance.Items.Count = 0 Then
                 reset()
                 MessageBox.Show("No sessions to show", "Names", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End If
+    End Sub
+
+    Private Sub FilterInfo_Click(sender As Object, e As EventArgs) Handles FilterInfo.Click
+
+    End Sub
+
+    Private Sub FilterInfo_MouseHover(sender As Object, e As EventArgs) Handles FilterInfo.MouseHover
+        'on screen help
+        lblInfo1.Show()
+        lblInfo2.Show()
+        lblInfo3.Show()
+    End Sub
+
+    Private Sub FilterInfo_MouseLeave(sender As Object, e As EventArgs) Handles FilterInfo.MouseLeave
+        'on screen help
+        lblInfo1.Hide()
+        lblInfo2.Hide()
+        lblInfo3.Hide()
+    End Sub
+
+    'Preventing listViews headers from being resized
+    Private Sub Listattendance_ColumnWidthChanging(ByVal Sender As Object, ByVal E As System.Windows.Forms.ColumnWidthChangingEventArgs) Handles listAttendance.ColumnWidthChanging
+        For DCol = 0 To 4
+            If E.ColumnIndex = DCol Then
+                E.Cancel = True
+                E.NewWidth = Sender.Columns(DCol).Width
+            End If
+        Next DCol
     End Sub
 End Class

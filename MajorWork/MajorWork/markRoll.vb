@@ -18,8 +18,17 @@ Public Class markRoll
     Dim adpUser As New OleDbDataAdapter
     Dim conAttendance As OleDbConnection
     Dim dataAttendance As New DataSet()
-
+    'Preventing listViews headers from being resized
+    Private Sub ListView1_ColumnWidthChanging(ByVal Sender As Object, ByVal E As System.Windows.Forms.ColumnWidthChangingEventArgs) Handles ListView1.ColumnWidthChanging
+        For DCol = 0 To 4
+            If E.ColumnIndex = DCol Then
+                E.Cancel = True
+                E.NewWidth = Sender.Columns(DCol).Width
+            End If
+        Next DCol
+    End Sub
     Private Sub markRoll_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'takes year values from previous form
         y7 = newRoll.myY7
         y8 = newRoll.myY8
         y9 = newRoll.myY9
@@ -31,6 +40,7 @@ Public Class markRoll
         'tooltip initialise
         ToolTipListView.SetToolTip(ListView1, "Double click to mark absent")
 
+        'init database
         Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
         conNames = New OleDbConnection(connectString)
         conNames.Open()
@@ -43,9 +53,6 @@ Public Class markRoll
             .ExecuteNonQuery()
         End With
         adpNamesUser.Fill(dataNames, "tbProfiles")
-        'Dim tblNames As DataTable
-        'tblNames = dataNames.Tables("Group")
-
 
 
 
@@ -89,7 +96,8 @@ Public Class markRoll
                 totalPresent.Text += 1
             End If
         Next
-        '
+
+        'construct table
         Dim header1, header2, header3 As ColumnHeader
         header1 = New ColumnHeader
         header2 = New ColumnHeader
@@ -210,6 +218,7 @@ Public Class markRoll
     End Sub
 
     Private Sub ListView1_ItemChecked(sender As Object, e As ItemCheckedEventArgs) Handles ListView1.ItemChecked
+        'when someone is checked, absent += 1
         totalAbsent.Text = 0
         totalPresent.Text = 0
         For i = 0 To (ListView1.Items.Count - 1)
@@ -222,5 +231,9 @@ Public Class markRoll
                 totalAbsent.Text += 1
             End If
         Next
+    End Sub
+
+    Private Sub ToolTipListView_Popup(sender As Object, e As PopupEventArgs) Handles ToolTipListView.Popup
+
     End Sub
 End Class

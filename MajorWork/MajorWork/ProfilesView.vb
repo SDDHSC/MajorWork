@@ -1,6 +1,14 @@
 ﻿'make Graphics Nice
 Imports System.Data.OleDb
 Public Class ProfilesView
+    'database variables (harry)
+    Dim adpAbsenceUser As New OleDbDataAdapter
+    Dim conAbsence As OleDbConnection
+    Dim dataAbsence As New DataSet()
+    Dim adpUser As New OleDbDataAdapter
+    Dim conAttendance As OleDbConnection
+    Dim dataAttendance As New DataSet()
+
     'Lists populated with database data
     Dim IDNum As New List(Of Int32)                             'List of IDs in integer form
     Public IDStr As New List(Of String)                            'List of IDs in string form
@@ -248,10 +256,9 @@ Public Class ProfilesView
         End Try
         lblEmail.Text = IDStr(index) + "@student.sbhs.nsw.edu.au"
         'Generate random data that looks legit
-        Randomize()
-        lblTrAtPc.Text = "Training Attendance: " + CInt(Int((100 * Rnd()) + 1)).ToString + "%"
-        Randomize()
-        lblRaAtPc.Text = "Race Attendance: " + CInt(Int((100 * Rnd()) + 1)).ToString + "%"
+        Dim tempIDNUM As String = IDStr(index)
+        attendancePercentage(tempIDNUM)
+        attendanceRacePercentage(tempIDNUM)
     End Sub
     'Highlighting
     Private Sub RowerPanelEnter(sender As Object, e As EventArgs)
@@ -327,4 +334,156 @@ Public Class ProfilesView
     Private Sub ProfilesView_Click(sender As Object, e As EventArgs) Handles Me.Click
         RowerBox.Focus()
     End Sub
+
+    Sub loadAbsenceDatabase()
+        'init database
+        Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
+        conAbsence = New OleDbConnection(connectString)
+        conAbsence.Open()
+        adpAbsenceUser = New OleDbDataAdapter()
+        adpAbsenceUser.SelectCommand = New OleDbCommand()
+        With adpAbsenceUser.SelectCommand
+            .Connection = conAbsence
+            .CommandText = "select * FROM tblAbsence"
+            .CommandType = CommandType.Text
+            .ExecuteNonQuery()
+        End With
+        adpAbsenceUser.Fill(dataAbsence, "tblAbsence")
+        Dim tableAbsence As DataTable = dataAbsence.Tables("tblAbsence")
+    End Sub
+
+    Sub loadAttendanceDatabase()
+        'init database
+        Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
+        conAttendance = New OleDbConnection(connectString)
+        conAttendance.Open()
+        adpUser = New OleDbDataAdapter()
+        adpUser.SelectCommand = New OleDbCommand()
+        With adpUser.SelectCommand
+            .Connection = conAttendance
+            .CommandText = "select * FROM tblAttendance"
+            .CommandType = CommandType.Text
+            .ExecuteNonQuery()
+        End With
+        adpUser.Fill(dataAttendance, "tblAttendance")
+        Dim tableAttendance As DataTable = dataAttendance.Tables("tblattendance")
+    End Sub
+
+    Sub attendanceRacePercentage(tempIDNUM)
+        'init database
+        Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
+        conAttendance = New OleDbConnection(connectString)
+        conAttendance.Open()
+        adpUser = New OleDbDataAdapter()
+        adpUser.SelectCommand = New OleDbCommand()
+        With adpUser.SelectCommand
+            .Connection = conAttendance
+            .CommandText = "select * FROM tblAttendance"
+            .CommandType = CommandType.Text
+            .ExecuteNonQuery()
+        End With
+        adpUser.Fill(dataAttendance, "tblAttendance")
+        Dim tableAttendance As DataTable = dataAttendance.Tables("tblattendance")
+
+        'init database
+        Dim connectAbsenceString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
+        conAbsence = New OleDbConnection(connectAbsenceString)
+        conAbsence.Open()
+        adpAbsenceUser = New OleDbDataAdapter()
+        adpAbsenceUser.SelectCommand = New OleDbCommand()
+        With adpAbsenceUser.SelectCommand
+            .Connection = conAbsence
+            .CommandText = "select * FROM tblAbsence"
+            .CommandType = CommandType.Text
+            .ExecuteNonQuery()
+        End With
+        adpAbsenceUser.Fill(dataAbsence, "tblAbsence")
+        Dim tableAbsence As DataTable = dataAbsence.Tables("tblAbsence")
+
+        Dim totalRaceAbsence As Integer = 0
+        Dim totalRace As Integer = 0
+        Dim yearstudent As String = 3
+
+        'finds number of students absences
+        For Each row In tableAbsence.Rows
+            If tempIDNUM = row.item(7) And row.item(3) = "Race" Then
+                totalRaceAbsence = totalRaceAbsence + 1
+                yearstudent = row.item(5)
+            End If
+        Next
+        'finds number of 
+        For Each row In tableAttendance.Rows
+            Dim tempYearGroups As String = row.item(6)
+            Dim tempYearGroupSearch As New List(Of String)(tempYearGroups.Split(","))
+            For Each elem In tempYearGroupSearch
+                If elem.Contains(yearstudent) And row.item(1) = "Race" Then
+                    totalRace = totalRace + 1
+                End If
+            Next
+        Next
+
+
+
+        If totalRaceAbsence <> 0 Then
+            lblRaAtPc.Text = "Race Attendance: " + CInt(Int(totalRaceAbsence / totalRace)).ToString + "%"
+        End If
+
+    End Sub
+    Sub attendancePercentage(tempIDNUM)
+        'init database
+        Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
+        conAttendance = New OleDbConnection(connectString)
+        conAttendance.Open()
+        adpUser = New OleDbDataAdapter()
+        adpUser.SelectCommand = New OleDbCommand()
+        With adpUser.SelectCommand
+            .Connection = conAttendance
+            .CommandText = "select * FROM tblAttendance"
+            .CommandType = CommandType.Text
+            .ExecuteNonQuery()
+        End With
+        adpUser.Fill(dataAttendance, "tblAttendance")
+        Dim tableAttendance As DataTable = dataAttendance.Tables("tblattendance")
+
+        'init database
+        Dim connectAbsenceString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
+        conAbsence = New OleDbConnection(connectAbsenceString)
+        conAbsence.Open()
+        adpAbsenceUser = New OleDbDataAdapter()
+        adpAbsenceUser.SelectCommand = New OleDbCommand()
+        With adpAbsenceUser.SelectCommand
+            .Connection = conAbsence
+            .CommandText = "select * FROM tblAbsence"
+            .CommandType = CommandType.Text
+            .ExecuteNonQuery()
+        End With
+        adpAbsenceUser.Fill(dataAbsence, "tblAbsence")
+        Dim tableAbsence As DataTable = dataAbsence.Tables("tblAbsence")
+
+        Dim totalAbsence As Integer = 0
+        Dim totalAttendance As Integer = 0
+        Dim yearStudent As String = 3
+        For Each row In tableAbsence.Rows
+            If tempIDNUM = row.item(7) Then
+                totalAbsence = totalAbsence + 1
+                yearStudent = row.item(5)
+            End If
+        Next
+
+        For Each row In tableAttendance.Rows
+            Dim tempYearGroups As String = row.item(6)
+            Dim tempYearGroupSearch As New List(Of String)(tempYearGroups.Split(","))
+            For Each elem In tempYearGroupSearch
+                If elem.Contains(yearStudent) Then
+                    totalAttendance = totalAttendance + 1
+                End If
+            Next
+        Next
+
+
+        If totalAbsence <> 0 Then
+            lblTrAtPc.Text = "Training Attendance: " + CInt(Int(totalAbsence / totalAttendance)).ToString + "%"
+        End If
+    End Sub
+
 End Class

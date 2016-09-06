@@ -127,4 +127,14 @@ Public Class mainAttendanceExtra
         item1.SubItems.Add(row.item("ID"))
         ListView1.Items.AddRange(New ListViewItem() {item1})
     End Sub
+
+    'Preventing listViews headers from being resized
+    Private Sub ListView1_ColumnWidthChanging(ByVal Sender As Object, ByVal E As System.Windows.Forms.ColumnWidthChangingEventArgs) Handles ListView1.ColumnWidthChanging
+        For DCol = 0 To 4
+            If E.ColumnIndex = DCol Then
+                E.Cancel = True
+                E.NewWidth = Sender.Columns(DCol).Width
+            End If
+        Next DCol
+    End Sub
 End Class

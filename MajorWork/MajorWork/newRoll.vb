@@ -86,7 +86,7 @@
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "12"
         End If
 
-
+        'if user has entered values for both year group and session type, they can continue
         If radiopass = True And checkpass = True Then
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text.Remove(0, 3)
             markRoll.Show()
@@ -100,8 +100,6 @@
         lblCheckboxes.Hide()
 
         'automatically pick todays date
-        'dim [date] As DateTime = dateTimePicker1.Value.[Date]
-
         DateTimePicker1.Value = Now()
         DateTimePicker1.Value = Format(DateTimePicker1.Value, "dd-MM-yyyy")
 

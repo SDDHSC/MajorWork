@@ -84,6 +84,7 @@ Public Class resetPassword
 
     End Sub
     Private Function ByteArrayToString(ByVal arrInput() As Byte) As String
+        'converts hashed (encrypted) password to string
         Dim i As Integer
         Dim sOutput As New StringBuilder(arrInput.Length)
         For i = 0 To arrInput.Length - 1
@@ -92,6 +93,7 @@ Public Class resetPassword
         Return sOutput.ToString()
     End Function
     Private Sub resetPassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'init values
         styleForm(Me)
         txtUsername.Enabled = True
         txtCurrentPassword.Enabled = True
@@ -117,10 +119,6 @@ Public Class resetPassword
             .ExecuteNonQuery()
         End With
         adpNamesUser.Fill(dataNames, "tbLogin")
-    End Sub
-
-    Private Sub txtConfirmPassword_TextChanged(sender As Object, e As EventArgs) Handles txtConfirmPassword.TextChanged
-
     End Sub
 
     Private Sub newUser_Click(sender As Object, e As EventArgs) Handles newUser.Click

@@ -24,19 +24,22 @@ Partial Class MainAttendance
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.dateCheck = New System.Windows.Forms.CheckBox()
-        Me.displayAll = New System.Windows.Forms.Button()
+        Me.btnReset = New System.Windows.Forms.Button()
         Me.listAttendance = New System.Windows.Forms.ListView()
         Me.attendanceDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.coachOfSession = New System.Windows.Forms.ComboBox()
         Me.attendanceSession = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblAttendance = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.createNewRoll = New System.Windows.Forms.Button()
+        Me.btnAbsences = New System.Windows.Forms.Button()
         Me.emptyCheck = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTipAttendance = New System.Windows.Forms.ToolTip(Me.components)
         Me.FilterInfo = New System.Windows.Forms.Label()
         Me.ToolTipFilterInfo = New System.Windows.Forms.ToolTip(Me.components)
+        Me.lblInfo1 = New System.Windows.Forms.Label()
+        Me.lblInfo2 = New System.Windows.Forms.Label()
+        Me.lblInfo3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'dateCheck
@@ -48,14 +51,14 @@ Partial Class MainAttendance
         Me.dateCheck.TabIndex = 48
         Me.dateCheck.UseVisualStyleBackColor = True
         '
-        'displayAll
+        'btnReset
         '
-        Me.displayAll.Location = New System.Drawing.Point(540, 79)
-        Me.displayAll.Name = "displayAll"
-        Me.displayAll.Size = New System.Drawing.Size(79, 28)
-        Me.displayAll.TabIndex = 47
-        Me.displayAll.Text = "Reset"
-        Me.displayAll.UseVisualStyleBackColor = True
+        Me.btnReset.Location = New System.Drawing.Point(540, 79)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(79, 28)
+        Me.btnReset.TabIndex = 47
+        Me.btnReset.Text = "Reset"
+        Me.btnReset.UseVisualStyleBackColor = True
         '
         'listAttendance
         '
@@ -63,9 +66,9 @@ Partial Class MainAttendance
         Me.listAttendance.FullRowSelect = True
         Me.listAttendance.GridLines = True
         Me.listAttendance.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.listAttendance.Location = New System.Drawing.Point(21, 122)
+        Me.listAttendance.Location = New System.Drawing.Point(21, 134)
         Me.listAttendance.Name = "listAttendance"
-        Me.listAttendance.Size = New System.Drawing.Size(659, 317)
+        Me.listAttendance.Size = New System.Drawing.Size(659, 305)
         Me.listAttendance.TabIndex = 46
         Me.ToolTipAttendance.SetToolTip(Me.listAttendance, "Double click for more information")
         Me.listAttendance.UseCompatibleStateImageBehavior = False
@@ -123,32 +126,39 @@ Partial Class MainAttendance
         Me.lblAttendance.TabIndex = 41
         Me.lblAttendance.Text = "Attendance"
         '
-        'Button3
+        'createNewRoll
         '
-        Me.Button3.Location = New System.Drawing.Point(400, 22)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(131, 35)
-        Me.Button3.TabIndex = 40
-        Me.Button3.Text = "Create new roll"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.createNewRoll.Location = New System.Drawing.Point(400, 22)
+        Me.createNewRoll.Name = "createNewRoll"
+        Me.createNewRoll.Size = New System.Drawing.Size(131, 35)
+        Me.createNewRoll.TabIndex = 40
+        Me.createNewRoll.Text = "Create new roll"
+        Me.createNewRoll.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnAbsences
         '
-        Me.Button2.Location = New System.Drawing.Point(581, 22)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(107, 35)
-        Me.Button2.TabIndex = 39
-        Me.Button2.Text = "Absences"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnAbsences.Location = New System.Drawing.Point(581, 22)
+        Me.btnAbsences.Name = "btnAbsences"
+        Me.btnAbsences.Size = New System.Drawing.Size(107, 35)
+        Me.btnAbsences.TabIndex = 39
+        Me.btnAbsences.Text = "Absences"
+        Me.btnAbsences.UseVisualStyleBackColor = True
         '
         'emptyCheck
         '
         Me.emptyCheck.Enabled = True
         Me.emptyCheck.Interval = 1000
         '
+        'ToolTipAttendance
+        '
+        Me.ToolTipAttendance.AutoPopDelay = 10000
+        Me.ToolTipAttendance.InitialDelay = 500
+        Me.ToolTipAttendance.ReshowDelay = 100
+        '
         'FilterInfo
         '
         Me.FilterInfo.AutoSize = True
+        Me.FilterInfo.BackColor = System.Drawing.Color.White
         Me.FilterInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.FilterInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FilterInfo.Location = New System.Drawing.Point(651, 82)
@@ -163,23 +173,62 @@ Partial Class MainAttendance
         Me.ToolTipFilterInfo.InitialDelay = 500
         Me.ToolTipFilterInfo.ReshowDelay = 100
         '
+        'lblInfo1
+        '
+        Me.lblInfo1.AutoSize = True
+        Me.lblInfo1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInfo1.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblInfo1.Location = New System.Drawing.Point(18, 113)
+        Me.lblInfo1.Name = "lblInfo1"
+        Me.lblInfo1.Size = New System.Drawing.Size(317, 18)
+        Me.lblInfo1.TabIndex = 50
+        Me.lblInfo1.Text = "Double click event in table for more information"
+        Me.lblInfo1.Visible = False
+        '
+        'lblInfo2
+        '
+        Me.lblInfo2.AutoSize = True
+        Me.lblInfo2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInfo2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblInfo2.Location = New System.Drawing.Point(190, 60)
+        Me.lblInfo2.Name = "lblInfo2"
+        Me.lblInfo2.Size = New System.Drawing.Size(253, 18)
+        Me.lblInfo2.TabIndex = 51
+        Me.lblInfo2.Text = "Select a row in drop box to apply filter"
+        Me.lblInfo2.Visible = False
+        '
+        'lblInfo3
+        '
+        Me.lblInfo3.AutoSize = True
+        Me.lblInfo3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInfo3.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblInfo3.Location = New System.Drawing.Point(503, 60)
+        Me.lblInfo3.Name = "lblInfo3"
+        Me.lblInfo3.Size = New System.Drawing.Size(148, 18)
+        Me.lblInfo3.TabIndex = 52
+        Me.lblInfo3.Text = "Reset clears all filters"
+        Me.lblInfo3.Visible = False
+        '
         'MainAttendance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(700, 450)
+        Me.Controls.Add(Me.lblInfo3)
+        Me.Controls.Add(Me.lblInfo2)
+        Me.Controls.Add(Me.lblInfo1)
         Me.Controls.Add(Me.FilterInfo)
         Me.Controls.Add(Me.dateCheck)
-        Me.Controls.Add(Me.displayAll)
+        Me.Controls.Add(Me.btnReset)
         Me.Controls.Add(Me.listAttendance)
         Me.Controls.Add(Me.attendanceDateTimePicker)
         Me.Controls.Add(Me.coachOfSession)
         Me.Controls.Add(Me.attendanceSession)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblAttendance)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.createNewRoll)
+        Me.Controls.Add(Me.btnAbsences)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "MainAttendance"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
@@ -190,17 +239,20 @@ Partial Class MainAttendance
     End Sub
 
     Friend WithEvents dateCheck As CheckBox
-    Friend WithEvents displayAll As Button
+    Friend WithEvents btnReset As Button
     Friend WithEvents listAttendance As ListView
     Friend WithEvents attendanceDateTimePicker As DateTimePicker
     Friend WithEvents coachOfSession As ComboBox
     Friend WithEvents attendanceSession As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents lblAttendance As Label
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents createNewRoll As Button
+    Friend WithEvents btnAbsences As Button
     Friend WithEvents emptyCheck As Timer
     Friend WithEvents ToolTipAttendance As ToolTip
     Friend WithEvents FilterInfo As Label
     Friend WithEvents ToolTipFilterInfo As ToolTip
+    Friend WithEvents lblInfo1 As Label
+    Friend WithEvents lblInfo2 As Label
+    Friend WithEvents lblInfo3 As Label
 End Class
