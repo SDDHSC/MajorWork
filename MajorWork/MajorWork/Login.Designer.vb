@@ -111,10 +111,10 @@ Partial Class Login
         '
         'btnLogin
         '
-        Me.btnLogin.Location = New System.Drawing.Point(534, 329)
+        Me.btnLogin.Location = New System.Drawing.Point(545, 340)
         Me.btnLogin.Margin = New System.Windows.Forms.Padding(2)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(77, 36)
+        Me.btnLogin.Size = New System.Drawing.Size(66, 25)
         Me.btnLogin.TabIndex = 9
         Me.btnLogin.Text = "Login"
         Me.btnLogin.UseVisualStyleBackColor = True

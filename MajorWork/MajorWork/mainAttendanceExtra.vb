@@ -8,9 +8,6 @@ Public Class mainAttendanceExtra
     Public MoveForm_MousePosition As Point
     Dim adpNamesUser As New OleDbDataAdapter
 
-    Dim adpAbsenceUser As New OleDbDataAdapter
-    Dim conAbsence As OleDbConnection
-    Dim dataAbsence As New DataSet()
     Dim conNames As OleDbConnection
     Dim dataNames As New DataSet()
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
@@ -42,14 +39,7 @@ Public Class mainAttendanceExtra
         End If
 
     End Sub
-    'customised button
-    Public Sub buttonStyle(button As Button)
-        button.FlatStyle = FlatStyle.Flat
-        button.Font = New Font("Microsoft Sans Serif", 9, FontStyle.Bold)
-        button.ForeColor = Color.White
-        button.BackColor = schoolBlue
-        button.UseVisualStyleBackColor = True
-    End Sub
+
     Private Sub mainAttendanceExtra_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ListView1.View = View.Details
         ListView1.Items.Clear()
@@ -90,9 +80,6 @@ Public Class mainAttendanceExtra
                 row.item(4) = totalAbsent.Text And row.item(5) = totalPresent.Text Then
                 lblYearGroups.Text = row.item(6)
                 coachNotes.Text = row.item(7)
-                If coachNotes.Text = "" Then
-                    coachNotes.Text = "No notes for this session"
-                End If
             End If
         Next
 
@@ -128,34 +115,8 @@ Public Class mainAttendanceExtra
         Next
 
 
-        'highlight the people who were absent 
-        'establishes connections with databases
-        Dim connectAbsenceString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
-        conAbsence = New OleDbConnection(connectAbsenceString)
-        conAbsence.Open()
-        adpAbsenceUser = New OleDbDataAdapter()
-        adpAbsenceUser.SelectCommand = New OleDbCommand()
-        With adpAbsenceUser.SelectCommand
-            .Connection = conAbsence
-            .CommandText = "select * FROM tblAbsence"
-            .CommandType = CommandType.Text
-            .ExecuteNonQuery()
-        End With
-        adpAbsenceUser.Fill(dataAbsence, "tblAbsence")
+        'highlight the people who were absent
 
-        Dim tableabsence As DataTable = dataAbsence.Tables("tblAbsence")
-        For i = 0 To (ListView1.Items.Count - 1)
-            For Each row In tableabsence.Rows
-                If sessionDate.Text = row.item(4) Then
-                    If ListView1.Items(i).SubItems(0).Text = row.item(1) And ListView1.Items(i).SubItems(0).Text = row.item(2) Then
-                        MessageBox.Show(row.item(2))
-                        ListView1.Items(i).Checked = True
-                    End If
-                End If
-
-
-            Next
-        Next
     End Sub
     Sub addListRow(row As Object)
         Dim tempstring As String = row.item("gName")

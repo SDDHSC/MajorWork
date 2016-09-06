@@ -1,9 +1,13 @@
-﻿Public Class newRace
+﻿Imports System.Data.OleDb
+
+Public Class newRace
     Dim selectedIndex As Integer = 0
     Dim eventsList As List(Of String()) = New List(Of String())
 
     Private Sub newRace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         BackColor = schoolBlue
+        styleForm(Me)
+
         If raceEditInfo IsNot Nothing Then
             eventNameBox.Text = raceEditInfo(1)
             eventTime.Text = raceEditInfo(2)
@@ -159,7 +163,7 @@
         If nameRace.Text().Trim <> "" Then
             Dim row(6) As String
             row(0) = nameRace.Text()
-            row(1) = "0:0"
+            row(1) = "00:00"
             row(2) = "0"
             row(3) = "1st of 1"
             row(4) = "2016 Y7 1st Quad"
@@ -195,8 +199,67 @@
         End If
     End Sub
     Private Sub finish_Click(sender As Object, e As EventArgs) Handles finish.Click
+        'Reminder:
+        'Make sure everything is filled in.
+
+        Dim raceArray = New List(Of String) From {"[", "[", "[", "[", "[", "["}
+        For i = 0 To eventsList.Count - 1
+            For j = 0 To 5
+                raceArray(j) += eventsList(i)(j) + "|"
+            Next
+        Next
+        For i = 0 To 5
+            raceArray(i) = raceArray(i).Trim("|") + "]"
+        Next
+
+        Dim query As String = ""
+        Dim ID As Integer
         If raceEditInfo IsNot Nothing Then
-            MsgBox(raceEditInfo(0))
+            query += "UPDATE Races " +
+                     "SET " +
+                     "EventName = @EventName," +
+                     "EventDate = @EventDate," +
+                     "RaceNum = @RaceNum," +
+                     "RaceName = @RaceName," +
+                     "RaceTime = @RaceTime," +
+                     "Distance = @Distance," +
+                     "Position = @Position," +
+                     "Crew = @Crew," +
+                     "CrewMembers = @CrewMembers" +
+                     "WHERE ID = @ID"
+            ID = raceEditInfo(0)
+        Else
+            query += "INSERT INTO [Races] (ID, EventName, EventDate, RaceNum, RaceName, RaceTime, Distance, Position, Crew, CrewMembers) " +
+                     "VALUES (@ID, @EventName, @EventDate, @RaceNum, @RaceName, @RaceTime, @Distance, @Position, @Crew, @CrewMembers)"
+            ID = eventIDnum + 1
         End If
+
+        Using conn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=|DataDirectory|\rowingDatabase (1).accdb")
+            Using comm As New OleDbCommand(query, conn)
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@ID", ID)
+                    .Parameters.AddWithValue("@EventName", eventNameBox.Text)
+                    .Parameters.AddWithValue("@EventDate", eventTime.Value.ToShortDateString)
+                    .Parameters.AddWithValue("@RaceNum", CStr(eventsList.Count))
+                    .Parameters.AddWithValue("@RaceName", raceArray(0))
+                    .Parameters.AddWithValue("@RaceTime", raceArray(1))
+                    .Parameters.AddWithValue("@Distance", raceArray(2))
+                    .Parameters.AddWithValue("@Position", raceArray(3))
+                    .Parameters.AddWithValue("@Crew", raceArray(4))
+                    .Parameters.AddWithValue("@CrewMembers", raceArray(5))
+                End With
+                Try
+                    conn.Open()
+                    comm.ExecuteNonQuery()
+                Catch ex As OleDbException
+                    MessageBox.Show(ex.Message.ToString(), "Error Message")
+                End Try
+            End Using
+        End Using
+        openForm(Me, New resultsRace)
     End Sub
+
 End Class

@@ -27,10 +27,10 @@ Partial Class Main
         Me.loginButton = New System.Windows.Forms.Button()
         Me.attendanceButton = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ChangePasswordButton = New System.Windows.Forms.Button()
         Me.profilesButton = New System.Windows.Forms.Button()
         Me.accessLabel = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -39,11 +39,12 @@ Partial Class Main
         Me.calendarButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.calendarButton.FlatAppearance.BorderSize = 0
         Me.calendarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.calendarButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.calendarButton.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.calendarButton.ForeColor = System.Drawing.Color.White
-        Me.calendarButton.Location = New System.Drawing.Point(-1, 130)
+        Me.calendarButton.Location = New System.Drawing.Point(-2, 200)
+        Me.calendarButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.calendarButton.Name = "calendarButton"
-        Me.calendarButton.Size = New System.Drawing.Size(102, 65)
+        Me.calendarButton.Size = New System.Drawing.Size(153, 100)
         Me.calendarButton.TabIndex = 0
         Me.calendarButton.Text = "Calendar"
         Me.calendarButton.UseVisualStyleBackColor = True
@@ -53,11 +54,12 @@ Partial Class Main
         Me.resultsButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.resultsButton.FlatAppearance.BorderSize = 0
         Me.resultsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.resultsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.resultsButton.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.resultsButton.ForeColor = System.Drawing.Color.White
-        Me.resultsButton.Location = New System.Drawing.Point(-1, 195)
+        Me.resultsButton.Location = New System.Drawing.Point(-2, 300)
+        Me.resultsButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.resultsButton.Name = "resultsButton"
-        Me.resultsButton.Size = New System.Drawing.Size(102, 65)
+        Me.resultsButton.Size = New System.Drawing.Size(153, 100)
         Me.resultsButton.TabIndex = 3
         Me.resultsButton.Text = "Results"
         Me.resultsButton.UseVisualStyleBackColor = True
@@ -67,11 +69,12 @@ Partial Class Main
         Me.loginButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.loginButton.FlatAppearance.BorderSize = 0
         Me.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.loginButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.loginButton.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.loginButton.ForeColor = System.Drawing.Color.White
-        Me.loginButton.Location = New System.Drawing.Point(-1, 65)
+        Me.loginButton.Location = New System.Drawing.Point(-2, 100)
+        Me.loginButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.loginButton.Name = "loginButton"
-        Me.loginButton.Size = New System.Drawing.Size(102, 65)
+        Me.loginButton.Size = New System.Drawing.Size(153, 100)
         Me.loginButton.TabIndex = 4
         Me.loginButton.Text = "Login"
         Me.loginButton.UseVisualStyleBackColor = True
@@ -81,11 +84,12 @@ Partial Class Main
         Me.attendanceButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.attendanceButton.FlatAppearance.BorderSize = 0
         Me.attendanceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.attendanceButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.attendanceButton.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.attendanceButton.ForeColor = System.Drawing.Color.White
-        Me.attendanceButton.Location = New System.Drawing.Point(-1, 260)
+        Me.attendanceButton.Location = New System.Drawing.Point(-2, 400)
+        Me.attendanceButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.attendanceButton.Name = "attendanceButton"
-        Me.attendanceButton.Size = New System.Drawing.Size(102, 65)
+        Me.attendanceButton.Size = New System.Drawing.Size(153, 100)
         Me.attendanceButton.TabIndex = 5
         Me.attendanceButton.Text = "Attendance"
         Me.attendanceButton.UseVisualStyleBackColor = True
@@ -93,22 +97,31 @@ Partial Class Main
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.TextBox1)
-        Me.Panel1.Location = New System.Drawing.Point(100, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel1.Location = New System.Drawing.Point(150, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(700, 450)
+        Me.Panel1.Size = New System.Drawing.Size(1050, 692)
         Me.Panel1.TabIndex = 8
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(104, 269)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(148, 26)
+        Me.TextBox1.TabIndex = 0
+        Me.TextBox1.Visible = False
         '
         'ChangePasswordButton
         '
         Me.ChangePasswordButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChangePasswordButton.FlatAppearance.BorderSize = 0
         Me.ChangePasswordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ChangePasswordButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChangePasswordButton.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChangePasswordButton.ForeColor = System.Drawing.Color.White
-        Me.ChangePasswordButton.Location = New System.Drawing.Point(-1, 390)
+        Me.ChangePasswordButton.Location = New System.Drawing.Point(-2, 600)
+        Me.ChangePasswordButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ChangePasswordButton.Name = "ChangePasswordButton"
-        Me.ChangePasswordButton.Size = New System.Drawing.Size(102, 65)
+        Me.ChangePasswordButton.Size = New System.Drawing.Size(153, 100)
         Me.ChangePasswordButton.TabIndex = 9
         Me.ChangePasswordButton.Text = "Change Password"
         Me.ChangePasswordButton.UseVisualStyleBackColor = False
@@ -118,11 +131,12 @@ Partial Class Main
         Me.profilesButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.profilesButton.FlatAppearance.BorderSize = 0
         Me.profilesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.profilesButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.profilesButton.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.profilesButton.ForeColor = System.Drawing.Color.White
-        Me.profilesButton.Location = New System.Drawing.Point(-1, 325)
+        Me.profilesButton.Location = New System.Drawing.Point(-2, 500)
+        Me.profilesButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.profilesButton.Name = "profilesButton"
-        Me.profilesButton.Size = New System.Drawing.Size(102, 65)
+        Me.profilesButton.Size = New System.Drawing.Size(153, 100)
         Me.profilesButton.TabIndex = 13
         Me.profilesButton.Text = "Profiles"
         Me.profilesButton.UseVisualStyleBackColor = False
@@ -131,26 +145,19 @@ Partial Class Main
         '
         Me.accessLabel.AutoSize = True
         Me.accessLabel.ForeColor = System.Drawing.Color.White
-        Me.accessLabel.Location = New System.Drawing.Point(1, 9)
+        Me.accessLabel.Location = New System.Drawing.Point(2, 14)
+        Me.accessLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.accessLabel.Name = "accessLabel"
         Me.accessLabel.Size = New System.Drawing.Size(143, 20)
         Me.accessLabel.TabIndex = 14
         Me.accessLabel.Text = "No User Logged In"
         '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(69, 175)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 0
-        Me.TextBox1.Visible = False
-        '
         'Main
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1200, 692)
         Me.Controls.Add(Me.accessLabel)
         Me.Controls.Add(Me.profilesButton)
         Me.Controls.Add(Me.ChangePasswordButton)
@@ -160,6 +167,7 @@ Partial Class Main
         Me.Controls.Add(Me.resultsButton)
         Me.Controls.Add(Me.calendarButton)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"

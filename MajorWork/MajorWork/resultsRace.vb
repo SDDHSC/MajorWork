@@ -10,7 +10,9 @@ Public Class resultsRace
     Dim selectedIndex As Integer                                    'Identifies which event is currently selected
 
     Private Sub resultsRace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        eventIDnum = 0
         BackColor = schoolBlue                                                  'Sets backColour to the default school blue
+        styleForm(Me)
 
         'Connecting to the database and retrieving information
         Dim connectstring As String = "Provider=Microsoft.ACE.OLEDB.12.0;" +
@@ -27,6 +29,9 @@ Public Class resultsRace
         End With
         Dim reader As OleDbDataReader = adp.SelectCommand.ExecuteReader()
         While reader.Read()
+            If eventIDnum < CInt(reader(0)) Then
+                eventIDnum = CInt(reader(0))
+            End If
             Dim row(9) As String
             For i = 0 To 9
                 row(i) = reader(i)                                              'Gets data from database
@@ -69,7 +74,7 @@ Public Class resultsRace
     End Sub 'When either filter is activated or changed, refresh the eventsListView
 
     'ListView selection changes
-    Private Sub eventListView_SelectedIndexChanged(sender As ListView, e As EventArgs) Handles eventListView.ItemSelectionChanged
+    Private Sub eventListView_SelectedIndexChanged(sender As ListView, e As EventArgs) Handles eventListView.SelectedIndexChanged
         selectedIndex = sender.FocusedItem.Index
         racesRefresh(eventListView.Items(selectedIndex).SubItems(2).Text)
     End Sub 'Sets the selectedIndex variable to reflect selected event and refreshs the raceListView
@@ -141,9 +146,5 @@ Public Class resultsRace
 
             e.HasMorePages = False
         End With
-    End Sub
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
     End Sub
 End Class

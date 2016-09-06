@@ -65,7 +65,6 @@ Partial Class mainAttendanceExtra
         '
         Me.coachNotes.Location = New System.Drawing.Point(380, 298)
         Me.coachNotes.Name = "coachNotes"
-        Me.coachNotes.ReadOnly = True
         Me.coachNotes.Size = New System.Drawing.Size(286, 130)
         Me.coachNotes.TabIndex = 81
         Me.coachNotes.Text = ""

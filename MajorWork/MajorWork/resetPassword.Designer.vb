@@ -30,6 +30,7 @@ Partial Class resetPassword
         Me.btnNext1 = New System.Windows.Forms.Button()
         Me.txtCurrentPassword = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.groupNewPasswords = New System.Windows.Forms.GroupBox()
@@ -87,9 +88,9 @@ Partial Class resetPassword
         '
         'btnNext1
         '
-        Me.btnNext1.Location = New System.Drawing.Point(399, 393)
+        Me.btnNext1.Location = New System.Drawing.Point(599, 400)
         Me.btnNext1.Name = "btnNext1"
-        Me.btnNext1.Size = New System.Drawing.Size(103, 35)
+        Me.btnNext1.Size = New System.Drawing.Size(75, 23)
         Me.btnNext1.TabIndex = 22
         Me.btnNext1.Text = "Next"
         Me.btnNext1.UseVisualStyleBackColor = True
@@ -111,6 +112,15 @@ Partial Class resetPassword
         Me.Label2.Size = New System.Drawing.Size(162, 18)
         Me.Label2.TabIndex = 25
         Me.Label2.Text = "Enter current password"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(46, 398)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 28
+        Me.Button2.Text = "Cancel"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'txtUsername
         '
@@ -178,6 +188,7 @@ Partial Class resetPassword
         Me.Controls.Add(Me.newUser)
         Me.Controls.Add(Me.currentDetails)
         Me.Controls.Add(Me.groupNewPasswords)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnNext1)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -201,6 +212,7 @@ Partial Class resetPassword
     Friend WithEvents btnNext1 As Button
     Friend WithEvents txtCurrentPassword As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents Button2 As Button
     Friend WithEvents txtUsername As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents groupNewPasswords As GroupBox

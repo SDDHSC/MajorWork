@@ -92,14 +92,6 @@ Public Class resetPassword
         Next
         Return sOutput.ToString()
     End Function
-    'customised button
-    Public Sub buttonStyle(button As Button)
-        button.FlatStyle = FlatStyle.Flat
-        button.Font = New Font("Microsoft Sans Serif", 9, FontStyle.Bold)
-        button.ForeColor = Color.White
-        button.BackColor = schoolBlue
-        button.UseVisualStyleBackColor = True
-    End Sub
     Private Sub resetPassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'init values
         styleForm(Me)
@@ -112,10 +104,6 @@ Public Class resetPassword
         txtNewPassword.PasswordChar = "*"
         groupNewPasswords.ForeColor = Color.DimGray
         currentDetails.ForeColor = Color.White
-        'set custom button
-        buttonStyle(btnNext1)
-        buttonStyle(newUser)
-
     End Sub
 
     Sub loadDatabase()
