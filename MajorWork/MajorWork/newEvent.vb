@@ -37,15 +37,36 @@ Public Class NewEvent
 
             txtEName.Text = selectedEvent(6)
 
+            txtEName.Enabled = False
+            cmbDay.Enabled = False
+            cmbMonth.Enabled = False
+            cmbYear.Enabled = False
+            txtLocation.Enabled = False
+            numHour.Enabled = False
+            numMinute.Enabled = False
+            cmbAm.Enabled = False
+            cboxParticipants1.Enabled = False
+            cboxParticipants2.Enabled = False
+            cboxParticipants3.Enabled = False
+            btnCancel.Text = "Back"
+            btnFinish.Visible = False
+
+            'If accessLevel > 0 Then
+            btnEdit.Visible = True
+            'Else
+            'btnEdit.Visible = False
+
+            ' End If
+            eventSelected = False
+
         End If
-        eventSelected = False
     End Sub
 
     Private Sub Search_Click(sender As Object, e As EventArgs) Handles Search.Click
         WebBrowser1.Navigate("https://www.google.com.au/maps/search/" + txtLocation.Text)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         Dim strUrl As String
         strUrl = WebBrowser1.Url.ToString()
         MsgBox(strUrl)
@@ -152,4 +173,25 @@ Public Class NewEvent
         reader.Close()
         conDatabase.Close()
     End Function
+
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        Me.Close()
+    End Sub
+
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+        txtEName.Enabled = True
+        cmbDay.Enabled = True
+        cmbMonth.Enabled = True
+        cmbYear.Enabled = True
+        txtLocation.Enabled = True
+        numHour.Enabled = True
+        numMinute.Enabled = True
+        cmbAm.Enabled = True
+        cboxParticipants1.Enabled = True
+        cboxParticipants2.Enabled = True
+        cboxParticipants3.Enabled = True
+        btnCancel.Text = "Cancel"
+        btnFinish.Visible = True
+        btnEdit.Visible = False
+    End Sub
 End Class

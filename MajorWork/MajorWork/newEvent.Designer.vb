@@ -22,7 +22,6 @@ Partial Class NewEvent
       'Do not modify it using the code editor.
       <System.Diagnostics.DebuggerStepThrough()> _
       Private Sub InitializeComponent()
-        Me.txtError = New System.Windows.Forms.TextBox()
         Me.cmbAm = New System.Windows.Forms.ComboBox()
         Me.numMinute = New System.Windows.Forms.NumericUpDown()
         Me.numHour = New System.Windows.Forms.NumericUpDown()
@@ -31,7 +30,6 @@ Partial Class NewEvent
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.cmbYear = New System.Windows.Forms.ComboBox()
         Me.cmbMonth = New System.Windows.Forms.ComboBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Search = New System.Windows.Forms.Button()
         Me.txtLocation = New System.Windows.Forms.TextBox()
         Me.cboxParticipants3 = New System.Windows.Forms.CheckBox()
@@ -43,17 +41,11 @@ Partial Class NewEvent
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnEdit = New System.Windows.Forms.Button()
         CType(Me.numMinute, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numHour, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'txtError
-        '
-        Me.txtError.Location = New System.Drawing.Point(522, 49)
-        Me.txtError.Multiline = True
-        Me.txtError.Name = "txtError"
-        Me.txtError.Size = New System.Drawing.Size(156, 64)
-        Me.txtError.TabIndex = 56
         '
         'cmbAm
         '
@@ -63,6 +55,7 @@ Partial Class NewEvent
         Me.cmbAm.Name = "cmbAm"
         Me.cmbAm.Size = New System.Drawing.Size(52, 21)
         Me.cmbAm.TabIndex = 55
+        Me.cmbAm.Text = "AM"
         '
         'numMinute
         '
@@ -92,7 +85,7 @@ Partial Class NewEvent
         '
         'btnFinish
         '
-        Me.btnFinish.Location = New System.Drawing.Point(607, 117)
+        Me.btnFinish.Location = New System.Drawing.Point(603, 110)
         Me.btnFinish.Name = "btnFinish"
         Me.btnFinish.Size = New System.Drawing.Size(75, 23)
         Me.btnFinish.TabIndex = 51
@@ -101,7 +94,7 @@ Partial Class NewEvent
         '
         'WebBrowser1
         '
-        Me.WebBrowser1.Location = New System.Drawing.Point(18, 148)
+        Me.WebBrowser1.Location = New System.Drawing.Point(18, 139)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
         Me.WebBrowser1.Size = New System.Drawing.Size(664, 256)
@@ -127,18 +120,9 @@ Partial Class NewEvent
         Me.cmbMonth.TabIndex = 48
         Me.cmbMonth.Text = "Month"
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(474, 119)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 47
-        Me.Button1.Text = "Get URL"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'Search
         '
-        Me.Search.Location = New System.Drawing.Point(417, 119)
+        Me.Search.Location = New System.Drawing.Point(417, 110)
         Me.Search.Name = "Search"
         Me.Search.Size = New System.Drawing.Size(54, 23)
         Me.Search.TabIndex = 46
@@ -148,7 +132,7 @@ Partial Class NewEvent
         'txtLocation
         '
         Me.txtLocation.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLocation.Location = New System.Drawing.Point(162, 113)
+        Me.txtLocation.Location = New System.Drawing.Point(162, 104)
         Me.txtLocation.Name = "txtLocation"
         Me.txtLocation.Size = New System.Drawing.Size(249, 29)
         Me.txtLocation.TabIndex = 45
@@ -156,7 +140,7 @@ Partial Class NewEvent
         'cboxParticipants3
         '
         Me.cboxParticipants3.AutoSize = True
-        Me.cboxParticipants3.Location = New System.Drawing.Point(356, 90)
+        Me.cboxParticipants3.Location = New System.Drawing.Point(497, 81)
         Me.cboxParticipants3.Name = "cboxParticipants3"
         Me.cboxParticipants3.Size = New System.Drawing.Size(77, 17)
         Me.cboxParticipants3.TabIndex = 44
@@ -166,7 +150,7 @@ Partial Class NewEvent
         'cboxParticipants2
         '
         Me.cboxParticipants2.AutoSize = True
-        Me.cboxParticipants2.Location = New System.Drawing.Point(259, 90)
+        Me.cboxParticipants2.Location = New System.Drawing.Point(591, 58)
         Me.cboxParticipants2.Name = "cboxParticipants2"
         Me.cboxParticipants2.Size = New System.Drawing.Size(91, 17)
         Me.cboxParticipants2.TabIndex = 43
@@ -176,7 +160,7 @@ Partial Class NewEvent
         'cboxParticipants1
         '
         Me.cboxParticipants1.AutoSize = True
-        Me.cboxParticipants1.Location = New System.Drawing.Point(162, 91)
+        Me.cboxParticipants1.Location = New System.Drawing.Point(497, 58)
         Me.cboxParticipants1.Name = "cboxParticipants1"
         Me.cboxParticipants1.Size = New System.Drawing.Size(91, 17)
         Me.cboxParticipants1.TabIndex = 42
@@ -205,7 +189,7 @@ Partial Class NewEvent
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(18, 77)
+        Me.Label5.Location = New System.Drawing.Point(350, 46)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(141, 32)
         Me.Label5.TabIndex = 39
@@ -215,7 +199,7 @@ Partial Class NewEvent
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(18, 107)
+        Me.Label3.Location = New System.Drawing.Point(18, 98)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(110, 32)
         Me.Label3.TabIndex = 38
@@ -241,12 +225,31 @@ Partial Class NewEvent
         Me.Label1.TabIndex = 36
         Me.Label1.Text = "Event:"
         '
+        'btnCancel
+        '
+        Me.btnCancel.Location = New System.Drawing.Point(522, 110)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.TabIndex = 57
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
+        '
+        'btnEdit
+        '
+        Me.btnEdit.Location = New System.Drawing.Point(603, 110)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(75, 23)
+        Me.btnEdit.TabIndex = 58
+        Me.btnEdit.Text = "Edit"
+        Me.btnEdit.UseVisualStyleBackColor = True
+        '
         'NewEvent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(700, 415)
-        Me.Controls.Add(Me.txtError)
+        Me.ClientSize = New System.Drawing.Size(700, 400)
+        Me.Controls.Add(Me.btnEdit)
+        Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.cmbAm)
         Me.Controls.Add(Me.numMinute)
         Me.Controls.Add(Me.numHour)
@@ -255,7 +258,6 @@ Partial Class NewEvent
         Me.Controls.Add(Me.WebBrowser1)
         Me.Controls.Add(Me.cmbYear)
         Me.Controls.Add(Me.cmbMonth)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Search)
         Me.Controls.Add(Me.txtLocation)
         Me.Controls.Add(Me.cboxParticipants3)
@@ -276,8 +278,7 @@ Partial Class NewEvent
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents txtError As System.Windows.Forms.TextBox
-      Friend WithEvents cmbAm As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbAm As System.Windows.Forms.ComboBox
       Friend WithEvents numMinute As System.Windows.Forms.NumericUpDown
       Friend WithEvents numHour As System.Windows.Forms.NumericUpDown
       Friend WithEvents Label4 As System.Windows.Forms.Label
@@ -285,8 +286,7 @@ Partial Class NewEvent
       Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
       Friend WithEvents cmbYear As System.Windows.Forms.ComboBox
       Friend WithEvents cmbMonth As System.Windows.Forms.ComboBox
-      Friend WithEvents Button1 As System.Windows.Forms.Button
-      Friend WithEvents Search As System.Windows.Forms.Button
+    Friend WithEvents Search As System.Windows.Forms.Button
       Friend WithEvents txtLocation As System.Windows.Forms.TextBox
       Friend WithEvents cboxParticipants3 As System.Windows.Forms.CheckBox
       Friend WithEvents cboxParticipants2 As System.Windows.Forms.CheckBox
@@ -296,5 +296,7 @@ Partial Class NewEvent
       Friend WithEvents Label5 As System.Windows.Forms.Label
       Friend WithEvents Label3 As System.Windows.Forms.Label
       Friend WithEvents Label2 As System.Windows.Forms.Label
-      Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents btnCancel As System.Windows.Forms.Button
+    Friend WithEvents btnEdit As System.Windows.Forms.Button
   End Class
