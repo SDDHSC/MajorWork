@@ -96,8 +96,7 @@ Public Class MainAttendance
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnAbsences.Click
-        Absences.Show()
-        Me.Close()
+        openForm(Me, New Absences)
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles createNewRoll.Click

@@ -9,8 +9,9 @@ Public Class Absences
     Dim listViewEmptyCheck = False
 
     Private Sub btnAttendance_Click(sender As Object, e As EventArgs) Handles btnAttendance.Click
-        Attendance.Show()
-        Attendance.mainPanelCheck.Text = "attendance show"
+        MainAttendance.TopLevel = False
+        Attendance.Panel1.Controls.Add(MainAttendance)
+        MainAttendance.Show()
         Me.Hide()
     End Sub
 
