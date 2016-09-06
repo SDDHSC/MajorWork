@@ -426,6 +426,8 @@ Public Class ProfilesView
 
         If totalRaceAbsence <> 0 Then
             lblRaAtPc.Text = "Race Attendance: " + CInt(Int(totalRaceAbsence / totalRace)).ToString + "%"
+        Else
+            lblTrAtPc.Text = "Training Attendance: 100%"
         End If
 
     End Sub
@@ -483,6 +485,8 @@ Public Class ProfilesView
 
         If totalAbsence <> 0 Then
             lblTrAtPc.Text = "Training Attendance: " + CInt(Int(totalAbsence / totalAttendance)).ToString + "%"
+        Else
+            lblTrAtPc.Text = "Training Attendance: 100%"
         End If
     End Sub
 

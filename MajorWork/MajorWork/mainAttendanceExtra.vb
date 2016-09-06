@@ -14,7 +14,6 @@ Public Class mainAttendanceExtra
     Dim conNames As OleDbConnection
     Dim dataNames As New DataSet()
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        MainAttendance.Show()
         Me.Hide()
     End Sub
 

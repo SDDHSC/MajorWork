@@ -29,19 +29,19 @@ Public Class MainAttendance
         Dim header1, header2, header3, header4, header5 As New ColumnHeader
         header1.Text = "Session"
         header1.TextAlign = HorizontalAlignment.Left
-        header1.Width = 100
+        header1.Width = 120
         header2.Text = "Date"
         header2.TextAlign = HorizontalAlignment.Left
-        header2.Width = 110
+        header2.Width = 130
         header3.Text = "Coach of Session"
         header3.TextAlign = HorizontalAlignment.Left
-        header3.Width = 150
+        header3.Width = 170
         header4.Text = "Absent"
         header4.TextAlign = HorizontalAlignment.Left
-        header4.Width = 90
+        header4.Width = 105
         header5.Text = "Present"
         header5.TextAlign = HorizontalAlignment.Left
-        header5.Width = 90
+        header5.Width = 105
         listAttendance.Columns.Add(header1)
         listAttendance.Columns.Add(header2)
         listAttendance.Columns.Add(header3)

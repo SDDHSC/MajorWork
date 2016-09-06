@@ -83,7 +83,6 @@ C:\Users\student\Documents\GitHub Newest\MajorWork\MajorWork\MajorWork\obj\Debug
 C:\Users\student\Documents\GitHub Newest\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.ProfilesView.resources
 C:\Users\student\Documents\GitHub Newest\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPassword.resources
 C:\Users\student\Documents\GitHub Newest\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resetPasswordPanel.resources
-C:\Users\student\Documents\GitHub Newest\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.results.resources
 C:\Users\student\Documents\GitHub Newest\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resultsRace.resources
 C:\Users\student\Documents\GitHub Newest\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.SplashScreen.resources
 C:\Users\student\Documents\GitHub Newest\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
