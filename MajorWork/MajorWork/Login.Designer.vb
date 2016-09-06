@@ -33,6 +33,7 @@ Partial Class Login
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.AnimationRowingTimer = New System.Windows.Forms.Timer(Me.components)
         Me.lblLoginFeedback = New System.Windows.Forms.Label()
+        Me.btnExit = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -42,9 +43,10 @@ Partial Class Login
         Me.Label4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(478, 480)
+        Me.Label4.Location = New System.Drawing.Point(319, 312)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(154, 22)
+        Me.Label4.Size = New System.Drawing.Size(105, 15)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "Forgot password?"
         '
@@ -54,9 +56,10 @@ Partial Class Login
         Me.guestSignIn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.guestSignIn.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.guestSignIn.ForeColor = System.Drawing.Color.White
-        Me.guestSignIn.Location = New System.Drawing.Point(480, 523)
+        Me.guestSignIn.Location = New System.Drawing.Point(320, 340)
+        Me.guestSignIn.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.guestSignIn.Name = "guestSignIn"
-        Me.guestSignIn.Size = New System.Drawing.Size(137, 25)
+        Me.guestSignIn.Size = New System.Drawing.Size(89, 15)
         Me.guestSignIn.TabIndex = 14
         Me.guestSignIn.Text = "Sign in as guest"
         '
@@ -66,9 +69,10 @@ Partial Class Login
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 50.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(76, 69)
+        Me.Label2.Location = New System.Drawing.Point(51, 45)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(868, 135)
+        Me.Label2.Size = New System.Drawing.Size(576, 89)
         Me.Label2.TabIndex = 13
         Me.Label2.Text = "Rowing Manager"
         '
@@ -77,9 +81,10 @@ Partial Class Login
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(474, 260)
+        Me.Label1.Location = New System.Drawing.Point(316, 169)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(496, 48)
+        Me.Label1.Size = New System.Drawing.Size(335, 32)
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "Enter username and password"
         '
@@ -87,9 +92,10 @@ Partial Class Login
         '
         Me.txtPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPassword.ForeColor = System.Drawing.Color.Gray
-        Me.txtPassword.Location = New System.Drawing.Point(483, 415)
+        Me.txtPassword.Location = New System.Drawing.Point(322, 270)
+        Me.txtPassword.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(322, 30)
+        Me.txtPassword.Size = New System.Drawing.Size(216, 22)
         Me.txtPassword.TabIndex = 11
         Me.txtPassword.Text = "Password"
         '
@@ -97,17 +103,19 @@ Partial Class Login
         '
         Me.txtUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsername.ForeColor = System.Drawing.Color.Gray
-        Me.txtUsername.Location = New System.Drawing.Point(483, 352)
+        Me.txtUsername.Location = New System.Drawing.Point(322, 229)
+        Me.txtUsername.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(322, 30)
+        Me.txtUsername.Size = New System.Drawing.Size(216, 22)
         Me.txtUsername.TabIndex = 10
         Me.txtUsername.Text = "Username"
         '
         'btnLogin
         '
-        Me.btnLogin.Location = New System.Drawing.Point(818, 523)
+        Me.btnLogin.Location = New System.Drawing.Point(543, 330)
+        Me.btnLogin.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(99, 38)
+        Me.btnLogin.Size = New System.Drawing.Size(66, 25)
         Me.btnLogin.TabIndex = 9
         Me.btnLogin.Text = "Login"
         Me.btnLogin.UseVisualStyleBackColor = True
@@ -115,9 +123,10 @@ Partial Class Login
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.MajorWork.My.Resources.Resources.rowing2
-        Me.PictureBox1.Location = New System.Drawing.Point(99, 235)
+        Me.PictureBox1.Location = New System.Drawing.Point(66, 153)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(336, 326)
+        Me.PictureBox1.Size = New System.Drawing.Size(224, 212)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 15
         Me.PictureBox1.TabStop = False
@@ -131,19 +140,31 @@ Partial Class Login
         '
         Me.lblLoginFeedback.AutoSize = True
         Me.lblLoginFeedback.Enabled = False
-        Me.lblLoginFeedback.Location = New System.Drawing.Point(16, 658)
+        Me.lblLoginFeedback.Location = New System.Drawing.Point(11, 428)
+        Me.lblLoginFeedback.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblLoginFeedback.Name = "lblLoginFeedback"
-        Me.lblLoginFeedback.Size = New System.Drawing.Size(57, 20)
+        Me.lblLoginFeedback.Size = New System.Drawing.Size(39, 13)
         Me.lblLoginFeedback.TabIndex = 17
         Me.lblLoginFeedback.Text = "Label3"
         Me.lblLoginFeedback.Visible = False
         '
+        'btnExit
+        '
+        Me.btnExit.Location = New System.Drawing.Point(602, 11)
+        Me.btnExit.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(87, 35)
+        Me.btnExit.TabIndex = 18
+        Me.btnExit.Text = "Exit"
+        Me.btnExit.UseVisualStyleBackColor = True
+        '
         'Login
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1050, 692)
+        Me.ClientSize = New System.Drawing.Size(700, 450)
+        Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.guestSignIn)
         Me.Controls.Add(Me.Label2)
@@ -154,7 +175,6 @@ Partial Class Login
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lblLoginFeedback)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Login"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Login"
@@ -175,4 +195,5 @@ Partial Class Login
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents AnimationRowingTimer As Timer
     Friend WithEvents lblLoginFeedback As Label
+    Friend WithEvents btnExit As Button
 End Class

@@ -52,6 +52,7 @@ Public Class Login
         Next
 
         buttonStyle(btnLogin)
+        buttonStyle(btnExit)
 
     End Sub
 
@@ -215,6 +216,13 @@ Public Class Login
     Private Sub txtusername_KeyDown(sender As Object, e As KeyEventArgs) Handles txtUsername.KeyDown
         If e.KeyCode = Keys.Enter Then
             loginConfirmation()
+        End If
+    End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Dim saveConfirm As Integer = MessageBox.Show("Are you sure? Changes cannot be undone", "Confirm", MessageBoxButtons.YesNo)
+        If saveConfirm = DialogResult.Yes Then
+            Application.Exit()
         End If
     End Sub
 End Class
