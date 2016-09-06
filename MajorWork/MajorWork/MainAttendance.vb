@@ -363,10 +363,6 @@ Public Class MainAttendance
         End If
     End Sub
 
-    Private Sub FilterInfo_Click(sender As Object, e As EventArgs) Handles FilterInfo.Click
-
-    End Sub
-
     Private Sub FilterInfo_MouseHover(sender As Object, e As EventArgs) Handles FilterInfo.MouseHover
         'on screen help
         lblInfo1.Show()

@@ -3,9 +3,11 @@
 Public Class newRace
     Dim selectedIndex As Integer = 0
     Dim eventsList As List(Of String()) = New List(Of String())
+    Dim infoLabels As New List(Of Label)
 
     Private Sub newRace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         BackColor = schoolBlue
+        infoLabels = New List(Of Label) From {info1, info2, info3, info4, info5, info6, info7}
         styleForm(Me)
 
         If raceEditInfo IsNot Nothing Then
@@ -262,4 +264,16 @@ Public Class newRace
         openForm(Me, New resultsRace)
     End Sub
 
+    Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles FilterInfo.MouseEnter
+        For Each label As Label In infoLabels
+            label.Visible = True
+            label.ForeColor = Color.Black
+        Next
+    End Sub
+
+    Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles FilterInfo.MouseLeave
+        For Each label As Label In infoLabels
+            label.Visible = False
+        Next
+    End Sub
 End Class

@@ -64,6 +64,14 @@ Partial Class newRace
         Me.eventTime = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.FilterInfo = New System.Windows.Forms.Label()
+        Me.info7 = New System.Windows.Forms.Label()
+        Me.info6 = New System.Windows.Forms.Label()
+        Me.info5 = New System.Windows.Forms.Label()
+        Me.info1 = New System.Windows.Forms.Label()
+        Me.info3 = New System.Windows.Forms.Label()
+        Me.info4 = New System.Windows.Forms.Label()
+        Me.info2 = New System.Windows.Forms.Label()
         CType(Me.yearCounter, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.crewCounter, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.distCounter, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -481,12 +489,132 @@ Partial Class newRace
         Me.Label16.TabIndex = 72
         Me.Label16.Text = "Add Rower:"
         '
+        'FilterInfo
+        '
+        Me.FilterInfo.AutoSize = True
+        Me.FilterInfo.BackColor = System.Drawing.Color.White
+        Me.FilterInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.FilterInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterInfo.Location = New System.Drawing.Point(985, 8)
+        Me.FilterInfo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.FilterInfo.Name = "FilterInfo"
+        Me.FilterInfo.Size = New System.Drawing.Size(27, 31)
+        Me.FilterInfo.TabIndex = 99
+        Me.FilterInfo.Text = "?"
+        '
+        'info7
+        '
+        Me.info7.AutoSize = True
+        Me.info7.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info7.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info7.Location = New System.Drawing.Point(946, 533)
+        Me.info7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info7.Name = "info7"
+        Me.info7.Size = New System.Drawing.Size(90, 84)
+        Me.info7.TabIndex = 101
+        Me.info7.Text = "Submit " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "the Event" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "↓"
+        Me.info7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.info7.Visible = False
+        '
+        'info6
+        '
+        Me.info6.AutoSize = True
+        Me.info6.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info6.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info6.Location = New System.Drawing.Point(709, 618)
+        Me.info6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info6.Name = "info6"
+        Me.info6.Size = New System.Drawing.Size(126, 56)
+        Me.info6.TabIndex = 102
+        Me.info6.Text = "Discard Your " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Changes →"
+        Me.info6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.info6.Visible = False
+        '
+        'info5
+        '
+        Me.info5.AutoSize = True
+        Me.info5.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info5.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info5.Location = New System.Drawing.Point(57, 533)
+        Me.info5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info5.Name = "info5"
+        Me.info5.Size = New System.Drawing.Size(349, 56)
+        Me.info5.TabIndex = 103
+        Me.info5.Text = "↑                       ↑                     ↑         ↗" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Change the Race Variab" &
+    "les Using These"
+        Me.info5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.info5.Visible = False
+        '
+        'info1
+        '
+        Me.info1.AutoSize = True
+        Me.info1.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info1.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info1.Location = New System.Drawing.Point(334, 42)
+        Me.info1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info1.Name = "info1"
+        Me.info1.Size = New System.Drawing.Size(367, 28)
+        Me.info1.TabIndex = 104
+        Me.info1.Text = "←Change the Event Name and Date Here"
+        Me.info1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.info1.Visible = False
+        '
+        'info3
+        '
+        Me.info3.AutoSize = True
+        Me.info3.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info3.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info3.Location = New System.Drawing.Point(556, 278)
+        Me.info3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info3.Name = "info3"
+        Me.info3.Size = New System.Drawing.Size(133, 112)
+        Me.info3.TabIndex = 105
+        Me.info3.Text = "↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Add and" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Remove Races" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Here"
+        Me.info3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.info3.Visible = False
+        '
+        'info4
+        '
+        Me.info4.AutoSize = True
+        Me.info4.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info4.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info4.Location = New System.Drawing.Point(900, 281)
+        Me.info4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info4.Name = "info4"
+        Me.info4.Size = New System.Drawing.Size(146, 112)
+        Me.info4.TabIndex = 106
+        Me.info4.Text = "↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Add and" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Remove Rowers" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Here"
+        Me.info4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.info4.Visible = False
+        '
+        'info2
+        '
+        Me.info2.AutoSize = True
+        Me.info2.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info2.Location = New System.Drawing.Point(84, 175)
+        Me.info2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info2.Name = "info2"
+        Me.info2.Size = New System.Drawing.Size(242, 28)
+        Me.info2.TabIndex = 107
+        Me.info2.Text = "↖Select a Race to Edit Here" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.info2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.info2.Visible = False
+        '
         'newRace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Highlight
         Me.ClientSize = New System.Drawing.Size(1050, 692)
+        Me.Controls.Add(Me.info2)
+        Me.Controls.Add(Me.info4)
+        Me.Controls.Add(Me.info3)
+        Me.Controls.Add(Me.info1)
+        Me.Controls.Add(Me.info5)
+        Me.Controls.Add(Me.info6)
+        Me.Controls.Add(Me.info7)
+        Me.Controls.Add(Me.FilterInfo)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label13)
@@ -580,4 +708,12 @@ Partial Class newRace
     Friend WithEvents eventTime As DateTimePicker
     Friend WithEvents Label2 As Label
     Friend WithEvents Label16 As Label
+    Friend WithEvents FilterInfo As Label
+    Friend WithEvents info7 As Label
+    Friend WithEvents info6 As Label
+    Friend WithEvents info5 As Label
+    Friend WithEvents info1 As Label
+    Friend WithEvents info3 As Label
+    Friend WithEvents info4 As Label
+    Friend WithEvents info2 As Label
 End Class

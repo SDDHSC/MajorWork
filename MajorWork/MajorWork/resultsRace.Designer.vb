@@ -44,6 +44,13 @@ Partial Class resultsRace
         Me.editRace = New System.Windows.Forms.Button()
         Me.analysisButton = New System.Windows.Forms.Button()
         Me.analysisPrint = New System.Drawing.Printing.PrintDocument()
+        Me.FilterInfo = New System.Windows.Forms.Label()
+        Me.info1 = New System.Windows.Forms.Label()
+        Me.info6 = New System.Windows.Forms.Label()
+        Me.info5 = New System.Windows.Forms.Label()
+        Me.info3 = New System.Windows.Forms.Label()
+        Me.info4 = New System.Windows.Forms.Label()
+        Me.info2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'rowerListView
@@ -56,7 +63,7 @@ Partial Class resultsRace
         Me.rowerListView.Location = New System.Drawing.Point(831, 310)
         Me.rowerListView.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.rowerListView.Name = "rowerListView"
-        Me.rowerListView.Size = New System.Drawing.Size(212, 361)
+        Me.rowerListView.Size = New System.Drawing.Size(212, 322)
         Me.rowerListView.TabIndex = 58
         Me.rowerListView.UseCompatibleStateImageBehavior = False
         Me.rowerListView.View = System.Windows.Forms.View.Details
@@ -105,7 +112,7 @@ Partial Class resultsRace
         Me.raceListView.Location = New System.Drawing.Point(13, 310)
         Me.raceListView.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.raceListView.Name = "raceListView"
-        Me.raceListView.Size = New System.Drawing.Size(810, 361)
+        Me.raceListView.Size = New System.Drawing.Size(810, 322)
         Me.raceListView.TabIndex = 55
         Me.raceListView.UseCompatibleStateImageBehavior = False
         Me.raceListView.View = System.Windows.Forms.View.Details
@@ -157,7 +164,7 @@ Partial Class resultsRace
         Me.eventListView.Location = New System.Drawing.Point(13, 58)
         Me.eventListView.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.eventListView.Name = "eventListView"
-        Me.eventListView.Size = New System.Drawing.Size(412, 241)
+        Me.eventListView.Size = New System.Drawing.Size(412, 242)
         Me.eventListView.TabIndex = 54
         Me.eventListView.UseCompatibleStateImageBehavior = False
         Me.eventListView.View = System.Windows.Forms.View.Details
@@ -211,7 +218,7 @@ Partial Class resultsRace
         'editRace
         '
         Me.editRace.Font = New System.Drawing.Font("Segoe UI", 7.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.editRace.Location = New System.Drawing.Point(812, 8)
+        Me.editRace.Location = New System.Drawing.Point(791, 8)
         Me.editRace.Name = "editRace"
         Me.editRace.Size = New System.Drawing.Size(108, 38)
         Me.editRace.TabIndex = 60
@@ -222,7 +229,7 @@ Partial Class resultsRace
         '
         Me.analysisButton.Enabled = False
         Me.analysisButton.Font = New System.Drawing.Font("Segoe UI", 7.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.analysisButton.Location = New System.Drawing.Point(688, 8)
+        Me.analysisButton.Location = New System.Drawing.Point(648, 8)
         Me.analysisButton.Name = "analysisButton"
         Me.analysisButton.Size = New System.Drawing.Size(117, 38)
         Me.analysisButton.TabIndex = 61
@@ -233,12 +240,115 @@ Partial Class resultsRace
         '
         Me.analysisPrint.DocumentName = "Race Analysis"
         '
+        'FilterInfo
+        '
+        Me.FilterInfo.AutoSize = True
+        Me.FilterInfo.BackColor = System.Drawing.Color.White
+        Me.FilterInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.FilterInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterInfo.Location = New System.Drawing.Point(614, 11)
+        Me.FilterInfo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.FilterInfo.Name = "FilterInfo"
+        Me.FilterInfo.Size = New System.Drawing.Size(27, 31)
+        Me.FilterInfo.TabIndex = 62
+        Me.FilterInfo.Text = "?"
+        '
+        'info1
+        '
+        Me.info1.AutoSize = True
+        Me.info1.BackColor = System.Drawing.Color.Transparent
+        Me.info1.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info1.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info1.Location = New System.Drawing.Point(195, 21)
+        Me.info1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info1.Name = "info1"
+        Me.info1.Size = New System.Drawing.Size(273, 56)
+        Me.info1.TabIndex = 64
+        Me.info1.Text = "Click an Event to Display Races" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "↙"
+        Me.info1.Visible = False
+        '
+        'info6
+        '
+        Me.info6.AutoSize = True
+        Me.info6.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info6.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info6.Location = New System.Drawing.Point(116, 377)
+        Me.info6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info6.Name = "info6"
+        Me.info6.Size = New System.Drawing.Size(269, 56)
+        Me.info6.TabIndex = 66
+        Me.info6.Text = "↖" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click a Race to Display Rowers"
+        Me.info6.Visible = False
+        '
+        'info5
+        '
+        Me.info5.AutoSize = True
+        Me.info5.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info5.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info5.Location = New System.Drawing.Point(431, 167)
+        Me.info5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info5.Name = "info5"
+        Me.info5.Size = New System.Drawing.Size(219, 56)
+        Me.info5.TabIndex = 67
+        Me.info5.Text = "↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Use Filters to Sort Events"
+        Me.info5.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.info5.Visible = False
+        '
+        'info3
+        '
+        Me.info3.AutoSize = True
+        Me.info3.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info3.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info3.Location = New System.Drawing.Point(786, 49)
+        Me.info3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info3.Name = "info3"
+        Me.info3.Size = New System.Drawing.Size(133, 84)
+        Me.info3.TabIndex = 68
+        Me.info3.Text = "↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Edit the " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Selected Event"
+        Me.info3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.info3.Visible = False
+        '
+        'info4
+        '
+        Me.info4.AutoSize = True
+        Me.info4.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info4.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info4.Location = New System.Drawing.Point(932, 49)
+        Me.info4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info4.Name = "info4"
+        Me.info4.Size = New System.Drawing.Size(102, 84)
+        Me.info4.TabIndex = 69
+        Me.info4.Text = "↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Create a " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "New Event"
+        Me.info4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.info4.Visible = False
+        '
+        'info2
+        '
+        Me.info2.AutoSize = True
+        Me.info2.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info2.Location = New System.Drawing.Point(658, 46)
+        Me.info2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info2.Name = "info2"
+        Me.info2.Size = New System.Drawing.Size(107, 84)
+        Me.info2.TabIndex = 70
+        Me.info2.Text = "↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Generate a" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Report"
+        Me.info2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.info2.Visible = False
+        '
         'resultsRace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Highlight
         Me.ClientSize = New System.Drawing.Size(1050, 692)
+        Me.Controls.Add(Me.info2)
+        Me.Controls.Add(Me.info4)
+        Me.Controls.Add(Me.info3)
+        Me.Controls.Add(Me.info5)
+        Me.Controls.Add(Me.info6)
+        Me.Controls.Add(Me.info1)
+        Me.Controls.Add(Me.FilterInfo)
         Me.Controls.Add(Me.rowerListView)
         Me.Controls.Add(Me.analysisButton)
         Me.Controls.Add(Me.eventDateSearchCheck)
@@ -282,4 +392,11 @@ Partial Class resultsRace
     Friend WithEvents Rowers As ColumnHeader
     Friend WithEvents analysisButton As Button
     Friend WithEvents analysisPrint As Printing.PrintDocument
+    Friend WithEvents FilterInfo As Label
+    Friend WithEvents info1 As Label
+    Friend WithEvents info6 As Label
+    Friend WithEvents info5 As Label
+    Friend WithEvents info3 As Label
+    Friend WithEvents info4 As Label
+    Friend WithEvents info2 As Label
 End Class

@@ -5,10 +5,6 @@ Public Class NewEvent
 
     Public Property Url As Uri
 
-    Private Sub NewEvent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Private Sub Search_Click(sender As Object, e As EventArgs) Handles Search.Click
         WebBrowser1.Navigate("https://www.google.com.au/maps/search/" + txtLocation.Text)
     End Sub
@@ -37,9 +33,7 @@ Public Class NewEvent
         strWLocation = strUrl
         strEName = txtEName.Text
 
-        newEventID()
-
-        streventID = CStr(maxEventID + 1)
+        streventID = CStr(newEventID() + 1)
 
         MsgBox(streventID)
 
@@ -59,8 +53,8 @@ Public Class NewEvent
         strPath = "D:\Ricky\Desktop\School Code NEW DB\Working Custom Calender\MajorWork\bin\Debug\rowingDatabase (1).accdb"
 
         Dim conDatabase = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" _
-                            & "DATA SOURCE=" _
-                            & strPath)
+                            & "Data Source=|DataDirectory|\rowingDatabase (1).accdb")
+
         Dim DBInsert As New OleDbCommand(Sql, conDatabase)
 
         conDatabase.Open()
@@ -91,8 +85,7 @@ Public Class NewEvent
         Dim maxEventID As Integer = 0
         strPath = "D:\Ricky\Desktop\School Code NEW DB\Working Custom Calender\MajorWork\bin\Debug\rowingDatabase (1).accdb"
         Dim conDatabase = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" _
-                            & "DATA SOURCE=" _
-                            & strPath)
+                            & "Data Source=|DataDirectory|\rowingDatabase (1).accdb")
 
         conDatabase.Open()
 

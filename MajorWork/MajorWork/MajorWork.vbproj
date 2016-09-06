@@ -198,12 +198,6 @@
     <Compile Include="resetPasswordPanel.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="results.Designer.vb">
-      <DependentUpon>results.vb</DependentUpon>
-    </Compile>
-    <Compile Include="results.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="resultsRace.Designer.vb">
       <DependentUpon>resultsRace.vb</DependentUpon>
     </Compile>
@@ -287,9 +281,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="resetPasswordPanel.resx">
       <DependentUpon>resetPasswordPanel.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="results.resx">
-      <DependentUpon>results.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="resultsRace.resx">
       <DependentUpon>resultsRace.vb</DependentUpon>

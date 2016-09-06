@@ -5,6 +5,7 @@ Public Class resultsRace
     Dim adp As New OleDbDataAdapter
     Dim conDatabase As OleDbConnection
     Dim dataResults As New DataSet()
+    Dim infoLabels As List(Of Label)
 
     Dim eventsList As List(Of String()) = New List(Of String())     'List of events and their races
     Dim selectedIndex As Integer                                    'Identifies which event is currently selected
@@ -12,6 +13,7 @@ Public Class resultsRace
     Private Sub resultsRace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         eventIDnum = 0
         BackColor = schoolBlue                                                  'Sets backColour to the default school blue
+        infoLabels = New List(Of Label) From {info1, info2, info3, info4, info5, info6}
         styleForm(Me)
 
         'Connecting to the database and retrieving information
@@ -147,4 +149,18 @@ Public Class resultsRace
             e.HasMorePages = False
         End With
     End Sub
+
+    Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles FilterInfo.MouseEnter
+        For Each label As Label In infoLabels
+            label.Visible = True
+            label.ForeColor = Color.Black
+        Next
+    End Sub
+
+    Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles FilterInfo.MouseLeave
+        For Each label As Label In infoLabels
+            label.Visible = False
+        Next
+    End Sub
+
 End Class

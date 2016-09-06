@@ -20,6 +20,9 @@
                 control.ForeColor = Color.White
                 Dim oldFontStyle As FontStyle = control.font.style
                 control.Font = New Font("Segoe UI", control.Font.Size, oldFontStyle)
+            ElseIf TypeOf control Is TextBox Then
+                Dim oldFontStyle As FontStyle = control.font.style
+                control.font = New Font("Segoe UI", control.Font.Size, oldFontStyle)
             End If
         Next
     End Sub

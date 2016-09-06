@@ -52,7 +52,7 @@
         buttonClick(sender)
     End Sub
     Private Sub resultsButton_Click(sender As Object, e As EventArgs) Handles resultsButton.Click
-        currentForm = New results
+        currentForm = New resultsRace
         buttonClick(sender)
     End Sub
 
