@@ -12,10 +12,6 @@ Public Class NewEvent
             txtLocation.Text = selectedEvent(0)
 
             Dim splitDate As String() = selectedEvent(1).Split(New Char() {"/"c})
-            MsgBox(splitDate(0))
-            MsgBox(splitDate(1))
-            MsgBox(splitDate(2))
-
             cmbDay.Text = splitDate(0)
             cmbMonth.Text = splitDate(1)
             cmbYear.Text = splitDate(2)
@@ -57,7 +53,6 @@ Public Class NewEvent
             'btnEdit.Visible = False
 
             ' End If
-            eventSelected = False
 
         End If
     End Sub
@@ -73,7 +68,12 @@ Public Class NewEvent
     End Sub
 
     Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
-        newr()
+        If eventSelected = True Then
+            updateR()
+        Else
+            newr()
+        End If
+
         Me.Close()
     End Sub
 
@@ -138,6 +138,72 @@ Public Class NewEvent
         MsgBox("Completed insert")
     End Sub
 
+    Public Sub updateR()
+        Dim dataResults As New DataSet()
+        Dim strLocation, strEDate, strSTime, strParticipants, strWLocation, streventID, strEName, strPath, strUrl, strMinute As String
+        Dim maxEventID As Integer = 0
+        Dim DBConn As OleDbConnection
+        Dim dbCommand As New OleDbCommand()
+
+
+        strUrl = WebBrowser1.Url.ToString()
+        strLocation = txtLocation.Text
+        strEDate = CStr(cmbDay.Text) + "/" + CStr(cmbMonth.Text) + "/" + CStr(cmbYear.Text)
+
+        strMinute = numMinute.Value
+        If numMinute.Value = 0 Then
+            strMinute = "00"
+        End If
+
+        strSTime = CStr(numHour.Value) + "." + strMinute + "." + CStr(cmbAm.Text)
+        strParticipants = ""
+        strWLocation = strUrl
+        strEName = txtEName.Text
+        streventID = CStr(newEventID() + 1)
+
+        If cboxParticipants1.Checked = True Then
+            strParticipants += "Y8/"
+        End If
+        If cboxParticipants2.Checked = True Then
+            strParticipants += "Y9/"
+        End If
+        If cboxParticipants3.Checked = True Then
+            strParticipants += "Y10/"
+        End If
+
+        Try
+            strPath = "|DataDirectory|\rowingDatabase (1).accdb"
+            DBConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" _
+                                    & "DATA SOURCE=" _
+                                    & strPath)
+            dbCommand.CommandText = "Update [tbEvents] Set " _
+            & "[Location]='" & strLocation & "', " _
+            & "[eDate]='" & strEDate & "', " _
+            & "[sTime]='" & strSTime & "', " _
+            & "[Participants]='" & strParticipants & "', " _
+            & "[wLocation]='" & strWLocation & "', " _
+            & "[eName]='" & strEName & "' " _
+            & "WHERE [eventID]=" & selectedEvent(5)
+
+            MsgBox(dbCommand.CommandText)
+
+            dbCommand.Connection = DBConn
+            dbCommand.Connection.Open()
+            dbCommand.ExecuteNonQuery()
+            DBConn.Close()
+
+
+        Catch err As System.Exception
+            MsgBox(err.Message)
+        End Try
+
+
+        eventSelected = False
+        Me.Close()
+
+        MsgBox("Completed insert")
+    End Sub
+
     Private Function newEventID()
         Dim strPath As String
         Dim maxEventID As Integer = 0
@@ -175,6 +241,7 @@ Public Class NewEvent
     End Function
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        eventSelected = False
         Me.Close()
     End Sub
 
@@ -193,5 +260,6 @@ Public Class NewEvent
         btnCancel.Text = "Cancel"
         btnFinish.Visible = True
         btnEdit.Visible = False
+
     End Sub
 End Class
