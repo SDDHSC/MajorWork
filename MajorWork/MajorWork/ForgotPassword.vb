@@ -13,6 +13,14 @@ Public Class ForgotPassword
         openForm(Me, New Login)
     End Sub
 
+    Public Sub buttonStyle(button As Button)
+        button.FlatStyle = FlatStyle.Flat
+        button.Font = New Font("Microsoft Sans Serif", 9, FontStyle.Bold)
+        button.ForeColor = Color.White
+        button.BackColor = schoolBlue
+        button.UseVisualStyleBackColor = True
+    End Sub
+
     Private Sub ForgotPassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         groupNewPasswords.Enabled = False
         currentDetails.Enabled = True
@@ -27,6 +35,10 @@ Public Class ForgotPassword
         'visually hides the password
         txtNewPassword.PasswordChar = "*"
         txtConfirmPassword.PasswordChar = "*"
+
+        'set custom button
+        buttonStyle(back)
+        buttonStyle(btnNext)
     End Sub
 
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click

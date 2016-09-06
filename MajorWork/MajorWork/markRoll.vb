@@ -115,6 +115,9 @@ Public Class markRoll
         ListView1.Columns.Add(header2)
         ListView1.Columns.Add(header3)
 
+        buttonStyle(btnCancel)
+        buttonStyle(btnSave)
+
     End Sub
     Sub addListRow(row As Object)
         Dim tempstring As String = row.item("gName")

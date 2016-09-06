@@ -107,6 +107,9 @@
         coachOfSession.Items.Add("Coach #2")
         coachOfSession.Items.Add("Coach #3")
         coachOfSession.Text = "Coach #1"
+
+        buttonStyle(btnCancel)
+        buttonStyle(btnCreate)
     End Sub
 
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
