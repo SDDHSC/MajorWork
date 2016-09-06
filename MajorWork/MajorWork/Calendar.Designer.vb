@@ -30,13 +30,16 @@ Partial Class Calendar
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
+        Me.info1 = New System.Windows.Forms.Label()
+        Me.info2 = New System.Windows.Forms.Label()
+        Me.filterinfo = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'resultsList
         '
         Me.resultsList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.EventName})
         Me.resultsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.resultsList.Location = New System.Drawing.Point(557, 121)
+        Me.resultsList.Location = New System.Drawing.Point(557, 161)
         Me.resultsList.Name = "resultsList"
         Me.resultsList.Size = New System.Drawing.Size(92, 114)
         Me.resultsList.TabIndex = 21
@@ -50,7 +53,7 @@ Partial Class Calendar
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(569, 260)
+        Me.Button3.Location = New System.Drawing.Point(569, 300)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 20
@@ -60,7 +63,7 @@ Partial Class Calendar
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(566, 84)
+        Me.Label1.Location = New System.Drawing.Point(566, 124)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(67, 13)
         Me.Label1.TabIndex = 19
@@ -69,7 +72,7 @@ Partial Class Calendar
         'MonthName
         '
         Me.MonthName.AutoSize = True
-        Me.MonthName.Location = New System.Drawing.Point(579, 35)
+        Me.MonthName.Location = New System.Drawing.Point(579, 75)
         Me.MonthName.Name = "MonthName"
         Me.MonthName.Size = New System.Drawing.Size(65, 13)
         Me.MonthName.TabIndex = 18
@@ -77,7 +80,7 @@ Partial Class Calendar
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(650, 29)
+        Me.Button2.Location = New System.Drawing.Point(650, 69)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(23, 23)
         Me.Button2.TabIndex = 17
@@ -86,7 +89,7 @@ Partial Class Calendar
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(550, 29)
+        Me.Button1.Location = New System.Drawing.Point(550, 69)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(23, 23)
         Me.Button1.TabIndex = 16
@@ -100,11 +103,44 @@ Partial Class Calendar
         Me.MonthCalendar1.TabIndex = 15
         Me.MonthCalendar1.Visible = False
         '
+        'info1
+        '
+        Me.info1.AutoSize = True
+        Me.info1.Location = New System.Drawing.Point(554, 9)
+        Me.info1.Name = "info1"
+        Me.info1.Size = New System.Drawing.Size(108, 39)
+        Me.info1.TabIndex = 22
+        Me.info1.Text = "    Click < and > to " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "cycle through months" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 ↓"
+        Me.info1.Visible = False
+        '
+        'info2
+        '
+        Me.info2.AutoSize = True
+        Me.info2.Location = New System.Drawing.Point(574, 336)
+        Me.info2.Name = "info2"
+        Me.info2.Size = New System.Drawing.Size(78, 39)
+        Me.info2.TabIndex = 23
+        Me.info2.Text = "          ↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click to create " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "a new event"
+        Me.info2.Visible = False
+        '
+        'filterinfo
+        '
+        Me.filterinfo.AutoSize = True
+        Me.filterinfo.Location = New System.Drawing.Point(643, 392)
+        Me.filterinfo.Name = "filterinfo"
+        Me.filterinfo.Size = New System.Drawing.Size(39, 39)
+        Me.filterinfo.TabIndex = 24
+        Me.filterinfo.Text = "Hover " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "for " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Help"
+        Me.filterinfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Calendar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(700, 450)
+        Me.Controls.Add(Me.filterinfo)
+        Me.Controls.Add(Me.info2)
+        Me.Controls.Add(Me.info1)
         Me.Controls.Add(Me.resultsList)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label1)
@@ -127,5 +163,8 @@ Partial Class Calendar
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents MonthCalendar1 As System.Windows.Forms.MonthCalendar
+    Friend WithEvents info1 As System.Windows.Forms.Label
+    Friend WithEvents info2 As System.Windows.Forms.Label
+    Friend WithEvents filterinfo As System.Windows.Forms.Label
 
 End Class

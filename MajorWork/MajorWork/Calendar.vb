@@ -11,7 +11,11 @@ Public Class Calendar
     Dim adp As New OleDbDataAdapter
     Dim conDatabase As OleDbConnection
     Dim dataResults As New DataSet()
+    Dim infoLabels As List(Of Label)
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Dim infoLabels = New List(Of Label) From {info1, info2}
 
         Dim connectstring As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb" ' address of database
         conDatabase = New OleDbConnection(connectstring)
@@ -348,5 +352,18 @@ Public Class Calendar
         eventSelected = True
         selectedEvent = eventsList(sender.focuseditem.index)
         NewEvent.Show()
+    End Sub
+
+    Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles FilterInfo.MouseEnter
+        For Each label As Label In infoLabels
+            label.Visible = True
+            label.ForeColor = Color.Black
+        Next
+    End Sub
+
+    Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles FilterInfo.MouseLeave
+        For Each label As Label In infoLabels
+            label.Visible = False
+        Next
     End Sub
 End Class

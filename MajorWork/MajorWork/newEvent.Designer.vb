@@ -44,6 +44,7 @@ Partial Class NewEvent
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
+        Me.cboxParticipants4 = New System.Windows.Forms.CheckBox()
         CType(Me.numMinute, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numHour, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -253,11 +254,22 @@ Partial Class NewEvent
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
+        'cboxParticipants4
+        '
+        Me.cboxParticipants4.AutoSize = True
+        Me.cboxParticipants4.Location = New System.Drawing.Point(591, 81)
+        Me.cboxParticipants4.Name = "cboxParticipants4"
+        Me.cboxParticipants4.Size = New System.Drawing.Size(77, 17)
+        Me.cboxParticipants4.TabIndex = 60
+        Me.cboxParticipants4.Text = "Year 10 8s"
+        Me.cboxParticipants4.UseVisualStyleBackColor = True
+        '
         'NewEvent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(700, 400)
+        Me.Controls.Add(Me.cboxParticipants4)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnCancel)
@@ -311,4 +323,5 @@ Partial Class NewEvent
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents btnEdit As System.Windows.Forms.Button
     Friend WithEvents btnDelete As System.Windows.Forms.Button
+    Friend WithEvents cboxParticipants4 As System.Windows.Forms.CheckBox
   End Class
