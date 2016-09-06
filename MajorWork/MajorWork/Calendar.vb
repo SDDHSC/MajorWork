@@ -346,8 +346,8 @@ Public Class Calendar
         NewEvent.Show()
     End Sub
     Private Sub resultsList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles resultsList.SelectedIndexChanged
-        Dim selectedEvent As String() = eventsList(sender.focuseditem.index)
-
+        eventSelected = True
+        selectedEvent = eventsList(sender.focuseditem.index)
         NewEvent.Show()
     End Sub
 End Class

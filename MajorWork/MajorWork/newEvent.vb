@@ -5,6 +5,42 @@ Public Class NewEvent
 
     Public Property Url As Uri
 
+    Private Sub NewEvent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If eventSelected = True Then
+
+            WebBrowser1.Navigate(selectedEvent(4))
+            txtLocation.Text = selectedEvent(0)
+
+            Dim splitDate As String() = selectedEvent(1).Split(New Char() {"/"c})
+            MsgBox(splitDate(0))
+            MsgBox(splitDate(1))
+            MsgBox(splitDate(2))
+
+            cmbDay.Text = splitDate(0)
+            cmbMonth.Text = splitDate(1)
+            cmbYear.Text = splitDate(2)
+
+            Dim splitTime As String() = selectedEvent(2).Split(New Char() {"."c})
+            numHour.Value = splitTime(0)
+            numMinute.Value = splitTime(1)
+            cmbAm.Text = splitTime(2)
+
+            If selectedEvent(3).Contains("Y8") = True Then
+                cboxParticipants1.CheckState = CheckState.Checked
+            End If
+            If selectedEvent(3).Contains("Y9") = True Then
+                cboxParticipants2.CheckState = CheckState.Checked
+            End If
+            If selectedEvent(3).Contains("Y10") = True Then
+                cboxParticipants3.CheckState = CheckState.Checked
+            End If
+
+            txtEName.Text = selectedEvent(6)
+
+        End If
+        eventSelected = False
+    End Sub
+
     Private Sub Search_Click(sender As Object, e As EventArgs) Handles Search.Click
         WebBrowser1.Navigate("https://www.google.com.au/maps/search/" + txtLocation.Text)
     End Sub
@@ -22,20 +58,23 @@ Public Class NewEvent
 
     Public Sub newr()
         Dim dataResults As New DataSet()
-        Dim strLocation, strEDate, strSTime, strParticipants, strWLocation, streventID, strEName, strPath, strUrl As String
+        Dim strLocation, strEDate, strSTime, strParticipants, strWLocation, streventID, strEName, strPath, strUrl, strMinute As String
         Dim maxEventID As Integer = 0
 
         strUrl = WebBrowser1.Url.ToString()
         strLocation = txtLocation.Text
         strEDate = CStr(cmbDay.Text) + "/" + CStr(cmbMonth.Text) + "/" + CStr(cmbYear.Text)
-        strSTime = CStr(numHour.Value) + ":" + CStr(numMinute.Value) + " " + CStr(cmbAm.Text)
+
+        strMinute = numMinute.Value
+        If numMinute.Value = 0 Then
+            strMinute = "00"
+        End If
+
+        strSTime = CStr(numHour.Value) + "." + strMinute + "." + CStr(cmbAm.Text)
         strParticipants = ""
         strWLocation = strUrl
         strEName = txtEName.Text
-
         streventID = CStr(newEventID() + 1)
-
-        MsgBox(streventID)
 
         If cboxParticipants1.Checked = True Then
             strParticipants += "Y8/"
@@ -50,11 +89,11 @@ Public Class NewEvent
         Dim Sql = "INSERT INTO [tbEvents] ([Location],[eDate],[sTime],[Participants],[wLocation],[eventID],[eName]) VALUES (@Location, @eDate, @sTime, @Participants, @wLocation, @eventID, @eName)"
 
         'strPath = "|DataDirectory|\rowingDatabase (1).accdb"
-        strPath = "D:\Ricky\Desktop\School Code NEW DB\Working Custom Calender\MajorWork\bin\Debug\rowingDatabase (1).accdb"
+        strPath = "|DataDirectory|\rowingDatabase (1).accdb"
 
         Dim conDatabase = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" _
-                            & "Data Source=|DataDirectory|\rowingDatabase (1).accdb")
-
+                            & "DATA SOURCE=" _
+                            & strPath)
         Dim DBInsert As New OleDbCommand(Sql, conDatabase)
 
         conDatabase.Open()
@@ -76,16 +115,15 @@ Public Class NewEvent
         conDatabase.Close()
 
         MsgBox("Completed insert")
-
     End Sub
 
     Private Function newEventID()
-
         Dim strPath As String
         Dim maxEventID As Integer = 0
-        strPath = "D:\Ricky\Desktop\School Code NEW DB\Working Custom Calender\MajorWork\bin\Debug\rowingDatabase (1).accdb"
+        strPath = "|DataDirectory|\rowingDatabase (1).accdb"
         Dim conDatabase = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" _
-                            & "Data Source=|DataDirectory|\rowingDatabase (1).accdb")
+                            & "DATA SOURCE=" _
+                            & strPath)
 
         conDatabase.Open()
 
@@ -94,7 +132,7 @@ Public Class NewEvent
         adp.SelectCommand = New OleDbCommand()
         With adp.SelectCommand
             .Connection = conDatabase
-            .CommandText = "select * from " + "tbEvents" 'table name
+            .CommandText = "select * from tbEvents" 'table name
             .CommandType = CommandType.Text
             .ExecuteNonQuery()
         End With
@@ -109,10 +147,9 @@ Public Class NewEvent
                 maxEventID = reader(5)
             End If
         End While
+        Return maxEventID
+
         reader.Close()
         conDatabase.Close()
-
-        Return maxEventID
     End Function
-
 End Class
