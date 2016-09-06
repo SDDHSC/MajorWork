@@ -9,10 +9,7 @@ Public Class Absences
     Dim listViewEmptyCheck = False
 
     Private Sub btnAttendance_Click(sender As Object, e As EventArgs) Handles btnAttendance.Click
-        MainAttendance.TopLevel = False
-        Attendance.Panel1.Controls.Add(MainAttendance)
-        MainAttendance.Show()
-        Me.Hide()
+        openForm(Me, New MainAttendance)
     End Sub
 
     Private Sub Absences_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -77,8 +74,7 @@ Public Class Absences
     End Sub
 
     Private Sub btncreateNewRoll_Click(sender As Object, e As EventArgs) Handles btncreateNewRoll.Click
-        newRoll.Show()
-        Me.Hide()
+        openForm(Me, New newRoll)
     End Sub
 
     Private Sub absenceDateTimePicker_ValueChanged(sender As Object, e As EventArgs) Handles absenceDateTimePicker.ValueChanged

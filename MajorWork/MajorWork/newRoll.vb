@@ -7,18 +7,16 @@
     Public myY12 As Integer
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Attendance.Show()
-        Attendance.mainPanelCheck.Text = "newRoll Cancel"
-        Me.Hide()
+        openForm(Me, New MainAttendance)
     End Sub
 
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
         Dim radiopass As Boolean
         Dim checkpass As Boolean
 
-        'Adds form to panel again after markroll.close()
+        Dim markRoll As New markRoll
         markRoll.TopLevel = False
-        Attendance.Panel1.Controls.Add(markRoll)
+        Main.Panel1.Controls.Add(markRoll)
 
         'Sets values in the markRoll form
         markRoll.sessionDate.Text = DateTimePicker1.Value
@@ -90,7 +88,7 @@
         If radiopass = True And checkpass = True Then
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text.Remove(0, 3)
             markRoll.Show()
-            Me.Hide()
+            Me.Close()
         End If
 
     End Sub

@@ -93,8 +93,7 @@ Public Class MainAttendance
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles createNewRoll.Click
-        newRoll.Show()
-        Me.Close()
+        openForm(Me, New newRoll)
     End Sub
 
     Private Sub attendanceDateTimePicker_ValueChanged(sender As Object, e As EventArgs) Handles attendanceDateTimePicker.ValueChanged

@@ -129,20 +129,7 @@ Public Class markRoll
         ListView1.Items.AddRange(New ListViewItem() {item1})
     End Sub
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        'ARE YOU SURE???
-        newRoll.Show()
-
-        'Clears values from Listview1 when cancel is pressed
-        newRoll.myY7 = 0
-        newRoll.myY8 = 0
-        newRoll.myY9 = 0
-        newRoll.myY10 = 0
-        newRoll.myY11 = 0
-        newRoll.myY12 = 0
-
-        ListView1.Items.Clear()
-        Me.Close()
-
+        openForm(Me, New newRoll)
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim saveConfirm As Integer = MessageBox.Show("Are you sure? Changes cannot be undone", "Confirm", MessageBoxButtons.YesNo)
@@ -214,9 +201,8 @@ Public Class markRoll
             Next
             conAttendance.Close()
             conAbsence.Close()
-            Attendance.Show()
-            Attendance.mainPanelCheck.Text = "markRoll Save"
-            Me.Close()
+
+            openForm(Me, New MainAttendance)
         End If
     End Sub
 

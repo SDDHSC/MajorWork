@@ -40,7 +40,7 @@
         buttonClick(sender)
     End Sub
     Private Sub attendanceButton_Click(sender As Object, e As EventArgs) Handles attendanceButton.Click
-        currentForm = New Attendance
+        currentForm = New MainAttendance
         buttonClick(sender)
     End Sub
     Private Sub ChangePasswordButton_Click(sender As Object, e As EventArgs) Handles ChangePasswordButton.Click

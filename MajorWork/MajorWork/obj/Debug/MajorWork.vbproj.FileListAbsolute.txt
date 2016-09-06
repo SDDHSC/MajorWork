@@ -118,3 +118,4 @@ C:\Users\Joshua King\Downloads\MajorWork-master\MajorWork-master\MajorWork\Major
 C:\Users\Joshua King\Downloads\MajorWork-master\MajorWork-master\MajorWork\MajorWork\bin\Debug\MajorWork.pdb
 C:\Users\Joshua King\Downloads\MajorWork-master\MajorWork-master\MajorWork\MajorWork\bin\Debug\MajorWork.xml
 C:\Users\Joshua King\Downloads\MajorWork-master\MajorWork-master\MajorWork\MajorWork\obj\Debug\MajorWork.vbprojResolveAssemblyReference.cache
+C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.NewEvent.resources
