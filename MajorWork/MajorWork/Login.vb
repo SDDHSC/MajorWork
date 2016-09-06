@@ -169,6 +169,7 @@ Public Class Login
                 If tempUsername = row.item(2) Then 'checks password and gives appropriate feedback 
                     loginSuccess = True
                     accesslevel = row.item(3)
+                    GlobalVariables.accessLevel = accesslevel
                     Exit For
                 End If
             End If

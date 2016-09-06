@@ -27,7 +27,6 @@ Partial Class ProfilesView
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.lblEmail = New System.Windows.Forms.LinkLabel()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.lblRaAtPc = New System.Windows.Forms.Label()
         Me.lblTrAtPc = New System.Windows.Forms.Label()
         Me.lblPosition = New System.Windows.Forms.Label()
@@ -50,6 +49,8 @@ Partial Class ProfilesView
         Me.Label4 = New System.Windows.Forms.Label()
         Me.SearchBox = New System.Windows.Forms.TextBox()
         Me.lblNoValues = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         CType(Me._rowingDatabase__1_DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,9 +68,10 @@ Partial Class ProfilesView
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.lblEmail)
-        Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.lblRaAtPc)
         Me.Panel1.Controls.Add(Me.lblTrAtPc)
         Me.Panel1.Controls.Add(Me.lblPosition)
@@ -82,10 +84,9 @@ Partial Class ProfilesView
         Me.Panel1.Controls.Add(Me.lblsName)
         Me.Panel1.Controls.Add(Me.lblfName)
         Me.Panel1.Controls.Add(Me.lblID)
-        Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Location = New System.Drawing.Point(485, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(303, 426)
+        Me.Panel1.Size = New System.Drawing.Size(253, 426)
         Me.Panel1.TabIndex = 2
         '
         'Button1
@@ -95,30 +96,23 @@ Partial Class ProfilesView
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.Button1.Location = New System.Drawing.Point(7, 361)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(293, 62)
+        Me.Button1.Size = New System.Drawing.Size(97, 62)
         Me.Button1.TabIndex = 16
         Me.Button1.Text = "Edit"
+        Me.ToolTip1.SetToolTip(Me.Button1, "Edit this rower's data.")
         Me.Button1.UseVisualStyleBackColor = False
         '
         'lblEmail
         '
         Me.lblEmail.AutoSize = True
-        Me.lblEmail.Location = New System.Drawing.Point(60, 343)
+        Me.lblEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!)
+        Me.lblEmail.Location = New System.Drawing.Point(4, 345)
         Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(190, 13)
+        Me.lblEmail.Size = New System.Drawing.Size(189, 13)
         Me.lblEmail.TabIndex = 15
         Me.lblEmail.TabStop = True
         Me.lblEmail.Text = "430227866@student.sbhs.nsw.edu.au"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(3, 337)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 21)
-        Me.Label3.TabIndex = 14
-        Me.Label3.Text = "Email:"
+        Me.ToolTip1.SetToolTip(Me.lblEmail, "Click this link to send an email to this rower.")
         '
         'lblRaAtPc
         '
@@ -194,7 +188,7 @@ Partial Class ProfilesView
         '
         Me.lblrClass.AutoSize = True
         Me.lblrClass.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblrClass.Location = New System.Drawing.Point(119, 85)
+        Me.lblrClass.Location = New System.Drawing.Point(3, 79)
         Me.lblrClass.Name = "lblrClass"
         Me.lblrClass.Size = New System.Drawing.Size(79, 21)
         Me.lblrClass.TabIndex = 5
@@ -204,7 +198,7 @@ Partial Class ProfilesView
         '
         Me.lblGroup.AutoSize = True
         Me.lblGroup.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblGroup.Location = New System.Drawing.Point(119, 113)
+        Me.lblGroup.Location = New System.Drawing.Point(3, 109)
         Me.lblGroup.Name = "lblGroup"
         Me.lblGroup.Size = New System.Drawing.Size(108, 21)
         Me.lblGroup.TabIndex = 4
@@ -214,7 +208,7 @@ Partial Class ProfilesView
         '
         Me.lblsName.AutoSize = True
         Me.lblsName.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblsName.Location = New System.Drawing.Point(119, 29)
+        Me.lblsName.Location = New System.Drawing.Point(3, 26)
         Me.lblsName.Name = "lblsName"
         Me.lblsName.Size = New System.Drawing.Size(72, 21)
         Me.lblsName.TabIndex = 3
@@ -224,7 +218,7 @@ Partial Class ProfilesView
         '
         Me.lblfName.AutoSize = True
         Me.lblfName.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblfName.Location = New System.Drawing.Point(119, 57)
+        Me.lblfName.Location = New System.Drawing.Point(3, 53)
         Me.lblfName.Name = "lblfName"
         Me.lblfName.Size = New System.Drawing.Size(82, 21)
         Me.lblfName.TabIndex = 2
@@ -234,7 +228,7 @@ Partial Class ProfilesView
         '
         Me.lblID.AutoSize = True
         Me.lblID.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.lblID.Location = New System.Drawing.Point(119, 1)
+        Me.lblID.Location = New System.Drawing.Point(3, 3)
         Me.lblID.Name = "lblID"
         Me.lblID.Size = New System.Drawing.Size(113, 21)
         Me.lblID.TabIndex = 1
@@ -248,6 +242,7 @@ Partial Class ProfilesView
         Me.SortBox.Name = "SortBox"
         Me.SortBox.Size = New System.Drawing.Size(180, 21)
         Me.SortBox.TabIndex = 3
+        Me.ToolTip1.SetToolTip(Me.SortBox, "Choose what to to sort by.")
         '
         'FilterBox
         '
@@ -258,6 +253,7 @@ Partial Class ProfilesView
         Me.FilterBox.Size = New System.Drawing.Size(180, 21)
         Me.FilterBox.TabIndex = 4
         Me.FilterBox.Text = "All Years"
+        Me.ToolTip1.SetToolTip(Me.FilterBox, "Narrow your results by choosing a division.")
         '
         'Label1
         '
@@ -306,6 +302,8 @@ Partial Class ProfilesView
         Me.SearchBox.Name = "SearchBox"
         Me.SearchBox.Size = New System.Drawing.Size(417, 20)
         Me.SearchBox.TabIndex = 8
+        Me.ToolTip1.SetToolTip(Me.SearchBox, "Enter your search query here. Note, you can only search by firstname, lastname, I" &
+        "D number OR Roll Class.")
         '
         'lblNoValues
         '
@@ -318,13 +316,27 @@ Partial Class ProfilesView
         Me.lblNoValues.Text = "No Results"
         Me.lblNoValues.Visible = False
         '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(244, Byte), Integer))
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.Button2.Location = New System.Drawing.Point(110, 361)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(88, 62)
+        Me.Button2.TabIndex = 17
+        Me.Button2.Text = "Log"
+        Me.ToolTip1.SetToolTip(Me.Button2, "Open a log of changes to this rower.")
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox1.Image = Global.MajorWork.My.Resources.Resources.rower11
+        Me.PictureBox1.Location = New System.Drawing.Point(133, 10)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(110, 131)
+        Me.PictureBox1.Size = New System.Drawing.Size(80, 120)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabIndex = 18
         Me.PictureBox1.TabStop = False
         '
         'ProfilesView
@@ -343,7 +355,7 @@ Partial Class ProfilesView
         Me.Controls.Add(Me.RowerBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ProfilesView"
-        Me.Text = "Form1"
+        Me.Text = "z"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me._rowingDatabase__1_DataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -372,9 +384,7 @@ Partial Class ProfilesView
     Friend WithEvents lblsName As Label
     Friend WithEvents lblfName As Label
     Friend WithEvents lblID As Label
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents lblEmail As LinkLabel
-    Friend WithEvents Label3 As Label
     Friend WithEvents _rowingDatabase__1_DataSet As _rowingDatabase__1_DataSet
     Friend WithEvents TbProfilesBindingSource As BindingSource
     Friend WithEvents TbProfilesTableAdapter As _rowingDatabase__1_DataSetTableAdapters.tbProfilesTableAdapter
@@ -382,4 +392,7 @@ Partial Class ProfilesView
     Friend WithEvents SearchBox As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents lblNoValues As Label
+    Friend WithEvents Button2 As Button
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

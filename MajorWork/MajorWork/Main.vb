@@ -13,7 +13,6 @@
         Next
         currentForm = New Login
         currentButton = loginButton
-
         currentForm.TopLevel = False
         Me.Panel1.Controls.Add(currentForm)
         currentForm.Show()
