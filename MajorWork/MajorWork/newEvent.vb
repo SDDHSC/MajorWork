@@ -47,14 +47,22 @@ Public Class NewEvent
             btnCancel.Text = "Back"
             btnFinish.Visible = False
 
+
+
             'If accessLevel > 0 Then
             btnEdit.Visible = True
+            btnDelete.Visible = True
             'Else
             'btnEdit.Visible = False
+            'btnDelete.Visible = False
 
             ' End If
 
+        Else
+            btnEdit.Visible = False
+            btnDelete.Visible = False
         End If
+
     End Sub
 
     Private Sub Search_Click(sender As Object, e As EventArgs) Handles Search.Click
@@ -109,7 +117,6 @@ Public Class NewEvent
 
         Dim Sql = "INSERT INTO [tbEvents] ([Location],[eDate],[sTime],[Participants],[wLocation],[eventID],[eName]) VALUES (@Location, @eDate, @sTime, @Participants, @wLocation, @eventID, @eName)"
 
-        'strPath = "|DataDirectory|\rowingDatabase (1).accdb"
         strPath = "|DataDirectory|\rowingDatabase (1).accdb"
 
         Dim conDatabase = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" _
@@ -118,7 +125,7 @@ Public Class NewEvent
         Dim DBInsert As New OleDbCommand(Sql, conDatabase)
 
         conDatabase.Open()
-        'MsgBox(DBInsert)
+
         Try
             DBInsert.Parameters.AddWithValue("@Location", strLocation)
             DBInsert.Parameters.AddWithValue("@eDate", strEDate)
@@ -144,6 +151,7 @@ Public Class NewEvent
         Dim maxEventID As Integer = 0
         Dim DBConn As OleDbConnection
         Dim dbCommand As New OleDbCommand()
+
 
 
         strUrl = WebBrowser1.Url.ToString()
@@ -261,5 +269,38 @@ Public Class NewEvent
         btnFinish.Visible = True
         btnEdit.Visible = False
 
+
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Dim DBConn As OleDbConnection
+        Dim dbCommand As New OleDbCommand()
+
+        Dim Response = MsgBox("Are you sure you want to delete this event?", MsgBoxStyle.YesNo, Title:="Delete")
+
+        If Response = vbYes Then
+
+
+            Try
+                Dim strPath As String = "|DataDirectory|\rowingDatabase (1).accdb"
+                DBConn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" _
+                                        & "DATA SOURCE=" _
+                                        & strPath)
+                dbCommand.CommandText = "Delete from [tbEvents] WHERE eventID=" & selectedEvent(5)
+
+
+                dbCommand.Connection = DBConn
+                dbCommand.Connection.Open()
+                dbCommand.ExecuteNonQuery()
+                DBConn.Close()
+
+
+            Catch err As System.Exception
+                MsgBox(err.Message)
+            End Try
+        End If
+
+        eventSelected = False
+        Me.Close()
     End Sub
 End Class

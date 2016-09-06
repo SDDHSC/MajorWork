@@ -12,7 +12,6 @@ Public Class Calendar
     Dim conDatabase As OleDbConnection
     Dim dataResults As New DataSet()
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Panel1.BackColor = skyOrange
 
         Dim connectstring As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb" ' address of database
         conDatabase = New OleDbConnection(connectstring)

@@ -43,6 +43,7 @@ Partial Class NewEvent
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
         CType(Me.numMinute, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numHour, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -122,7 +123,7 @@ Partial Class NewEvent
         '
         'Search
         '
-        Me.Search.Location = New System.Drawing.Point(417, 110)
+        Me.Search.Location = New System.Drawing.Point(367, 110)
         Me.Search.Name = "Search"
         Me.Search.Size = New System.Drawing.Size(54, 23)
         Me.Search.TabIndex = 46
@@ -134,7 +135,7 @@ Partial Class NewEvent
         Me.txtLocation.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLocation.Location = New System.Drawing.Point(162, 104)
         Me.txtLocation.Name = "txtLocation"
-        Me.txtLocation.Size = New System.Drawing.Size(249, 29)
+        Me.txtLocation.Size = New System.Drawing.Size(199, 29)
         Me.txtLocation.TabIndex = 45
         '
         'cboxParticipants3
@@ -227,7 +228,7 @@ Partial Class NewEvent
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(522, 110)
+        Me.btnCancel.Location = New System.Drawing.Point(526, 110)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 57
@@ -243,11 +244,21 @@ Partial Class NewEvent
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
+        'btnDelete
+        '
+        Me.btnDelete.Location = New System.Drawing.Point(445, 110)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(75, 23)
+        Me.btnDelete.TabIndex = 59
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.UseVisualStyleBackColor = True
+        '
         'NewEvent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(700, 400)
+        Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.cmbAm)
@@ -299,4 +310,5 @@ Partial Class NewEvent
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents btnEdit As System.Windows.Forms.Button
+    Friend WithEvents btnDelete As System.Windows.Forms.Button
   End Class
