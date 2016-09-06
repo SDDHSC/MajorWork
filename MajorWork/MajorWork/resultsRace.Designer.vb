@@ -345,12 +345,8 @@ Partial Class resultsRace
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Highlight
-<<<<<<< HEAD
-        Me.ClientSize = New System.Drawing.Size(700, 450)
-=======
         Me.ClientSize = New System.Drawing.Size(1050, 692)
         Me.Controls.Add(Me.info7)
->>>>>>> origin/master
         Me.Controls.Add(Me.info2)
         Me.Controls.Add(Me.info4)
         Me.Controls.Add(Me.info3)
