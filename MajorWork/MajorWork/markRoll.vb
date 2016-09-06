@@ -29,13 +29,12 @@ Public Class markRoll
     End Sub
     Private Sub markRoll_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'takes year values from previous form
-        y7 = newRoll.myY7
-        y8 = newRoll.myY8
-        y9 = newRoll.myY9
-        y10 = newRoll.myY10
-        y11 = newRoll.myY11
-        y12 = newRoll.myY12
-
+        y7 = lblY7.Text
+        y8 = lblY8.Text
+        y9 = lblY9.Text
+        y10 = lblY10.Text
+        y11 = lblY11.Text
+        y12 = lblY12.Text
 
         'tooltip initialise
         ToolTipListView.SetToolTip(ListView1, "Double click to mark absent")
@@ -61,6 +60,7 @@ Public Class markRoll
 
         ListView1.View = View.Details
         For Each row In table.Rows
+
             If y7 > 0 And y7 = row.item(4) Then
                 addListRow(row)
                 totalPresent.Text += 1

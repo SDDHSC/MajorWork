@@ -58,29 +58,30 @@
         End If
 
 
+
         'MAKE MORE EFFICIENT. checks what buttons are selected, passes onto next form
         If Year7.Checked = True Then
-            myY7 = 7
+            markRoll.lblY7.Text = "7"
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "7"
         End If
         If Year8.Checked = True Then
-            myY8 = 8
+            markRoll.lblY7.Text = "8"
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "8"
         End If
         If Year9.Checked = True Then
-            myY9 = 9
+            markRoll.lblY7.Text = "9"
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "9"
         End If
         If Year10.Checked = True Then
-            myY10 = 10
+            markRoll.lblY7.Text = "10"
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "10"
         End If
         If Year11.Checked = True Then
-            myY11 = 11
+            markRoll.lblY7.Text = "11"
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "11"
         End If
         If Year12.Checked = True Then
-            myY12 = 12
+            markRoll.lblY7.Text = "12"
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "12"
         End If
 
@@ -88,7 +89,7 @@
         If radiopass = True And checkpass = True Then
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text.Remove(0, 3)
             markRoll.Show()
-            Me.Close()
+            Me.Hide()
         End If
 
     End Sub
