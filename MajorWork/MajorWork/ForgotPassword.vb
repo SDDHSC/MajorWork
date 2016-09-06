@@ -10,12 +10,7 @@ Public Class ForgotPassword
     Dim conNames As OleDbConnection
     Dim dataNames As New DataSet()
     Private Sub back_Click(sender As Object, e As EventArgs) Handles back.Click
-        Login.TopLevel = False
-
-        Main.Panel1.Controls.Add(Login)
-
-        Login.Show()
-        Me.Close()
+        openForm(Me, New Login)
     End Sub
 
     Private Sub ForgotPassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -75,8 +70,7 @@ Public Class ForgotPassword
                                 row.item(4) = "True"
                                 adpNamesUser.Update(dataNames, "tbLogin")
                                 MessageBox.Show("Successfully changed password. Restart program to apply changed password.", "Success")
-                                Login.Show()
-                                Me.Close()
+                                openForm(Me, New Login)
                             Catch
                                 MessageBox.Show("Failed to change password", "Fail")
                             End Try

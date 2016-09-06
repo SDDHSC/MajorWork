@@ -12,6 +12,7 @@
     Public Green As Color = Color.FromArgb(255, 0, 87, 37)
     Public Teal As Color = Color.FromArgb(255, 0, 87, 81)
 
+    Public currentForm As Form
     Public accessLevel = 0
     '0 = Guest
     '1 = Coach

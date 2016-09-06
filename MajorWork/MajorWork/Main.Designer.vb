@@ -133,11 +133,11 @@ Partial Class Main
         '
         Me.accessLabel.AutoSize = True
         Me.accessLabel.ForeColor = System.Drawing.Color.White
-        Me.accessLabel.Location = New System.Drawing.Point(12, 9)
+        Me.accessLabel.Location = New System.Drawing.Point(1, 9)
         Me.accessLabel.Name = "accessLabel"
-        Me.accessLabel.Size = New System.Drawing.Size(119, 20)
+        Me.accessLabel.Size = New System.Drawing.Size(143, 20)
         Me.accessLabel.TabIndex = 14
-        Me.accessLabel.Text = "Access Level: 0"
+        Me.accessLabel.Text = "No User Logged In"
         '
         'Main
         '

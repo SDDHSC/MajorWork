@@ -285,10 +285,15 @@ Partial Class newRace
         '
         'rowerList
         '
+        Me.rowerList.Activation = System.Windows.Forms.ItemActivation.OneClick
         Me.rowerList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.rowers})
         Me.rowerList.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rowerList.FullRowSelect = True
+        Me.rowerList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.rowerList.HideSelection = False
         Me.rowerList.Location = New System.Drawing.Point(704, 111)
         Me.rowerList.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.rowerList.MultiSelect = False
         Me.rowerList.Name = "rowerList"
         Me.rowerList.Size = New System.Drawing.Size(188, 262)
         Me.rowerList.TabIndex = 62
@@ -302,13 +307,15 @@ Partial Class newRace
         '
         'infoList
         '
-        Me.infoList.Alignment = System.Windows.Forms.ListViewAlignment.Left
+        Me.infoList.Activation = System.Windows.Forms.ItemActivation.OneClick
         Me.infoList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.raceName, Me.raceTime, Me.raceDistance, Me.position, Me.squad})
         Me.infoList.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.infoList.FullRowSelect = True
         Me.infoList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.infoList.HideSelection = False
         Me.infoList.Location = New System.Drawing.Point(9, 111)
         Me.infoList.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.infoList.MultiSelect = False
         Me.infoList.Name = "infoList"
         Me.infoList.Size = New System.Drawing.Size(539, 262)
         Me.infoList.TabIndex = 94
@@ -609,6 +616,7 @@ Partial Class newRace
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "newRace"
         Me.Text = "newRace"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.yearCounter, System.ComponentModel.ISupportInitialize).EndInit()

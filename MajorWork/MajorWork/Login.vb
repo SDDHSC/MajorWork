@@ -131,12 +131,7 @@ Public Class Login
 
 
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-        ForgotPassword.TopLevel = False
-
-        Main.Panel1.Controls.Add(ForgotPassword)
-
-        ForgotPassword.Show()
-        Me.Close()
+        openForm(Me, New ForgotPassword)
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles AnimationRowingTimer.Tick
@@ -168,9 +163,10 @@ Public Class Login
 
 
     Private Sub guestSignIn_Click(sender As Object, e As EventArgs) Handles guestSignIn.Click
-        accesslevel = 0
-        'main.show()
-        'me.hide()
+        currentForm = New Calendar
+        Main.buttonClick(Main.calendarButton)
+        Main.accessLabel.Text = "Welcome: Guest"
+        Main.loginButton.Text = "Logout"
     End Sub
     Sub loginConfirmation()
         'connect to database/table
@@ -190,16 +186,16 @@ Public Class Login
                 If tempUsername = row.item(2) Then 'checks password and gives appropriate feedback 
                     loginSuccess = True
                     accesslevel = row.item(3)
+                    Exit For
                 End If
             End If
         Next
 
         If loginSuccess = True Then
-            Main.ButtonClick(Main.calendarButton, Nothing) 'need to check if this works
-            Main.accessLabel.Text = "Access Level: " + CStr(accesslevel)
+            currentForm = Calendar
+            Main.buttonClick(Main.calendarButton)
+            Main.accessLabel.Text = "Welcome: " + tempUsername
             Main.loginButton.Text = "Logout"
-            'calendar.open()
-            'Me.Hide()
         Else
             MessageBox.Show("Incorrect Username")
             loginattempts = loginattempts + 1

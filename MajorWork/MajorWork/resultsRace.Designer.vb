@@ -44,6 +44,7 @@ Partial Class resultsRace
         Me.raceNewEntry = New System.Windows.Forms.Button()
         Me.editRace = New System.Windows.Forms.Button()
         Me.analysisButton = New System.Windows.Forms.Button()
+        Me.analysisPrint = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -239,6 +240,10 @@ Partial Class resultsRace
         Me.analysisButton.Text = "Print Analysis"
         Me.analysisButton.UseVisualStyleBackColor = True
         '
+        'analysisPrint
+        '
+        Me.analysisPrint.DocumentName = "Race Analysis"
+        '
         'resultsRace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -284,4 +289,5 @@ Partial Class resultsRace
     Friend WithEvents rowerListView As ListView
     Friend WithEvents Rowers As ColumnHeader
     Friend WithEvents analysisButton As Button
+    Friend WithEvents analysisPrint As Printing.PrintDocument
 End Class
