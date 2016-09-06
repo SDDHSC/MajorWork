@@ -12,8 +12,14 @@ Public Class resultsRace
 
     Private Sub resultsRace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         eventIDnum = 0
+        If accessLevel < 2 Then
+            editRace.Enabled = False
+            raceNewEntry.Enabled = False
+        Else
+            info7.Text = ""
+        End If
         BackColor = schoolBlue                                                  'Sets backColour to the default school blue
-        infoLabels = New List(Of Label) From {info1, info2, info3, info4, info5, info6}
+        infoLabels = New List(Of Label) From {info1, info2, info3, info4, info5, info6, info7}
         styleForm(Me)
 
         'Connecting to the database and retrieving information

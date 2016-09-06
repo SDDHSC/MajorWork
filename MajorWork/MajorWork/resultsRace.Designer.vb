@@ -51,6 +51,7 @@ Partial Class resultsRace
         Me.info3 = New System.Windows.Forms.Label()
         Me.info4 = New System.Windows.Forms.Label()
         Me.info2 = New System.Windows.Forms.Label()
+        Me.info7 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'rowerListView
@@ -336,12 +337,27 @@ Partial Class resultsRace
         Me.info2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.info2.Visible = False
         '
+        'info7
+        '
+        Me.info7.AutoSize = True
+        Me.info7.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.info7.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.info7.Location = New System.Drawing.Point(761, 130)
+        Me.info7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.info7.Name = "info7"
+        Me.info7.Size = New System.Drawing.Size(282, 28)
+        Me.info7.TabIndex = 71
+        Me.info7.Text = "Access Level 2 or Above Needed"
+        Me.info7.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.info7.Visible = False
+        '
         'resultsRace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Highlight
         Me.ClientSize = New System.Drawing.Size(1050, 692)
+        Me.Controls.Add(Me.info7)
         Me.Controls.Add(Me.info2)
         Me.Controls.Add(Me.info4)
         Me.Controls.Add(Me.info3)
@@ -399,4 +415,5 @@ Partial Class resultsRace
     Friend WithEvents info3 As Label
     Friend WithEvents info4 As Label
     Friend WithEvents info2 As Label
+    Friend WithEvents info7 As Label
 End Class
