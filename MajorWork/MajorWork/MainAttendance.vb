@@ -5,6 +5,14 @@ Public Class MainAttendance
     Dim dataAttendance As New DataSet()
     Dim listViewEmpty As Boolean = True
     Dim initialising = True
+    'customised button
+    Public Sub buttonStyle(button As Button)
+        button.FlatStyle = FlatStyle.Flat
+        button.Font = New Font("Microsoft Sans Serif", 9, FontStyle.Bold)
+        button.ForeColor = Color.White
+        button.BackColor = schoolBlue
+        button.UseVisualStyleBackColor = True
+    End Sub
     Private Sub MainAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'init database
@@ -77,11 +85,14 @@ Public Class MainAttendance
 
         attendanceDateTimePicker.Enabled = False
 
-        'Set tootip
+        'set custom button
+        buttonStyle(btnAbsences)
+        buttonStyle(btnReset)
+        buttonStyle(createNewRoll)
+
+        'Set tooltip
         ToolTipAttendance.SetToolTip(listAttendance, "Double click event for more info")
-        ToolTipFilterInfo.SetToolTip(FilterInfo, "Select and click filters to apply them" & Environment.NewLine &
-            "Click reset to clear all filters" & Environment.NewLine & "To apply date: check box and" _
-            & Environment.NewLine & "select a date")
+
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnAbsences.Click

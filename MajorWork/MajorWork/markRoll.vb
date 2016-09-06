@@ -27,6 +27,14 @@ Public Class markRoll
             End If
         Next DCol
     End Sub
+    'customised button
+    Public Sub buttonStyle(button As Button)
+        button.FlatStyle = FlatStyle.Flat
+        button.Font = New Font("Microsoft Sans Serif", 9, FontStyle.Bold)
+        button.ForeColor = Color.White
+        button.BackColor = schoolBlue
+        button.UseVisualStyleBackColor = True
+    End Sub
     Private Sub markRoll_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'takes year values from previous form
         y7 = newRoll.myY7
@@ -115,6 +123,9 @@ Public Class markRoll
         ListView1.Columns.Add(header2)
         ListView1.Columns.Add(header3)
 
+        'set custom button
+        buttonStyle(btnCancel)
+        buttonStyle(btnSave)
     End Sub
     Sub addListRow(row As Object)
         Dim tempstring As String = row.item("gName")

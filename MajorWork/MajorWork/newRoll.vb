@@ -89,12 +89,18 @@
         'if user has entered values for both year group and session type, they can continue
         If radiopass = True And checkpass = True Then
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text.Remove(0, 3)
-            markRoll.Show()
-            Me.Hide()
+            openForm(Me, New markRoll)
         End If
 
     End Sub
-
+    'customised button
+    Public Sub buttonStyle(button As Button)
+        button.FlatStyle = FlatStyle.Flat
+        button.Font = New Font("Microsoft Sans Serif", 9, FontStyle.Bold)
+        button.ForeColor = Color.White
+        button.BackColor = schoolBlue
+        button.UseVisualStyleBackColor = True
+    End Sub
     Private Sub newRoll_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblRadiobtn.Hide()
         lblCheckboxes.Hide()
@@ -107,6 +113,10 @@
         coachOfSession.Items.Add("Coach #2")
         coachOfSession.Items.Add("Coach #3")
         coachOfSession.Text = "Coach #1"
+
+        'set custom button
+        buttonStyle(btnCancel)
+        buttonStyle(btnCreate)
     End Sub
 
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter

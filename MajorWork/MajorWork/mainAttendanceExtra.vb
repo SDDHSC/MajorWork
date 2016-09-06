@@ -42,7 +42,14 @@ Public Class mainAttendanceExtra
         End If
 
     End Sub
-
+    'customised button
+    Public Sub buttonStyle(button As Button)
+        button.FlatStyle = FlatStyle.Flat
+        button.Font = New Font("Microsoft Sans Serif", 9, FontStyle.Bold)
+        button.ForeColor = Color.White
+        button.BackColor = schoolBlue
+        button.UseVisualStyleBackColor = True
+    End Sub
     Private Sub mainAttendanceExtra_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ListView1.View = View.Details
         ListView1.Items.Clear()
@@ -83,6 +90,9 @@ Public Class mainAttendanceExtra
                 row.item(4) = totalAbsent.Text And row.item(5) = totalPresent.Text Then
                 lblYearGroups.Text = row.item(6)
                 coachNotes.Text = row.item(7)
+                If coachNotes.Text = "" Then
+                    coachNotes.Text = "No notes for this session"
+                End If
             End If
         Next
 
