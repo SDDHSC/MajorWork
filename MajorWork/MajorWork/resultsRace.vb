@@ -21,6 +21,7 @@ Public Class resultsRace
         BackColor = schoolBlue                                                  'Sets backColour to the default school blue
         infoLabels = New List(Of Label) From {info1, info2, info3, info4, info5, info6, info7}
         styleForm(Me)
+        FilterInfo.ForeColor = Color.Black
 
         'Connecting to the database and retrieving information
         Dim connectstring As String = "Provider=Microsoft.ACE.OLEDB.12.0;" +
@@ -144,25 +145,33 @@ Public Class resultsRace
 
     Private Sub analysisPrint_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles analysisPrint.PrintPage
         Dim printFont As Font
-        Dim printString As String
         With e.Graphics
             printFont = New Font("Arial", 14, FontStyle.Bold)
             .DrawString("Rowing Events Analysis:", printFont, Brushes.Black, 40, 100)
-
-
+            Dim raceWon = 0
+            For Each ev In eventsList
+                Dim temp = Split(ev(7), "|")
+                For Each race In temp
+                    If temp(0) = "1" Then
+                        raceWon += 1
+                    End If
+                Next
+            Next
+            .DrawString("Races won: " + CStr(raceWon), printFont, Brushes.Black, 40, 130)
+            '.DrawString()
 
 
             e.HasMorePages = False
         End With
     End Sub
 
+    'Help Labels
     Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles FilterInfo.MouseEnter
         For Each label As Label In infoLabels
             label.Visible = True
             label.ForeColor = Color.Black
         Next
     End Sub
-
     Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles FilterInfo.MouseLeave
         For Each label As Label In infoLabels
             label.Visible = False
