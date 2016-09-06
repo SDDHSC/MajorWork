@@ -27,6 +27,7 @@ Public Class ForgotPassword
         SecurityQuestions.Items.Add("What was your first pet?")
         SecurityQuestions.Items.Add("What was the suburb of your first home?")
         SecurityQuestions.Items.Add("What was your first teacher's name?")
+        SecurityQuestions.Text = "What is your favourite colour?"
 
         'visually hides the password
         txtNewPassword.PasswordChar = "*"
@@ -83,6 +84,10 @@ Public Class ForgotPassword
                                 row.item(4) = "True"
                                 adpNamesUser.Update(dataNames, "tbLogin")
                                 MessageBox.Show("Successfully changed password. Restart program to apply changed password.", "Success")
+                                Login.TopLevel = False
+
+                                Main.Panel1.Controls.Add(Login)
+
                                 Login.Show()
                                 Me.Close()
                             Catch

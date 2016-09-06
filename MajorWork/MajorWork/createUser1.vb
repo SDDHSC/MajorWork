@@ -24,7 +24,7 @@ Public Class createUser
         securityQuestions.Items.Add("What was your first pet?")
         securityQuestions.Items.Add("What was the suburb of your first home?")
         securityQuestions.Items.Add("What was your first teacher's name?")
-
+        securityQuestions.Text = "What is your favourite colour?"
 
         txtNewPassword.PasswordChar = "*"
         txtConfirmPassword.PasswordChar = "*"
@@ -65,6 +65,13 @@ Public Class createUser
                 cmd.Parameters.AddWithValue("Question", lblSecurityQuestion.Text)
                 cmd.Parameters.AddWithValue("Answer", lblSecurityAnswer.Text)
                 cmd.ExecuteNonQuery()
+                MessageBox.Show("User created!")
+                resetPassword.TopLevel = False
+
+                Main.Panel1.Controls.Add(resetPassword)
+
+                resetPassword.Show()
+                Me.Close()
             Catch exceptionobject As Exception
                 MessageBox.Show(exceptionobject.Message)
             End Try

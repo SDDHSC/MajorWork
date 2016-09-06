@@ -122,7 +122,7 @@ Public Class Login
         Main.Panel1.Controls.Add(ForgotPassword)
 
         ForgotPassword.Show()
-        Me.Close()
+        Me.Hide()
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles AnimationRowingTimer.Tick
@@ -150,8 +150,9 @@ Public Class Login
 
     Private Sub guestSignIn_Click(sender As Object, e As EventArgs) Handles guestSignIn.Click
         accesslevel = 0
-        'main.show()
-        'me.hide()
+        Main.ButtonClick(Main.calendarButton, Nothing)
+        Main.accessLabel.Text = "Access Level: " + CStr(accesslevel)
+        Main.loginButton.Text = "Logout"
     End Sub
     Sub loginConfirmation()
         'connect to database/table

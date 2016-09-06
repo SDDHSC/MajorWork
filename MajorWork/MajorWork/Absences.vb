@@ -419,4 +419,14 @@ Public Class Absences
         lblInfo2.Hide()
         lblInfo3.Hide()
     End Sub
+
+    'Preventing listViews headers from being resized
+    Private Sub ListView1_ColumnWidthChanging(ByVal Sender As Object, ByVal E As System.Windows.Forms.ColumnWidthChangingEventArgs) Handles ListAbsence.ColumnWidthChanging
+        For DCol = 0 To 4
+            If E.ColumnIndex = DCol Then
+                E.Cancel = True
+                E.NewWidth = Sender.Columns(DCol).Width
+            End If
+        Next DCol
+    End Sub
 End Class

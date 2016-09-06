@@ -18,7 +18,15 @@ Public Class markRoll
     Dim adpUser As New OleDbDataAdapter
     Dim conAttendance As OleDbConnection
     Dim dataAttendance As New DataSet()
-
+    'Preventing listViews headers from being resized
+    Private Sub ListView1_ColumnWidthChanging(ByVal Sender As Object, ByVal E As System.Windows.Forms.ColumnWidthChangingEventArgs) Handles ListView1.ColumnWidthChanging
+        For DCol = 0 To 4
+            If E.ColumnIndex = DCol Then
+                E.Cancel = True
+                E.NewWidth = Sender.Columns(DCol).Width
+            End If
+        Next DCol
+    End Sub
     Private Sub markRoll_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'takes year values from previous form
         y7 = newRoll.myY7

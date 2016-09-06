@@ -106,8 +106,8 @@ Partial Class ForgotPassword
         '
         'SecurityQuestions
         '
+        Me.SecurityQuestions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SecurityQuestions.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SecurityQuestions.FormattingEnabled = True
         Me.SecurityQuestions.Location = New System.Drawing.Point(18, 132)
         Me.SecurityQuestions.Name = "SecurityQuestions"
         Me.SecurityQuestions.Size = New System.Drawing.Size(311, 28)

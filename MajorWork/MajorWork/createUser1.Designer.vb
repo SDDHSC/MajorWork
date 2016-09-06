@@ -239,6 +239,7 @@ Partial Class createUser
         '
         'securityQuestions
         '
+        Me.securityQuestions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.securityQuestions.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.securityQuestions.FormattingEnabled = True
         Me.securityQuestions.Location = New System.Drawing.Point(9, 45)

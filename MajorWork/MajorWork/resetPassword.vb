@@ -128,6 +128,6 @@ Public Class resetPassword
         Main.Panel1.Controls.Add(createUser)
 
         createUser.Show()
-        Me.Close()
+        Me.Hide()
     End Sub
 End Class
