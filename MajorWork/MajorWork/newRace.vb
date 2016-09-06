@@ -204,35 +204,36 @@ Public Class newRace
         'Reminder:
         'Make sure everything is filled in.
 
-        Dim raceArray = New List(Of String) From {"[", "[", "[", "[", "[", "["}
+        Dim raceArray = New List(Of String) From {"[", "[", "[", "[", "[", "[", "["}
         For i = 0 To eventsList.Count - 1
             For j = 0 To 5
                 raceArray(j) += eventsList(i)(j) + "|"
             Next
         Next
-        For i = 0 To 5
+        For i = 0 To eventsList.Count - 1
             raceArray(i) = raceArray(i).Trim("|") + "]"
         Next
 
         Dim query As String = ""
         Dim ID As Integer
         If raceEditInfo IsNot Nothing Then
-            query += "UPDATE Races " +
-                     "SET " +
-                     "EventName = @EventName," +
-                     "EventDate = @EventDate," +
-                     "RaceNum = @RaceNum," +
-                     "RaceName = @RaceName," +
-                     "RaceTime = @RaceTime," +
-                     "Distance = @Distance," +
-                     "Position = @Position," +
-                     "Crew = @Crew," +
-                     "CrewMembers = @CrewMembers" +
-                     "WHERE ID = @ID"
+            query += "UPDATE [Races] " +
+                      "SET " +
+                      "[EventName]= @EventName," +
+                      "[EventDate] = @EventDate," +
+                      "[RaceNum] = @RaceNum," +
+                      "[RaceName] = @RaceName," +
+                      "[RaceTime] = @RaceTime," +
+                      "[Distance] = @Distance," +
+                      "[Position] = @Position," +
+                      "[Crew] = @Crew," +
+                      "[CrewMembers] = @CrewMembers " +
+                      "WHERE [ID] = @ID"
             ID = raceEditInfo(0)
+            MsgBox(ID)
         Else
-            query += "INSERT INTO [Races] (ID, EventName, EventDate, RaceNum, RaceName, RaceTime, Distance, Position, Crew, CrewMembers) " +
-                     "VALUES (@ID, @EventName, @EventDate, @RaceNum, @RaceName, @RaceTime, @Distance, @Position, @Crew, @CrewMembers)"
+            query += "INSERT INTO [Races] ([ID], [EventName], [EventDate], [RaceNum], [RaceName], [RaceTime], [Distance], [Position], [Crew], [CrewMembers]) " +
+                      "VALUES (@ID, @EventName, @EventDate, @RaceNum, @RaceName, @RaceTime, @Distance, @Position, @Crew, @CrewMembers)"
             ID = eventIDnum + 1
         End If
 

@@ -259,12 +259,12 @@ Partial Class resultsRace
         Me.info1.BackColor = System.Drawing.Color.Transparent
         Me.info1.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.info1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.info1.Location = New System.Drawing.Point(195, 21)
+        Me.info1.Location = New System.Drawing.Point(83, 130)
         Me.info1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.info1.Name = "info1"
         Me.info1.Size = New System.Drawing.Size(273, 56)
         Me.info1.TabIndex = 64
-        Me.info1.Text = "Click an Event to Display Races" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "↙"
+        Me.info1.Text = "↖" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click an Event to Display Races" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.info1.Visible = False
         '
         'info6
@@ -272,7 +272,7 @@ Partial Class resultsRace
         Me.info6.AutoSize = True
         Me.info6.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.info6.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.info6.Location = New System.Drawing.Point(116, 377)
+        Me.info6.Location = New System.Drawing.Point(99, 379)
         Me.info6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.info6.Name = "info6"
         Me.info6.Size = New System.Drawing.Size(269, 56)
