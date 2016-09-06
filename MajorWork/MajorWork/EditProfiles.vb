@@ -47,7 +47,6 @@ Public Class EditProfiles
         End Try
         If TimeValid = True Then
             If SideSeatValid = True Then
-                CheckChanges()
                 SaveData()
             End If
         End If
@@ -56,8 +55,6 @@ Public Class EditProfiles
         Dim tempStr = SelectedRower
         ProfilesView.Button1.BackColor = schoolBlue
         ProfilesView.ReadDatabase()
-        ProfilesView.SortBox.SelectedIndex = 0
-        ProfilesView.FilterBox.SelectedIndex = 0
         ProfilesView.FillPanels()
         ProfilesView.RowerPanelClicked(ProfilesView.RowerBox.Controls.Item(ProfilesView.Sorted.IndexOf(ProfilesView.IDStr.IndexOf(tempStr))), EventArgs.Empty)
     End Sub
@@ -104,12 +101,6 @@ Public Class EditProfiles
         End Try
         Me.Close()
     End Sub
-    Dim oWeight As Integer
-    Dim o2k As String
-    Dim oBeep As Integer
-    Dim oSeat As Integer
-    Dim oSide As Integer
-    Dim oGroup As Integer
     Public Sub FillData()
         Try
             Dim dbConn As OleDbConnection
@@ -132,16 +123,12 @@ Public Class EditProfiles
                 Select Case dbDR("Group")
                     Case 1
                         cmbDivision.SelectedIndex = 3
-                        oGroup = 3
                     Case 8
                         cmbDivision.SelectedIndex = 0
-                        oGroup = 0
                     Case 9
                         cmbDivision.SelectedIndex = 1
-                        oGroup = 1
                     Case 10
                         cmbDivision.SelectedIndex = 2
-                        oGroup = 2
                 End Select
                 cmbSeat.SelectedIndex = dbDR("Seat")
                 cmbSide.SelectedIndex = dbDR("Side")
@@ -150,34 +137,5 @@ Public Class EditProfiles
         Catch err As System.Exception
             MsgBox(err.Message)
         End Try
-        oWeight = numWeight.Value
-        o2k = txt2k.Text
-        oBeep = numBeep.Value
-        oSeat = cmbSeat.SelectedIndex
-        oSide = cmbSide.SelectedIndex
-    End Sub
-    Private Sub CheckChanges()
-        If numWeight.Value <> oWeight Then
-            LogChanges("W(" + oWeight.ToString + ">" + numWeight.Value.ToString + ")")
-        End If
-        If txt2k.Text <> o2k Then
-            LogChanges("2(" + o2k + ">" + txt2k.Text + ")")
-        End If
-        If numBeep.Value <> oBeep Then
-            LogChanges("B(" + oBeep.ToString + ">" + numBeep.Value.ToString + ")")
-        End If
-        If cmbSeat.SelectedIndex <> oSeat Then
-            LogChanges("P(" + oSeat.ToString + ">" + cmbSeat.SelectedIndex.ToString + ")")
-        End If
-        If cmbSide.SelectedIndex <> oSide Then
-            LogChanges("S(" + oSide.ToString + ">" + cmbSide.SelectedIndex.ToString + ")")
-        End If
-        If cmbDivision.SelectedIndex <> oGroup Then
-            LogChanges("D(" + oGroup.ToString + ">" + cmbDivision.SelectedIndex.ToString + ")")
-        End If
-    End Sub
-    Private Sub LogChanges(Change As String)
-        Dim strPath As String = My.Application.Info.DirectoryPath + "\Log.txt"
-        My.Computer.FileSystem.WriteAllText(strPath, SelectedRower & "@" & String.Format("{0:dd/MM/yyyy}", DateTime.Now) & "=" & Change & ",", True)
     End Sub
 End Class

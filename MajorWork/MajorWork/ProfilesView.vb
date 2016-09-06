@@ -20,22 +20,14 @@ Public Class ProfilesView
     Dim SortList As New List(Of String)                         'Temporary list used to sort database list without changing indexes
     Dim SortArray() As Object = {gName, sName, rClass, IDStr}   'Array matching the sort combo box index to its respective list 
     Dim position As Integer = 0                                 'Position to start index search, used when there are multiple people with the same primary value
-    Public FirstPanel As Boolean                          'Boolean showing whether the panel being filled is the first panel
+    Dim FirstPanel As Boolean = True                            'Boolean showing whether the panel being filled is the first panel
     Dim SearchList As New List(Of String)                       'Temporary list used to get sorted values prior to being filtered by the search module
     Dim FilterList As New List(Of Integer)                      'Temporary list used to get searched and sorted values prior to being filtered by the filter module
     Dim yearGroups() As Integer = {0, 1, 10, 9, 8}              'Array matching FilterBox selected index to its respective yGroup value
-    Dim strPath As String = My.Application.Info.DirectoryPath + "\TempLog.txt"
-    Dim imageIndex As String = 0
-    Dim images() = {My.Resources.rower11, My.Resources.rower2, My.Resources.rower3}
-
     Private Sub ProfilesView_Load(sender As Object, e As EventArgs) Handles Me.Load
-        If accessLevel < 1 Then
-            Button1.Visible = False
-        End If
         ReadDatabase()
         SortBox.SelectedIndex = 0       'Ensures SortBox is set to Last Name by default
         FilterBox.SelectedIndex = 0     'Ensures FilterBox is set to All Years by default
-        Button1.BackColor = schoolBlue
         SearchBox.Focus()               'Ensures the focus is on the search box when the form loads, so you can type straight away
     End Sub
     Public Sub ReadDatabase() 'Reads the database, and populates the data strings
@@ -197,7 +189,6 @@ Public Class ProfilesView
         Next
     End Sub 'Populate Details Field
     Private Sub FillDetails(index As Integer) 'Populate Details Field
-        Button2.Visible = False
         'Get databasable info
         lblID.Text = "ID: " + IDStr(index)
         lblsName.Text = gName(index)
@@ -268,12 +259,6 @@ Public Class ProfilesView
         Dim tempIDNUM As String = IDStr(index)
         attendancePercentage(tempIDNUM)
         attendanceRacePercentage(tempIDNUM)
-        PictureBox1.Image = images(imageIndex)
-        imageIndex += 1
-        If imageIndex > 2 Then
-            imageIndex = 0
-        End If
-        GenerateLog()
     End Sub
     'Highlighting
     Private Sub RowerPanelEnter(sender As Object, e As EventArgs)
@@ -307,9 +292,7 @@ Public Class ProfilesView
         clicked.Tag = "Clicked"
         clicked.BackColor = skyOrange
         Dim index = CInt(clicked.Name)
-
         FillDetails(index)
-        'GenerateLog()
         SelectedRower = IDStr(index)
     End Sub
     'Edit Button Higlighting
@@ -442,7 +425,7 @@ Public Class ProfilesView
 
 
         If totalRaceAbsence <> 0 Then
-            'lblRaAtPc.Text = "Race Attendance: " + CInt(Int(totalRaceAbsence / totalRace)).ToString + "%"
+            lblRaAtPc.Text = "Race Attendance: " + CInt(Int(totalRaceAbsence / totalRace)).ToString + "%"
         Else
             lblTrAtPc.Text = "Training Attendance: 100%"
         End If
@@ -507,68 +490,4 @@ Public Class ProfilesView
         End If
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
-        If System.IO.File.Exists(strPath) = True Then
-            Process.Start(strPath)
-        End If
-    End Sub
-    Private Sub GenerateLog()
-        If System.IO.File.Exists(strPath) = True Then
-            My.Computer.FileSystem.DeleteFile(strPath)
-        End If
-        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(My.Application.Info.DirectoryPath + "\Log.txt")
-            MyReader.TextFieldType = FileIO.FieldType.Delimited
-            MyReader.SetDelimiters(",")
-            Dim currentRow As String()
-            While Not MyReader.EndOfData
-                Try
-                    currentRow = MyReader.ReadFields()
-                    Dim currentField As String
-                    For Each currentField In currentRow
-                        Dim ID As String = LSet(currentField, 9)
-                        If ID = SelectedRower Then
-
-                            Dim changeDate As String = ""
-                            For i = 11 To 19
-                                changeDate += currentField(i)
-                            Next
-                            Dim dataType As String
-                            Select Case currentField(21)
-                                Case "W"
-                                    dataType = "weight"
-                                Case "2"
-                                    dataType = "2k Time"
-                                Case "B"
-                                    dataType = "Beep Test Score"
-                                Case "P"
-                                    dataType = "Boat Position"
-                                Case "S"
-                                    dataType = "Boat Side"
-                                Case "D"
-                                    dataType = "Division"
-                            End Select
-                            Dim oValue As String = ""
-                            Dim ind As Integer = 23
-                            While currentField(ind) <> ">"
-                                oValue += currentField(ind)
-                                ind += 1
-                            End While
-                            Dim nValue As String = ""
-                            ind += 1
-                            While currentField(ind) <> ")"
-                                nValue += currentField(ind)
-                                ind += 1
-                            End While
-                            Dim tempStr As String = sName(IDStr.IndexOf(ID)) + " " + gName(IDStr.IndexOf(ID)) + " had their " + dataType + " changed from " + oValue + " to " + nValue + " on " + changeDate
-                            My.Computer.FileSystem.WriteAllText(strPath, tempStr & vbCrLf, True)
-                            Button2.Visible = True
-                        End If
-                    Next
-                Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                    MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
-                End Try
-            End While
-        End Using
-    End Sub
 End Class
