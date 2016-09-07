@@ -14,19 +14,11 @@ Public Class Calendar
     Dim adp As New OleDbDataAdapter
     Dim conDatabase As OleDbConnection 'connection to database
     Dim dataResults As New DataSet()
-<<<<<<< HEAD
     Dim infoLabels As List(Of Label) 'list of labels used for help
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         infoLabels = New List(Of Label) From {info1, info2}
-=======
-    Dim helpLabels As List(Of Label)
-
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        helpLabels = New List(Of Label) From {info1, info2}
->>>>>>> origin/master
 
         Dim connectstring As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb" ' address of database
         conDatabase = New OleDbConnection(connectstring) 'creates DB connection
@@ -364,25 +356,15 @@ Public Class Calendar
         NewEvent.Show()
     End Sub
 
-<<<<<<< HEAD
     Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles filterinfo.MouseEnter 'Mouse Hover shows the help text
         For Each label As Label In infoLabels
-=======
-    Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles filterinfo.MouseEnter
-        For Each label As Label In helpLabels
->>>>>>> origin/master
             label.Visible = True
             label.ForeColor = Color.Black
         Next
     End Sub
 
-<<<<<<< HEAD
     Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles filterinfo.MouseLeave 'Mouse Hover shows the help text
         For Each label As Label In infoLabels
-=======
-    Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles filterinfo.MouseLeave
-        For Each label As Label In helpLabels
->>>>>>> origin/master
             label.Visible = False
         Next
     End Sub

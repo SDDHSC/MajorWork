@@ -70,11 +70,8 @@ Partial Class Calendar
         Me.Label1.Location = New System.Drawing.Point(849, 191)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-<<<<<<< HEAD
         Me.Label1.Size = New System.Drawing.Size(0, 13)
-=======
-        Me.Label1.Size = New System.Drawing.Size(96, 20)
->>>>>>> origin/master
+
         Me.Label1.TabIndex = 19
         '
         'MonthName
@@ -118,12 +115,8 @@ Partial Class Calendar
         'info1
         '
         Me.info1.AutoSize = True
-<<<<<<< HEAD
-        Me.info1.Location = New System.Drawing.Point(551, 22)
-=======
         Me.info1.Location = New System.Drawing.Point(831, 14)
         Me.info1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
->>>>>>> origin/master
         Me.info1.Name = "info1"
         Me.info1.Size = New System.Drawing.Size(160, 60)
         Me.info1.TabIndex = 22
@@ -133,12 +126,9 @@ Partial Class Calendar
         'info2
         '
         Me.info2.AutoSize = True
-<<<<<<< HEAD
         Me.info2.Location = New System.Drawing.Point(573, 332)
-=======
         Me.info2.Location = New System.Drawing.Point(861, 517)
         Me.info2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
->>>>>>> origin/master
         Me.info2.Name = "info2"
         Me.info2.Size = New System.Drawing.Size(113, 60)
         Me.info2.TabIndex = 23
@@ -148,17 +138,10 @@ Partial Class Calendar
         'filterinfo
         '
         Me.filterinfo.AutoSize = True
-<<<<<<< HEAD
         Me.filterinfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.filterinfo.Location = New System.Drawing.Point(643, 392)
         Me.filterinfo.Name = "filterinfo"
         Me.filterinfo.Size = New System.Drawing.Size(45, 39)
-=======
-        Me.filterinfo.Location = New System.Drawing.Point(964, 603)
-        Me.filterinfo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.filterinfo.Name = "filterinfo"
-        Me.filterinfo.Size = New System.Drawing.Size(55, 60)
->>>>>>> origin/master
         Me.filterinfo.TabIndex = 24
         Me.filterinfo.Text = "Hover " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "for " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Help"
         Me.filterinfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
