@@ -39,16 +39,16 @@ Public Class Calendar
 
                 Dim p = New Panel                                           'Provides the specifications for all panels generated
                 p.Size = New Size(65, 65)
-                p.Location = New Point(y * 70 + 10, x * 70 + 10)
+                p.Location = New Point(y * 70 + 10, x * 70 + 30)
                 p.BackColor = schoolBlue
                 p.Name = dName(y).ToString + (x + 1).ToString
 
                 Dim l = New Label                                           'Provides the specifications for all labels generated
-                l.Location = New Point(y * 70 + 10, x * 70 + 10)
+                l.Location = New Point(y * 70 + 10, x * 70 + 30)
                 l.Size = New Size(40, 30)
                 l.BackColor = schoolBlue
                 l.Font = New Font("Microsoft Sans Serif", 12, FontStyle.Regular)
-                l.Name = dName(y).ToString + (x + 1).
+                l.Name = dName(y).ToString + (x + 1).ToString
 
 
 
@@ -354,14 +354,14 @@ Public Class Calendar
         NewEvent.Show()
     End Sub
 
-    Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles filterinfo.MouseEnter                            'Mouse Hover shows the help text
+    Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles FilterInfo.MouseEnter                            'Mouse Hover shows the help text
         For Each label As Label In infoLabels                                                                               'Goes through every label in the list InfoLabels and makes them visible
             label.Visible = True
             label.ForeColor = Color.Black
         Next
     End Sub
 
-    Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles filterinfo.MouseLeave                            'Mouse Hover shows the help text
+    Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles FilterInfo.MouseLeave                            'Mouse Hover shows the help text
         For Each label As Label In infoLabels                                                                               'Goes through every label in the list InfoLabels and makes them invisible
             label.Visible = False
         Next

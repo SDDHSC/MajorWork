@@ -327,6 +327,7 @@
     <Content Include="Allocation.txt" />
     <Content Include="Info.txt" />
     <Content Include="Notes.txt" />
+    <None Include="Resources\Help Question Mark.png" />
     <None Include="Resources\rower3.jpg" />
     <None Include="Resources\rower2.jpg" />
     <None Include="Resources\rower1.jpg" />

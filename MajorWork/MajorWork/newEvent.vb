@@ -3,12 +3,14 @@ Public Class NewEvent
     Dim dataResults As New DataSet()
     Dim eLocation, eventID, eDate, Participants, wLocation, sTime As String             'Defines all the elements of the database as string
     Dim infoLabels As List(Of Label)                                                    'list of labels used for help text
+    Dim locationSearched As Boolean = False
 
     Public Property Url As Uri
 
     Private Sub NewEvent_Load(sender As Object, e As EventArgs) Handles MyBase.Load     'Loads NewEvent Form either reading info from a selected event or blank to create a new event
+        Me.TopMost = True
 
-        infoLabels = New List(Of Label) From {info1, info2, info3, info4, info5, info6, info7, info8, info9, info10} 'Is a list of labels used for help text
+        infoLabels = New List(Of Label) From {info1, info2, info3, info4, info5, info6, info7, info8, info9, info10, info11} 'Is a list of labels used for help text
 
         If eventSelected = True Then                                                    'If there was an event selected then NewEvent is repurposed to show details as opposed to create them
 
@@ -51,8 +53,13 @@ Public Class NewEvent
             cboxParticipants1.Enabled = False
             cboxParticipants2.Enabled = False
             cboxParticipants3.Enabled = False
+            cboxParticipants4.Enabled = False
             btnCancel.Text = "Back"
             btnFinish.Visible = False
+            btnSearch.Enabled = False
+            btnSearch.Visible = False
+            FilterInfo.Enabled = False
+            FilterInfo.Visible = False
 
             If accessLevel > 0 Then                                                     'If access level is high enough show the "delete" and "edit" event buttons
                 btnEdit.Visible = True
@@ -68,13 +75,14 @@ Public Class NewEvent
         End If
     End Sub
 
-    Private Sub Search_Click(sender As Object, e As EventArgs) Handles Search.Click     'On click of the "search" button navigates the user to the google maps page of the location they entered
+    Private Sub Search_Click(sender As Object, e As EventArgs) Handles btnSearch.Click     'On click of the "search" button navigates the user to the google maps page of the location they entered
         WebBrowser1.Navigate("https://www.google.com.au/maps/search/" + txtLocation.Text)
+        locationSearched = True
     End Sub
 
     Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
         'When the user clicks "Save" it checks that all feilds are filled out
-        If txtEName.Text = "" Or cmbDay.SelectedValue = "" Or cmbMonth.SelectedValue = "" Or cmbYear.SelectedValue = "" Or numHour.Value = 0 Or cmbAm.SelectedValue = "" Or cboxParticipants1.Checked = False And cboxParticipants2.Checked = False And cboxParticipants3.Checked = False Then
+        If txtEName.Text = "" Or locationSearched = False Or (String.IsNullOrEmpty(cmbDay.Text)) = True Or (String.IsNullOrEmpty(cmbMonth.Text)) = True Or (String.IsNullOrEmpty(cmbYear.Text)) = True Or numHour.Value = 0 And cboxParticipants1.CheckState = 0 And cboxParticipants2.CheckState = 0 And cboxParticipants3.CheckState = 0 And cboxParticipants4.CheckState = 0 Then
             Dim Response = MsgBox("You must complete all fields to save this event.", MsgBoxStyle.OkOnly, Title:="Incomplete Field")
             'If all field are not completed an error prompt will appear promting the user to fill all fields
         Else
@@ -182,6 +190,9 @@ Public Class NewEvent
         If cboxParticipants3.Checked = True Then
             strParticipants += "Y10/"
         End If
+        If cboxParticipants4.Checked = True Then
+            strParticipants += "1st/"
+        End If
 
         Try
             strPath = "|DataDirectory|\rowingDatabase (1).accdb"                        'Location of the DB to be connected to
@@ -263,9 +274,14 @@ Public Class NewEvent
         cboxParticipants1.Enabled = True
         cboxParticipants2.Enabled = True
         cboxParticipants3.Enabled = True
+        cboxParticipants4.Enabled = True
         btnCancel.Text = "Cancel"
         btnFinish.Visible = True
         btnEdit.Visible = False                                                         'Hides the edit button once selected
+        btnSearch.Enabled = True
+        btnSearch.Visible = True
+        FilterInfo.Enabled = True
+        FilterInfo.Visible = True
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click 'When the user clicks the delete button they prompted if they are sure. Upon confirmation the selected record is deleted
@@ -295,7 +311,7 @@ Public Class NewEvent
         Me.Close()                                                                      'Closes newEvent Form
     End Sub
 
-    Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles filterinfo.MouseEnter 'Mouse Hover shows the help text
+    Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles FilterInfo.MouseEnter 'Mouse Hover shows the help text
         For Each label As Label In infoLabels                                           'Goes through every label in the list InfoLabels and makes them visible 
             label.Visible = True
             label.ForeColor = Color.Black
@@ -314,7 +330,7 @@ Public Class NewEvent
         Label5.Visible = False
     End Sub
 
-    Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles filterinfo.MouseLeave 'Mouse leave hides the help text
+    Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles FilterInfo.MouseLeave  'Mouse leave hides the help text
         For Each label As Label In infoLabels                                           'Goes through every label in the list InfoLabels and makes them invisible
             label.Visible = False
         Next
@@ -324,5 +340,12 @@ Public Class NewEvent
         Label3.Visible = True
         Label4.Visible = True
         Label5.Visible = True
+    End Sub
+
+    Private Sub newEvent_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtLocation.KeyPress
+        If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then
+            WebBrowser1.Navigate("https://www.google.com.au/maps/search/" + txtLocation.Text)
+            locationSearched = True
+        End If
     End Sub
 End Class

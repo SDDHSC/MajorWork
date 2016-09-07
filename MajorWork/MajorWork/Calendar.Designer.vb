@@ -32,19 +32,27 @@ Partial Class Calendar
         Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.info1 = New System.Windows.Forms.Label()
         Me.info2 = New System.Windows.Forms.Label()
-        Me.filterinfo = New System.Windows.Forms.Label()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.printUpcoming = New System.Windows.Forms.Button()
         Me.info3 = New System.Windows.Forms.Label()
         Me.info4 = New System.Windows.Forms.Label()
         Me.info5 = New System.Windows.Forms.Label()
+        Me.FilterInfo = New System.Windows.Forms.PictureBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        CType(Me.FilterInfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'resultsList
         '
         Me.resultsList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.EventName})
         Me.resultsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.resultsList.Location = New System.Drawing.Point(552, 99)
+        Me.resultsList.Location = New System.Drawing.Point(552, 114)
         Me.resultsList.Name = "resultsList"
         Me.resultsList.Size = New System.Drawing.Size(92, 114)
         Me.resultsList.TabIndex = 21
@@ -68,7 +76,7 @@ Partial Class Calendar
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(556, 86)
+        Me.Label1.Location = New System.Drawing.Point(567, 92)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(0, 13)
         Me.Label1.TabIndex = 19
@@ -132,22 +140,6 @@ Partial Class Calendar
         Me.info2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.info2.Visible = False
         '
-        'filterinfo
-        '
-        Me.filterinfo.AutoSize = True
-        Me.filterinfo.BackColor = System.Drawing.SystemColors.Control
-        Me.filterinfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.filterinfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.filterinfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.filterinfo.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.filterinfo.Location = New System.Drawing.Point(642, 400)
-        Me.filterinfo.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.filterinfo.Name = "filterinfo"
-        Me.filterinfo.Size = New System.Drawing.Size(47, 41)
-        Me.filterinfo.TabIndex = 24
-        Me.filterinfo.Text = "Hover " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "for " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Help"
-        Me.filterinfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'PrintDialog1
         '
         Me.PrintDialog1.UseEXDialog = True
@@ -193,16 +185,103 @@ Partial Class Calendar
         Me.info5.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.info5.Visible = False
         '
+        'FilterInfo
+        '
+        Me.FilterInfo.Image = Global.MajorWork.My.Resources.Resources.Help_Question_Mark
+        Me.FilterInfo.Location = New System.Drawing.Point(648, 398)
+        Me.FilterInfo.Name = "FilterInfo"
+        Me.FilterInfo.Size = New System.Drawing.Size(40, 40)
+        Me.FilterInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.FilterInfo.TabIndex = 73
+        Me.FilterInfo.TabStop = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(30, 7)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(27, 16)
+        Me.Label2.TabIndex = 74
+        Me.Label2.Text = "Mo"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(100, 7)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(24, 16)
+        Me.Label3.TabIndex = 75
+        Me.Label3.Text = "Tu"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(170, 7)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(29, 16)
+        Me.Label4.TabIndex = 76
+        Me.Label4.Text = "We"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(241, 7)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(24, 16)
+        Me.Label5.TabIndex = 77
+        Me.Label5.Text = "Th"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(313, 7)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(20, 16)
+        Me.Label6.TabIndex = 78
+        Me.Label6.Text = "Fr"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(378, 7)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(25, 16)
+        Me.Label7.TabIndex = 79
+        Me.Label7.Text = "Sa"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(448, 7)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(24, 16)
+        Me.Label8.TabIndex = 80
+        Me.Label8.Text = "Su"
+        '
         'Calendar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(700, 450)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.FilterInfo)
         Me.Controls.Add(Me.info5)
         Me.Controls.Add(Me.info4)
         Me.Controls.Add(Me.info3)
         Me.Controls.Add(Me.printUpcoming)
-        Me.Controls.Add(Me.filterinfo)
         Me.Controls.Add(Me.info2)
         Me.Controls.Add(Me.info1)
         Me.Controls.Add(Me.resultsList)
@@ -215,6 +294,7 @@ Partial Class Calendar
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Calendar"
         Me.Text = "Calendar"
+        CType(Me.FilterInfo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -229,10 +309,17 @@ Partial Class Calendar
     Friend WithEvents MonthCalendar1 As System.Windows.Forms.MonthCalendar
     Friend WithEvents info1 As System.Windows.Forms.Label
     Friend WithEvents info2 As System.Windows.Forms.Label
-    Friend WithEvents filterinfo As System.Windows.Forms.Label
     Friend WithEvents PrintDialog1 As PrintDialog
     Friend WithEvents printUpcoming As Button
     Friend WithEvents info3 As System.Windows.Forms.Label
     Friend WithEvents info4 As System.Windows.Forms.Label
     Friend WithEvents info5 As System.Windows.Forms.Label
+    Friend WithEvents FilterInfo As System.Windows.Forms.PictureBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
 End Class

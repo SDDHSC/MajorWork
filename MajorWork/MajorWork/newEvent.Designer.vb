@@ -30,7 +30,7 @@ Partial Class NewEvent
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.cmbYear = New System.Windows.Forms.ComboBox()
         Me.cmbMonth = New System.Windows.Forms.ComboBox()
-        Me.Search = New System.Windows.Forms.Button()
+        Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtLocation = New System.Windows.Forms.TextBox()
         Me.cboxParticipants3 = New System.Windows.Forms.CheckBox()
         Me.cboxParticipants2 = New System.Windows.Forms.CheckBox()
@@ -55,9 +55,11 @@ Partial Class NewEvent
         Me.info3 = New System.Windows.Forms.Label()
         Me.info10 = New System.Windows.Forms.Label()
         Me.info9 = New System.Windows.Forms.Label()
-        Me.filterinfo = New System.Windows.Forms.Label()
+        Me.FilterInfo = New System.Windows.Forms.PictureBox()
+        Me.info11 = New System.Windows.Forms.Label()
         CType(Me.numMinute, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numHour, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FilterInfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmbAm
@@ -133,14 +135,14 @@ Partial Class NewEvent
         Me.cmbMonth.TabIndex = 48
         Me.cmbMonth.Text = "Month"
         '
-        'Search
+        'btnSearch
         '
-        Me.Search.Location = New System.Drawing.Point(367, 110)
-        Me.Search.Name = "Search"
-        Me.Search.Size = New System.Drawing.Size(54, 23)
-        Me.Search.TabIndex = 46
-        Me.Search.Text = "Search"
-        Me.Search.UseVisualStyleBackColor = True
+        Me.btnSearch.Location = New System.Drawing.Point(367, 110)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(54, 23)
+        Me.btnSearch.TabIndex = 46
+        Me.btnSearch.Text = "Search"
+        Me.btnSearch.UseVisualStyleBackColor = True
         '
         'txtLocation
         '
@@ -381,23 +383,33 @@ Partial Class NewEvent
         Me.info9.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.info9.Visible = False
         '
-        'filterinfo
+        'FilterInfo
         '
-        Me.filterinfo.AutoSize = True
-        Me.filterinfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.filterinfo.Location = New System.Drawing.Point(304, 9)
-        Me.filterinfo.Name = "filterinfo"
-        Me.filterinfo.Size = New System.Drawing.Size(45, 39)
-        Me.filterinfo.TabIndex = 72
-        Me.filterinfo.Text = "Hover " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "for " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Help"
-        Me.filterinfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.FilterInfo.Image = Global.MajorWork.My.Resources.Resources.Help_Question_Mark
+        Me.FilterInfo.Location = New System.Drawing.Point(292, 12)
+        Me.FilterInfo.Name = "FilterInfo"
+        Me.FilterInfo.Size = New System.Drawing.Size(35, 35)
+        Me.FilterInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.FilterInfo.TabIndex = 72
+        Me.FilterInfo.TabStop = False
+        '
+        'info11
+        '
+        Me.info11.AutoSize = True
+        Me.info11.Location = New System.Drawing.Point(420, 100)
+        Me.info11.Name = "info11"
+        Me.info11.Size = New System.Drawing.Size(105, 39)
+        Me.info11.TabIndex = 73
+        Me.info11.Text = "    You must search " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "← your location to " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    proceed and save"
+        Me.info11.Visible = False
         '
         'NewEvent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(700, 400)
-        Me.Controls.Add(Me.filterinfo)
+        Me.Controls.Add(Me.info11)
+        Me.Controls.Add(Me.FilterInfo)
         Me.Controls.Add(Me.info9)
         Me.Controls.Add(Me.info10)
         Me.Controls.Add(Me.info3)
@@ -420,7 +432,7 @@ Partial Class NewEvent
         Me.Controls.Add(Me.WebBrowser1)
         Me.Controls.Add(Me.cmbYear)
         Me.Controls.Add(Me.cmbMonth)
-        Me.Controls.Add(Me.Search)
+        Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtLocation)
         Me.Controls.Add(Me.cboxParticipants3)
         Me.Controls.Add(Me.cboxParticipants2)
@@ -436,6 +448,7 @@ Partial Class NewEvent
         Me.Text = "NewEvent"
         CType(Me.numMinute, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numHour, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FilterInfo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -448,7 +461,7 @@ Partial Class NewEvent
     Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
     Friend WithEvents cmbYear As System.Windows.Forms.ComboBox
     Friend WithEvents cmbMonth As System.Windows.Forms.ComboBox
-    Friend WithEvents Search As System.Windows.Forms.Button
+    Friend WithEvents btnSearch As System.Windows.Forms.Button
     Friend WithEvents txtLocation As System.Windows.Forms.TextBox
     Friend WithEvents cboxParticipants3 As System.Windows.Forms.CheckBox
     Friend WithEvents cboxParticipants2 As System.Windows.Forms.CheckBox
@@ -473,5 +486,6 @@ Partial Class NewEvent
     Friend WithEvents info3 As System.Windows.Forms.Label
     Friend WithEvents info10 As System.Windows.Forms.Label
     Friend WithEvents info9 As System.Windows.Forms.Label
-    Friend WithEvents filterinfo As System.Windows.Forms.Label
+    Friend WithEvents FilterInfo As System.Windows.Forms.PictureBox
+    Friend WithEvents info11 As System.Windows.Forms.Label
 End Class
