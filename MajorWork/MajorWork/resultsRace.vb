@@ -4,7 +4,7 @@ Public Class resultsRace
     'Database connecting variables
     Dim adp As New OleDbDataAdapter
     Dim conDatabase As OleDbConnection
-    Dim dataResults As New DataSet()
+    'Dim dataResults As New DataSet()
     Dim infoLabels As List(Of Label)
 
     Dim eventsList As List(Of String()) = New List(Of String())     'List of events and their races
@@ -19,7 +19,7 @@ Public Class resultsRace
             info7.Text = ""
         End If
         BackColor = schoolBlue                                                  'Sets backColour to the default school blue
-        infoLabels = New List(Of Label) From {info1, info2, info3, info4, info5, info6, info7}
+        infoLabels = New List(Of Label) From {info1, info3, info4, info5, info6, info7}
         styleForm(Me)
         FilterInfo.ForeColor = Color.Black
 
@@ -139,7 +139,7 @@ Public Class resultsRace
         raceEditInfo = Nothing
         openForm(Me, New newRace)
     End Sub
-    Private Sub anaylisis_click(sender As Object, e As EventArgs) Handles analysisButton.Click
+    Private Sub anaylisis_click(sender As Object, e As EventArgs)
         analysisPrint.Print()
     End Sub
 
