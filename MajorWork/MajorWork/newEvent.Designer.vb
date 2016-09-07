@@ -45,6 +45,17 @@ Partial Class NewEvent
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.cboxParticipants4 = New System.Windows.Forms.CheckBox()
+        Me.info2 = New System.Windows.Forms.Label()
+        Me.info4 = New System.Windows.Forms.Label()
+        Me.info5 = New System.Windows.Forms.Label()
+        Me.info7 = New System.Windows.Forms.Label()
+        Me.info6 = New System.Windows.Forms.Label()
+        Me.info8 = New System.Windows.Forms.Label()
+        Me.info1 = New System.Windows.Forms.Label()
+        Me.info3 = New System.Windows.Forms.Label()
+        Me.info10 = New System.Windows.Forms.Label()
+        Me.info9 = New System.Windows.Forms.Label()
+        Me.filterinfo = New System.Windows.Forms.Label()
         CType(Me.numMinute, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numHour, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -53,7 +64,7 @@ Partial Class NewEvent
         '
         Me.cmbAm.FormattingEnabled = True
         Me.cmbAm.Items.AddRange(New Object() {"AM", "PM"})
-        Me.cmbAm.Location = New System.Drawing.Point(606, 23)
+        Me.cmbAm.Location = New System.Drawing.Point(632, 22)
         Me.cmbAm.Name = "cmbAm"
         Me.cmbAm.Size = New System.Drawing.Size(52, 21)
         Me.cmbAm.TabIndex = 55
@@ -61,7 +72,7 @@ Partial Class NewEvent
         '
         'numMinute
         '
-        Me.numMinute.Location = New System.Drawing.Point(537, 23)
+        Me.numMinute.Location = New System.Drawing.Point(563, 22)
         Me.numMinute.Maximum = New Decimal(New Integer() {60, 0, 0, 0})
         Me.numMinute.Name = "numMinute"
         Me.numMinute.Size = New System.Drawing.Size(63, 20)
@@ -69,7 +80,7 @@ Partial Class NewEvent
         '
         'numHour
         '
-        Me.numHour.Location = New System.Drawing.Point(468, 23)
+        Me.numHour.Location = New System.Drawing.Point(494, 22)
         Me.numHour.Maximum = New Decimal(New Integer() {12, 0, 0, 0})
         Me.numHour.Name = "numHour"
         Me.numHour.Size = New System.Drawing.Size(63, 20)
@@ -79,7 +90,7 @@ Partial Class NewEvent
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(324, 10)
+        Me.Label4.Location = New System.Drawing.Point(350, 9)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(128, 32)
         Me.Label4.TabIndex = 52
@@ -264,11 +275,139 @@ Partial Class NewEvent
         Me.cboxParticipants4.Text = "1st VIII"
         Me.cboxParticipants4.UseVisualStyleBackColor = True
         '
+        'info2
+        '
+        Me.info2.AutoSize = True
+        Me.info2.Location = New System.Drawing.Point(84, 7)
+        Me.info2.Name = "info2"
+        Me.info2.Size = New System.Drawing.Size(72, 39)
+        Me.info2.TabIndex = 61
+        Me.info2.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Enter new  →" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "event name"
+        Me.info2.Visible = False
+        '
+        'info4
+        '
+        Me.info4.AutoSize = True
+        Me.info4.Location = New System.Drawing.Point(224, 140)
+        Me.info4.Name = "info4"
+        Me.info4.Size = New System.Drawing.Size(74, 39)
+        Me.info4.TabIndex = 63
+        Me.info4.Text = "↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Enter new " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "event location"
+        Me.info4.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.info4.Visible = False
+        '
+        'info5
+        '
+        Me.info5.AutoSize = True
+        Me.info5.Location = New System.Drawing.Point(353, 140)
+        Me.info5.Name = "info5"
+        Me.info5.Size = New System.Drawing.Size(82, 52)
+        Me.info5.TabIndex = 64
+        Me.info5.Text = "↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click search to " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "find location on " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "google maps"
+        Me.info5.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.info5.Visible = False
+        '
+        'info7
+        '
+        Me.info7.AutoSize = True
+        Me.info7.Location = New System.Drawing.Point(608, 149)
+        Me.info7.Name = "info7"
+        Me.info7.Size = New System.Drawing.Size(72, 39)
+        Me.info7.TabIndex = 65
+        Me.info7.Text = "↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click to finish " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and save"
+        Me.info7.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.info7.Visible = False
+        '
+        'info6
+        '
+        Me.info6.AutoSize = True
+        Me.info6.Location = New System.Drawing.Point(530, 149)
+        Me.info6.Name = "info6"
+        Me.info6.Size = New System.Drawing.Size(72, 39)
+        Me.info6.TabIndex = 66
+        Me.info6.Text = "↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click to return" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "to calendar"
+        Me.info6.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.info6.Visible = False
+        '
+        'info8
+        '
+        Me.info8.AutoSize = True
+        Me.info8.Location = New System.Drawing.Point(379, 55)
+        Me.info8.Name = "info8"
+        Me.info8.Size = New System.Drawing.Size(111, 26)
+        Me.info8.TabIndex = 67
+        Me.info8.Text = "Select participants  →" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "of new event"
+        Me.info8.Visible = False
+        '
+        'info1
+        '
+        Me.info1.AutoSize = True
+        Me.info1.Location = New System.Drawing.Point(380, 12)
+        Me.info1.Name = "info1"
+        Me.info1.Size = New System.Drawing.Size(89, 26)
+        Me.info1.TabIndex = 68
+        Me.info1.Text = "Select start time" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "of event name →" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.info1.Visible = False
+        '
+        'info3
+        '
+        Me.info3.AutoSize = True
+        Me.info3.Location = New System.Drawing.Point(45, 58)
+        Me.info3.Name = "info3"
+        Me.info3.Size = New System.Drawing.Size(78, 26)
+        Me.info3.TabIndex = 69
+        Me.info3.Text = "Select date  →" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "of new event"
+        Me.info3.Visible = False
+        '
+        'info10
+        '
+        Me.info10.AutoSize = True
+        Me.info10.Location = New System.Drawing.Point(608, 149)
+        Me.info10.Name = "info10"
+        Me.info10.Size = New System.Drawing.Size(67, 39)
+        Me.info10.TabIndex = 70
+        Me.info10.Text = "↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click to edit" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "event details"
+        Me.info10.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.info10.Visible = False
+        '
+        'info9
+        '
+        Me.info9.AutoSize = True
+        Me.info9.Location = New System.Drawing.Point(453, 149)
+        Me.info9.Name = "info9"
+        Me.info9.Size = New System.Drawing.Size(66, 39)
+        Me.info9.TabIndex = 71
+        Me.info9.Text = "↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click to " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "delete event"
+        Me.info9.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.info9.Visible = False
+        '
+        'filterinfo
+        '
+        Me.filterinfo.AutoSize = True
+        Me.filterinfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.filterinfo.Location = New System.Drawing.Point(304, 9)
+        Me.filterinfo.Name = "filterinfo"
+        Me.filterinfo.Size = New System.Drawing.Size(45, 39)
+        Me.filterinfo.TabIndex = 72
+        Me.filterinfo.Text = "Hover " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "for " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Help"
+        Me.filterinfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'NewEvent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(700, 400)
+        Me.Controls.Add(Me.filterinfo)
+        Me.Controls.Add(Me.info9)
+        Me.Controls.Add(Me.info10)
+        Me.Controls.Add(Me.info3)
+        Me.Controls.Add(Me.info1)
+        Me.Controls.Add(Me.info8)
+        Me.Controls.Add(Me.info6)
+        Me.Controls.Add(Me.info7)
+        Me.Controls.Add(Me.info5)
+        Me.Controls.Add(Me.info4)
+        Me.Controls.Add(Me.info2)
         Me.Controls.Add(Me.cboxParticipants4)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnEdit)
@@ -302,26 +441,37 @@ Partial Class NewEvent
 
     End Sub
     Friend WithEvents cmbAm As System.Windows.Forms.ComboBox
-      Friend WithEvents numMinute As System.Windows.Forms.NumericUpDown
-      Friend WithEvents numHour As System.Windows.Forms.NumericUpDown
-      Friend WithEvents Label4 As System.Windows.Forms.Label
-      Friend WithEvents btnFinish As System.Windows.Forms.Button
-      Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
-      Friend WithEvents cmbYear As System.Windows.Forms.ComboBox
-      Friend WithEvents cmbMonth As System.Windows.Forms.ComboBox
+    Friend WithEvents numMinute As System.Windows.Forms.NumericUpDown
+    Friend WithEvents numHour As System.Windows.Forms.NumericUpDown
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents btnFinish As System.Windows.Forms.Button
+    Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
+    Friend WithEvents cmbYear As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbMonth As System.Windows.Forms.ComboBox
     Friend WithEvents Search As System.Windows.Forms.Button
-      Friend WithEvents txtLocation As System.Windows.Forms.TextBox
-      Friend WithEvents cboxParticipants3 As System.Windows.Forms.CheckBox
-      Friend WithEvents cboxParticipants2 As System.Windows.Forms.CheckBox
-      Friend WithEvents cboxParticipants1 As System.Windows.Forms.CheckBox
-      Friend WithEvents cmbDay As System.Windows.Forms.ComboBox
-      Friend WithEvents txtEName As System.Windows.Forms.TextBox
-      Friend WithEvents Label5 As System.Windows.Forms.Label
-      Friend WithEvents Label3 As System.Windows.Forms.Label
-      Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents txtLocation As System.Windows.Forms.TextBox
+    Friend WithEvents cboxParticipants3 As System.Windows.Forms.CheckBox
+    Friend WithEvents cboxParticipants2 As System.Windows.Forms.CheckBox
+    Friend WithEvents cboxParticipants1 As System.Windows.Forms.CheckBox
+    Friend WithEvents cmbDay As System.Windows.Forms.ComboBox
+    Friend WithEvents txtEName As System.Windows.Forms.TextBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents btnEdit As System.Windows.Forms.Button
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents cboxParticipants4 As System.Windows.Forms.CheckBox
-  End Class
+    Friend WithEvents info2 As System.Windows.Forms.Label
+    Friend WithEvents info4 As System.Windows.Forms.Label
+    Friend WithEvents info5 As System.Windows.Forms.Label
+    Friend WithEvents info7 As System.Windows.Forms.Label
+    Friend WithEvents info6 As System.Windows.Forms.Label
+    Friend WithEvents info8 As System.Windows.Forms.Label
+    Friend WithEvents info1 As System.Windows.Forms.Label
+    Friend WithEvents info3 As System.Windows.Forms.Label
+    Friend WithEvents info10 As System.Windows.Forms.Label
+    Friend WithEvents info9 As System.Windows.Forms.Label
+    Friend WithEvents filterinfo As System.Windows.Forms.Label
+End Class

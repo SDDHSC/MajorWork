@@ -11,13 +11,13 @@ Public Class Calendar
     Dim fakeDate As Date 'While originally the correct date is used to manipulate the windows calender.
     Dim hPanel = New Panel
     Dim adp As New OleDbDataAdapter
-    Dim conDatabase As OleDbConnection
+    Dim conDatabase As OleDbConnection 'connection to database
     Dim dataResults As New DataSet()
     Dim infoLabels As List(Of Label) 'list of labels used for help
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Dim infoLabels = New List(Of Label) From {info1, info2}
+        infoLabels = New List(Of Label) From {info1, info2}
 
         Dim connectstring As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb" ' address of database
         conDatabase = New OleDbConnection(connectstring) 'creates DB connection

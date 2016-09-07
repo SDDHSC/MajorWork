@@ -2,10 +2,13 @@
 Public Class NewEvent
     Dim dataResults As New DataSet()
     Dim eLocation, eventID, eDate, Participants, wLocation, sTime As String
+    Dim infoLabels As List(Of Label)
 
     Public Property Url As Uri
 
     Private Sub NewEvent_Load(sender As Object, e As EventArgs) Handles MyBase.Load 'Loads NewEvent Form either reading info from a selected event or blank to create a new event
+        infoLabels = New List(Of Label) From {info1, info2, info3, info4, info5, info6, info7, info8, info9, info10}
+
         If eventSelected = True Then
 
             WebBrowser1.Navigate(selectedEvent(4))
@@ -36,7 +39,7 @@ Public Class NewEvent
 
             txtEName.Text = selectedEvent(6)
 
-            txtEName.Enabled = False
+            txtEName.Enabled = False 'disables all elements on the form 
             cmbDay.Enabled = False
             cmbMonth.Enabled = False
             cmbYear.Enabled = False
@@ -60,7 +63,7 @@ Public Class NewEvent
                 btnDelete.Visible = False
 
             End If
-
+        End If
     End Sub
 
     Private Sub Search_Click(sender As Object, e As EventArgs) Handles Search.Click
@@ -309,5 +312,18 @@ Public Class NewEvent
 
         eventSelected = False
         Me.Close()
+    End Sub
+
+    Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles filterinfo.MouseEnter 'Mouse Hover shows the help text
+        For Each label As Label In infoLabels
+            label.Visible = True
+            label.ForeColor = Color.Black
+        Next
+    End Sub
+
+    Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles filterinfo.MouseLeave 'Mouse Hover shows the help text
+        For Each label As Label In infoLabels
+            label.Visible = False
+        Next
     End Sub
 End Class
