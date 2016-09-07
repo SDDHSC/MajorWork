@@ -89,6 +89,8 @@ Public Class resultsRace
     Private Sub raceListView_SelectedIndexChanged(sender As Object, e As EventArgs) Handles raceListView.SelectedIndexChanged
         rowerRefresh(eventListView.Items(selectedIndex).SubItems(2).Text, raceListView.FocusedItem.Index)
     End Sub     'Refreshs the rowerListView if the race selection changes
+
+    'ListView refreshes
     Public Sub eventsRefresh()
         eventListView.Items.Clear()
         For i = 0 To (eventsList.Count() - 1)

@@ -194,3 +194,11 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+MajorWork/MajorWork/bin/Debug/MajorWork.vshost.exe
+MajorWork/MajorWork/bin/Debug/MajorWork.exe
+MajorWork/MajorWork/obj/Debug/MajorWork.exe
+MajorWork/MajorWork/obj/Debug/MajorWork.xml
+MajorWork/MajorWork/bin/Debug/MajorWork.pdb
+MajorWork/MajorWork/bin/Debug/MajorWork.vshost.exe
+MajorWork/MajorWork/obj/Debug/MajorWork.vbproj.GenerateResource.Cache
+MajorWork/MajorWork/obj/Debug/MajorWork.xml
