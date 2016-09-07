@@ -80,9 +80,12 @@ Public Class NewEvent
         locationSearched = True
     End Sub
 
-    Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click
-        'When the user clicks "Save" it checks that all feilds are filled out
-        If txtEName.Text = "" Or locationSearched = False Or (String.IsNullOrEmpty(cmbDay.Text)) = True Or (String.IsNullOrEmpty(cmbMonth.Text)) = True Or (String.IsNullOrEmpty(cmbYear.Text)) = True Or numHour.Value = 0 And cboxParticipants1.CheckState = 0 And cboxParticipants2.CheckState = 0 And cboxParticipants3.CheckState = 0 And cboxParticipants4.CheckState = 0 Then
+    Private Sub btnFinish_Click(sender As Object, e As EventArgs) Handles btnFinish.Click   'When the user clicks "Save" it checks that all feilds are filled out
+
+
+        'If txtEName.Text = "" Or locationSearched = False Or (String.IsNullOrEmpty(cmbDay.Text)) = True Or (String.IsNullOrEmpty(cmbMonth.Text)) = True Or (String.IsNullOrEmpty(cmbYear.Text)) = True Or numHour.Value = 0 And cboxParticipants1.CheckState = 0 And cboxParticipants2.CheckState = 0 And cboxParticipants3.CheckState = 0 And cboxParticipants4.CheckState = 0 Then
+        If txtEName.Text = "" Or locationSearched = False Or (String.IsNullOrEmpty(cmbDay.Text)) = True Or (String.IsNullOrEmpty(cmbMonth.Text)) = True Or (String.IsNullOrEmpty(cmbYear.Text)) = True Or numHour.Value = 0 Or (cboxParticipants1.Checked = False And cboxParticipants2.Checked = False And cboxParticipants3.Checked = False And cboxParticipants4.Checked = False) Then
+
             Dim Response = MsgBox("You must complete all fields to save this event.", MsgBoxStyle.OkOnly, Title:="Incomplete Field")
             'If all field are not completed an error prompt will appear promting the user to fill all fields
         Else
