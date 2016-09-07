@@ -43,13 +43,14 @@ Partial Class resultsRace
         Me.raceNewEntry = New System.Windows.Forms.Button()
         Me.editRace = New System.Windows.Forms.Button()
         Me.analysisPrint = New System.Drawing.Printing.PrintDocument()
-        Me.FilterInfo = New System.Windows.Forms.Label()
         Me.info1 = New System.Windows.Forms.Label()
         Me.info6 = New System.Windows.Forms.Label()
         Me.info5 = New System.Windows.Forms.Label()
         Me.info3 = New System.Windows.Forms.Label()
         Me.info4 = New System.Windows.Forms.Label()
         Me.info7 = New System.Windows.Forms.Label()
+        Me.helpButton = New System.Windows.Forms.PictureBox()
+        CType(Me.helpButton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'rowerListView
@@ -228,19 +229,6 @@ Partial Class resultsRace
         '
         Me.analysisPrint.DocumentName = "Race Analysis"
         '
-        'FilterInfo
-        '
-        Me.FilterInfo.AutoSize = True
-        Me.FilterInfo.BackColor = System.Drawing.Color.White
-        Me.FilterInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.FilterInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FilterInfo.Location = New System.Drawing.Point(756, 11)
-        Me.FilterInfo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.FilterInfo.Name = "FilterInfo"
-        Me.FilterInfo.Size = New System.Drawing.Size(27, 31)
-        Me.FilterInfo.TabIndex = 62
-        Me.FilterInfo.Text = "?"
-        '
         'info1
         '
         Me.info1.AutoSize = True
@@ -324,19 +312,30 @@ Partial Class resultsRace
         Me.info7.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.info7.Visible = False
         '
+        'helpButton
+        '
+        Me.helpButton.Image = Global.MajorWork.My.Resources.Resources.Help_Question_Mark
+        Me.helpButton.Location = New System.Drawing.Point(718, 8)
+        Me.helpButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.helpButton.Name = "helpButton"
+        Me.helpButton.Size = New System.Drawing.Size(60, 62)
+        Me.helpButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.helpButton.TabIndex = 74
+        Me.helpButton.TabStop = False
+        '
         'resultsRace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Highlight
         Me.ClientSize = New System.Drawing.Size(1050, 692)
+        Me.Controls.Add(Me.helpButton)
         Me.Controls.Add(Me.info7)
         Me.Controls.Add(Me.info4)
         Me.Controls.Add(Me.info3)
         Me.Controls.Add(Me.info5)
         Me.Controls.Add(Me.info6)
         Me.Controls.Add(Me.info1)
-        Me.Controls.Add(Me.FilterInfo)
         Me.Controls.Add(Me.rowerListView)
         Me.Controls.Add(Me.eventDateSearchCheck)
         Me.Controls.Add(Me.editRace)
@@ -349,10 +348,11 @@ Partial Class resultsRace
         Me.Controls.Add(Me.eventListView)
         Me.Controls.Add(Me.eventNameSearch)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "resultsRace"
         Me.Text = "raceResults"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        CType(Me.helpButton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -378,11 +378,11 @@ Partial Class resultsRace
     Friend WithEvents rowerListView As ListView
     Friend WithEvents Rowers As ColumnHeader
     Friend WithEvents analysisPrint As Printing.PrintDocument
-    Friend WithEvents FilterInfo As Label
     Friend WithEvents info1 As Label
     Friend WithEvents info6 As Label
     Friend WithEvents info5 As Label
     Friend WithEvents info3 As Label
     Friend WithEvents info4 As Label
     Friend WithEvents info7 As Label
+    Friend WithEvents helpButton As PictureBox
 End Class

@@ -372,7 +372,7 @@ Public Class Calendar
         sender.Enabled = False
 
         Dim futureEvents As New List(Of String())
-        Dim debug = True
+        Dim debug = False
 
         If Not debug Then                                               'Retrieves all events that are after the present day
             Dim reader As OleDbDataReader = adp.SelectCommand.ExecuteReader()
@@ -386,10 +386,11 @@ Public Class Calendar
                 End If
             End While
             reader.Close()
-            eventsList.Sort(Function(x, y)
-                                Return (x(1) > y(1))
-                            End Function)
-        Else                                                            'Test Data
+            futureEvents.Sort(Function(x, y)
+                                  Return (Date.Parse(x(1)).CompareTo(Date.Parse(y(1))))
+                              End Function)
+        Else
+            'Test Data
             For x = 0 To 9
                 Dim ev(7) As String
                 ev(6) = "Rowing Regatta"
@@ -416,7 +417,6 @@ Public Class Calendar
             oPara1.Range.Font.Size = 25
             oPara1.Range.InsertParagraphAfter()
 
-            Dim Pos = oWord.InchesToPoints(7)
             oPara1.Range.Font.Size = 12
             oPara1.Range.Font.Bold = False
             Dim i = 0

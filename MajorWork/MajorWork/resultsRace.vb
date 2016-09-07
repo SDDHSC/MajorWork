@@ -21,7 +21,6 @@ Public Class resultsRace
         BackColor = schoolBlue                                                  'Sets backColour to the default school blue
         infoLabels = New List(Of Label) From {info1, info3, info4, info5, info6, info7}
         styleForm(Me)
-        FilterInfo.ForeColor = Color.Black
 
         'Connecting to the database and retrieving information
         Dim connectstring As String = "Provider=Microsoft.ACE.OLEDB.12.0;" +
@@ -166,16 +165,15 @@ Public Class resultsRace
     End Sub
 
     'Help Labels
-    Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles FilterInfo.MouseEnter
+    Private Sub FilterInfo_Enter(sender As Object, e As EventArgs) Handles helpButton.MouseEnter
         For Each label As Label In infoLabels
             label.Visible = True
             label.ForeColor = Color.Black
         Next
     End Sub
-    Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles FilterInfo.MouseLeave
+    Private Sub FilterInfo_Leave(sender As Object, e As EventArgs) Handles helpButton.MouseLeave
         For Each label As Label In infoLabels
             label.Visible = False
         Next
     End Sub
-
 End Class
