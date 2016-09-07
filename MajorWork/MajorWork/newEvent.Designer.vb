@@ -288,11 +288,11 @@ Partial Class NewEvent
         'info4
         '
         Me.info4.AutoSize = True
-        Me.info4.Location = New System.Drawing.Point(224, 140)
+        Me.info4.Location = New System.Drawing.Point(82, 93)
         Me.info4.Name = "info4"
         Me.info4.Size = New System.Drawing.Size(74, 39)
         Me.info4.TabIndex = 63
-        Me.info4.Text = "↑" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Enter new " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "event location"
+        Me.info4.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Enter new →" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "event location"
         Me.info4.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.info4.Visible = False
         '
@@ -310,7 +310,7 @@ Partial Class NewEvent
         'info7
         '
         Me.info7.AutoSize = True
-        Me.info7.Location = New System.Drawing.Point(608, 149)
+        Me.info7.Location = New System.Drawing.Point(606, 140)
         Me.info7.Name = "info7"
         Me.info7.Size = New System.Drawing.Size(72, 39)
         Me.info7.TabIndex = 65
@@ -321,7 +321,7 @@ Partial Class NewEvent
         'info6
         '
         Me.info6.AutoSize = True
-        Me.info6.Location = New System.Drawing.Point(530, 149)
+        Me.info6.Location = New System.Drawing.Point(529, 140)
         Me.info6.Name = "info6"
         Me.info6.Size = New System.Drawing.Size(72, 39)
         Me.info6.TabIndex = 66
@@ -332,7 +332,7 @@ Partial Class NewEvent
         'info8
         '
         Me.info8.AutoSize = True
-        Me.info8.Location = New System.Drawing.Point(379, 55)
+        Me.info8.Location = New System.Drawing.Point(377, 56)
         Me.info8.Name = "info8"
         Me.info8.Size = New System.Drawing.Size(111, 26)
         Me.info8.TabIndex = 67
@@ -342,7 +342,7 @@ Partial Class NewEvent
         'info1
         '
         Me.info1.AutoSize = True
-        Me.info1.Location = New System.Drawing.Point(380, 12)
+        Me.info1.Location = New System.Drawing.Point(399, 13)
         Me.info1.Name = "info1"
         Me.info1.Size = New System.Drawing.Size(89, 26)
         Me.info1.TabIndex = 68
@@ -352,7 +352,7 @@ Partial Class NewEvent
         'info3
         '
         Me.info3.AutoSize = True
-        Me.info3.Location = New System.Drawing.Point(45, 58)
+        Me.info3.Location = New System.Drawing.Point(78, 58)
         Me.info3.Name = "info3"
         Me.info3.Size = New System.Drawing.Size(78, 26)
         Me.info3.TabIndex = 69
@@ -362,7 +362,7 @@ Partial Class NewEvent
         'info10
         '
         Me.info10.AutoSize = True
-        Me.info10.Location = New System.Drawing.Point(608, 149)
+        Me.info10.Location = New System.Drawing.Point(608, 140)
         Me.info10.Name = "info10"
         Me.info10.Size = New System.Drawing.Size(67, 39)
         Me.info10.TabIndex = 70
@@ -373,7 +373,7 @@ Partial Class NewEvent
         'info9
         '
         Me.info9.AutoSize = True
-        Me.info9.Location = New System.Drawing.Point(453, 149)
+        Me.info9.Location = New System.Drawing.Point(454, 140)
         Me.info9.Name = "info9"
         Me.info9.Size = New System.Drawing.Size(66, 39)
         Me.info9.TabIndex = 71
