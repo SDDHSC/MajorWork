@@ -147,3 +147,4 @@ D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.rese
 D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.resultsRace.resources
 D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.SplashScreen.resources
 D:\Ricky\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.GenerateResource.Cache
+C:\Users\Joshua King\Documents\GitHub\MajorWork\MajorWork\MajorWork\obj\Debug\MajorWork.vbproj.ResolveComReference.cache

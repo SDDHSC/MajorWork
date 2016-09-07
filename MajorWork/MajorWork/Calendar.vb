@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+Imports Word = Microsoft.Office.Interop.Word
 Public Class Calendar
 
     Dim dName = {"m", "tu", "w", "th", "f", "sa", "su"} 'dName = name of day. List of abbreviations of days
@@ -38,7 +39,6 @@ Public Class Calendar
             .CommandType = CommandType.Text
             .ExecuteNonQuery()
         End With
-
 
         hPanel.name = ""
         fakeDate = Today.Date
@@ -385,5 +385,81 @@ Public Class Calendar
 >>>>>>> origin/master
             label.Visible = False
         Next
+    End Sub
+
+    Private Sub Button4_Click(sender As Button, e As EventArgs) Handles printUpcoming.Click
+        sender.Text = "Please Wait"
+        sender.Enabled = False
+
+        Dim futureEvents As New List(Of String())
+        Dim debug = True
+
+        If Not debug Then
+            'Retrieves all events that are after the present day
+            Dim reader As OleDbDataReader = adp.SelectCommand.ExecuteReader()
+            While reader.Read()
+                If reader(1) >= Date.Now Then
+                    Dim row(7) As String
+                    For i = 0 To 6
+                        row(i) = reader(i)
+                    Next
+                    futureEvents.Add(row)
+                End If
+            End While
+            reader.Close()
+            eventsList.Sort(Function(x, y)
+                                Return (x(1) > y(1))
+                            End Function)
+        Else
+            'Test Data
+            For x = 0 To 9
+                Dim ev(7) As String
+                ev(6) = "Rowing Regatta"
+                ev(1) = "2" + CStr(x) + "/6/2016"
+                ev(2) = CStr(x) + "AM"
+                ev(4) = "Rowing Sheds"
+                futureEvents.Add(ev)
+            Next
+        End If
+
+        Dim oWord As Word.Application
+        Dim oDoc As Word.Document
+        Dim oPara1 As Word.Paragraph
+
+        Try
+            'Start Word and open the document template.
+            oWord = CreateObject("Word.Application")
+            oWord.Visible = True
+            oDoc = oWord.Documents.Add
+
+            oPara1 = oDoc.Content.Paragraphs.Add
+            oPara1.Range.Text = "Upcoming Rowing Events"
+            oPara1.Range.Font.Bold = True
+            oPara1.Format.SpaceAfter = 0    '0 pt spacing after paragraph.
+            oPara1.Range.Font.Size = 25
+            oPara1.Range.InsertParagraphAfter()
+
+            Dim Pos = oWord.InchesToPoints(7)
+            oPara1.Range.Font.Size = 12
+            oPara1.Range.Font.Bold = False
+            Dim i = 0
+            While i < 8 And i <> futureEvents.Count - 1
+                oPara1 = oDoc.Content.Paragraphs.Add
+                oPara1.Range.Text = futureEvents(i)(6) + ":"            'Name of Event
+                oPara1.Range.InsertParagraphAfter()
+                oPara1.Range.Text = "Date: " + futureEvents(i)(1)       'Date of Event
+                oPara1.Range.InsertParagraphAfter()
+                oPara1.Range.Text = "Time: " + futureEvents(i)(2)       'Time of Event
+                oPara1.Range.InsertParagraphAfter()
+                oPara1.Range.Text = "Location: " + futureEvents(i)(4)   'Location of Event
+                oPara1.Range.InsertParagraphAfter()
+                oPara1.Range.Text = ""
+                oPara1.Range.InsertParagraphAfter()
+                i += 1
+            End While
+        Catch
+        End Try
+        sender.Text = "Print Upcoming Events"
+        sender.Enabled = True
     End Sub
 End Class
