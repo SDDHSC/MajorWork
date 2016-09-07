@@ -105,11 +105,13 @@ Public Class resetPassword
         groupNewPasswords.ForeColor = Color.DimGray
         currentDetails.ForeColor = Color.White
 
+        'only visible to admins
         If accessLevel = 3 Then
             newUser.Visible = True
         Else
             newUser.Visible = False
         End If
+
 
         buttonStyle(btnNext1)
         buttonStyle(newUser)

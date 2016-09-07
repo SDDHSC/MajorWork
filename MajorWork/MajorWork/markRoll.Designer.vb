@@ -56,7 +56,7 @@ Partial Class markRoll
         Me.totalAbsent.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.totalAbsent.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.totalAbsent.ForeColor = System.Drawing.Color.FromArgb(CType(CType(87, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.totalAbsent.Location = New System.Drawing.Point(231, 205)
+        Me.totalAbsent.Location = New System.Drawing.Point(187, 214)
         Me.totalAbsent.Name = "totalAbsent"
         Me.totalAbsent.Size = New System.Drawing.Size(18, 20)
         Me.totalAbsent.TabIndex = 63
@@ -67,8 +67,8 @@ Partial Class markRoll
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(87, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(178, 185)
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(20, 214)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(125, 20)
         Me.Label8.TabIndex = 62
@@ -79,8 +79,8 @@ Partial Class markRoll
         Me.totalPresent.AutoSize = True
         Me.totalPresent.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(249, Byte), Integer))
         Me.totalPresent.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.totalPresent.ForeColor = System.Drawing.Color.White
-        Me.totalPresent.Location = New System.Drawing.Point(70, 205)
+        Me.totalPresent.ForeColor = System.Drawing.Color.FromArgb(CType(CType(87, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.totalPresent.Location = New System.Drawing.Point(187, 185)
         Me.totalPresent.Name = "totalPresent"
         Me.totalPresent.Size = New System.Drawing.Size(18, 20)
         Me.totalPresent.TabIndex = 61
@@ -251,7 +251,7 @@ Partial Class markRoll
         'lblY7
         '
         Me.lblY7.AutoSize = True
-        Me.lblY7.Location = New System.Drawing.Point(192, 399)
+        Me.lblY7.Location = New System.Drawing.Point(207, 399)
         Me.lblY7.Name = "lblY7"
         Me.lblY7.Size = New System.Drawing.Size(13, 13)
         Me.lblY7.TabIndex = 69

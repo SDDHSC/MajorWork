@@ -13,6 +13,7 @@ Public Class Absences
     End Sub
 
     Private Sub Absences_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         'initialise database (establish connection, load data)
         Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
         conAbsence = New OleDbConnection(connectString)
@@ -34,10 +35,10 @@ Public Class Absences
         header3 = New ColumnHeader
         header4 = New ColumnHeader
         header5 = New ColumnHeader
-        header1.Text = "First Name"
+        header1.Text = "Last Name"
         header1.TextAlign = HorizontalAlignment.Left
         header1.Width = 160
-        header2.Text = "Last Name"
+        header2.Text = "First Name"
         header2.TextAlign = HorizontalAlignment.Left
         header2.Width = 160
         header3.Text = "Session"
@@ -65,6 +66,11 @@ Public Class Absences
         initialising = False
         absenceDateTimePicker.Enabled = False
         Reset()
+
+        'if user not admin or coach
+        If accessLevel < 2 Then
+            btncreateNewRoll.Visible = False
+        End If
 
         'set custom button
         buttonStyle(btnAttendance)

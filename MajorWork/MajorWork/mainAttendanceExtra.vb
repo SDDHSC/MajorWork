@@ -45,25 +45,30 @@ Public Class mainAttendanceExtra
     Private Sub mainAttendanceExtra_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ListView1.View = View.Details
         ListView1.Items.Clear()
-        Dim header1, header2, header3 As ColumnHeader
+        Dim header1, header2, header3, header4 As ColumnHeader
         header1 = New ColumnHeader
         header2 = New ColumnHeader
         header3 = New ColumnHeader
-        header1.Text = "First Name"
+        header4 = New ColumnHeader
+        header1.Text = "Last Name"
         header1.TextAlign = HorizontalAlignment.Left
-        header1.Width = 116
-        header2.Text = "Last Name"
+        header1.Width = 120
+        header2.Text = "First Name"
         header2.TextAlign = HorizontalAlignment.Left
-        header2.Width = 116
+        header2.Width = 120
         header3.Text = "Year"
         header3.TextAlign = HorizontalAlignment.Left
         header3.Width = 41
+        header4.Text = ""
+        header4.TextAlign = HorizontalAlignment.Left
+        header4.Width = 75
         ListView1.Columns.Add(header1)
         ListView1.Columns.Add(header2)
         ListView1.Columns.Add(header3)
+        ListView1.Columns.Add(header4)
 
+        'init database
         Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
-
         conAttendance = New OleDbConnection(connectString)
         conAttendance.Open()
         adpUser = New OleDbDataAdapter()
@@ -76,6 +81,7 @@ Public Class mainAttendanceExtra
         End With
         adpUser.Fill(dataAttendance, "tblAttendance")
 
+        'displays info of coachnotes for the session and shows year groups of session
         Dim tableAttendance As DataTable = dataAttendance.Tables("tblAttendance")
         For Each row In tableAttendance.Rows
             If row.item(1) = sessionType.Text And row.item(2) = sessionDate.Text And row.item(3) = coachOfSession.Text And
@@ -88,6 +94,7 @@ Public Class mainAttendanceExtra
             End If
         Next
 
+        'init database
         Dim connectProfilesString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\rowingDatabase (1).accdb"
         conNames = New OleDbConnection(connectProfilesString)
         conNames.Open()
@@ -137,8 +144,9 @@ Public Class mainAttendanceExtra
             For Each row In tableabsence.Rows
                 If sessionDate.Text = row.item(4) Then
                     If ListView1.Items(i).SubItems(0).Text = row.item(1) And ListView1.Items(i).SubItems(1).Text = row.item(2) Then
-                        MessageBox.Show(row.item(2))
-                        ListView1.Items(i).Checked = True
+                        ListView1.Items(i).SubItems.Add("Absent")
+                    Else
+                        'ListView1.Items(i).SubItems.Add("Present")
                     End If
                 End If
 
@@ -149,9 +157,8 @@ Public Class mainAttendanceExtra
         Dim tempstring As String = row.item("gName")
         Dim item1 As New ListViewItem(tempstring)
         item1.SubItems.Add(row.item("sName"))
-        item1.SubItems.Add(row.item("Group"))
-        item1.SubItems.Add(row.item("House"))
-        item1.SubItems.Add(row.item("ID"))
+        item1.SubItems.Add(row.item("Group") + row.item("House"))
+
         ListView1.Items.AddRange(New ListViewItem() {item1})
     End Sub
 

@@ -102,10 +102,10 @@ Public Class markRoll
         header1 = New ColumnHeader
         header2 = New ColumnHeader
         header3 = New ColumnHeader
-        header1.Text = "First Name"
+        header1.Text = "Last Name"
         header1.TextAlign = HorizontalAlignment.Left
         header1.Width = 116
-        header2.Text = "Last Name"
+        header2.Text = "First Name"
         header2.TextAlign = HorizontalAlignment.Left
         header2.Width = 116
         header3.Text = "Year"

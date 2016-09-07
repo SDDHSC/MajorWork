@@ -6,7 +6,6 @@ Imports System.Data.OleDb
 Public Class Login
     Dim pbImage1 As Image = My.Resources.rowing1
     Dim pbImage2 As Image = My.Resources.rowing2
-    Dim accesslevel As Integer
     Dim tempUsername As String
     Dim tempPassword As String
     Dim loginSuccess As Boolean
@@ -168,7 +167,7 @@ Public Class Login
             If txtUsername.Text = row.item(1) Then 'checks if username is in database
                 If tempUsername = row.item(2) Then 'checks password and gives appropriate feedback 
                     loginSuccess = True
-                    accesslevel = row.item(3)
+                    accessLevel = row.item(3)
                     Exit For
                 End If
             End If

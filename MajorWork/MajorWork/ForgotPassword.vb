@@ -76,9 +76,9 @@ Public Class ForgotPassword
                     MessageBox.Show("Enter a password", "Confirm")
                 Else
                     Dim tbLogin As DataTable = dataNames.Tables("tbLogin")
-                        Dim tmpsource() As Byte
-                        Dim tmpHash() As Byte
-                        Dim tempPassword As String = ""
+                    Dim tmpsource() As Byte
+                    Dim tmpHash() As Byte
+                    Dim tempPassword As String = ""
 
                     For Each row In tbLogin.Rows
                         If row.item(1) = txtUsername.Text Then 'sucessfully changes password     

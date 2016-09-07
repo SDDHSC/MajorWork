@@ -65,23 +65,23 @@
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "7"
         End If
         If Year8.Checked = True Then
-            markRoll.lblY7.Text = "8"
+            markRoll.lblY8.Text = "8"
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "8"
         End If
         If Year9.Checked = True Then
-            markRoll.lblY7.Text = "9"
+            markRoll.lblY9.Text = "9"
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "9"
         End If
         If Year10.Checked = True Then
-            markRoll.lblY7.Text = "10"
+            markRoll.lblY10.Text = "10"
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "10"
         End If
         If Year11.Checked = True Then
-            markRoll.lblY7.Text = "11"
+            markRoll.lblY11.Text = "11"
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "11"
         End If
         If Year12.Checked = True Then
-            markRoll.lblY7.Text = "12"
+            markRoll.lblY12.Text = "12"
             markRoll.lblYearGroups.Text = markRoll.lblYearGroups.Text + ", " + "12"
         End If
 

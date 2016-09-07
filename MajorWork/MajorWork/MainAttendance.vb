@@ -6,7 +6,10 @@ Public Class MainAttendance
     Dim listViewEmpty As Boolean = True
     Dim initialising = True
     Private Sub MainAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        'init buttons. hides if user is student or guest
+        If accessLevel < 2 Then
+            createNewRoll.Visible = False
+        End If
         buttonStyle(btnAbsences)
         buttonStyle(btnReset)
         buttonStyle(createNewRoll)
@@ -385,5 +388,9 @@ Public Class MainAttendance
                 E.NewWidth = Sender.Columns(DCol).Width
             End If
         Next DCol
+    End Sub
+
+    Private Sub listAttendance_SelectedIndexChanged(sender As Object, e As EventArgs) Handles listAttendance.SelectedIndexChanged
+
     End Sub
 End Class
